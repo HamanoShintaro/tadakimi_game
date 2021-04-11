@@ -1,0 +1,2 @@
+# tadakimi_game
+tadakimi_game_repository
