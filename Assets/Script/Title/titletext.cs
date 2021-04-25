@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class titletext : MonoBehaviour
 {
     public float blinkingTime;
     private float time;
-    private SpriteRenderer spriteRender;
+    private Image image;
 
     private Color white = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     private Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.0f);
@@ -14,7 +15,7 @@ public class titletext : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spriteRender = this.gameObject.GetComponent<SpriteRenderer>();
+        image = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -24,13 +25,13 @@ public class titletext : MonoBehaviour
 
         if (time > blinkingTime) {
 
-            if (spriteRender.color == white)
+            if (image.color == white)
             {
-                spriteRender.color = transparent;
+                image.color = transparent;
             }
             else
             {
-                spriteRender.color = white;
+                image.color = white;
             }
             time = 0.0f;
         }
