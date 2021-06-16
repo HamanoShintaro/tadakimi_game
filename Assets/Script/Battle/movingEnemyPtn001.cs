@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class movingEnemyPtn001 : MonoBehaviour
 {
@@ -17,17 +18,24 @@ public class movingEnemyPtn001 : MonoBehaviour
     private bool isAttack;
     private GameObject target;
 
+    public float initiateX;
+    public float initiateY;
+
+
     // Start is called before the first frame update
     void Start()
     {
         enemy = GetComponent<Rigidbody2D>();
         isMove = true;
         isAttack = false;
+        this.GetComponent<RectTransform>().anchoredPosition = new Vector2(initiateX, initiateY);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(isMove == true) {
             enemy.constraints = RigidbodyConstraints2D.None;
             enemy.constraints = RigidbodyConstraints2D.FreezeRotation;
