@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class tapStart : MonoBehaviour
 {
     private TouchManager _touch_manager;
-    private bool oneTimeFlg; 
+    private bool oneTimeFlg;
+    public GameObject canvasGroupObjct;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class tapStart : MonoBehaviour
         // タッチ管理マネージャ生成
         this._touch_manager = new TouchManager();
         oneTimeFlg = true;
+        StartCoroutine(canvasGroupObjct.GetComponent<transitionController>().StartTransition(canvasGroupObjct.GetComponent<CanvasGroup>()));
     }
 
     // Update is called once per frame
@@ -30,12 +32,10 @@ public class tapStart : MonoBehaviour
         if (touch_state._touch_flag)
         {
 
-            Debug.Log("画面タッチを検知");
-
             if (oneTimeFlg)
             {
                 oneTimeFlg = false;
-                SceneManager.LoadScene("MainMenu");
+                StartCoroutine(canvasGroupObjct.GetComponent<transitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), "MainMenu"));
             }
 
             if (touch_state._touch_phase == TouchPhase.Began)

@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
-public class characterRender : MonoBehaviour
+namespace Assets.Script.Battle
 {
-    // Start is called before the first frame update
-    void Start()
+    [RequireComponent(typeof(RawImage),typeof(AudioSource))]
+    public class VideoPlayerOnUGUI : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        RawImage image;
+        VideoPlayer player;
+        void Awake()
+        {
+            image = GetComponent<RawImage>();
+            player = GetComponent<VideoPlayer>();
+            var source = GetComponent<AudioSource>();
+            player.EnableAudioTrack(0, true);
+            player.SetTargetAudioSource(0, source);
+        }
+        void Update()
+        {
+            if (player.isPrepared)
+            {
+                image.texture = player.texture;
+            }
+        }
     }
 }
