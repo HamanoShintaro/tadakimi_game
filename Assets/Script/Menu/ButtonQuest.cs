@@ -4,17 +4,21 @@ using StateManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class ButtonQuest : MonoBehaviour
 {
     public float spinSpeed;
     private Transform buttonTransform;
     private TouchManager _touch_manager;
+    private bool oneTimeFlg;
+    public GameObject canvasGroupObjct;
 
     // Start is called before the first frame update
     void Start()
     {
         buttonTransform = GetComponent<Transform>();
-        this._touch_manager = new TouchManager();
+        oneTimeFlg = true;
+        StartCoroutine(canvasGroupObjct.GetComponent<transitionController>().StartTransition(canvasGroupObjct.GetComponent<CanvasGroup>()));
     }
 
     // Update is called once per frame
@@ -25,7 +29,11 @@ public class ButtonQuest : MonoBehaviour
 
     public void onClick()
     {
-        Debug.Log("クリックされました");
-        SceneManager.LoadScene("Battle");
+        if (oneTimeFlg)
+            {
+                oneTimeFlg = false;
+                StartCoroutine(canvasGroupObjct.GetComponent<transitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), "Battle"));
+            }
+
     }
 }

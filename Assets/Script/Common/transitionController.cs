@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class transitionController : MonoBehaviour
 {
-    private float transitionSpeed = 0.05f;
+    private float transitionSpeed = 0.02f;
     private float alpha;
     private CanvasGroup canvasGroup;
 
@@ -40,6 +40,6 @@ public class transitionController : MonoBehaviour
             canvasGroup.alpha = canvasGroup.alpha - transitionSpeed * 2;
             yield return new WaitForSeconds(0.01f);
         }
-        SceneManager.LoadScene("Battle");
+        SceneManager.LoadScene(sceneName);
     }
 }
