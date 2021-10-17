@@ -10,7 +10,7 @@ public class BattleController : MonoBehaviour
     private Dictionary<int, int> max_magic = new Dictionary<int, int>();
     public float magic_power;
     public int magic_level;
-    private int magic_recovery_level;
+    public int magic_recovery_level;
     private float magic_recovery_adjust;
 
     public GameObject magicPower; // スクリプトを持つ対象
