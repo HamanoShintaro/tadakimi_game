@@ -15,7 +15,7 @@ public class summonCharacter : MonoBehaviour
     public GameObject backgroud;
 
     // キャラクター設定
-    private int cost;
+    public int cost;
     private float summonCoolDown;
     private int limit;
 
@@ -38,8 +38,7 @@ public class summonCharacter : MonoBehaviour
         backgroudImage = backgroud.GetComponent<Image>();
         animator = GetComponent<Animator>();
 
-        // キャラクターデータから取り出す
-        cost = 30; 
+        // キャラクターデータから取り出す 
         summonCoolDown = 10.0f;
         limit = 1;
 

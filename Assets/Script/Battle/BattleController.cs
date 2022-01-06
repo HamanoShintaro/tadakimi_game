@@ -15,6 +15,8 @@ public class BattleController : MonoBehaviour
 
     public GameObject magicPower; // スクリプトを持つ対象
     private MagicPowerController magicPowerController;
+    public string resultType = "";
+    public GameObject performancePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -64,5 +66,19 @@ public class BattleController : MonoBehaviour
         magicPowerController.maxMagicPower = max_magic[magic_recovery_level];
         magicPowerController.recoverMagicPower = recovery_magic[magic_recovery_level];
 
+    }
+    public void viewResult(string type)
+    {
+        // typeは win or lose;
+        // 時間を停止する
+        StartCoroutine(gameStop());
+        // リザルトパネルを表示する。この時、winかloseをリザルトパネルから閲覧する
+        resultType = type;
+        performancePanel.SetActive(true);
+    }
+
+    private IEnumerator gameStop() {
+        yield return new WaitForSeconds(1.5f);
+        Time.timeScale = 0;
     }
 }

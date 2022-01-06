@@ -1,0 +1,7 @@
+Shared Assets from Unity Standard Asset Package
+
+Scripts names are changed and are in custom namespace to ensure
+no clashes when importing if you are using the "Standard Assets".
+All art asset names changed to the same effect. 
+
+Credit to Unity Technologies for these assets. 

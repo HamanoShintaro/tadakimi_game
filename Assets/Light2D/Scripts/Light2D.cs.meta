@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: d891137e2b319da4ba350fae8560934b
+labels:
+- Lighting
+- Light2D
+- 2D
+- Shadows
+- Lineofsight
+- Visibility
+- Trigger
+timeCreated: 1457967803
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

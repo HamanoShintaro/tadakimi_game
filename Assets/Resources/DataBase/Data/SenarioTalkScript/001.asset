@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
+  m_Name: 001
+  m_EditorClassIdentifier: 
+  stage: 1
+  senarioTalks:
+  - script: "\u80CC\u666F\u5DEE\u3057\u66FF\u3048"
+    type: none
+    name: 
+    LR: 
+    expressions: 
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: a5cf53fdc3140324382194cf64b830ec, type: 3}
+    BGM: {fileID: 8300000, guid: 2074dcfc95f62bd4c9f346b5b3bb6b45, type: 3}
+    still: {fileID: 0}
+  - script: "\u30FB\u30FB\u30FB\u306D\u3047\u3001\u3070\u3042\u3070\u3002"
+    type: talk
+    name: era
+    LR: L
+    expressions: unique
+    voice: {fileID: 8300000, guid: 45b135a5048e82c4ab2b38c5a9bf4ba3, type: 3}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u306A\u3093\u3060\u3044\uFF1F\u30A4\u30FC\u30E9\u3084\u3002"
+    type: talk
+    name: eleth
+    LR: R
+    expressions: normal
+    voice: {fileID: 8300000, guid: d6d0f8394e3f3fd45b41311612a1ed77, type: 3}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3042\u306E\u306D\u3001\u7720\u304F\u306A\u3044\u304B\u3089\u2026\u4ECA\u65E5\u3082\u3054\u672C\u8AAD\u3093\u3067\u3002"
+    type: talk
+    name: era
+    LR: L
+    expressions: unique
+    voice: {fileID: 8300000, guid: d9e335ae6bb9d854f86c03e184fe8904, type: 3}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u5BDD\u308B\u306A\uFF01\u5BDD\u305F\u3089\u6B7B\u3093\u3058\u307E\u3046\u305E\uFF01\uFF01"
+    type: talk
+    name: orend
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3048\uFF1F\u2026\u3048\uFF1F"
+    type: talk
+    name: era
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3053\u3053\u306F\u2026"
+    type: talk
+    name: orend
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u96EA\u5C71\u3055\u3041\u3042\uFF01\u306F\u3063\u306F\u30FC\uFF01"
+    type: talk
+    name: orend
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 2995531a5b7e86341a7825ef8619f12f, type: 3}
+    BGM: {fileID: 8300000, guid: 5dde26b5f4f500a40910c9c68c788c17, type: 3}
+    still: {fileID: 0}
+  - script: "\u2026"
+    type: talk
+    name: volcus
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u2026\u3075\u3080\u3002"
+    type: talk
+    name: volcus
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3042\u3089\u3001\u3053\u3093\u306A\u3068\u3053\u308D\u306B\u3044\u305F\u306E\u306D\u3002"
+    type: talk
+    name: sara
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u305D\u306A\u305F\u306F\u2026"
+    type: talk
+    name: volcus
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u5FD8\u308C\u305F\u3068\u306F\u8A00\u308F\u305B\u306A\u3044\u308F\u3002\u4ECA\u65E5\u3053\u305D\u3001\u305D\u306E\u5909\u614B\u30AAXXXX\u3092..."
+    type: talk
+    name: sara
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 8300000, guid: b304a3801053f134f971256c786e0cf6, type: 3}
+    still: {fileID: 0}
+  - script: "\u52B9\u679C\u97F3"
+    type: none
+    name: 
+    LR: 
+    expressions: 
+    voice: {fileID: 0}
+    SE: {fileID: 8300000, guid: cb846a17d8ebc964ba1bf763a9a67734, type: 3}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3053\u306E\u9AD8\u679D\u5207\u72ED(\u305F\u304B\u3048\u3060\u304D\u308A\u3070\u3055\u307F)\u3067\u3061\u3087\u3093\u5207\u3063\u3066\u3042\u3052\u308B\u308F\uFF01\uFF01\uFF01"
+    type: talk
+    name: sara
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
