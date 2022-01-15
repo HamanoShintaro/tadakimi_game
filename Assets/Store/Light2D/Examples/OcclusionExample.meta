@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 95c5ded10a57ad546927b55059b10544
+labels:
+- Lighting
+- Light2D
+- Shadows
+- 2D
+- Visibility
+- Lineofsight
+- Trigger
+folderAsset: yes
+timeCreated: 1476538038
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
