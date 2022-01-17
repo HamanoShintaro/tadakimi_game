@@ -38,4 +38,6 @@
 以下のスプレッドシートを参考にしてください 
 https://docs.google.com/spreadsheets/d/1MItvHBiFXK641ulMqNky1Lw1TCvPPjpeWWkKbwomnOk/edit#gid=0
 
-
+##キャラクターボイス
+mp3形式で書き出し 
+会話の冒頭に可能な限り空き時間が存在しないこと
