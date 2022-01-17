@@ -22,9 +22,13 @@ public class ButtonActionController : MonoBehaviour
     private RectTransform rect2;
     private RectTransform rect3;
 
+    private bool active;
+
     // Start is called before the first frame update
     void Start()
     {
+        active = true;
+
         if (obj1)
         {
             img1 = obj1.GetComponent<Image>();
@@ -114,18 +118,21 @@ public class ButtonActionController : MonoBehaviour
         StartCoroutine(push());
     }
 
-    private IEnumerator push() {
-
-        Vector3 orgScale = rect1.localScale;
-        float v = -2.0f;
-        float a = 10.0f;
-        while (v < 2.0f)
-        {
-            rect1.localScale = new Vector3(rect1.localScale.x + v * Time.deltaTime, rect1.localScale.y + v * Time.deltaTime, rect1.localScale.z);
-            v = v + a * Time.deltaTime;
-            yield return new WaitForSeconds(0.01f);
+    private IEnumerator push()
+    {
+        if (active) {
+            active = false;
+            Vector3 orgScale = rect1.localScale;
+            float v = -2.0f;
+            float a = 10.0f;
+            while (v < 2.0f)
+            {
+                rect1.localScale = new Vector3(rect1.localScale.x + v * Time.deltaTime, rect1.localScale.y + v * Time.deltaTime, rect1.localScale.z);
+                v = v + a * Time.deltaTime;
+                yield return new WaitForSeconds(0.01f);
+            }
+            rect1.localScale = orgScale;
+            active = true;
         }
-        rect1.localScale = orgScale;
     }
-
-}
+}   

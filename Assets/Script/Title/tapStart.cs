@@ -35,6 +35,8 @@ public class tapStart : MonoBehaviour
             if (oneTimeFlg)
             {
                 oneTimeFlg = false;
+                //init user data
+                initUser();
                 StartCoroutine(canvasGroupObjct.GetComponent<transitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), "MainMenu"));
             }
 
@@ -43,6 +45,10 @@ public class tapStart : MonoBehaviour
 
             }
         }
+    }
+    private void initUser() {
+        PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
+        if (PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId) == null) { PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "001");  }
     }
 
 }

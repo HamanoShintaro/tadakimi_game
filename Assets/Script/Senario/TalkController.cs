@@ -5,54 +5,56 @@ using UnityEngine.UI;
 
 public class TalkController : MonoBehaviour
 {
-    // トーク情報の読み込み用
+    // ?g?[?N???????????????p
     private string stageId;
     public SenarioTalkScript senarioTalkScript;
     public int num;
     private GameObject currentBublle;
     private GameObject secondBubble;
+    public GameObject canvasGroupObjct;
+    private bool changeSceneFlg = true;
 
 
-    // トーク画面に存在するオブジェクトの設定
-    public GameObject canvas; // BGM再生
+    // ?g?[?N???????????????I?u?W?F?N?g??????
+    public GameObject canvas; // BGM????
     private AudioSource bgmSource;
-    public GameObject Render; // SE再生
+    public GameObject Render; // SE????
     private AudioSource seSource;
     private AudioSource voiceSource;
 
-    // トーク種別ごとのプレハブ設定
+    // ?g?[?N???????????v???n?u????
     public GameObject prefabNormal;
 
-    // キャラクター情報の格納リスト
+    // ?L?????N?^?[???????i?[???X?g
     public Dictionary<string, CharacterBasicInfo> characterBasicInfos = new Dictionary<string, CharacterBasicInfo>();
 
-    // トーク画面のキャラクター表示領域の設定
+    // ?g?[?N???????L?????N?^?[?\????????????
     public GameObject characterL;
     public GameObject characterR;
 
-    // 背景変更のためのオブジェクト設定
+    // ?w?i???X?????????I?u?W?F?N?g????
     public GameObject BackGroundObj;
     private Image BackGroundImage;
 
     // Start is called before the first frame update
     void Start()
     {
-        // デバッグ用
+        // ?f?o?b?O?p
         PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "001");
 
         stageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
         senarioTalkScript = Resources.Load<SenarioTalkScript>(ResourcePath.senarioTalkScriptPath + stageId);
         num = -1;
 
-        // 音声処理関連
+        // ???????????A
         bgmSource = canvas.GetComponent<AudioSource>();
-        bgmSource.volume = 0.0f; // 音量ゼロ固定
+        bgmSource.volume = 0.0f; // ?????[??????
         seSource = Render.GetComponent<AudioSource>();
         seSource.volume = GameSettingParams.seVolume;
         voiceSource = this.GetComponent<AudioSource>();
         voiceSource.volume = GameSettingParams.characterVoiceVolume;
 
-        // キャラクター情報ロード
+        // ?L?????N?^?[???????[?h
         List<string> characterKeys = new List<string>();
         foreach (SenarioTalkScript.SenarioTalk senarioTalk in senarioTalkScript.senarioTalks) {
             if (!characterKeys.Contains(senarioTalk.name))
@@ -61,7 +63,7 @@ public class TalkController : MonoBehaviour
                 characterBasicInfos.Add(senarioTalk.name, Resources.Load<CharacterBasicInfo>(ResourcePath.characterBasicInfoPath + senarioTalk.name));
             }
         }
-        // 背景Imageコンポーネントの取得
+        // ?w?iImage?R???|?[?l???g??????
         BackGroundImage = BackGroundObj.GetComponent<Image>();
     }
 
@@ -73,15 +75,15 @@ public class TalkController : MonoBehaviour
 
     public void nextTalk()
     {
-        //Debug.Log("タップされた");
-        // 次の会話が存在する場合
+        //Debug.Log("?^?b?v??????");
+        // ???????b??????????????
         num++;
         if (num < senarioTalkScript.senarioTalks.Count) {
 
-            // typeがtalkの場合はバブルを進める
+            // type??talk?????????o?u?????i????
             if(senarioTalkScript.senarioTalks[num].type == "talk") {
 
-                // キャラクターの入れ替え
+                // ?L?????N?^?[??????????
                 if (senarioTalkScript.senarioTalks[num].LR == "L")
                 {
                     StartCoroutine(characterL.GetComponent<TalkCharacterController>().Active());
@@ -106,30 +108,37 @@ public class TalkController : MonoBehaviour
                 
             }
 
-            // 以下必ず実行する演出
-            // Voiceの設定がある場合はVoiceを流す
+            // ?????K?????s???????o
+            // Voice??????????????????Voice??????
             voiceSource.Stop();
             if (senarioTalkScript.senarioTalks[num].voice) {
                 voiceSource.PlayOneShot(senarioTalkScript.senarioTalks[num].voice);
             }
-            // BGMの設定がある場合はBGMを流す
+            // BGM??????????????????BGM??????
             if (senarioTalkScript.senarioTalks[num].BGM)
             {
                 StartCoroutine(ChangeBGM(senarioTalkScript.senarioTalks[num].BGM));
             }
-            // SEの設定がある場合はSEを流す
+            // SE??????????????????SE??????
             if (senarioTalkScript.senarioTalks[num].SE)
             {
                 seSource.Stop();
                 voiceSource.PlayOneShot(senarioTalkScript.senarioTalks[num].SE);
             }
-            // バックグラウンドの設定がある場合はバックグラウンドを差し替える
+            // ?o?b?N?O???E???h???????????????????o?b?N?O???E???h????????????
             if (senarioTalkScript.senarioTalks[num].bgImage)
             {
                 StartCoroutine(ChangeBackGround(senarioTalkScript.senarioTalks[num].bgImage));
             }
         }
-        else { Debug.Log("最後の会話まで出力したよ"); }
+        else {
+            if (changeSceneFlg)
+            {
+                changeSceneFlg = false;
+                StartCoroutine(canvasGroupObjct.GetComponent<transitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), "Battle"));
+            }
+
+        }
     }
 
     private IEnumerator ChangeBGM(AudioClip bgm) {

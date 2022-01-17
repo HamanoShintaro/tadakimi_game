@@ -153,7 +153,7 @@ RectTransform:
   m_GameObject: {fileID: 29014809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.503125, y: 0.503125, z: 0.503125}
+  m_LocalScale: {x: 0.5583333, y: 0.5583333, z: 0.5583333}
   m_Children:
   - {fileID: 1689890464}
   - {fileID: 1890932575}
@@ -164,7 +164,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1919.9999, y: 1080}
+  m_SizeDelta: {x: 1920, y: 1080.0001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &29014811
 MonoBehaviour:
@@ -691,6 +691,9 @@ GameObject:
   - component: {fileID: 919810239}
   - component: {fileID: 919810241}
   - component: {fileID: 919810240}
+  - component: {fileID: 919810244}
+  - component: {fileID: 919810243}
+  - component: {fileID: 919810242}
   m_Layer: 5
   m_Name: SkipButton
   m_TagString: Untagged
@@ -756,6 +759,128 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919810238}
   m_CullTransparentMesh: 1
+--- !u!114 &919810242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919810238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae18e833fdb4543bf9d96ccf453d6581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroupObjct: {fileID: 29014809}
+  sceneName: Battle
+--- !u!114 &919810243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919810238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 919810244}
+          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
+          m_MethodName: pointerEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 919810244}
+          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
+          m_MethodName: pointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 919810244}
+          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
+          m_MethodName: pointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 919810244}
+          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
+          m_MethodName: pointerUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 919810242}
+          m_TargetAssemblyTypeName: ButtonQuest, Assembly-CSharp
+          m_MethodName: onClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &919810244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919810238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85972a0bda2df439e842cda6909d17ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj1: {fileID: 919810238}
+  obj2: {fileID: 0}
+  obj3: {fileID: 0}
 --- !u!1 &987796486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,10 +1524,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.00057446957
-    width: 1
-    height: 0.99885106
+    x: 0.000000029802322
+    y: 0
+    width: 0.99999994
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1511,6 +1636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   senarioTalkScript: {fileID: 0}
   num: 0
+  canvasGroupObjct: {fileID: 29014809}
   canvas: {fileID: 1470701930}
   Render: {fileID: 29014809}
   prefabNormal: {fileID: 7118464169185367860, guid: 8f8188a00b32bbe46872e06539de3ef8, type: 3}

@@ -21,5 +21,10 @@ public class SideButtonController : MonoBehaviour
         {
             StartCoroutine(menuController.changeCharacter());
         }
+        else if (buttonType == PlayerPrefabKeys.settingMenuView)
+        {
+            StartCoroutine(menuController.changeSetting());
+        }
+        this.GetComponent<AudioSource>().Play();
     }
 }

@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour
     public GameObject BaseMenu;
     public GameObject SenarioMenu;
     public GameObject CharacterMenu;
+    public GameObject SettingMenu;
     public GameObject ButtonPanel;
 
     private string currentView;
@@ -81,6 +82,36 @@ public class MenuController : MonoBehaviour
 
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.characterMenuView, false);
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.mainMenuView, true);
+            switchingFlg = false;
+        }
+    }
+    // SettingMenu
+    public IEnumerator changeSetting()
+    {
+        if (!switchingFlg)
+        {
+            switchingFlg = true;
+            PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.settingMenuView);
+            BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.mainMenuView, false);
+            BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.settingMenuView, true);
+            yield return new WaitForSeconds(0.5f);
+            SettingMenu.SetActive(true);
+            SettingMenu.GetComponent<Animator>().SetBool("active", true);
+            switchingFlg = false;
+        }
+    }
+    public IEnumerator backMenuFromSetting()
+    {
+        if (!switchingFlg)
+        {
+            switchingFlg = true;
+            PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
+            SettingMenu.GetComponent<Animator>().SetBool("active", false);
+            
+            BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.settingMenuView, false);
+            BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.mainMenuView, true);
+            yield return new WaitForSeconds(1.0f);
+            SettingMenu.SetActive(false);
             switchingFlg = false;
         }
     }
