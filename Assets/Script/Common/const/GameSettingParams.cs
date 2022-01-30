@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class GameSettingParams : MonoBehaviour
 {
-    // 音量関連
+    // ????????ID
+    public const string initCharacter = "volcus_01";
+
+
+    // ???????
     public const float characterVoiceVolume = 1.0f;
+    public const float cvVolume = 1.0f;
     public const float bgmVolume = 0.5f;
     public const float seVolume = 0.6f;
 
-    // シナリオ画面関連
+    // ??????????????????????
     public const float inActiveColorParam = 110/255f;
     public const float ActiveColorParam = 255/255f;
     public const float ActiveScaleParam = 1.0f;

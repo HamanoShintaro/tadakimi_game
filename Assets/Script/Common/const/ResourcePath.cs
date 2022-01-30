@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ResourcePath : MonoBehaviour
 {
-    public const string characterBasicInfoPath = "DataBase/Data/CharacterBasicInfo/";
-    public const string senarioTalkScriptPath = "DataBase/Data/SenarioTalkScript/";
+    public const string databasePath = "DataBase/Data/";
+    public const string characterBasicInfoPath = databasePath + "CharacterBasicInfo/";
+    public const string senarioTalkScriptPath = databasePath + "SenarioTalkScript/";
 
 }

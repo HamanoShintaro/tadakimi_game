@@ -25,6 +25,7 @@ public class backButtonController : MonoBehaviour
         {
             StartCoroutine(menuController.backMenuFromSetting());
         }
+        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
         this.GetComponent<AudioSource>().Play();
     }
 }

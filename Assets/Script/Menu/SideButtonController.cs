@@ -25,6 +25,7 @@ public class SideButtonController : MonoBehaviour
         {
             StartCoroutine(menuController.changeSetting());
         }
+        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
         this.GetComponent<AudioSource>().Play();
     }
 }

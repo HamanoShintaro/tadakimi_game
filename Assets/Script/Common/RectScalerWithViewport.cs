@@ -20,7 +20,7 @@ public class RectScalerWithViewport : MonoBehaviour
 
     private const float kLogBase = 2;
 
-    private void Awake()
+    private void Start()
     {
         if(refRect == null){
             refRect = GetComponent<RectTransform>();

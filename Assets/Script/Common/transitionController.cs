@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class transitionController : MonoBehaviour
 {
-    private float transitionSpeed = 0.02f;
+    private float transitionSpeed = 0.01f;
     private float alpha;
     private CanvasGroup canvasGroup;
 

@@ -21,7 +21,7 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 21300000, guid: 656b45c97eb41490bafed879a9b78cc7, type: 3}
+    bgImage: {fileID: 21300000, guid: e15156518546c433484943a3489f76af, type: 3}
     BGM: {fileID: 8300000, guid: 2074dcfc95f62bd4c9f346b5b3bb6b45, type: 3}
     still: {fileID: 0}
   - script: "\u306D\u3048\u3001\u3070\u3042\u3070\u3002"
@@ -101,7 +101,7 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 21300000, guid: 4b1e3be5d84a94031afb080f1dae959d, type: 3}
+    bgImage: {fileID: 21300000, guid: 720538c88f3df474f95c13bdb39e23af, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u6614\u3005\u3001\u9B54\u65CF\u304C\u307E\u3060\u8A95\u751F\u3057\u3066\u3044\u306A\u3044\u9065\u304B\u6614\u3001\u4EBA\u3068\u795E\u306E\u6642\u4EE3\u306B\u8056\u6226\u304C\u8D77\u3053\u308A\u307E\u3057\u305F\u3002"

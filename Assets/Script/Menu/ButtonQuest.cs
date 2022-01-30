@@ -22,6 +22,10 @@ public class ButtonQuest : MonoBehaviour
         if (oneTimeFlg)
             {
                 oneTimeFlg = false;
+                if (this.GetComponent<AudioSource>()) { 
+                    this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
+                    this.GetComponent<AudioSource>().Play();
+                }
                 StartCoroutine(canvasGroupObjct.GetComponent<transitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), sceneName));
             }
 

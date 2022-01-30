@@ -39,8 +39,6 @@ public class TalkController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ?f?o?b?O?p
-        PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "001");
 
         stageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
         senarioTalkScript = Resources.Load<SenarioTalkScript>(ResourcePath.senarioTalkScriptPath + stageId);

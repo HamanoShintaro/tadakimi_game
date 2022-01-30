@@ -110,7 +110,7 @@ public class movingEnemyPtn001 : MonoBehaviour
         {
             enemy.constraints = RigidbodyConstraints2D.None;
             enemy.constraints = RigidbodyConstraints2D.FreezeRotation;
-            enemy.velocity = new Vector2(LR * movingSpeed, 0);
+            enemy.velocity = new Vector2(LR * movingSpeed * Time.deltaTime, 0);
         }
         // スキル処理
         if (hasSkill)
