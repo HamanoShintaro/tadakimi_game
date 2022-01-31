@@ -13,7 +13,7 @@ public class CharacterInfo : ScriptableObject
 	public string id;
 	// 名前
 	[SerializeField]
-	public string _name;
+    public new string name;
 	// 別名
 	[SerializeField]
 	public string alias;

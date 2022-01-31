@@ -51,7 +51,6 @@ public class SaveController : MonoBehaviour
                 list = wrapper.list;
             }
         }
-
 	}
 
     // キャラクターフォーメーションデータ
