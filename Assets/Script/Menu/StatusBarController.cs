@@ -11,6 +11,7 @@ public class StatusBarController : MonoBehaviour
     public GameObject money;
     private Text moneyText;
     private SenarioTalkScript senarioTalkScript;
+    private int moneyInt;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +21,29 @@ public class StatusBarController : MonoBehaviour
         senarioTalkScript = Resources.Load<SenarioTalkScript>(ResourcePath.senarioTalkScriptPath + PlayerPrefs.GetString(PlayerPrefabKeys.clearStageId));
 
         clearStageText.text = senarioTalkScript.stage;
-        moneyText.text = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney).ToString();
+        moneyInt = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
+        moneyText.text = moneyInt.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(moneyInt != PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney))
+        {
+            int diff = moneyInt - PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
+            if (diff > 100) {
+                moneyInt -= 100;
+            } else if (diff > 0) {
+                moneyInt--;
+            } else if (diff < -100)
+            {
+                moneyInt += 100;
+            } else if (diff < 0)
+            {
+                moneyInt++;
+            }
+            
+            moneyText.text = moneyInt.ToString();
+        }
     }
 }

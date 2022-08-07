@@ -49,7 +49,9 @@ public class CharacterInfo : ScriptableObject
 		// 召喚コスト
 		public int cost;
 		// 攻撃力
-		public string attack;
+		public int attack;
+		// 攻撃速度
+		public float interval;
 		// HP
 		public int hp;
 		// 移動速度
@@ -70,6 +72,8 @@ public class CharacterInfo : ScriptableObject
 		public string name;
 		// 消費魔力
 		public int cost;
+		// クールダウン
+		public float cd;
 		// 説明
 		public string Detail;
 		// 召喚エフェクト
@@ -86,6 +90,8 @@ public class CharacterInfo : ScriptableObject
 		public string name;
 		// 消費魔力
 		public int cost;
+		// クールダウン
+		public float cd;
 		// 説明
 		public string Detail;
 		// 召喚エフェクト

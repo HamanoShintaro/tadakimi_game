@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class SaveController : MonoBehaviour
+public class SaveController :MonoBehaviour
 {
-    public CharacterSaveData characterSave;
-    public CharacterFormation characterFormation;
+    public CharacterSaveData characterSave = new CharacterSaveData();
+    public CharacterFormation characterFormation = new CharacterFormation();
 
     void Start()
     {
@@ -14,7 +13,6 @@ public class SaveController : MonoBehaviour
         characterSave.load();
     }
 
-    [System.Serializable]
     public class CharacterSaveData {
 
         public List<CharacterData> list = new List<CharacterData>();
@@ -45,16 +43,16 @@ public class SaveController : MonoBehaviour
         }
         public void load()
         {
+            Debug.Log("セーブデータをロードします");
             if (PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData)) { 
                 string saveData = PlayerPrefs.GetString(PlayerPrefabKeys.playerCharacterData);
                 Wrapper wrapper = JsonUtility.FromJson<Wrapper>(saveData);
                 list = wrapper.list;
             }
         }
-	}
+    }
 
     // キャラクターフォーメーションデータ
-    [System.Serializable]
     public class CharacterFormation
     {
         public string character_1_id;
@@ -85,6 +83,7 @@ public class SaveController : MonoBehaviour
 
         public void load()
         {
+            Debug.Log("セーブデータをロードします");
             if (PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
             {
                 string saveData = PlayerPrefs.GetString(PlayerPrefabKeys.playerCharacterFormation);

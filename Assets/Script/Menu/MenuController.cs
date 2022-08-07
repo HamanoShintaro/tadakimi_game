@@ -13,7 +13,8 @@ public class MenuController : MonoBehaviour
     private string currentView;
     private bool switchingFlg;
     public CharacterInfoDataBase characterInfoDataBase;
-    public SaveController saveController = new SaveController();
+
+    private SaveController saveController;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,7 @@ public class MenuController : MonoBehaviour
         switchingFlg = false;
         this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
         characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
-        saveController.characterSave.load();
-        saveController.characterFormation.load();
+        saveController = this.GetComponent<SaveController>();
     }
 
     // Update is called once per frame

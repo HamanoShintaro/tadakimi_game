@@ -5877,7 +5877,7 @@ RectTransform:
   m_GameObject: {fileID: 383899346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0416667, y: 1.0416667, z: 1.0416667}
   m_Children:
   - {fileID: 927934280}
   - {fileID: 858393325}
@@ -5889,7 +5889,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1920, y: 1079.9999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383899348
 MonoBehaviour:
@@ -6215,15 +6215,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.08949095
     y: 0
-    width: 1
+    width: 0.8210181
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4
+  orthographic size: 6.5772
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7356,6 +7356,27 @@ MonoBehaviour:
   characterPanel: {fileID: 0}
   initiateX: 0
   initiateY: 0
+  seAttack: {fileID: 0}
+  isTower: 0
+--- !u!1 &1027974615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5095262611280852148, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
+  m_PrefabInstance: {fileID: 5095262610011936476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1027974624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027974615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d204e42ca93410f918f33fa68a840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+  lv: 0
   seAttack: {fileID: 0}
   isTower: 0
 --- !u!1 &1043616672
@@ -19525,6 +19546,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 996915637}
     m_Modifications:
+    - target: {fileID: 3120535187910808085, guid: 20783fa420e1f544fa9446486a9782e4, type: 3}
+      propertyPath: movingSpeed
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3120535187910808086, guid: 20783fa420e1f544fa9446486a9782e4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -19632,7 +19657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852148, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852149, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_Pivot.x
@@ -19722,6 +19747,10 @@ PrefabInstance:
       propertyPath: magicPower
       value: 
       objectReference: {fileID: 604749411}
+    - target: {fileID: 5095262611280852151, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
+      propertyPath: movingSpeed
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852151, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: characterPanel
       value: 

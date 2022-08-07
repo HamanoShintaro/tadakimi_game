@@ -8,16 +8,21 @@ public class SideButtonController : MonoBehaviour
     private MenuController menuController;
 
     public string buttonType;
+
     // Start is called before the first frame update
     void Start()
     {
         menuController = Canvas.GetComponent<MenuController>();
         
     }
+
     public void onClick() {
-        if (buttonType == PlayerPrefabKeys.senarioMenuView) { 
-        StartCoroutine(menuController.changeSenario());
-        } else if (buttonType == PlayerPrefabKeys.characterMenuView)
+
+        if (buttonType == PlayerPrefabKeys.senarioMenuView)
+        {
+            StartCoroutine(menuController.changeSenario());
+        }
+        else if (buttonType == PlayerPrefabKeys.characterMenuView)
         {
             StartCoroutine(menuController.changeCharacter());
         }
@@ -28,4 +33,39 @@ public class SideButtonController : MonoBehaviour
         this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
         this.GetComponent<AudioSource>().Play();
     }
+
+    /*
+    public void onClick() {
+
+        // ダイアログを追加する親のCanvas
+        [SerializeField] private Canvas parent = default;
+        // 表示するダイアログ
+        [SerializeField] private OkCancelDialog dialog = default;
+
+        var _dialog = Instantiate(dialog);
+        _dialog.transform.SetParent(parent.transform, false);
+        _dialog.SetText("指定したテキストを表示します");
+
+        // ボタンが押されたときのイベント処理
+        _dialog.FixDialog = result => changePage();
+
+    }
+
+    private void changePage() {
+        if (buttonType == PlayerPrefabKeys.senarioMenuView)
+        {
+            StartCoroutine(menuController.changeSenario());
+        }
+        else if (buttonType == PlayerPrefabKeys.characterMenuView)
+        {
+            StartCoroutine(menuController.changeCharacter());
+        }
+        else if (buttonType == PlayerPrefabKeys.settingMenuView)
+        {
+            StartCoroutine(menuController.changeSetting());
+        }
+        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
+        this.GetComponent<AudioSource>().Play();
+    }
+    */
 }
