@@ -9,10 +9,13 @@ public class movingEnemyPtn001 : MonoBehaviour
     // 移動に関わる処理(自分自身のRigidbodyも)
     public float movingSpeed;
     public int LR; //右方向が＋ 左方向がマイナス
-    protected Rigidbody2D body;
+    protected Rigidbody2D enemy;
 
     // ステータス
-    private int attack;
+    public string characterName;
+    public int hp;
+    private int maxHp;
+    public int attack;
     public float attackInterval;
 
     //　スキルにかかわる値
@@ -39,13 +42,12 @@ public class movingEnemyPtn001 : MonoBehaviour
     public AudioClip seAttack;
     public bool isTower;
 
-    
-
     // Start is called before the first frame update
     protected virtual void Start()
     {
         // キャラクター召喚処理
-        body = GetComponent<Rigidbody2D>();
+        maxHp = hp;
+        enemy = GetComponent<Rigidbody2D>();
         status = "walk";
         this.GetComponent<RectTransform>().anchoredPosition = new Vector2(initiateX, initiateY);
         animator = GetComponent<Animator>();
@@ -54,7 +56,6 @@ public class movingEnemyPtn001 : MonoBehaviour
         magicPower = GameObject.Find("power");
         characterPanel = GameObject.Find("characterPanel");
 
-        //attack = 
 
         // スキル設定
         if (hasSkill) { 
@@ -62,11 +63,25 @@ public class movingEnemyPtn001 : MonoBehaviour
             magicPowerController = magicPower.GetComponent<MagicPowerController>();
             skillManager = characterPanel.GetComponent<SkillManager>();
         }
+
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
+        //hpがゼロになったら死ぬ処理
+        if (hp <= 0 && status != "death")
+        {
+            status = "death";
+            if (isTower) {
+                // 終了演出を呼び出す
+            }
+            else
+            {
+
+                StartCoroutine("Death");
+            }
+        }
         if (status == "attack") {
             // targetsに含むGameObjectの最新化を行う(存在しないgameObjectを削除する)
             foreach (GameObject target in targets) {
@@ -82,24 +97,27 @@ public class movingEnemyPtn001 : MonoBehaviour
                     StartCoroutine("Skill");
                 } else {
                     StartCoroutine("Attack");
-                }   
+                }
+                
             }
             else {
                 // 0件になってい場合は歩き始める
                 status = "walk";
             }
+
         }
         if (status == "walk")
         {
-            body.constraints = RigidbodyConstraints2D.None;
-            body.constraints = RigidbodyConstraints2D.FreezeRotation;
-            body.velocity = new Vector2(LR * movingSpeed * Time.deltaTime, 0);
+            enemy.constraints = RigidbodyConstraints2D.None;
+            enemy.constraints = RigidbodyConstraints2D.FreezeRotation;
+            enemy.velocity = new Vector2(LR * movingSpeed * Time.deltaTime, 0);
         }
         // スキル処理
         if (hasSkill)
         {
             skillCoolTime = Mathf.Max(0.0f, skillCoolTime - Time.deltaTime);
         }
+
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -108,7 +126,7 @@ public class movingEnemyPtn001 : MonoBehaviour
             if ((this.gameObject.tag == "player" && other.gameObject.tag == "enemy")
                 || this.gameObject.tag == "enemy" && other.gameObject.tag == "player") {
                 targets.Add(other.gameObject);
-                body.constraints = RigidbodyConstraints2D.FreezeAll;
+                enemy.constraints = RigidbodyConstraints2D.FreezeAll;
                 if (status == "walk")
                 {
                     status = "attack";
@@ -150,6 +168,16 @@ public class movingEnemyPtn001 : MonoBehaviour
         status = "attack";
     }
 
+    protected virtual IEnumerator Death()
+    {
+        // Debug.Log("死亡処理が呼ばれました");
+        foreach (BoxCollider2D collider in GetComponents<BoxCollider2D>()) {
+            Destroy(collider);
+        }
+        animator.SetBool("Death", true);
+        yield return new WaitForSeconds(1.0f);
+        Destroy(this.gameObject);
+    }
     protected virtual IEnumerator Skill()
     {
         // Debug.Log("Skill処理が呼ばれました");
