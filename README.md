@@ -38,3 +38,6 @@ https://docs.google.com/spreadsheets/d/1MItvHBiFXK641ulMqNky1Lw1TCvPPjpeWWkKbwom
 ### キャラクターボイス
 mp3形式で書き出し <br>
 セリフの冒頭に可能な限り空き時間が存在しないこと
+
+### Discord 運用チャネル
+https://discord.gg/Wv9wfGv3
