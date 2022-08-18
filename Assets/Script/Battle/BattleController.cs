@@ -5,7 +5,7 @@ using UnityEngine;
 public class BattleController : MonoBehaviour
 {
 
-    // 魔力関連
+    // ???????A
     private Dictionary<int, float> recovery_magic = new Dictionary<int, float>();
     private Dictionary<int, int> max_magic = new Dictionary<int, int>();
     public float magic_power;
@@ -13,7 +13,7 @@ public class BattleController : MonoBehaviour
     public int magic_recovery_level;
     private float magic_recovery_adjust;
 
-    public GameObject magicPower; // スクリプトを持つ対象
+    public GameObject magicPower; // ?X?N???v?g??????????
     private MagicPowerController magicPowerController;
     public string resultType = "";
     public GameObject performancePanel;
@@ -21,13 +21,13 @@ public class BattleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // 仮置き(ユーザー設定)
+        // ???u??(???[?U?[????)
         magic_level = 1;
 
         magic_recovery_level = 0;
         magic_recovery_adjust = 1 + magic_level * 0.2f;
         
-        // 魔力増加ペースの定義(DB移植)
+        //????????
         recovery_magic[1] = 5.0f * magic_recovery_adjust;
         recovery_magic[2] = 7.0f * magic_recovery_adjust;
         recovery_magic[3] = 10.0f * magic_recovery_adjust;
@@ -36,7 +36,7 @@ public class BattleController : MonoBehaviour
         recovery_magic[6] = 30.0f * magic_recovery_adjust;
         recovery_magic[7] = 40.0f * magic_recovery_adjust;
 
-        // 魔力最大値の定義
+        //???????
         max_magic[1] = 50 + (magic_level - 1) * 5;
         max_magic[2] = 100 + (magic_level - 1) * 10;
         max_magic[3] = 150 + (magic_level - 1) * 15;
@@ -49,34 +49,32 @@ public class BattleController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (magic_recovery_level == 0) {
             UpMagicLevel();
         }
-        
     }
 
-    // 魔法レベルアップの処理
+    //?????????
     public void UpMagicLevel()
     {
-        Debug.Log("レベル処理");
+        Debug.Log("???x??????");
         magic_recovery_level = magic_recovery_level + 1;
         magicPowerController.maxMagicPower = max_magic[magic_recovery_level];
         magicPowerController.recoverMagicPower = recovery_magic[magic_recovery_level];
-
     }
+    //?????
     public void viewResult(string type)
     {
-        // typeは win or lose;
-        // 時間を停止する
+        // type?? win or lose;
+        // ?????????~????
         StartCoroutine(gameStop());
-        // リザルトパネルを表示する。この時、winかloseをリザルトパネルから閲覧する
+        // ???U???g?p?l?????\???????B???????Awin??lose?????U???g?p?l???????{??????
         resultType = type;
         performancePanel.SetActive(true);
     }
-
+    //???????
     private IEnumerator gameStop() {
         yield return new WaitForSeconds(1.5f);
         Time.timeScale = 0;

@@ -38,7 +38,6 @@ public class CharacterBasic : MonoBehaviour
         hp = st_params.hp;
 
         this.GetComponent<RectTransform>().anchoredPosition = new Vector2(initiateX, initiateY);
-
     }
 
     public string Damage(int d, int kb) {

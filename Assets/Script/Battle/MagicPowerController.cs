@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class MagicPowerController : MonoBehaviour
 {
-
-    // 魔法力に関するゲージ処理の実装
     public float magicPower;
     public int maxMagicPower;
     public float recoverMagicPower;
@@ -18,28 +16,21 @@ public class MagicPowerController : MonoBehaviour
     private Image guage;
     private Text text;
 
-    // Start is called before the first frame update
     void Start()
     {
         magicPower = 0.0f;
         guage = guageObject.GetComponent<Image>();
         text = valueObject.GetComponent<Text>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Math.Floor(magicPower) != maxMagicPower) {
-            magicPower = Math.Min(
-                magicPower + recoverMagicPower * Time.deltaTime,
-                maxMagicPower
-            );
+            magicPower = Math.Min(magicPower + recoverMagicPower * Time.deltaTime, maxMagicPower);
             text.text = Math.Floor(magicPower).ToString();
             guage.fillAmount = magicPower / maxMagicPower;
         }
     }
-
-    // 魔法力を消費することが出来るか、消費した場合はtrueを返却する
+    //菴ｿ逕ｨ蜿ｯ閭ｽ=>鬲泌鴨繧貞ｼ輔＞縺ｦtrue / 菴ｿ逕ｨ荳榊庄閭ｽ=>false
     public bool UseMagicPower(int usePower)
     {
         bool result = false;

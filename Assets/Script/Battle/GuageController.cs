@@ -35,7 +35,6 @@ public class GuageController : MonoBehaviour
         smoke.SetActive(false);
         canvas = GameObject.Find("Canvas");
         battleController = canvas.GetComponent<BattleController>();
-
     }
 
     private void Update()
@@ -43,7 +42,7 @@ public class GuageController : MonoBehaviour
 
         hp = enemyManage.hp;
         if(hp != befHp) {
-            // Debug.Log("変化前" + befHp.ToString() + "  変化後" + hp.ToString());
+            // Debug.Log("?????O" + befHp.ToString() + "  ??????" + hp.ToString());
             GaugeReduction(maxHp, 1.0f * befHp / maxHp, 1.0f * hp / maxHp);
         }
         befHp = hp;
@@ -55,14 +54,14 @@ public class GuageController : MonoBehaviour
             battleController.viewResult("win"); 
         }
     }
-    // hpゲージを減らす処理。
-    // 初期値、現在のhp、変化前の割合、変化後の割合、オプションで変化にかける時間
+    // hp?Q?[?W?????????????B
+    // ?????l?A??????hp?A?????O???????A?????????????A?I?v?V??????????????????????
     public void GaugeReduction(float maxHp, float valueFrom, float valueTo, float time = 0.5f)
     {
-        // Debug.Log("hp現象処理開始");
+        // Debug.Log("hp?????????J?n");
         // Debug.Log(valueFrom);
         // Debug.Log(valueTo);
-        // 緑ゲージ減少
+        // ???Q?[?W????
         GreenGauge.fillAmount = valueTo;
 
         if (redGaugeTween != null)
@@ -70,7 +69,7 @@ public class GuageController : MonoBehaviour
             redGaugeTween.Kill();
         }
 
-        // 赤ゲージ減少
+        // ???Q?[?W????
         redGaugeTween = DOTween.To(
             () => valueFrom,
             x => {

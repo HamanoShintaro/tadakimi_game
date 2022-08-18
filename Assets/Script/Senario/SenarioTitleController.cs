@@ -13,7 +13,7 @@ public class SenarioTitleController : MonoBehaviour
     public GameObject stageTitle;
     private Text stageTitleText;
     private string title;
-    // Start is called before the first frame update
+
     void Start()
     {
         stageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
