@@ -4,23 +4,43 @@ using UnityEngine;
 
 public class InstallationOnceController : MonoBehaviour
 {
-    // ƒ_ƒ[ƒW—Ê‚ÉŠÖ‚·‚éİ’è
     public int attack = 10;
 
-    // Œp‘±ŠÔ(effect‚Æ‡‚í‚¹‚é)
     public float attackTime;
     public float destroyTime;
+
+    /// <summary>
+    /// ä¸ãƒãƒƒã‚¯ãƒãƒƒã‚¯å€¤
+    /// </summary>
+    public int kb;
 
     private GameObject target;
     private List<GameObject> targets = new List<GameObject>();
 
-    // Start is called before the first frame update
+    private void Start()
+    {
+        Debug.Log("ç™ºç”Ÿ");
+    }
+    private void OnTriggerEnter2D(Collider2D t)
+    {
+        Debug.Log("æ”»æ’ƒç¯„å›²ã«å…¥ã‚Šã¾ã—ãŸ");
+        if (t.isTrigger) return; //æ•µæœ¬ä½“ã«è¡çªã—ã¦ã„ãªã„å ´åˆã¯é™¤ã
+        if (this.CompareTag("player") && t.CompareTag("enemy") || this.CompareTag("enemy") && t.CompareTag("enemy")) StartCoroutine(Attack(t.gameObject));
+    }
+    private IEnumerator Attack(GameObject t)
+    {
+        Debug.Log("æ”»æ’ƒãŒå½“ãŸã‚Šã¾ã—ãŸ");
+        //yield return new WaitForSeconds(attackTime);
+        t.GetComponent<IDamage>().Damage(attack, kb);
+        yield return new WaitForSeconds(destroyTime);
+        this.gameObject.SetActive(false);
+    }
+    /*
     void Start()
     {
         StartCoroutine("Attack");
     }
-
-    // UŒ‚‘ÎÛ‚Ì‘I’èFplayer‚Ì¢Š«‚È‚ç“G‚ÉA“G‚È‚çƒvƒŒƒCƒ„[‚ÉB
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.isTrigger == false)
@@ -32,7 +52,7 @@ public class InstallationOnceController : MonoBehaviour
             }
         }
     }
-    // ƒgƒŠƒK[‚ª‰ğÁ‚³‚ê‚½‚çƒ^[ƒQƒbƒg‚©‚çŠO‚·
+    // ?g???K?[???????????????^?[?Q?b?g?????O??
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.isTrigger == false)
@@ -46,14 +66,14 @@ public class InstallationOnceController : MonoBehaviour
     }
     private IEnumerator Attack()
     {
-        Debug.Log("ƒGƒtƒFƒNƒg‚ÌAttackˆ—‚ªŒÄ‚Î‚ê‚Ü‚µ‚½");
+        Debug.Log("?G?t?F?N?g??Attack??????????????????");
         yield return new WaitForSeconds(attackTime);
 
         foreach (GameObject target in targets)
         {
             if (target != null)
             {
-                Debug.Log("targetinstance‚Í" + target.GetInstanceID());
+                Debug.Log("targetinstance??" + target.GetInstanceID());
                 target.GetComponent<movingEnemyPtn001>().hp =
                        (target.GetComponent<movingEnemyPtn001>().hp - this.attack);
             }
@@ -61,5 +81,5 @@ public class InstallationOnceController : MonoBehaviour
         yield return new WaitForSeconds(destroyTime);
         Destroy(this.gameObject);
     }
-
+    */
 }

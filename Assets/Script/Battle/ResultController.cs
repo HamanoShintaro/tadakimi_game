@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// リザルト画面に変更を加える処理
+/// </summary>
 public class ResultController : MonoBehaviour
 {
     private CanvasGroup canvasGroup;
@@ -14,7 +16,6 @@ public class ResultController : MonoBehaviour
     public GameObject gameController;
     public AudioClip clip;
 
-    // Start is called before the first frame update
     void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -24,16 +25,15 @@ public class ResultController : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(clip);
 
-
         transitionSpeed = 0.8f;
     }
-
-    // Update is called once per frame
+    /*
     void Update()
     {
-        if (canvasGroup.alpha < 1.0f) {
+        if (canvasGroup.alpha < 1.0f)
+        {
             canvasGroup.alpha += transitionSpeed * Time.unscaledDeltaTime;
-            if(canvasGroup.alpha >= 1.0f)
+            if (canvasGroup.alpha >= 1.0f)
             {
                 if (winFlg)
                 {
@@ -45,5 +45,14 @@ public class ResultController : MonoBehaviour
                 }
             }
         }
+
     }
+    */
+    /*
+    public void ShowResultPanle(bool isWinner)
+    {
+        if (isWinner) winnerPanel.SetActive(true);
+        else loserPanel.SetActive(true);
+    }
+    */
 }

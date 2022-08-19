@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// 敵タワーのゲージ管理のクラス
+/// </summary>
 public class GuageController : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField]
     private Image GreenGauge;
     [SerializeField]
@@ -31,45 +32,41 @@ public class GuageController : MonoBehaviour
         tower = transform.parent.gameObject;
         enemyManage = tower.GetComponent<movingEnemyPtn001>();
         maxHp = enemyManage.hp;
-        // Debug.Log(maxHp);
         smoke.SetActive(false);
         canvas = GameObject.Find("Canvas");
         battleController = canvas.GetComponent<BattleController>();
     }
-
     private void Update()
     {
-
         hp = enemyManage.hp;
-        if(hp != befHp) {
-            // Debug.Log("?????O" + befHp.ToString() + "  ??????" + hp.ToString());
+        if (hp != befHp)
+        {
             GaugeReduction(maxHp, 1.0f * befHp / maxHp, 1.0f * hp / maxHp);
         }
         befHp = hp;
-        if(!smoke.activeSelf && (1.0f * hp / maxHp) < 0.5f)
+        if (!smoke.activeSelf && (1.0f * hp / maxHp) < 0.5f)
         {
             smoke.SetActive(true);
         }
-        if (hp < 0) { 
-            battleController.viewResult("win"); 
+        /*
+        if (hp < 0)
+        {
+            battleController.viewResult("win");//TODO敵タワーで呼ぶ
         }
+        */
+
     }
-    // hp?Q?[?W?????????????B
-    // ?????l?A??????hp?A?????O???????A?????????????A?I?v?V??????????????????????
+    /// <summary>
+    /// 敵Hpゲージのアニメーションをするメソッド
+    /// </summary>
+    /// <param name="maxHp"></param>
+    /// <param name="valueFrom"></param>
+    /// <param name="valueTo"></param>
+    /// <param name="time"></param>
     public void GaugeReduction(float maxHp, float valueFrom, float valueTo, float time = 0.5f)
     {
-        // Debug.Log("hp?????????J?n");
-        // Debug.Log(valueFrom);
-        // Debug.Log(valueTo);
-        // ???Q?[?W????
         GreenGauge.fillAmount = valueTo;
-
-        if (redGaugeTween != null)
-        {
-            redGaugeTween.Kill();
-        }
-
-        // ???Q?[?W????
+        if (redGaugeTween != null) redGaugeTween.Kill();
         redGaugeTween = DOTween.To(
             () => valueFrom,
             x => {
@@ -79,5 +76,4 @@ public class GuageController : MonoBehaviour
             time
         );
     }
-
 }

@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamage
+interface ISkill
 {
-    void Damage(int attackPower = 0, int kb = 0);
+    int Cost { get; }
+    void Skill();
 }

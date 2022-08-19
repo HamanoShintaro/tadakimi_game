@@ -31,13 +31,14 @@ namespace Battle
             b = 02,
             c = 03
         }
+        //状態のプロパティ
         private State state;
-        //状態
         private enum State
         {
             Walk,
             Attack,
             Death,
+            
         }
         //Hpプロパティ
         private int hp = 0;
@@ -83,10 +84,8 @@ namespace Battle
             attackRange = Resources.Load<PlayerInfo>($"DataBase/Data/PlayerInfo/{playerCharacterId}").AttackRange;
             //animator読み込み
             animator = Resources.Load<PlayerInfo>($"DataBase/Data/PlayerInfo/{playerCharacterId}").Aimator;
-
-            state = State.Walk;
         }
-        private void Update()
+        private void FixedUpdate()
         {
             switch (state)
             {
@@ -107,29 +106,42 @@ namespace Battle
         //歩きメソッド
         private void Walk()
         {
+            Debug.Log("プレイヤー: 歩く");
             if (!isMove) return;
             this.transform.position = new Vector2(this.transform.position.x - speed, 400);
             //TODO歩きアニメーションに切り替え animator.SetFloat("speed", speed)
         }
-        //攻撃のメソッド 
+        //攻撃のメソッド //コルーチン処理にする
         private void Attack()
         {
+            Debug.Log("プレイヤー: 攻撃");
             //TODO攻撃アニメーションに切り替え animator.SetFloat("speed", 0)
-            //TODO攻撃判定
-            //1.攻撃エフェクトを再生 => エフェクトにスクリプトをアタッチ>OnParticleCollisionでDamage()を呼び出す / その際インターフェイス(IDamage)を使用する
-            //2.スプライトを生成 => スプライトにスクリプトをアタッチ>OnTriggerEnter2DでDamage()を呼び出す / その際インターフェイス(IDamage)を使用する
+            //TODO攻撃判定 スプライトを生成 => スプライトにスクリプトをアタッチ>OnTriggerStay2DでDamage()を呼び出す / その際インターフェイス(IDamage)を使用する
+
             //TODOサウンドエフェクトを再生
         }
+        //死亡のメソッド //TODOコルーチン
         private void Death()
         {
+            //既に死亡している場合は呼び出さない
+            if (state != State.Death) return;
             //死亡処理
+
         }
         //ダメージ処理
-        public void Damage(int damage)
+        public void Damage(int attackPower = 0, int kb = 0)
         {
-            Hp -= damage;
-            //TODOUpdateUI();
-            //TODOif (Hp == 0) リザルトコントローラーにアクセスして敗北パネルを表示する
+            Debug.Log("プレイヤー : ダメージを受けました");
+            //ダメージ計算TODO防御力も計算
+            Hp -= attackPower;
+            if (Hp == 0)
+            {
+                state = State.Death;
+                //ゲームをストップ
+                GameObject.Find("Canvas").GetComponent<BattleController>().GameStop();
+                //リザルト画面(敗北)を表示
+                GameObject.Find("Canvas/Render/PerformancePanel/loserPanel").SetActive(true);
+            }
         }
         private void OnTriggerStay2D(Collider2D t)
         {

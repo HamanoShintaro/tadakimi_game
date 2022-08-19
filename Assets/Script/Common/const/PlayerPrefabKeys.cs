@@ -12,7 +12,6 @@ public class PlayerPrefabKeys : MonoBehaviour
     public const string playerCharacterFormation = "p_save_character_formation";
     public const string playerCharacterData = "p_save_character_data";
 
-
     // current view menu
     public const string currentMenuView = "current_menu_view";
     public const string mainMenuView = "main";

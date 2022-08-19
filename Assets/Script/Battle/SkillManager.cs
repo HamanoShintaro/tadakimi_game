@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
-    // efectの召喚場所
     public GameObject efectPanel;
     public string prefabPath;
     private GameObject effectPrefab;
 
-    private void Start() {
-        // 召喚用のオブジェクト類のロード
+    private void Start()
+    {
         effectPrefab = Resources.Load<GameObject>(prefabPath);
     }
 
-    public void ActivateSkill(string characterName,RectTransform rectTransform) {
-        if (characterName == "volcus") {
+    public void ActivateSkill(string characterName, RectTransform rectTransform)
+    {
+        if (characterName == "volcus")
+        {
             StartCoroutine(Volcus(rectTransform));
         }
     }
