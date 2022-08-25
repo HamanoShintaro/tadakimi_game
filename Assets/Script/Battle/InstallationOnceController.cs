@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 画像につける当たり判定=>ダメージを与える
+/// </summary>
 public class InstallationOnceController : MonoBehaviour
 {
     public int attack = 10;

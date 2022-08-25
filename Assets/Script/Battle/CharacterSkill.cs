@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 namespace Battle
 {
     public class CharacterSkill : MonoBehaviour, ISkill
@@ -31,3 +31,4 @@ namespace Battle
         //TODO奥義も追加
     }
 }
+*/

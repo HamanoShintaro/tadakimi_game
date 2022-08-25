@@ -44,7 +44,7 @@ public class movingEnemyPtn001 : MonoBehaviour
 
     // Start is called before the first frame update
     protected virtual void Start()
-    {
+    { 
         // キャラクター召喚処理
         maxHp = hp;
         enemy = GetComponent<Rigidbody2D>();

@@ -117,14 +117,12 @@ namespace Battle
             Debug.Log("プレイヤー: 攻撃");
             //TODO攻撃アニメーションに切り替え animator.SetFloat("speed", 0)
             //TODO攻撃判定 スプライトを生成 => スプライトにスクリプトをアタッチ>OnTriggerStay2DでDamage()を呼び出す / その際インターフェイス(IDamage)を使用する
-
             //TODOサウンドエフェクトを再生
         }
+
         //死亡のメソッド //TODOコルーチン
         private void Death()
         {
-            //既に死亡している場合は呼び出さない
-            if (state != State.Death) return;
             //死亡処理
 
         }
@@ -140,7 +138,7 @@ namespace Battle
                 //ゲームをストップ
                 GameObject.Find("Canvas").GetComponent<BattleController>().GameStop();
                 //リザルト画面(敗北)を表示
-                GameObject.Find("Canvas/Render/PerformancePanel/loserPanel").SetActive(true);
+                GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(false);
             }
         }
         private void OnTriggerStay2D(Collider2D t)

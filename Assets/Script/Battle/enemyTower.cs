@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemyTower : MonoBehaviour, IDamage
 {
     //Hp
-    private int maxHp;
+    private float maxHp;
     //初期位置
-    private int hp = 0;
-    public int Hp
+    private float hp = 0;
+    public float Hp
     {
         get { return hp; }
         set
@@ -24,7 +24,7 @@ public class EnemyTower : MonoBehaviour, IDamage
         //maxHp = Resources.Load<PlayerInfo>($"DataBase/Data/PlayerInfo/{playerCharacterId}").MaxHp;
         Hp = maxHp;
     }
-    public void Damage(int attackPower = 0, int kb = 0)
+    public void Damage(float attackPower = 0, float kb = 0)
     {
         //ダメージ計算TODO防御力も計算
         Hp -= attackPower;
@@ -33,7 +33,7 @@ public class EnemyTower : MonoBehaviour, IDamage
             //ゲームをストップ
             GameObject.Find("Canvas").GetComponent<BattleController>().GameStop();
             //リザルト画面(勝利)を表示
-            GameObject.Find("Canvas/Render/PerformancePanel/winningPanel").SetActive(true);
+            GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(true);
         }
     }
 }

@@ -11,6 +11,7 @@ public class PlayerPrefabKeys : MonoBehaviour
     public const string playerSaveData = "p_save_data";
     public const string playerCharacterFormation = "p_save_character_formation";
     public const string playerCharacterData = "p_save_character_data";
+    public const string playTime = "p_playTime";
 
     // current view menu
     public const string currentMenuView = "current_menu_view";

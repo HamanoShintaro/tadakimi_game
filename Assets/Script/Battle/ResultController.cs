@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /// <summary>
 /// リザルト画面に変更を加える処理
 /// </summary>
 public class ResultController : MonoBehaviour
 {
+
+    public void OnResultPanel(bool isWinner = true, bool isOn = true)
+    {
+        if (isWinner) transform.Find("winnerPanel").gameObject.SetActive(isOn);
+        else transform.Find("loserPanel").gameObject.SetActive(isOn);
+    }
+    /*
     private CanvasGroup canvasGroup;
     public bool winFlg;
     public GameObject winnerPanel;
@@ -15,7 +23,7 @@ public class ResultController : MonoBehaviour
 
     public GameObject gameController;
     public AudioClip clip;
-
+    
     void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -27,7 +35,8 @@ public class ResultController : MonoBehaviour
 
         transitionSpeed = 0.8f;
     }
-    /*
+
+    
     void Update()
     {
         if (canvasGroup.alpha < 1.0f)

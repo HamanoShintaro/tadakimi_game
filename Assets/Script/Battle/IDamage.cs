@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ダメージの処理をするインターフェイス(enemy or player のタグをつける)
+/// </summary>
 public interface IDamage
 {
-    void Damage(int attackPower = 0, int kb = 0);
+    void Damage(float attackPower = 0, float kb = 0);
 }
