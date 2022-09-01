@@ -8,6 +8,7 @@ public class PlayerPrefabKeys : MonoBehaviour
     public const string currentStageId = "p_current_stage_id";
     public const string clearStageId = "p_clear_stage_id";
     public const string playerMoney = "p_money";
+    public const string playerGetMoney = "p_get_money";
     public const string playerSaveData = "p_save_data";
     public const string playerCharacterFormation = "p_save_character_formation";
     public const string playerCharacterData = "p_save_character_data";

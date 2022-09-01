@@ -136,7 +136,7 @@ namespace Battle
             {
                 state = State.Death;
                 //ゲームをストップ
-                GameObject.Find("Canvas").GetComponent<BattleController>().GameStop();
+                GameObject.Find("Canvas").GetComponent<BattleController>().GameStop(Dominator.TypeLeader.AllyLeader);
                 //リザルト画面(敗北)を表示
                 GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(false);
             }

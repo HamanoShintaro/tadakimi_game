@@ -60,7 +60,7 @@ namespace Battle
         //プレイヤーキャラクターの種類
         private enum CharacterId
         {
-            a = 01,
+            Volcus_01 = 01,
             b = 02,
             c = 03
         }
@@ -130,8 +130,8 @@ namespace Battle
         private void Start()
         {
             //TODO取得>characterIdから選択できるように変更する
-            //var characterId = ((int)CharacterId.a).ToString("00");
-            var characterId = "Volcus_01";
+            var characterId = (CharacterId.Volcus_01).ToString();
+            //var characterId = "Volcus_01";
             //maxHp取得
             maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].hp;
             Hp = maxHp;
@@ -274,7 +274,7 @@ namespace Battle
             {
                 yield return new WaitForSeconds(1);
                 SkillCoolTime--;
-                Debug.Log($"{SkillCoolTime}");
+                //Debug.Log($"{SkillCoolTime}");
                 if (SkillCoolTime == 0) break;
             }
             canSkillCoolTime = true;
@@ -315,6 +315,7 @@ namespace Battle
 
             //canState = true;
         }
+
         /// <summary>
         /// ダメージを受けたときのメソッド(インターフェイス)
         /// </summary>

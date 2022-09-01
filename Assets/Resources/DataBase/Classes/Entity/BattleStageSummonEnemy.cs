@@ -7,21 +7,36 @@ using System;
 [CreateAssetMenu(fileName = "BattleStageSummonEnemy", menuName = "SettingBattleStageSummonEnemy")]
 public class BattleStageSummonEnemy : ScriptableObject
 {
-	// ステージ番号
 	[SerializeField]
 	public int stage;
-	// 召喚時刻
+
 	[SerializeField]
 	public List<float> Times = new List<float>();
-	// 生成するモンスターのプレハブ
+
 	[SerializeField]
 	public List<GameObject> Enemies = new List<GameObject>();
-	// 生成するモンスターのレベル
+
 	[SerializeField]
 	public List<int> Levels = new List<int>();
-	// タワーのhp
+
 	[SerializeField]
 	public int TowerHp;
+
+	[SerializeField]
+	[Header("BackGround")]
+	private Sprite stageSprite;
+
+	[SerializeField]
+	[Header("EnemyTower")]
+	private GameObject enemyTower;
+
+	[SerializeField]
+	[Header("EnemyTowerPosition")]
+	private Vector2 position;
+
+	[SerializeField]
+	[Header("Wide")]
+	private float wide;
 
 	public int GetStage()
 	{
