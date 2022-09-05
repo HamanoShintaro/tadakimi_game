@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// マジックがたまるオブジェクトにアタッチするスクリプト
+/// </summary>
 public class MagicPowerController : MonoBehaviour
 {
     public float magicPower;
@@ -24,7 +27,8 @@ public class MagicPowerController : MonoBehaviour
     }
     void Update()
     {
-        if (Math.Floor(magicPower) != maxMagicPower) {
+        if (Math.Floor(magicPower) != maxMagicPower)
+        {
             magicPower = Math.Min(magicPower + recoverMagicPower * Time.deltaTime, maxMagicPower);
             text.text = Math.Floor(magicPower).ToString();
             guage.fillAmount = magicPower / maxMagicPower;
@@ -33,12 +37,14 @@ public class MagicPowerController : MonoBehaviour
     //使用可能=>魔力を引いてtrue / 使用不可能=>false
     public bool UseMagicPower(int usePower)
     {
-        bool result = false;
-
-        if(magicPower >= usePower){
+        if (magicPower >= usePower)
+        {
             magicPower -= usePower;
-            result = true;
+            return true;
         }
-        return (result);
+        else
+        {
+            return false;
+        }
     }
 }

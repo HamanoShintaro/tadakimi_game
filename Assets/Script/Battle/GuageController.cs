@@ -25,32 +25,27 @@ namespace Battle
         private Tower tower;
 
         //Hpゲージの変数
-        private int maxHp;
-        private int befHp;
-        private int hp;
+        private float maxHp;
+        private float befHp;
+        private float hp;
 
         private void Start()
         {
             //敵タワーのキャラクターコア コンポーネントを取得
             tower = this.transform.parent.GetComponent<Tower>();
-            maxHp = (int)tower.Hp;
-
+            maxHp = tower.Hp;
             smoke.SetActive(false);
         }
 
         private void Update()
         {
-            hp = (int)tower.Hp;
+            hp = tower.Hp;
+            if (hp == befHp) return;
             Debug.Log(hp);
-            if (hp != befHp)
-            {
-                GaugeReduction(maxHp, 1.0f * befHp / maxHp, 1.0f * hp / maxHp);
-            }
+            //Hpに変更があるならゲージアニメーションをする
+            GaugeReduction(maxHp, 1.0f * befHp / maxHp, 1.0f * hp / maxHp);
             befHp = hp;
-            if (!smoke.activeSelf && (1.0f * hp / maxHp) < 0.5f)
-            {
-                smoke.SetActive(true);
-            }
+            if ((1.0f * hp / maxHp) < 0.5f) smoke.SetActive(true);
         }
 
         /// <summary>

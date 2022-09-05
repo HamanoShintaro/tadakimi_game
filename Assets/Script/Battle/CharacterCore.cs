@@ -174,8 +174,9 @@ namespace Battle
 
         private void Update()
         {
+            if (targets.Count == 0) state = State.Walk;
             //Debug.Log(state);
-            //状態の優先順位 => 死亡>ノックバック>攻撃>歩く
+            //状態の優先順位は死亡>ノックバック>攻撃>歩く
             if (!canState) return;
             if (state == State.KnockBack) StartCoroutine(KnockBack());
             else if (state == State.Attack) StartCoroutine(Attack());
@@ -187,7 +188,7 @@ namespace Battle
         /// </summary>
         private void Walk()
         {
-            //Debug.Log($"{characterType} : {characterId} => 歩く");
+            //Debug.Log($"{characterType} : {characterId}は歩く");
             if (!canMove) return;
             if (characterType == CharacterType.Ally) this.transform.position = new Vector2(this.transform.position.x - speed, 400);
             else if (characterType == CharacterType.Enemy) this.transform.position = new Vector2(this.transform.position.x + speed, 400);
@@ -202,7 +203,7 @@ namespace Battle
             canState = false;
             if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)//TODOスキルクールタイム計算メソッド
             {
-                Debug.Log($"{characterType} : {characterId} => スキル");
+                Debug.Log($"{characterType} : {characterId}はスキル");
 
                 //スキル処理>開始
                 animator.SetBool("Skill", true);
@@ -234,7 +235,7 @@ namespace Battle
              */
             else
             {
-                Debug.Log($"{characterType} : {characterId} => 通常攻撃");
+                Debug.Log($"{characterType} : {characterId}は通常攻撃");
 
                 //通常攻撃の処理>開始
                 animator.SetBool("Attack", true);
@@ -287,7 +288,7 @@ namespace Battle
         {
             if (!canState) yield break;
             canState = false;
-            Debug.Log($"{characterType} : {characterId} => ノックバック");
+            Debug.Log($"{characterType} : {characterId}はノックバック");
 
             //ノックバック処理>開始 TODOノックバック処理
             yield return new WaitForSeconds(1);
@@ -303,17 +304,13 @@ namespace Battle
         /// </summary>
         private IEnumerator Death()
         {
-            //if (!canState) yield break;
-            //canState = false;
-            Debug.Log($"{characterType} : {characterId} => 死亡");
+            Debug.Log($"{characterType} : {characterId}は死亡");
             //死亡処理>開始　TODO死亡処理
             animator.SetBool("Death", true);
             yield return new WaitForSeconds(3);
 
             //死亡処理>終了
             this.gameObject.SetActive(false);
-
-            //canState = true;
         }
 
         /// <summary>
@@ -322,7 +319,7 @@ namespace Battle
         /// <param name="atkPower">攻撃力</param>
         public void Damage(float atkPower = 0, float atkkb = 0)
         {
-            //Debug.Log($"{characterType} : {characterId} => 被ダメージ / Hpは{Hp}");
+            //Debug.Log($"{characterType} : {characterId}は被ダメージ / Hpは{Hp}");
             //ダメージ計算TODO防御力も計算
             Hp -= atkPower;
             if (Hp <= 0)
@@ -384,11 +381,7 @@ namespace Battle
             if (t.isTrigger == true) return;
             if (characterType == CharacterType.Ally && t.CompareTag("enemy") || characterType == CharacterType.Enemy && t.CompareTag("player"))
             {
-                if (targets.Contains(t.gameObject))
-                {
-                    targets.Remove(t.gameObject);
-                    if (targets.Count == 0) state = State.Walk;
-                }
+                if (targets.Contains(t.gameObject)) targets.Remove(t.gameObject);
             }
         }
     }

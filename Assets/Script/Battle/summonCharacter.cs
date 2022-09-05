@@ -7,23 +7,23 @@ using UnityEngine.UI;
 public class summonCharacter : MonoBehaviour
 
 {
-    // Editor側で設定する値
+    // Editor?????????????l
     public string characterName;
     public GameObject characterPanel;
     public string prefabPath;
     public GameObject magicPower;
     public GameObject backgroud;
 
-    // キャラクター設定
+    // ?L?????N?^?[????
     public int cost;
     private float summonCoolDown;
     private int limit;
 
-    // 制御用変数
+    // ?????p????
     private float summonCoolTime;
     private string status; //skill summon wait
 
-    // 処理用内部設定
+    // ?????p????????
     private GameObject characterPrefab;
     private MagicPowerController magicPowerController;
     private Image backgroudImage;
@@ -32,29 +32,31 @@ public class summonCharacter : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        // 召喚用のオブジェクト類のロード
+        // ?????p???I?u?W?F?N?g???????[?h
         characterPrefab = Resources.Load<GameObject>(prefabPath);
         magicPowerController = magicPower.GetComponent<MagicPowerController>();
         backgroudImage = backgroud.GetComponent<Image>();
         animator = GetComponent<Animator>();
 
-        // キャラクターデータから取り出す 
+        // ?L?????N?^?[?f?[?^?????????o?? 
         summonCoolDown = 10.0f;
         limit = 1;
 
-        // 召喚ボタンの制御
+        // ?????{?^????????
         summonCoolTime = 0.0f;
         status = "wait";
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (status == "wait") {
-            if (summonCoolTime == 0.0f) {
-                if(cost <= magicPowerController.magicPower) { 
-                    // キャラクターの数を管理する要素も追加したい
+        if (status == "wait")
+        {
+            if (summonCoolTime == 0.0f)
+            {
+                if (cost <= magicPowerController.magicPower)
+                {
+                    // ?L?????N?^?[???????????????v?f????????????
                     status = "summon";
                     animator.SetBool("summon", true);
                     this.GetComponent<EventTrigger>().enabled = true;
@@ -64,11 +66,12 @@ public class summonCharacter : MonoBehaviour
             summonCoolTime = Mathf.Max(0.0f, summonCoolTime - Time.deltaTime);
         }
 
-        // 召喚可能状態でもパワーが少なければタッチできない
-        if (status == "summon") {
+        // ???????\?????????p???[?????????????^?b?`????????
+        if (status == "summon")
+        {
             if (magicPowerController.magicPower < cost || 0.0f < summonCoolTime)
             {
-                // キャラクターの数を管理する要素も追加したい
+                // ?L?????N?^?[???????????????v?f????????????
                 status = "wait";
                 animator.SetBool("summon", false);
                 this.GetComponent<EventTrigger>().enabled = false;
@@ -78,10 +81,10 @@ public class summonCharacter : MonoBehaviour
 
     }
 
-    public void OnClick() {
-        if (magicPowerController.UseMagicPower(cost)) {
-            Debug.Log("召喚に成功しました");
-
+    public void OnClick()
+    {
+        if (magicPowerController.UseMagicPower(cost))
+        {
             GameObject characterClone = Instantiate(this.characterPrefab, this.transform);
             characterClone.transform.SetParent(characterPanel.transform, false);
             summonCoolTime = summonCoolDown;

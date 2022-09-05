@@ -9,7 +9,7 @@ public class Tower : MonoBehaviour, IDamage
     private float maxHp;
 
     //Hpプロパティ
-    private float hp = 0;
+    private float hp = 100;
     public float Hp
     {
         get { return hp; }
