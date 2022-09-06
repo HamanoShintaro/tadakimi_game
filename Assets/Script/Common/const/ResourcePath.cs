@@ -11,5 +11,4 @@ public class ResourcePath : MonoBehaviour
 
     public const string databasePath = "DataBase/DataBase/";
     public const string CharacterInfoDataBasePath = databasePath + "CharacterInfoDataBase";
-
 }

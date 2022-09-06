@@ -6,7 +6,6 @@ using System;
 [Serializable]
 public class CharacterBasicInfoDataBase : ScriptableObject
 {
-	// ??????????
 	[SerializeField]
 	private List<CharacterBasicInfo> characterBasicInfoList = new List<CharacterBasicInfo>();
 }

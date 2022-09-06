@@ -2,48 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// リザルト画面に変更を加える処理
+/// </summary>
 public class ResultController : MonoBehaviour
 {
-    private CanvasGroup canvasGroup;
-    public bool winFlg;
-    public GameObject winnerPanel;
-    public GameObject loserPanel;
-
-    private float transitionSpeed;
-
-    public GameObject gameController;
-    public AudioClip clip;
-
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// リザルトパネルを表示・非表示する
+    /// </summary>
+    /// <param name="isWinner">勝利 or 敗北</param>
+    /// <param name="isOn">表示 or 非表示</param>
+    public void OnResultPanel(bool isWinner = true, bool isOn = true)
     {
-        canvasGroup = GetComponent<CanvasGroup>();
-        canvasGroup.alpha = 0;
-
-        AudioSource audioSource = gameController.GetComponent<AudioSource>();
-        audioSource.Stop();
-        audioSource.PlayOneShot(clip);
-
-
-        transitionSpeed = 0.8f;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (canvasGroup.alpha < 1.0f) {
-            canvasGroup.alpha += transitionSpeed * Time.unscaledDeltaTime;
-            if(canvasGroup.alpha >= 1.0f)
-            {
-                if (winFlg)
-                {
-                    winnerPanel.SetActive(true);
-                }
-                else
-                {
-                    loserPanel.SetActive(true);
-                }
-            }
-        }
+        if (isWinner) transform.Find("winningPanel").gameObject.SetActive(isOn);
+        else transform.Find("loserPanel").gameObject.SetActive(isOn);
     }
 }

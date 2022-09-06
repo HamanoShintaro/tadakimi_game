@@ -27,8 +27,8 @@ public class CharacterBasic : MonoBehaviour
     public AudioClip seAttack;
 
     // 初期位置X,Y と レベル
-    public void InitStatus(float initiateX,float initiateY, int lv) {
-
+    public void InitStatus(float initiateX, float initiateY, int lv)
+    {
         characterInfo = Resources.Load<CharacterInfo>(ResourcePath.characterInfoPath + id);
         st_params = characterInfo.status[lv];
 
@@ -38,13 +38,13 @@ public class CharacterBasic : MonoBehaviour
         hp = st_params.hp;
 
         this.GetComponent<RectTransform>().anchoredPosition = new Vector2(initiateX, initiateY);
-
     }
-
-    public string Damage(int d, int kb) {
-        hp =- d;
+    //TODOインターフェイスに入れる
+    public string Damage(int d, int kb)
+    {
+        hp = -d;
         string status = "";
-        if(hp <= 0)
+        if (hp <= 0)
         {
             StartCoroutine(Death());
             status = "death";
@@ -55,7 +55,9 @@ public class CharacterBasic : MonoBehaviour
         }
         return status;
     }
-    public void Recover(int d) {
+    //回復
+    public void Recover(int d)
+    {
         hp = Mathf.Max(hp + d, maxHp);
     }
     private IEnumerator Death()

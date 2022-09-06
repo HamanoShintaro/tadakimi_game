@@ -1,33 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using static Battle.Dominator;
 
+/// <summary>
+/// バトルシーンの管理をするクラス
+/// </summary>
 public class BattleController : MonoBehaviour
 {
+    [SerializeField]
+    [Header("獲得金額テキスト")]
+    private Text[] getMoneyText;
 
-    // ���͊֘A
+    [SerializeField]
+    [Header("トータル金額テキスト")]
+    private Text[] totalMoneyText;
+
     private Dictionary<int, float> recovery_magic = new Dictionary<int, float>();
     private Dictionary<int, int> max_magic = new Dictionary<int, int>();
+
+    [Header("マジックステータス")]
     public float magic_power;
     public int magic_level;
     public int magic_recovery_level;
     private float magic_recovery_adjust;
 
-    public GameObject magicPower; // �X�N���v�g�����Ώ�
-    private MagicPowerController magicPowerController;
-    public string resultType = "";
-    public GameObject performancePanel;
+    [SerializeField, HideInInspector]
+    private GameObject magicPower;
 
-    // Start is called before the first frame update
+    private MagicPowerController magicPowerController;
+
+    [Header("ゲームタイマー")]
+    public int gameTimer = 0;
+
     void Start()
     {
-        // ���u��(���[�U�[�ݒ�)
         magic_level = 1;
 
         magic_recovery_level = 0;
         magic_recovery_adjust = 1 + magic_level * 0.2f;
-        
-        // ���͑����y�[�X�̒�`(DB�ڐA)
+
+        //レベルごとの回復量
         recovery_magic[1] = 5.0f * magic_recovery_adjust;
         recovery_magic[2] = 7.0f * magic_recovery_adjust;
         recovery_magic[3] = 10.0f * magic_recovery_adjust;
@@ -35,8 +49,7 @@ public class BattleController : MonoBehaviour
         recovery_magic[5] = 22.5f * magic_recovery_adjust;
         recovery_magic[6] = 30.0f * magic_recovery_adjust;
         recovery_magic[7] = 40.0f * magic_recovery_adjust;
-
-        // ���͍ő�l�̒�`
+        //レベルごとの最大値
         max_magic[1] = 50 + (magic_level - 1) * 5;
         max_magic[2] = 100 + (magic_level - 1) * 10;
         max_magic[3] = 150 + (magic_level - 1) * 15;
@@ -47,38 +60,102 @@ public class BattleController : MonoBehaviour
 
         magicPowerController = magicPower.GetComponent<MagicPowerController>();
 
+        UpMagicLevel();
+
+        //タイマーをスタート
+        StartCoroutine(StartTimer());
+
+        //ゲームのプレイ時間をリセットする
+        var playTime = PlayerPrefs.GetInt(PlayerPrefabKeys.playTime);
+        PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, playTime + gameTimer);
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator StartTimer()
     {
-        if (magic_recovery_level == 0) {
-            UpMagicLevel();
+        var wait = new WaitForSeconds(1f);
+        while(true)
+        {
+            yield return wait;
+            gameTimer++;
         }
-        
     }
 
-    // ���@���x���A�b�v�̏���
+    /// <summary>
+    /// レベルアップしたら、マジックパワーのレベルを上げるメソッド
+    /// </summary>
     public void UpMagicLevel()
     {
-        Debug.Log("���x������");
-        magic_recovery_level = magic_recovery_level + 1;
+        //レベルを上げる
+        magic_recovery_level++;
+        //マジックパワーコントローラーの上限を引き上げる
         magicPowerController.maxMagicPower = max_magic[magic_recovery_level];
+        //マジックパワーコントローラーの回復量を引き上げる
         magicPowerController.recoverMagicPower = recovery_magic[magic_recovery_level];
-
     }
-    public void viewResult(string type)
+
+    public void GameStop(TypeLeader type)
     {
-        // type�� win or lose;
-        // ���Ԃ��~����
-        StartCoroutine(gameStop());
-        // ���U���g�p�l����\������B���̎��Awin��lose�����U���g�p�l������{������
-        resultType = type;
-        performancePanel.SetActive(true);
+        StartCoroutine(GameStopCoroutine(type));
     }
 
-    private IEnumerator gameStop() {
+    /// <summary>
+    /// バトルシーンを止める処理(味方or敵のリーダーのHPが0で呼び出す)
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    private IEnumerator GameStopCoroutine(TypeLeader type)
+    {
+        if (type == TypeLeader.AllyLeader)
+        {
+            //ゲームのプレイ時間を記録
+            var playTime = PlayerPrefs.GetInt(PlayerPrefabKeys.playTime);
+            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, playTime + gameTimer);
+
+            //取得した金額を計算
+            var getMoney = 1 * gameTimer;//TODO50のマジックナンバー
+            UpdateUI(getMoney);
+
+            //リザルト画面を表示
+            GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(false);
+        }
+        else
+        {
+            //ゲームのプレイ時間をリセット
+            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, 0);
+
+            //取得した金額を計算
+            var getMoney = 1 * gameTimer;//TODO50のマジックナンバー
+            UpdateUI(getMoney);
+
+            //現在のステージを取得する
+            int clearStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.clearStageId);
+            //次のステージを記録する
+            PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, clearStageId + 1);
+            //リザルト画面を表示
+            GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(true);
+        }
+
+       
+
         yield return new WaitForSeconds(1.5f);
         Time.timeScale = 0;
+        Debug.Log("終了");
+    }
+
+    /// <summary>
+    /// 取得金額とトータル金額を表示する
+    /// </summary>
+    /// <param name="getMoney"></param>
+    private void UpdateUI(int getMoney)
+    {
+        getMoneyText[0].text = $"{getMoney}";
+        getMoneyText[1].text = $"{getMoney}";
+        //取得金額をセーブ
+        PlayerPrefs.SetInt(PlayerPrefabKeys.playerGetMoney, getMoney);
+
+        //トータル金額を計算
+        int totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney) + getMoney;
+        totalMoneyText[0].text = $"{totalMoney}";
+        totalMoneyText[1].text = $"{totalMoney}";
     }
 }

@@ -4,81 +4,70 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GuageController : MonoBehaviour
+namespace Battle
 {
-    // Start is called before the first frame update
-    [SerializeField]
-    private Image GreenGauge;
-    [SerializeField]
-    private Image RedGauge;
-    [SerializeField]
-    private GameObject smoke;
-
-    private Tween redGaugeTween;
-
-    private GameObject tower;
-    private movingEnemyPtn001 enemyManage;
-
-    private int maxHp;
-    private int befHp;
-    private int hp;
-
-    private GameObject canvas;
-    private BattleController battleController;
-
-    private void Start()
+    /// <summary>
+    /// Êïµ„Çø„ÉØ„Éº„ÅÆ„Ç≤„Éº„Ç∏ÁÆ°ÁêÜ„ÅÆ„ÇØ„É©„Çπ
+    /// </summary>
+    public class GuageController : MonoBehaviour
     {
-        tower = transform.parent.gameObject;
-        enemyManage = tower.GetComponent<movingEnemyPtn001>();
-        maxHp = enemyManage.hp;
-        // Debug.Log(maxHp);
-        smoke.SetActive(false);
-        canvas = GameObject.Find("Canvas");
-        battleController = canvas.GetComponent<BattleController>();
+        [SerializeField]
+        private Image GreenGauge;
 
-    }
+        [SerializeField]
+        private Image RedGauge;
 
-    private void Update()
-    {
+        [SerializeField]
+        private GameObject smoke;
 
-        hp = enemyManage.hp;
-        if(hp != befHp) {
-            // Debug.Log("ïœâªëO" + befHp.ToString() + "  ïœâªå„" + hp.ToString());
+        private Tween redGaugeTween;
+
+        private Tower tower;
+
+        //Hp„Ç≤„Éº„Ç∏„ÅÆÂ§âÊï∞
+        private float maxHp;
+        private float befHp;
+        private float hp;
+
+        private void Start()
+        {
+            //Êïµ„Çø„ÉØ„Éº„ÅÆ„Ç≠„É£„É©„ÇØ„Çø„Éº„Ç≥„Ç¢ „Ç≥„É≥„Éù„Éº„Éç„É≥„Éà„ÇíÂèñÂæó
+            tower = this.transform.parent.GetComponent<Tower>();
+            maxHp = tower.Hp;
+            smoke.SetActive(false);
+        }
+
+        private void Update()
+        {
+            hp = tower.Hp;
+            if (hp == befHp) return;
+            Debug.Log(hp);
+            //Hp„Å´Â§âÊõ¥„Åå„ÅÇ„Çã„Å™„Çâ„Ç≤„Éº„Ç∏„Ç¢„Éã„É°„Éº„Ç∑„Éß„É≥„Çí„Åô„Çã
             GaugeReduction(maxHp, 1.0f * befHp / maxHp, 1.0f * hp / maxHp);
+            befHp = hp;
+            if ((1.0f * hp / maxHp) < 0.5f) smoke.SetActive(true);
         }
-        befHp = hp;
-        if(!smoke.activeSelf && (1.0f * hp / maxHp) < 0.5f)
+
+        /// <summary>
+        /// ÊïµHp„Ç≤„Éº„Ç∏„ÅÆ„Ç¢„Éã„É°„Éº„Ç∑„Éß„É≥„Çí„Åô„Çã„É°„ÇΩ„ÉÉ„Éâ
+        /// </summary>
+        /// <param name="maxHp"></param>
+        /// <param name="valueFrom"></param>
+        /// <param name="valueTo"></param>
+        /// <param name="time"></param>
+        public void GaugeReduction(float maxHp, float valueFrom, float valueTo, float time = 0.5f)
         {
-            smoke.SetActive(true);
-        }
-        if (hp < 0) { 
-            battleController.viewResult("win"); 
+            GreenGauge.fillAmount = valueTo;
+            if (redGaugeTween != null) redGaugeTween.Kill();
+            redGaugeTween = DOTween.To(
+                () => valueFrom,
+                x =>
+                {
+                    RedGauge.fillAmount = x;
+                },
+                valueTo,
+                time
+            );
         }
     }
-    // hpÉQÅ[ÉWÇå∏ÇÁÇ∑èàóùÅB
-    // èâä˙ílÅAåªç›ÇÃhpÅAïœâªëOÇÃäÑçáÅAïœâªå„ÇÃäÑçáÅAÉIÉvÉVÉáÉìÇ≈ïœâªÇ…Ç©ÇØÇÈéûä‘
-    public void GaugeReduction(float maxHp, float valueFrom, float valueTo, float time = 0.5f)
-    {
-        // Debug.Log("hpåªè€èàóùäJén");
-        // Debug.Log(valueFrom);
-        // Debug.Log(valueTo);
-        // óŒÉQÅ[ÉWå∏è≠
-        GreenGauge.fillAmount = valueTo;
-
-        if (redGaugeTween != null)
-        {
-            redGaugeTween.Kill();
-        }
-
-        // ê‘ÉQÅ[ÉWå∏è≠
-        redGaugeTween = DOTween.To(
-            () => valueFrom,
-            x => {
-                RedGauge.fillAmount = x;
-            },
-            valueTo,
-            time
-        );
-    }
-
 }

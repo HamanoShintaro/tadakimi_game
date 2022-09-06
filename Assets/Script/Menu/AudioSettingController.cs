@@ -17,7 +17,6 @@ public class AudioSettingController : MonoBehaviour
 
     public GameObject Canvas;
 
-    // Start is called before the first frame update
     void Start()
     {
         BGMSlider = BGM.GetComponent<Slider>();
@@ -33,7 +32,6 @@ public class AudioSettingController : MonoBehaviour
         volumeCV = CVSlider.value;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(BGMSlider.value != volumeBGM)

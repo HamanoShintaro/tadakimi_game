@@ -4,47 +4,45 @@ using UnityEngine;
 
 public class AppearController : MonoBehaviour
 {
-    private BattleStageSummonEnemy battleStageSummonEnemy;
-    private string stageId;
-    private string dataBasePath = "DataBase/Data/BattleStageSummonEnemy/";
-
     private List<float> times = new List<float>();
     private List<GameObject> enemies = new List<GameObject>();
-    private float time;
-    private int itemNumber;
-    private int loopInt;
-    private bool endFlg;
+    private float time = 0.0f;
+    private int itemNumber = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        //�ǂ�������Ƃ肽��
-        stageId = "001";
-        battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>(dataBasePath + stageId);
+        //現在のステージを取得する
+        var stageId = PlayerPrefs.GetInt(PlayerPrefabKeys.clearStageId).ToString("000");
+        Debug.Log(stageId);
+        //TODOステージIDを組み込む
+        var battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/001");
         times = battleStageSummonEnemy.GetTimes();
         enemies = battleStageSummonEnemy.GetEnemies();
-        time = 0.0f;
-        itemNumber = 0;
-        loopInt = 0;
-        endFlg = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
+    {
+        GeneratorCharacter();
+    }
+
+    /// <summary>
+    /// データベースからキャラクターの出撃情報(times:enemies)を取得して生成するメソッド
+    /// </summary>
+    private void GeneratorCharacter()
     {
         time += Time.deltaTime;
-        if(!endFlg){
-            if (loopInt == times.Count)
+        try
+        {
+            if (time >= times[itemNumber])
             {
-                endFlg = true;
-            }
-            else if (time >= times[loopInt])
-            {
-                loopInt++;
                 GameObject characterClone = Instantiate(enemies[itemNumber], this.transform);
                 characterClone.transform.SetParent(this.gameObject.transform, false);
                 itemNumber++;
             }
+        }
+        catch
+        {
+
         }
     }
 }
