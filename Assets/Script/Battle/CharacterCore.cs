@@ -129,11 +129,9 @@ namespace Battle
 
         private void Start()
         {
-            //TODO取得>characterIdから選択できるように変更する
-            var characterId = (CharacterId.Volcus_01).ToString();
-            //var characterId = "Volcus_01";
+            var characterIdPath = characterId.ToString();
             //maxHp取得
-            maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].hp;
+            maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterIdPath}").status[0].hp;
             Hp = maxHp;
             //maxSpeed取得
             maxSpeed = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].speed / 300;
