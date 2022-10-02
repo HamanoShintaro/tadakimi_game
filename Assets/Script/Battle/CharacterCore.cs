@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Battle
 {
+    //TODOhasSkillとhasSpecialをつける=>インターフェイスで呼び出す??
     /// <summary>
     /// キャラクター > (ステータス管理/歩くor攻撃or死亡orノックバックの処理/回復or被ダメージor強化の処理)をするメソッド
     /// </summary>
@@ -17,8 +18,14 @@ namespace Battle
         private CharacterId characterId;
 
         [SerializeField]
-        [Header("味方or敵")]
+        [Header("味方/敵")]
         private CharacterType characterType;
+
+        [SerializeField]
+        private bool isDominator;
+
+        [SerializeField]
+        private Viewport viewport;
 
         //ステータス
         private float maxHp;
@@ -58,17 +65,17 @@ namespace Battle
         private bool canSkillCoolTime = true;
 
         //プレイヤーキャラクターの種類
-        private enum CharacterId
+        public enum CharacterId
         {
             Volcus_01 = 01,
-            b = 02,
+            solider = 02,
             c = 03
         }
 
         //キャラクターの種類=>味方or敵
         private enum CharacterType
         {
-            Ally,
+            Buddy,
             Enemy
         }
 
@@ -129,9 +136,11 @@ namespace Battle
 
         private void Start()
         {
-            var characterIdPath = characterId.ToString();
+            //var characterIdPath = characterId.ToString();
+            //var characterTypePath = characterType.ToString();
+            //TODO0をレベルに変更する
             //maxHp取得
-            maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterIdPath}").status[0].hp;
+            maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].hp;
             Hp = maxHp;
             //maxSpeed取得
             maxSpeed = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].speed / 300;
@@ -147,13 +156,13 @@ namespace Battle
             defKB = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].defKB;
 
             //スキルのコスト取得
-            skillCost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/volcus_01").skill.cost;
+            skillCost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").skill.cost;
 
             //スキルクールタイム取得
-            skillCoolTime = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/volcus_01").skill.cd;
+            skillCoolTime = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").skill.cd;
 
             //スキルエフェクト取得
-            skillCoolTime = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/volcus_01").skill.cd;
+            skillCoolTime = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").skill.cd;
 
             //マジックコントローラー取得
             magicPowerController = GameObject.Find("Canvas/Render/controlPanel/power").GetComponent<MagicPowerController>();
@@ -176,9 +185,16 @@ namespace Battle
             //Debug.Log(state);
             //状態の優先順位は死亡>ノックバック>攻撃>歩く
             if (!canState) return;
+            //プレイヤーキャラクターかつ移動入力中は処理を中断
+            //TODOアニメーションも中断する
+            if (isDominator && viewport.isMove) return;
             if (state == State.KnockBack) StartCoroutine(KnockBack());
             else if (state == State.Attack) StartCoroutine(Attack());
-            else if (state == State.Walk) Walk();
+            else if (state == State.Walk)
+            {
+                if (isDominator) return;
+                Walk();
+            }
         }
 
         /// <summary>
@@ -188,7 +204,7 @@ namespace Battle
         {
             //Debug.Log($"{characterType} : {characterId}は歩く");
             if (!canMove) return;
-            if (characterType == CharacterType.Ally) this.transform.position = new Vector2(this.transform.position.x - speed, 400);
+            if (characterType == CharacterType.Buddy) this.transform.position = new Vector2(this.transform.position.x - speed, 400);
             else if (characterType == CharacterType.Enemy) this.transform.position = new Vector2(this.transform.position.x + speed, 400);
         }
 
@@ -305,7 +321,7 @@ namespace Battle
             Debug.Log($"{characterType} : {characterId}は死亡");
             //死亡処理>開始　TODO死亡処理
             animator.SetBool("Death", true);
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(1);
 
             //死亡処理>終了
             this.gameObject.SetActive(false);
@@ -366,7 +382,7 @@ namespace Battle
         private void OnTriggerStay2D(Collider2D t)
         {
             if (t.isTrigger == true) return;
-            if (characterType == CharacterType.Ally && t.CompareTag("enemy") || characterType == CharacterType.Enemy && t.CompareTag("player"))
+            if (characterType == CharacterType.Buddy && t.CompareTag("enemy") || characterType == CharacterType.Enemy && t.CompareTag("player"))
             {
                 state = State.Attack;
                 if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
@@ -377,7 +393,7 @@ namespace Battle
         private void OnTriggerExit2D(Collider2D t)
         {
             if (t.isTrigger == true) return;
-            if (characterType == CharacterType.Ally && t.CompareTag("enemy") || characterType == CharacterType.Enemy && t.CompareTag("player"))
+            if (characterType == CharacterType.Buddy && t.CompareTag("enemy") || characterType == CharacterType.Enemy && t.CompareTag("player"))
             {
                 if (targets.Contains(t.gameObject)) targets.Remove(t.gameObject);
             }

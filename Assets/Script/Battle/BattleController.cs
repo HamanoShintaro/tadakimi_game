@@ -29,10 +29,19 @@ public class BattleController : MonoBehaviour
     [SerializeField, HideInInspector]
     private GameObject magicPower;
 
-    private MagicPowerController magicPowerController;
-
+    [SerializeField]
     [Header("ゲームタイマー")]
     public int gameTimer = 0;
+
+    [SerializeField]
+    private Image backGround;
+
+    private MagicPowerController magicPowerController;
+
+    /// <summary>
+    /// ステージ情報が格納されたクラス
+    /// </summary>
+    private BattleStageSummonEnemy battleStageSummonEnemy;
 
     void Start()
     {
@@ -62,6 +71,15 @@ public class BattleController : MonoBehaviour
 
         UpMagicLevel();
 
+        //ステージ番号を取得
+        var currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
+
+        //ステージ情報(ステージ番号)が格納されたクラスを取得
+        battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
+
+        //背景画像を設定
+        backGround.sprite = battleStageSummonEnemy.GetBackGround();
+
         //タイマーをスタート
         StartCoroutine(StartTimer());
 
@@ -70,6 +88,10 @@ public class BattleController : MonoBehaviour
         PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, playTime + gameTimer);
     }
 
+    /// <summary>
+    /// 戦闘時間を測るメソッド
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator StartTimer()
     {
         var wait = new WaitForSeconds(1f);
@@ -93,6 +115,10 @@ public class BattleController : MonoBehaviour
         magicPowerController.recoverMagicPower = recovery_magic[magic_recovery_level];
     }
 
+    /// <summary>
+    /// 戦闘を終了するメソッド
+    /// </summary>
+    /// <param name="type">味方or敵</param>
     public void GameStop(TypeLeader type)
     {
         StartCoroutine(GameStopCoroutine(type));
@@ -135,9 +161,7 @@ public class BattleController : MonoBehaviour
             GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(true);
         }
 
-       
-
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         Time.timeScale = 0;
         Debug.Log("終了");
     }

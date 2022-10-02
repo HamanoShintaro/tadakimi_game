@@ -35,7 +35,6 @@ public class CharacterMenuController : MonoBehaviour
 
     private string currentCharacter;
 
-    // Start is called before the first frame update
     void Start()
     {
         menuController = menuControllerObj.GetComponent<MenuController>();
@@ -45,7 +44,6 @@ public class CharacterMenuController : MonoBehaviour
         setCharacter(saveController.characterSave.list[0].id);
     }
 
-    // Update is called once per frame
     void Update()
     {
         

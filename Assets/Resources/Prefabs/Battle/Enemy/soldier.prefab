@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 3120535187910808082}
   - component: {fileID: 3120535187910808083}
   - component: {fileID: 3120535187910808084}
-  - component: {fileID: 3120535187910808085}
   - component: {fileID: 3120535187910808080}
   - component: {fileID: 3120535187910808079}
   - component: {fileID: 3120535187910808078}
+  - component: {fileID: -7035672404364616847}
   m_Layer: 5
   m_Name: soldier
   m_TagString: enemy
@@ -128,34 +128,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 55.3, y: 77.3}
   m_EdgeRadius: 0
---- !u!114 &3120535187910808085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3120535187910808087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b501625ad623946d78b6487053a69e9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingSpeed: 600
-  LR: 1
-  characterName: 
-  hp: 15
-  attack: 2
-  attackInterval: 2.9
-  hasSkill: 0
-  skillCoolDown: 0
-  skillInterval: 0
-  cost: 0
-  magicPower: {fileID: 0}
-  characterPanel: {fileID: 0}
-  initiateX: 200
-  initiateY: 300
-  seAttack: {fileID: 8300000, guid: da0d7dd9464268d4a96432eec1a48f9b, type: 3}
-  isTower: 0
 --- !u!61 &3120535187910808080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -297,3 +269,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7035672404364616847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3120535187910808087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542f8f24575d843208082f02847cd7b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memo: 
+  characterId: 1
+  characterType: 1

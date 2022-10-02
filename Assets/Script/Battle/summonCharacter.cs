@@ -4,77 +4,87 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class summonCharacter : MonoBehaviour
+namespace Battle
 {
-    public string characterName;
-    public GameObject characterPanel;
-    public string prefabPath;
-    public GameObject magicPower;
-    public GameObject backgroud;
-
-    public int cost;
-    private float summonCoolDown;
-    private int limit;
-
-    private float summonCoolTime;
-    private string status; //skill summon wait
-
-    private GameObject characterPrefab;
-    private MagicPowerController magicPowerController;
-    private Image backgroudImage;
-    private Animator animator;
-
-    private void Start()
+    public class SummonCharacter : MonoBehaviour
     {
-        characterPrefab = Resources.Load<GameObject>(prefabPath);
-        magicPowerController = magicPower.GetComponent<MagicPowerController>();
-        backgroudImage = backgroud.GetComponent<Image>();
-        animator = GetComponent<Animator>();
+        [HideInInspector]
+        public GameObject characterPanel;
 
-        summonCoolDown = 10.0f;
-        limit = 1;
+        [SerializeField, Header("キャラクターID")]
+        private CharacterCore.CharacterId characterId;
 
-        summonCoolTime = 0.0f;
-        status = "wait";
-    }
+        [HideInInspector]
+        public GameObject magicPower;
 
-    void Update()
-    {
-        if (status == "wait")
+        [HideInInspector]
+        public GameObject backgroud;
+
+        private int cost;
+        private float summonCoolDown;
+
+        private float summonCoolTime;
+        private string status;
+
+        private GameObject characterPrefab;
+        private MagicPowerController magicPowerController;
+        private Image backgroudImage;
+        private Animator animator;
+
+        private void Start()
         {
-            if (summonCoolTime == 0.0f)
+            //キャラクターをリソースから取得
+            characterPrefab = Resources.Load<GameObject>($"Prefabs/Battle/Buddy/{characterId}");
+            //コストを取得
+            cost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].cost;//0をレベルに変更する
+
+            magicPowerController = magicPower.GetComponent<MagicPowerController>();
+            backgroudImage = backgroud.GetComponent<Image>();
+            animator = GetComponent<Animator>();
+
+            summonCoolDown = 10.0f;
+
+            summonCoolTime = 0.0f;
+            status = "wait";
+        }
+
+        private void Update()
+        {
+            if (status == "wait")
             {
-                if (cost <= magicPowerController.magicPower)
+                if (summonCoolTime == 0.0f)
                 {
-                    status = "summon";
-                    animator.SetBool("summon", true);
-                    this.GetComponent<EventTrigger>().enabled = true;
+                    if (cost <= magicPowerController.magicPower)
+                    {
+                        status = "summon";
+                        animator.SetBool("summon", true);
+                        this.GetComponent<EventTrigger>().enabled = true;
+                    }
+                }
+                backgroudImage.fillAmount = (summonCoolDown - summonCoolTime) / summonCoolDown;
+                summonCoolTime = Mathf.Max(0.0f, summonCoolTime - Time.deltaTime);
+            }
+
+            if (status == "summon")
+            {
+                if (magicPowerController.magicPower < cost || 0.0f < summonCoolTime)
+                {
+                    status = "wait";
+                    animator.SetBool("summon", false);
+                    this.GetComponent<EventTrigger>().enabled = false;
                 }
             }
-            backgroudImage.fillAmount = (summonCoolDown - summonCoolTime) / summonCoolDown;
-            summonCoolTime = Mathf.Max(0.0f, summonCoolTime - Time.deltaTime);
         }
 
-        if (status == "summon")
+        public void OnClick()
         {
-            if (magicPowerController.magicPower < cost || 0.0f < summonCoolTime)
+            if (magicPowerController.UseMagicPower(cost))
             {
-                status = "wait";
-                animator.SetBool("summon", false);
-                this.GetComponent<EventTrigger>().enabled = false;
+                //キャラクターを生成する
+                GameObject characterClone = Instantiate(this.characterPrefab, this.transform);
+                characterClone.transform.SetParent(characterPanel.transform, false);
+                summonCoolTime = summonCoolDown;
             }
-
-        }
-
-    }
-
-    public void OnClick()
-    {
-        if (magicPowerController.UseMagicPower(cost))
-        {
-            GameObject characterClone = Instantiate(this.characterPrefab, this.transform);
-            characterClone.transform.SetParent(characterPanel.transform, false);
-            summonCoolTime = summonCoolDown;
         }
     }
 }
