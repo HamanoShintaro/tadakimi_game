@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1127454496655260705}
   - component: {fileID: 811065982597100887}
   m_Layer: 5
-  m_Name: chara_icon_01
+  m_Name: chara_icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

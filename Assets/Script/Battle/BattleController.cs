@@ -125,7 +125,7 @@ public class BattleController : MonoBehaviour
     }
 
     /// <summary>
-    /// バトルシーンを止める処理(味方or敵のリーダーのHPが0で呼び出す)
+    /// 取得金額/トータル金額/プレイ時間/ステージ情報を計算後、リザルトパネルを表示するメソッド(味方or敵のリーダーのHPが0で呼び出す)
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
@@ -139,7 +139,7 @@ public class BattleController : MonoBehaviour
 
             //取得した金額を計算
             var getMoney = 1 * gameTimer;//TODO50のマジックナンバー
-            UpdateUI(getMoney);
+            UpdateMoneyUI(getMoney);
 
             //リザルト画面を表示
             GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(false);
@@ -151,7 +151,7 @@ public class BattleController : MonoBehaviour
 
             //取得した金額を計算
             var getMoney = 1 * gameTimer;//TODO50のマジックナンバー
-            UpdateUI(getMoney);
+            UpdateMoneyUI(getMoney);
 
             //現在のステージを取得する
             int clearStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.clearStageId);
@@ -170,7 +170,7 @@ public class BattleController : MonoBehaviour
     /// 取得金額とトータル金額を表示する
     /// </summary>
     /// <param name="getMoney"></param>
-    private void UpdateUI(int getMoney)
+    private void UpdateMoneyUI(int getMoney)
     {
         getMoneyText[0].text = $"{getMoney}";
         getMoneyText[1].text = $"{getMoney}";

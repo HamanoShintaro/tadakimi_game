@@ -15,6 +15,7 @@ public class Viewport : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //移動入力がある場合は背景を動かす&歩きアニメーション再生 / ない場合はアニメーションを停止
         if (Input.GetKey(KeyCode.A))
         {
             isMove = true;

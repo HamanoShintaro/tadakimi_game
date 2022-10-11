@@ -7,21 +7,29 @@ using System;
 [CreateAssetMenu(fileName = "CharacterInfoDataBase", menuName = "CreateCharacterInfoDataBase")]
 public class CharacterInfoDataBase : ScriptableObject
 {
-	// キャラクター情報
+	/// <summary>
+    /// キャラクター情報のデータベース
+    /// </summary>
 	[SerializeField]
 	private List<CharacterInfo> characterInfoList = new List<CharacterInfo>();
 
-	// IDに合致するキャラクター情報を返却する
-	public CharacterInfo getCharacterInfoByID(string value)
+	/// <summary>
+	/// IDに合致するキャラクター情報を返却する
+	/// </summary>
+	/// <param name="value">取得するキャラクターのID(string)</param>
+	/// <returns>保持キャラクターのリストの中のIDに一致するデータ</returns>
+	public CharacterInfo GetCharacterInfoByID(string value)
 	{
 		return characterInfoList.Find(characterInfo => characterInfo.id == value );
 	}
 
-	// 全てのキャラクター情報を返却する
-	public List<CharacterInfo> getAllCharacterInfo()
+	/// <summary>
+	/// 全てのキャラクター情報を返却する
+	/// </summary>
+	/// <returns>保持キャラクターのリスト</returns>
+	public List<CharacterInfo> GetAllCharacterInfo()
     {
 		return characterInfoList;
     }
-
 }
 

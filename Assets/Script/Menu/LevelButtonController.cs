@@ -13,18 +13,22 @@ public class LevelButtonController : MonoBehaviour
         isProcess = false;
         characterMenuController = characterMenuControllerObj.GetComponent<CharacterMenuController>();
     }
-
+    /*
     public void onClick()
     {
-        if (!isProcess) { 
+        if (!isProcess)
+        {
             isProcess = true;
             if (characterMenuController.CharacterLevelUp())
             {
 
-            } else {
+            }
+            else
+            {
 
             }
             isProcess = false;
         }
     }
+    */
 }
