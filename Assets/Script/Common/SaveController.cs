@@ -28,10 +28,6 @@ public class SaveController : MonoBehaviour
         //2キャラだけ解放する
         InitUser();
         AddCharacterDate("era_01", 1, false);
-
-        Debug.Log("初期化");
-        Debug.Log(characterSave.list[0].level);
-        Debug.Log(characterSave.list.Count);
     }
 
     /// <summary>
@@ -50,45 +46,56 @@ public class SaveController : MonoBehaviour
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeSE)) { PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeSE, GameSettingParams.seVolume); }
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeCV)) { PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeCV, GameSettingParams.cvVolume); }
 
-        // 初期キャラの設定
-        CharacterSaveData.CharacterData characterData = new CharacterSaveData.CharacterData();
-        //ここで設定を決めている(以下の3つの変数を持ったSaveController.CharacterSaveData.CharacterDataをlistに追加するとキャラが増える
-        characterData.id = GameSettingParams.initCharacter;
-        characterData.level = 1;
-        characterData.hasSpecial = false;
-
-        //characterSaveDate.list(リスト)に現在保持しているキャラクターのデータを追加
-        characterSave.list.Add(characterData);
-        characterSave.Save();
-        Debug.Log(characterData.id);
-
+        // 初期キャラを追加
+        AddCharacterDate(GameSettingParams.initCharacter, 1, false);
 
         // 初期編成の設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
         {
-            SaveController.CharacterFormation characterFormation = new SaveController.CharacterFormation();
-            characterFormation.character_1_id = GameSettingParams.initCharacter;
-            characterFormation.character_2_id = "none";
-            characterFormation.character_3_id = "none";
-            characterFormation.character_4_id = "none";
+            CharacterFormation characterFormation = new CharacterFormation();
+            characterFormation.list[0] = GameSettingParams.initCharacter;
+            characterFormation.list[1] = "none";
+            characterFormation.list[2] = "none";
+            characterFormation.list[3] = "none";
 
             characterFormation.Save();
         }
     }
 
+    /// <summary>
+    /// 保持キャラクターのリストにキャラクターを追加する
+    /// </summary>
+    /// <param name="id">キャラクターID(string)</param>
+    /// <param name="level">キャラクターレベル</param>
+    /// <param name="hasSpecial">奥義の有無</param>
     private void AddCharacterDate(string id, int level, bool hasSpecial)
     {
-        SaveController.CharacterSaveData.CharacterData characterData = new SaveController.CharacterSaveData.CharacterData();
-        //ここで設定を決めている(以下の3つの変数を持ったSaveController.CharacterSaveData.CharacterDataをlistに追加するとキャラが増える
+        //追加するキャラクターのデータを作成
+        CharacterSaveData.CharacterData characterData = new CharacterSaveData.CharacterData();
         characterData.id = id;
         characterData.level = level;
         characterData.hasSpecial = hasSpecial;
 
-        //characterSaveDate.list(リスト)に現在保持しているキャラクターのデータを追加
+        //characterSaveDate.listに追加するキャラクターのデータを追加
         characterSave.list.Add(characterData);
+
+        //上書き保存をする
         characterSave.Save();
     }
 
+    /// <summary>
+    /// キャラクターフォーメーションのリストにキャラクターを追加するメソッド
+    /// </summary>
+    /// <param name="characterData">追加するキャラクターのid</param>
+    /// <param name="selectIndex">選択したインデックス</param>
+    public void UpdateCharacterFormationDate(string addId, int selectIndex = 0)
+    {
+        characterFormation.list[selectIndex] = addId;
+    }
+
+    /// <summary>
+    /// 保持キャラクターデータを保存するクラス
+    /// </summary>
     public class CharacterSaveData
     {
         public List<CharacterData> list = new List<CharacterData>();
@@ -130,13 +137,12 @@ public class SaveController : MonoBehaviour
         }
     }
 
-    // キャラクターフォーメーションデータ
+    /// <summary>
+    /// キャラクターフォーメーションデータを保存するクラス
+    /// </summary>
     public class CharacterFormation
     {
-        public string character_1_id;
-        public string character_2_id;
-        public string character_3_id;
-        public string character_4_id;
+        public string[] list = new string[4];
 
         [System.Serializable]
         class Wrapper
@@ -144,13 +150,9 @@ public class SaveController : MonoBehaviour
             public List<string> list;
         }
 
-        public void Save() {
-
+        public void Save()
+        {
             List<string> formation = new List<string>();
-            formation.Add(character_1_id); Debug.Log(character_1_id);
-            formation.Add(character_2_id); Debug.Log(character_2_id);
-            formation.Add(character_3_id); Debug.Log(character_3_id);
-            formation.Add(character_4_id); Debug.Log(character_4_id);
 
             Wrapper wrapper = new Wrapper();
             wrapper.list = formation;
@@ -166,11 +168,11 @@ public class SaveController : MonoBehaviour
             {
                 string saveData = PlayerPrefs.GetString(PlayerPrefabKeys.playerCharacterFormation);
                 Wrapper wrapper = JsonUtility.FromJson<Wrapper>(saveData);
-               
-                character_1_id = wrapper.list[0];
-                character_2_id = wrapper.list[1];
-                character_3_id = wrapper.list[2];
-                character_4_id = wrapper.list[3];
+
+                for (int i = 0; i < list.Length; i++)
+                {
+                    list[i] = wrapper.list[i];
+                }
             }
         }
     }

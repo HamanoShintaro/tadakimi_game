@@ -18,7 +18,7 @@ public class MenuController : MonoBehaviour
 
     private SaveController saveController;
 
-    void Start()
+    private void Start()
     {
         PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         currentView = PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView);

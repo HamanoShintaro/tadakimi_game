@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonActionController : MonoBehaviour
 {
+    /*
     // ボタン要素となるimageを持ったオブジェクトをアタッチする
     public GameObject obj1;
     public GameObject obj2;
@@ -24,8 +25,7 @@ public class ButtonActionController : MonoBehaviour
 
     private bool active;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         active = true;
 
@@ -135,4 +135,5 @@ public class ButtonActionController : MonoBehaviour
             active = true;
         }
     }
+    */
 }   

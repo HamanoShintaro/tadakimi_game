@@ -6,19 +6,20 @@ public class backButtonController : MonoBehaviour
 {
     public GameObject Canvas;
     private MenuController menuController;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         menuController = Canvas.GetComponent<MenuController>();
-
     }
-    public void onClick()
+
+    public void OnClick()
     {
         if (PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView) == PlayerPrefabKeys.senarioMenuView)
         {
             StartCoroutine(menuController.backMenuFromSenario());
         }
-        else if (PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView) == PlayerPrefabKeys.characterMenuView) {
+        else if (PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView) == PlayerPrefabKeys.characterMenuView)
+        {
             StartCoroutine(menuController.backMenuFromCharacter());
         }
         else if (PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView) == PlayerPrefabKeys.settingMenuView)

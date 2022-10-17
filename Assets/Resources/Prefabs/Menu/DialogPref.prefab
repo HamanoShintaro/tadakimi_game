@@ -359,9 +359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85972a0bda2df439e842cda6909d17ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj1: {fileID: 7422961481842859030}
-  obj2: {fileID: 0}
-  obj3: {fileID: 0}
 --- !u!1 &7422961481899406202
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,9 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85972a0bda2df439e842cda6909d17ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj1: {fileID: 7422961482570104996}
-  obj2: {fileID: 0}
-  obj3: {fileID: 0}
 --- !u!114 &7422961482570105003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,7 +838,7 @@ RectTransform:
   m_GameObject: {fileID: 7422961482838945355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.70989585, y: 0.70989585, z: 0.70989585}
+  m_LocalScale: {x: 0.6435185, y: 0.6435185, z: 0.6435185}
   m_Children:
   - {fileID: 7422961481899406205}
   - {fileID: 7422961481616920511}
@@ -854,7 +848,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1919.9999, y: 1080}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7422961482838945358
 CanvasRenderer:

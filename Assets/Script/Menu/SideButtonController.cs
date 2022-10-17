@@ -9,14 +9,12 @@ public class SideButtonController : MonoBehaviour
 
     public string buttonType;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         menuController = Canvas.GetComponent<MenuController>();
-        
     }
 
-    public void onClick() {
+    public void OnClick() {
 
         if (buttonType == PlayerPrefabKeys.senarioMenuView)
         {

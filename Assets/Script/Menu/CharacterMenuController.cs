@@ -41,8 +41,6 @@ public class CharacterMenuController : MonoBehaviour
         saveController = menuController.GetComponent<SaveController>();
 
         SetCharacter(saveController.characterSave.list[0].id);
-        
-        //PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, 100000);
     }
 
     /// <summary>

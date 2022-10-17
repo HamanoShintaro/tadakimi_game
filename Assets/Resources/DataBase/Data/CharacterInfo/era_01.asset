@@ -24,7 +24,7 @@ MonoBehaviour:
     fullsize: {fileID: 21300000, guid: 256fd4527d93349eeaa283368f5f38b6, type: 3}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
     effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
-    icon: {fileID: 21300000, guid: 663e75271942fc142b221205b3b4b305, type: 3}
+    icon: {fileID: 21300000, guid: ba077752023c44b42adc429215104038, type: 3}
     prefab: {fileID: 5095262611280852148, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
   rank: 3
   status:
