@@ -17,7 +17,7 @@ public class SenarioTitleController : MonoBehaviour
     void Start()
     {
         stageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
-        senarioTalkScript = Resources.Load<SenarioTalkScript>(ResourcePath.senarioTalkScriptPath + stageId);
+        senarioTalkScript = Resources.Load<SenarioTalkScript>($"{ResourcePath.senarioTalkScriptPath}{stageId}");
 
         stageNumberText = stageNumber.GetComponent<Text>();
         stageNumberText.text = senarioTalkScript.stage;

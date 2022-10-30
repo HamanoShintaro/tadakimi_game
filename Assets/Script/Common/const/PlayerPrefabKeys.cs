@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPrefabKeys : MonoBehaviour
 {
-    // player status
+    //player status
     public const string currentStageId = "p_current_stage_id";
     public const string clearStageId = "p_clear_stage_id";
     public const string playerMoney = "p_money";
@@ -14,15 +14,18 @@ public class PlayerPrefabKeys : MonoBehaviour
     public const string playerCharacterData = "p_save_character_data";
     public const string playTime = "p_playTime";
 
-    // current view menu
+    //current view menu
     public const string currentMenuView = "current_menu_view";
     public const string mainMenuView = "main";
     public const string senarioMenuView = "senario";
     public const string characterMenuView = "character";
     public const string settingMenuView = "setting";
 
-    // volume controll
+    //volume controll
     public const string volumeBGM = "volume_bgm";
     public const string volumeSE = "volume_se";
     public const string volumeCV = "volume_cv";
+
+    //setting
+    public const string currentLanguage = "current_language";
 }

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 612331453}
   - component: {fileID: 7211816822891827991}
   m_Layer: 5
-  m_Name: Volcus_01
+  m_Name: Era_01
   m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5430fed0218385d4e963e4bedb58825c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 196c4b7b583881940bd27a3ce105c16d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

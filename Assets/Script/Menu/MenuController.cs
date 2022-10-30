@@ -14,7 +14,6 @@ public class MenuController : MonoBehaviour
 
     private string currentView;
     private bool switchingFlg;
-    //public CharacterInfoDataBase characterInfoDataBase;
 
     private SaveController saveController;
 
@@ -24,7 +23,6 @@ public class MenuController : MonoBehaviour
         currentView = PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView);
         switchingFlg = false;
         this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
-        //characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
         saveController = this.GetComponent<SaveController>();
     }
 

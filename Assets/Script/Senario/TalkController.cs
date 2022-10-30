@@ -32,21 +32,18 @@ public class TalkController : MonoBehaviour
     public GameObject characterL;
     public GameObject characterR;
 
-    // ?w?i???X?????????I?u?W?F?N?g????
     public GameObject BackGroundObj;
     private Image BackGroundImage;
 
-    // Start is called before the first frame update
     void Start()
     {
-
+        PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101");
         stageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
-        senarioTalkScript = Resources.Load<SenarioTalkScript>(ResourcePath.senarioTalkScriptPath + stageId);
+        senarioTalkScript = Resources.Load<SenarioTalkScript>($"{ResourcePath.senarioTalkScriptPath}{stageId}");
         num = -1;
 
-        // ???????????A
         bgmSource = canvas.GetComponent<AudioSource>();
-        bgmSource.volume = 0.0f; // ?????[??????
+        bgmSource.volume = 0.0f;
         seSource = Render.GetComponent<AudioSource>();
         seSource.volume = GameSettingParams.seVolume;
         voiceSource = this.GetComponent<AudioSource>();
@@ -54,7 +51,8 @@ public class TalkController : MonoBehaviour
 
         // ?L?????N?^?[???????[?h
         List<string> characterKeys = new List<string>();
-        foreach (SenarioTalkScript.SenarioTalk senarioTalk in senarioTalkScript.senarioTalks) {
+        foreach (SenarioTalkScript.SenarioTalk senarioTalk in senarioTalkScript.senarioTalks)
+        {
             if (!characterKeys.Contains(senarioTalk.name))
             {
                 characterKeys.Add(senarioTalk.name);

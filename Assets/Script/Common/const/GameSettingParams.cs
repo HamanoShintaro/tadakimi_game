@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class GameSettingParams : MonoBehaviour
 {
-    public const string initCharacter = "volcus_01";
+    public const string initCharacter = "Volcus_01";
 
     public const float characterVoiceVolume = 1.0f;
     public const float cvVolume = 1.0f;
@@ -18,4 +18,6 @@ public class GameSettingParams : MonoBehaviour
     public const float ActiveColorParam = 255/255f;
     public const float ActiveScaleParam = 1.0f;
     public const float inActiveScaleParam = 0.95f;
+
+    public const int currentLanguage = 0; //日本語が初期設定
 }

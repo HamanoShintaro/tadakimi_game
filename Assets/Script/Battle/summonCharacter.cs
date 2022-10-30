@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 namespace Battle
 {
+    /// <summary>
+    /// キャラクターの召喚を管理するメソッド
+    /// </summary>
     public class SummonCharacter : MonoBehaviour
     {
         [HideInInspector]
         public GameObject characterPanel;
 
-        [SerializeField, Header("キャラクターID")]
-        private CharacterCore.CharacterId characterId;
+        [SerializeField]
+        private int characterFormationIndex;
 
         [HideInInspector]
         public GameObject magicPower;
@@ -33,15 +36,42 @@ namespace Battle
 
         private void Start()
         {
-            //キャラクターをリソースから取得
-            characterPrefab = Resources.Load<GameObject>($"Prefabs/Battle/Buddy/{characterId}");
-            //コストを取得
-            cost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].cost;//0をレベルに変更する
+            //SaveControllerを生成する
+            SaveController saveController = new SaveController();
 
+            //characterFormationIndexに一致するcharacterFormationのキャラクターを取得する
+            saveController.characterFormation.Load();
+            string characterId = saveController.characterFormation.list[characterFormationIndex];
+            //キャラクターが空の場合はSummonのUIを非表示にする
+            if (characterId == "")
+            {
+                this.gameObject.SetActive(false);
+                return;
+            }
+
+            //召喚するキャラクターをリソースから取得
+            characterPrefab = Resources.Load<GameObject>($"Prefabs/Battle/Buddy/{characterId}");
+            
+            Debug.Log(characterId);
+            //リストからcharacterIdに一致するデータのレベルを取得
+            saveController.characterSave.Load();
+            var list = saveController.characterSave.list;
+            int level = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].id == characterId)
+                {
+                    level = list[i].level;
+                    Debug.Log($"{list[i].id}:Lv{list[i].level}");
+                }
+            }
+            //コストを取得
+            cost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].cost;
             magicPowerController = magicPower.GetComponent<MagicPowerController>();
             backgroudImage = backgroud.GetComponent<Image>();
             animator = GetComponent<Animator>();
-
+            //TODOImageをミニキャラにする
+            transform.Find("character").GetComponent<Image>().sprite = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").image.fullsize;
             summonCoolDown = 10.0f;
 
             summonCoolTime = 0.0f;
@@ -58,7 +88,6 @@ namespace Battle
                     {
                         status = "summon";
                         animator.SetBool("summon", true);
-                        this.GetComponent<EventTrigger>().enabled = true;
                     }
                 }
                 backgroudImage.fillAmount = (summonCoolDown - summonCoolTime) / summonCoolDown;
@@ -71,7 +100,6 @@ namespace Battle
                 {
                     status = "wait";
                     animator.SetBool("summon", false);
-                    this.GetComponent<EventTrigger>().enabled = false;
                 }
             }
         }

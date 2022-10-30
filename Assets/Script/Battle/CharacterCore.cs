@@ -68,8 +68,8 @@ namespace Battle
         public enum CharacterId
         {
             Volcus_01 = 01,
-            solider = 02,
-            c = 03
+            Solider = 02,
+            Era_01 = 03
         }
 
         //キャラクターの種類=>味方or敵
@@ -91,7 +91,7 @@ namespace Battle
         }
 
         //Hpプロパティ
-        private float hp = 0;
+        private float hp = 100;
         public float Hp
         {
             get { return hp; }
@@ -136,9 +136,8 @@ namespace Battle
 
         private void Start()
         {
-            //var characterIdPath = characterId.ToString();
-            //var characterTypePath = characterType.ToString();
             //TODO0をレベルに変更する
+
             //maxHp取得
             maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].hp;
             Hp = maxHp;

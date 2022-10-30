@@ -10,23 +10,17 @@ public class transitionController : MonoBehaviour
     private float alpha;
     private CanvasGroup canvasGroup;
 
-    // Start is called before the first frame update
     void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public IEnumerator StartTransition(CanvasGroup canvasGroup)
     {
         canvasGroup.interactable = false;
         canvasGroup.alpha = 0.0f;
-        while (canvasGroup.alpha < 1.0f) {
+        while (canvasGroup.alpha < 1.0f)
+        {
             canvasGroup.alpha = canvasGroup.alpha + transitionSpeed;
             yield return new WaitForSeconds(0.01f);
         }
@@ -35,7 +29,7 @@ public class transitionController : MonoBehaviour
 
     public IEnumerator ChangeScene(CanvasGroup canvasGroup, string sceneName)
     {
-        while(canvasGroup.alpha > 0)
+        while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha = canvasGroup.alpha - transitionSpeed * 2;
             yield return new WaitForSeconds(0.01f);

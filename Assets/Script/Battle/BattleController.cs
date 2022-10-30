@@ -154,9 +154,11 @@ public class BattleController : MonoBehaviour
             UpdateMoneyUI(getMoney);
 
             //現在のステージを取得する
-            int clearStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.clearStageId);
-            //次のステージを記録する
-            PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, clearStageId + 1);
+            int currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId);
+            //現在のステージをクリアステージとして記録する
+            PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, currentStageId);
+            //次のステージを現在のステージとして記録する
+            PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, currentStageId + 1);
             //リザルト画面を表示
             GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(true);
         }

@@ -19,15 +19,21 @@ public class SaveController : MonoBehaviour
 
     private void Start()
     {
-        characterFormation.Load();
-        characterSave.Load();
-
+        
         //TODOデータ(list)を毎回初期化している
+        //データがあるならLoad()
+        //データがないor初期化ならInitUser()
+
         characterSave.list.RemoveRange(0, characterSave.list.Count);
 
         //2キャラだけ解放する
         InitUser();
-        AddCharacterDate("era_01", 1, false);
+        AddCharacterDate("Era_01", 1, false);
+
+        characterSave.Load();
+        characterFormation.Load();
+
+        Debug.Log(characterFormation.list[0]);
     }
 
     /// <summary>
@@ -35,31 +41,31 @@ public class SaveController : MonoBehaviour
     /// </summary>
     private void InitUser()
     {
-        // menu表示のための設定
+        //menu表示のための設定
         PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
-        // セーブデータの初期設定
+        //セーブデータの初期設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId)) { PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101"); }
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.clearStageId)) { PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, "101"); }
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerMoney)) { PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, 0); }
-        // 音量の初期設定
+        //音量の初期設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeBGM)) { PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeBGM, GameSettingParams.bgmVolume); }
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeSE)) { PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeSE, GameSettingParams.seVolume); }
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeCV)) { PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeCV, GameSettingParams.cvVolume); }
 
-        // 初期キャラを追加
+        //言語の初期設定
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentLanguage)) { PlayerPrefs.SetInt(PlayerPrefabKeys.currentLanguage, GameSettingParams.currentLanguage); }
+
+        //初期キャラを追加
         AddCharacterDate(GameSettingParams.initCharacter, 1, false);
 
-        // 初期編成の設定
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
-        {
-            CharacterFormation characterFormation = new CharacterFormation();
-            characterFormation.list[0] = GameSettingParams.initCharacter;
-            characterFormation.list[1] = "none";
-            characterFormation.list[2] = "none";
-            characterFormation.list[3] = "none";
+        //初期編成の設定
+        CharacterFormation characterFormation = new CharacterFormation();
+        characterFormation.list[0] = GameSettingParams.initCharacter;
+        characterFormation.list[1] = "";
+        characterFormation.list[2] = "";
+        characterFormation.list[3] = "";
 
-            characterFormation.Save();
-        }
+        characterFormation.Save();
     }
 
     /// <summary>
@@ -91,6 +97,9 @@ public class SaveController : MonoBehaviour
     public void UpdateCharacterFormationDate(string addId, int selectIndex = 0)
     {
         characterFormation.list[selectIndex] = addId;
+
+        //上書き保存する
+        //characterFormation.Save();
     }
 
     /// <summary>
@@ -127,7 +136,7 @@ public class SaveController : MonoBehaviour
 
         public void Load()
         {
-            Debug.Log("セーブデータをロードします(保持キャラクター)");
+            Debug.Log("保持キャラクターをロードします");
             if (PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
             {
                 string saveData = PlayerPrefs.GetString(PlayerPrefabKeys.playerCharacterData);
@@ -147,32 +156,25 @@ public class SaveController : MonoBehaviour
         [System.Serializable]
         class Wrapper
         {
-            public List<string> list;
+            public string[] list;
         }
 
         public void Save()
         {
-            List<string> formation = new List<string>();
-
             Wrapper wrapper = new Wrapper();
-            wrapper.list = formation;
-
+            wrapper.list = list;
             string saveData = JsonUtility.ToJson(wrapper);
             PlayerPrefs.SetString(PlayerPrefabKeys.playerCharacterFormation, saveData);
         }
 
         public void Load()
         {
-            Debug.Log("セーブデータをロードします(フォーメーション)");
-            if (PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
+            Debug.Log("フォーメーションデータをロードします");
+            string saveData = PlayerPrefs.GetString(PlayerPrefabKeys.playerCharacterFormation);
+            Wrapper wrapper = JsonUtility.FromJson<Wrapper>(saveData);
+            for (int i = 0; i < list.Length; i++)
             {
-                string saveData = PlayerPrefs.GetString(PlayerPrefabKeys.playerCharacterFormation);
-                Wrapper wrapper = JsonUtility.FromJson<Wrapper>(saveData);
-
-                for (int i = 0; i < list.Length; i++)
-                {
-                    list[i] = wrapper.list[i];
-                }
+                list[i] = wrapper.list[i];
             }
         }
     }

@@ -57,6 +57,13 @@ public class CharacterBox : MonoBehaviour
     /// <param name="addId"></param>
     public void OnSelectedCharacter(string addId)
     {
+        for (int i = 0; i < saveController.characterFormation.list.Length; i++)
+        {
+            if (saveController.characterFormation.list[i] == addId)
+            {
+                return;
+            }
+        }
         saveController.UpdateCharacterFormationDate(addId, selectIndex);
         UpdateCharacterUI();
         Debug.Log($"{selectIndex}番を選択して{addId}に変更する");
@@ -79,14 +86,6 @@ public class CharacterBox : MonoBehaviour
 
         //TODOsaveController.characterSave.list[i].idをレベル順に並び替えて、新たなリストに入れて更新する
 
-        for (int i = 0; i < saveController.characterSave.list.Count; i++)
-        {
-            if (saveController.characterSave.list[i].id == saveController.characterFormation.list[i])
-            {
-                //処理を飛ばす
-            }
-        }
-
         //キャラクターリストの更新
         for (int i = 0; i < saveController.characterSave.list.Count; i++)
         {
@@ -94,6 +93,23 @@ public class CharacterBox : MonoBehaviour
             CharacterInfo characterInfo = characterInfoDataBase.GetCharacterInfoByID(characterId);
             characterGroup.transform.GetChild(i).GetComponent<CharacterButton>().characterId = characterId;
             characterGroup.transform.GetChild(i).GetComponent<Image>().sprite = characterInfo.image.icon;
+            //編成リストに採用されているものはグレー帯を表示、それ以外は非表示
+            for (int j = 0; j < saveController.characterFormation.list.Length; j++)
+            {
+                if (characterId == saveController.characterFormation.list[j])
+                {
+                    characterGroup.transform.GetChild(i).transform.Find("GrayLabel").GetComponent<Image>().enabled = true;
+                    characterGroup.transform.GetChild(i).transform.Find("Text").GetComponent<Text>().enabled = true;
+                    Debug.Log("グレー帯表示");
+                    break;
+                }
+                else
+                {
+                    characterGroup.transform.GetChild(i).transform.Find("GrayLabel").GetComponent<Image>().enabled = false;
+                    characterGroup.transform.GetChild(i).transform.Find("Text").GetComponent<Text>().enabled = false;
+                    Debug.Log("グレー帯非表示");
+                }
+            }
         }
 
         //編成リストの更新
