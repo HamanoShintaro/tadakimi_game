@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -9,29 +10,22 @@ public class MenuController : MonoBehaviour
     public GameObject CharacterMenu;
     public GameObject SettingMenu;
     public GameObject ButtonPanel;
+    public GameObject statusBar;
 
     private string currentView;
     private bool switchingFlg;
-    public CharacterInfoDataBase characterInfoDataBase;
 
     private SaveController saveController;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         currentView = PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView);
         switchingFlg = false;
         this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
-        characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
         saveController = this.GetComponent<SaveController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     // SenarioMenu
     public IEnumerator changeSenario()
     {
@@ -43,10 +37,12 @@ public class MenuController : MonoBehaviour
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.senarioMenuView, true);
             yield return new WaitForSeconds(0.7f);
             SenarioMenu.SetActive(true);
+            Debug.Log("シナリオを開く");
             SenarioMenu.GetComponent<Animator>().SetBool("active", true);
             switchingFlg = false;
         }
     }
+
     public IEnumerator backMenuFromSenario()
     {
         if (!switchingFlg)
@@ -62,6 +58,7 @@ public class MenuController : MonoBehaviour
             switchingFlg = false;
         }
     }
+
     // CharacterMenu
     public IEnumerator changeCharacter()
     {
@@ -72,11 +69,13 @@ public class MenuController : MonoBehaviour
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.mainMenuView, false);
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.characterMenuView, true);
             yield return new WaitForSeconds(0.7f);
+            Debug.Log("キャラクター画面を開く");
             CharacterMenu.SetActive(true);
             CharacterMenu.GetComponent<Animator>().SetBool("active", true);
             switchingFlg = false;
         }
     }
+
     public IEnumerator backMenuFromCharacter()
     {
         if (!switchingFlg)
@@ -92,6 +91,7 @@ public class MenuController : MonoBehaviour
             switchingFlg = false;
         }
     }
+
     // SettingMenu
     public IEnumerator changeSetting()
     {
@@ -107,6 +107,7 @@ public class MenuController : MonoBehaviour
             switchingFlg = false;
         }
     }
+
     public IEnumerator backMenuFromSetting()
     {
         if (!switchingFlg)

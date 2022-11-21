@@ -23,19 +23,21 @@ public class BattleStageSummonEnemy : ScriptableObject
 	public int TowerHp;
 
 	[SerializeField]
-	[Header("BackGround")]
+	[Header("ステージの背景画像")]
 	private Sprite stageSprite;
 
 	[SerializeField]
-	[Header("EnemyTower")]
+	[Header("敵タワーのオブジェクト")]
 	private GameObject enemyTower;
 
+	//TODO固定にする
 	[SerializeField]
-	[Header("EnemyTowerPosition")]
+	[Header("敵タワーの生成位置")]
 	private Vector2 position;
 
+	//TODO固定にする
 	[SerializeField]
-	[Header("Wide")]
+	[Header("ステージの横幅")]
 	private float wide;
 
 	public int GetStage()
@@ -59,5 +61,10 @@ public class BattleStageSummonEnemy : ScriptableObject
 	public int GetTowerHp()
     {
 		return TowerHp;
+    }
+
+	public Sprite GetBackGround()
+    {
+		return stageSprite;
     }
 }

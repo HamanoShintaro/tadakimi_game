@@ -39,6 +39,7 @@ public class CharacterBasic : MonoBehaviour
 
         this.GetComponent<RectTransform>().anchoredPosition = new Vector2(initiateX, initiateY);
     }
+
     //TODOインターフェイスに入れる
     public string Damage(int d, int kb)
     {
@@ -55,11 +56,13 @@ public class CharacterBasic : MonoBehaviour
         }
         return status;
     }
+
     //回復
     public void Recover(int d)
     {
         hp = Mathf.Max(hp + d, maxHp);
     }
+
     private IEnumerator Death()
     {
         // Debug.Log("死亡処理が呼ばれました");

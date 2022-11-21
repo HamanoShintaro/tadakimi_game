@@ -12,9 +12,8 @@ public class AppearController : MonoBehaviour
     private void Start()
     {
         //現在のステージを取得する
-        var stageId = PlayerPrefs.GetInt(PlayerPrefabKeys.clearStageId).ToString("000");
-        Debug.Log(stageId);
-        //TODOステージIDを組み込む
+        var stageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
+        //TODOstageIdに変更する
         var battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/001");
         times = battleStageSummonEnemy.GetTimes();
         enemies = battleStageSummonEnemy.GetEnemies();

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonActionController : MonoBehaviour
 {
+
     // ボタン要素となるimageを持ったオブジェクトをアタッチする
     public GameObject obj1;
     public GameObject obj2;
@@ -24,8 +25,7 @@ public class ButtonActionController : MonoBehaviour
 
     private bool active;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         active = true;
 
@@ -45,7 +45,7 @@ public class ButtonActionController : MonoBehaviour
         {
             img3 = obj3.GetComponent<Image>();
             orgColor3 = img3.color;
-            rect3 = obj3 .GetComponent<RectTransform>();
+            rect3 = obj3.GetComponent<RectTransform>();
         }
     }
 
@@ -120,7 +120,8 @@ public class ButtonActionController : MonoBehaviour
 
     private IEnumerator push()
     {
-        if (active) {
+        if (active)
+        {
             active = false;
             Vector3 orgScale = rect1.localScale;
             float v = -2.0f;
@@ -135,4 +136,5 @@ public class ButtonActionController : MonoBehaviour
             active = true;
         }
     }
-}   
+
+}  

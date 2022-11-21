@@ -29,10 +29,19 @@ public class BattleController : MonoBehaviour
     [SerializeField, HideInInspector]
     private GameObject magicPower;
 
-    private MagicPowerController magicPowerController;
-
+    [SerializeField]
     [Header("ゲームタイマー")]
     public int gameTimer = 0;
+
+    [SerializeField]
+    private Image backGround;
+
+    private MagicPowerController magicPowerController;
+
+    /// <summary>
+    /// ステージ情報が格納されたクラス
+    /// </summary>
+    private BattleStageSummonEnemy battleStageSummonEnemy;
 
     void Start()
     {
@@ -62,6 +71,15 @@ public class BattleController : MonoBehaviour
 
         UpMagicLevel();
 
+        //ステージ番号を取得
+        var currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
+
+        //ステージ情報(ステージ番号)が格納されたクラスを取得
+        battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
+
+        //背景画像を設定
+        backGround.sprite = battleStageSummonEnemy.GetBackGround();
+
         //タイマーをスタート
         StartCoroutine(StartTimer());
 
@@ -70,6 +88,10 @@ public class BattleController : MonoBehaviour
         PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, playTime + gameTimer);
     }
 
+    /// <summary>
+    /// 戦闘時間を測るメソッド
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator StartTimer()
     {
         var wait = new WaitForSeconds(1f);
@@ -93,13 +115,17 @@ public class BattleController : MonoBehaviour
         magicPowerController.recoverMagicPower = recovery_magic[magic_recovery_level];
     }
 
+    /// <summary>
+    /// 戦闘を終了するメソッド
+    /// </summary>
+    /// <param name="type">味方or敵</param>
     public void GameStop(TypeLeader type)
     {
         StartCoroutine(GameStopCoroutine(type));
     }
 
     /// <summary>
-    /// バトルシーンを止める処理(味方or敵のリーダーのHPが0で呼び出す)
+    /// 取得金額/トータル金額/プレイ時間/ステージ情報を計算後、リザルトパネルを表示するメソッド(味方or敵のリーダーのHPが0で呼び出す)
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
@@ -112,8 +138,7 @@ public class BattleController : MonoBehaviour
             PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, playTime + gameTimer);
 
             //取得した金額を計算
-            var getMoney = 1 * gameTimer;//TODO50のマジックナンバー
-            UpdateUI(getMoney);
+            UpdateMoneyUI();
 
             //リザルト画面を表示
             GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(false);
@@ -123,21 +148,14 @@ public class BattleController : MonoBehaviour
             //ゲームのプレイ時間をリセット
             PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, 0);
 
-            //取得した金額を計算
-            var getMoney = 1 * gameTimer;//TODO50のマジックナンバー
-            UpdateUI(getMoney);
+            UpdateMoneyUI();
+            NextStage();
 
-            //現在のステージを取得する
-            int clearStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.clearStageId);
-            //次のステージを記録する
-            PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, clearStageId + 1);
             //リザルト画面を表示
             GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(true);
         }
 
-       
-
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         Time.timeScale = 0;
         Debug.Log("終了");
     }
@@ -146,8 +164,11 @@ public class BattleController : MonoBehaviour
     /// 取得金額とトータル金額を表示する
     /// </summary>
     /// <param name="getMoney"></param>
-    private void UpdateUI(int getMoney)
+    private void UpdateMoneyUI()
     {
+        //取得した金額を計算
+        var getMoney = 1 * gameTimer;
+
         getMoneyText[0].text = $"{getMoney}";
         getMoneyText[1].text = $"{getMoney}";
         //取得金額をセーブ
@@ -157,5 +178,18 @@ public class BattleController : MonoBehaviour
         int totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney) + getMoney;
         totalMoneyText[0].text = $"{totalMoney}";
         totalMoneyText[1].text = $"{totalMoney}";
+    }
+
+    /// <summary>
+    /// 現在のステージとクリアステージを記録する
+    /// </summary>
+    private void NextStage()
+    {
+        //現在のステージを取得する
+        int currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId);
+        //現在のステージをクリアステージとして記録する
+        PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, currentStageId);
+        //次のステージを現在のステージとして記録する
+        PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, currentStageId + 1);
     }
 }

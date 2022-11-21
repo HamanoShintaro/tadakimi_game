@@ -26,5 +26,6 @@ namespace Battle
                 GameObject.Find("Canvas").GetComponent<BattleController>().GameStop(type);
             }
         }
+
     }
 }

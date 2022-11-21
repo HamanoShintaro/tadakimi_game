@@ -5,19 +5,14 @@ using UnityEngine;
 public class SideButtonController : MonoBehaviour
 {
     public GameObject Canvas;
+
+    [SerializeField]
     private MenuController menuController;
 
     public string buttonType;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnClick()
     {
-        menuController = Canvas.GetComponent<MenuController>();
-        
-    }
-
-    public void onClick() {
-
         if (buttonType == PlayerPrefabKeys.senarioMenuView)
         {
             StartCoroutine(menuController.changeSenario());
@@ -35,8 +30,8 @@ public class SideButtonController : MonoBehaviour
     }
 
     /*
-    public void onClick() {
-
+    public void onClick()
+    {
         // ダイアログを追加する親のCanvas
         [SerializeField] private Canvas parent = default;
         // 表示するダイアログ
@@ -51,7 +46,8 @@ public class SideButtonController : MonoBehaviour
 
     }
 
-    private void changePage() {
+    private void changePage()
+    {
         if (buttonType == PlayerPrefabKeys.senarioMenuView)
         {
             StartCoroutine(menuController.changeSenario());

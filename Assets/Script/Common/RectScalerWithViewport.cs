@@ -22,7 +22,8 @@ public class RectScalerWithViewport : MonoBehaviour
 
     private void Start()
     {
-        if(refRect == null){
+        if (refRect == null)
+        {
             refRect = GetComponent<RectTransform>();
         }
         UpdateRect();
@@ -43,7 +44,8 @@ public class RectScalerWithViewport : MonoBehaviour
         Camera cam = Camera.main;
         float width = cam.rect.width * Screen.width;
         float height = cam.rect.height * Screen.height;
-        if(m_width == width && m_height == height && m_matchWidthOrHeight == matchWidthOrHeight ){
+        if (m_width == width && m_height == height && m_matchWidthOrHeight == matchWidthOrHeight)
+        {
             return;
         }
         UpdateRect();
@@ -51,18 +53,18 @@ public class RectScalerWithViewport : MonoBehaviour
 
     void UpdateRect()
     {
-        if( referenceResolution.x == 0f || referenceResolution.y == 0f){
+        if (referenceResolution.x == 0f || referenceResolution.y == 0f)
+        {
             return;
         }
         Camera cam = Camera.main;
-        if( cam == null ){
+        if (cam == null)
+        {
             return;
         }
         float width = cam.rect.width * Screen.width;
         float height = cam.rect.height * Screen.height;
-        if( width == 0f || height == 0f ){
-            return;
-        }
+        if (width == 0f || height == 0f) return;
 
         // canvas scalerから引用
         float logWidth = Mathf.Log(width / referenceResolution.x, kLogBase);
@@ -70,9 +72,7 @@ public class RectScalerWithViewport : MonoBehaviour
         float logWeightedAverage = Mathf.Lerp(logWidth, logHeight, matchWidthOrHeight);
         float scale = Mathf.Pow(kLogBase, logWeightedAverage);
 
-        if( float.IsNaN(scale) || scale <= 0f ){
-            return;
-        }
+        if (float.IsNaN(scale) || scale <= 0f) return;
 
         refRect.localScale = new Vector3(scale, scale, scale);
 
@@ -83,5 +83,5 @@ public class RectScalerWithViewport : MonoBehaviour
         m_width = width;
         m_height = height;
         m_matchWidthOrHeight = matchWidthOrHeight;
-   }
+    }
 }

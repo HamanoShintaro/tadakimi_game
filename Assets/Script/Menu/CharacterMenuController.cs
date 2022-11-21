@@ -28,50 +28,49 @@ public class CharacterMenuController : MonoBehaviour
     public GameObject characterLvUpCostObj;
 
     // コントローラークラス、リソースのロード用
-    public GameObject menuControllerObj;
-    private MenuController menuController;
+    public MenuController menuController;
     private CharacterInfoDataBase characterInfoDataBase;
     private SaveController saveController;
 
+    //現在選択しているキャラクター名
     private string currentCharacter;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        menuController = menuControllerObj.GetComponent<MenuController>();
-        characterInfoDataBase = menuController.characterInfoDataBase;
-        saveController = menuControllerObj.GetComponent<SaveController>();
-        
-        setCharacter(saveController.characterSave.list[0].id);
+        characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
+        saveController = menuController.GetComponent<SaveController>();
+
+        SetCharacter(saveController.characterSave.list[0].id);
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// string型でCharacterInfoを指定してデータを画面に表示する
+    /// </summary>
+    /// <param name="characterId"></param>
+    public void SetCharacter(string characterId)
     {
-        
-    }
-
-    void setCharacter(string characterId)
-    {
-        CharacterInfo character = characterInfoDataBase.getCharacterInfoByID(characterId);
+        //IDに合致するキャラクター情報を返却する
+        CharacterInfo character = characterInfoDataBase.GetCharacterInfoByID(characterId);
         currentCharacter = characterId;
 
-        // キャラクター情報のセット
+        Debug.Log(characterId);
+
+        //キャラクター情報のセット
         characterNameObj.GetComponent<Text>().text = character.name;
         characterAiliasObj.GetComponent<Text>().text = "ーー" + character.alias;
         characterDescriptionObj.GetComponent<Text>().text = character.detail;
         characterSkillDescriptionObj.GetComponent<Text>().text = character.skill.name + "　　消費魔力：" + character.skill.cost + "\n" + character.skill.Detail;
 
-        // キャラクター画像のセット
+        //キャラクター画像のセット
         characterBackground.GetComponent<Image>().sprite = character.image.backGround;
         characterFullSizeImage.GetComponent<Image>().sprite = character.image.fullsize;
         characterEffect.GetComponent<Image>().sprite = character.image.effect;
 
-        // レベルの取得
+        //レベルの取得
         int level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level;
         int index = level - 1;
 
-        // キャラクターステータスのセット
+        //キャラクターステータスのセット
         characterLevelObj.GetComponent<Text>().text = level.ToString();
         characterLevelMaxObj.GetComponent<Text>().text = character.status.Count.ToString();
         characterAttackObj.GetComponent<Text>().text = character.status[index].attack.ToString();
@@ -83,29 +82,30 @@ public class CharacterMenuController : MonoBehaviour
         characterLvUpCostObj.GetComponent<Text>().text = character.status[index].growth.ToString();
     }
 
-    public bool CharacterLevelUp(string characterId = null)
+    /// <summary>
+    /// キャラクターレベルをあげて、フラグを返すメソッド
+    /// </summary>
+    public void CharacterLevelUp()
     {
-        bool success = false;
-        if (characterId == null) { characterId = currentCharacter; }
-        CharacterInfo character = characterInfoDataBase.getCharacterInfoByID(characterId);
+        var characterId = currentCharacter;
+        CharacterInfo character = characterInfoDataBase.GetCharacterInfoByID(characterId);
 
         // すでに最大レベルであればレベルを上げない
         int level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level;
         int maxLevet = character.status.Count;
-        if (level == maxLevet) { return success; }
+        if (level == maxLevet) return;
 
         int index = level - 1;
         int cost = character.status[index].growth;
         int money = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
 
         // お金がコストを上回っている場合、処理をする
-        if(money >= cost) {
+        if (money >= cost)
+        {
             PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, money - cost);
             saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level++;
-            saveController.characterSave.save();
-            success = true;
-            setCharacter(characterId);
+            saveController.characterSave.Save();
+            SetCharacter(characterId);
         }
-        return success;
     }
 }
