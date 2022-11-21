@@ -64,10 +64,7 @@ public class RectScalerWithViewport : MonoBehaviour
         }
         float width = cam.rect.width * Screen.width;
         float height = cam.rect.height * Screen.height;
-        if (width == 0f || height == 0f)
-        {
-            return;
-        }
+        if (width == 0f || height == 0f) return;
 
         // canvas scalerから引用
         float logWidth = Mathf.Log(width / referenceResolution.x, kLogBase);
@@ -75,10 +72,7 @@ public class RectScalerWithViewport : MonoBehaviour
         float logWeightedAverage = Mathf.Lerp(logWidth, logHeight, matchWidthOrHeight);
         float scale = Mathf.Pow(kLogBase, logWeightedAverage);
 
-        if (float.IsNaN(scale) || scale <= 0f)
-        {
-            return;
-        }
+        if (float.IsNaN(scale) || scale <= 0f) return;
 
         refRect.localScale = new Vector3(scale, scale, scale);
 

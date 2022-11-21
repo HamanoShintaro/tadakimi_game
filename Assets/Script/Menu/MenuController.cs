@@ -37,6 +37,7 @@ public class MenuController : MonoBehaviour
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.senarioMenuView, true);
             yield return new WaitForSeconds(0.7f);
             SenarioMenu.SetActive(true);
+            Debug.Log("シナリオを開く");
             SenarioMenu.GetComponent<Animator>().SetBool("active", true);
             switchingFlg = false;
         }
@@ -68,6 +69,7 @@ public class MenuController : MonoBehaviour
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.mainMenuView, false);
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.characterMenuView, true);
             yield return new WaitForSeconds(0.7f);
+            Debug.Log("キャラクター画面を開く");
             CharacterMenu.SetActive(true);
             CharacterMenu.GetComponent<Animator>().SetBool("active", true);
             switchingFlg = false;
