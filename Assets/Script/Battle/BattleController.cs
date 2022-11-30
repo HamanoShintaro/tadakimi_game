@@ -153,6 +153,9 @@ public class BattleController : MonoBehaviour
 
             //リザルト画面を表示
             GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(true);
+
+            //TODO"広告を見る"パネルを表示
+            //=>this.GetComponent<GoogleAdmobAd>().UserChoseToWatchAd();
         }
 
         yield return new WaitForSeconds(3f);

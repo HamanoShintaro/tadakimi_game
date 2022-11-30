@@ -6348,7 +6348,7 @@ RectTransform:
   m_GameObject: {fileID: 383899346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8388889, y: 0.8388889, z: 0.8388889}
+  m_LocalScale: {x: 0.89351845, y: 0.89351845, z: 0.89351845}
   m_Children:
   - {fileID: 927934280}
   - {fileID: 858393325}
@@ -6361,7 +6361,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1919.9999, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383899348
 MonoBehaviour:
@@ -6978,15 +6978,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.024034679
+    x: 0.07535756
     y: 0
-    width: 0.95193064
+    width: 0.8492849
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.6726823
+  orthographic size: 6.35829
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8712,8 +8712,10 @@ GameObject:
   - component: {fileID: 1043616676}
   - component: {fileID: 1043616675}
   - component: {fileID: 1043616679}
+  - component: {fileID: 1043616673}
   - component: {fileID: 1043616680}
   - component: {fileID: 1043616681}
+  - component: {fileID: 1043616674}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -8721,6 +8723,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1043616673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043616672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6634c048967f047e4aff8eee45ebe532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1043616674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043616672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df08c1502c9cb42a1b6666d20feeae46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1043616675
 MonoBehaviour:
   m_ObjectHideFlags: 0

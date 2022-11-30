@@ -221,10 +221,10 @@ namespace Battle
                 //スキル処理>開始
                 animator.SetBool("Skill", true);
 
-                //エフェクトを生成 TODO=>インターフェイスで行う & 待機時間のマジックナンバーを修正する
-                yield return new WaitForSeconds(3);
+                //エフェクトを生成
+                yield return new WaitForSeconds(3);//TODOリソースから取得する
 
-                var ef = Instantiate(skillEffect, skillEffectPanel.transform);
+                var ef = Instantiate(skillEffect, skillEffectPanel.transform);//TODOスキル開始~終了までアニメーションで管理もあり
                 //ef.position = new Vector2()
                 yield return new WaitForSeconds(skillInterval);//TODOリソースから取得する
 

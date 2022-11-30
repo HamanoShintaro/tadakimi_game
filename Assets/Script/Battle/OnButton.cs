@@ -31,8 +31,8 @@ public class OnButton : MonoBehaviour
         SceneManager.LoadScene("Battle");
     }
 
-    public void OpenURL()
+    public void OpenURL(string url)
     {
-        Application.OpenURL("https://docs.google.com/spreadsheets/d/1FdHyXh00HW1Pn_1x1Mt_zSQkY_k6aPVW0v0CO2fe6Jo/edit#gid=0");
+        Application.OpenURL(url);
     }
 }
