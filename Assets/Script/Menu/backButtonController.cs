@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class backButtonController : MonoBehaviour
 {
+    [SerializeField]
+    private CharacterBox CharacterBox;
     public GameObject Canvas;
     private MenuController menuController;
 
@@ -25,6 +27,10 @@ public class backButtonController : MonoBehaviour
         else if (PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView) == PlayerPrefabKeys.settingMenuView)
         {
             StartCoroutine(menuController.backMenuFromSetting());
+        }
+        else if (PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView) == PlayerPrefabKeys.characterFormationMenuView)
+        {
+            CharacterBox.CloseCharacterFormation();
         }
         this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
         this.GetComponent<AudioSource>().Play();

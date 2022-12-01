@@ -20,6 +20,7 @@ public class PlayerPrefabKeys : MonoBehaviour
     public const string senarioMenuView = "senario";
     public const string characterMenuView = "character";
     public const string settingMenuView = "setting";
+    public const string characterFormationMenuView = "characterFormation";
 
     //volume controll
     public const string volumeBGM = "volume_bgm";
