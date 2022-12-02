@@ -38,7 +38,6 @@ namespace Battle
         {
             //SaveControllerを生成する
             SaveController saveController = new SaveController();
-
             //characterFormationIndexに一致するcharacterFormationのキャラクターを取得する
             saveController.characterFormation.Load();
             string characterId = saveController.characterFormation.list[characterFormationIndex];

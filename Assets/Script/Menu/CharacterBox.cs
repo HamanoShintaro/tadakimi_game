@@ -37,6 +37,8 @@ public class CharacterBox : MonoBehaviour
         this.selectIndex = selectIndex;
         //TODO選択中の枠を強調する
         characterFormationUI.SetActive(true);
+        //現在のメニューを更新
+        PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.characterFormationMenuView);
         UpdateCharacterUI();
     }
 
@@ -52,7 +54,7 @@ public class CharacterBox : MonoBehaviour
     }
 
     /// <summary>
-    /// キャラクターを選択時に呼び出すメソッド
+    /// 編成画面のキャラクターの選択時に呼び出すメソッド
     /// </summary>
     /// <param name="addId"></param>
     public void OnSelectedCharacter(string addId)
