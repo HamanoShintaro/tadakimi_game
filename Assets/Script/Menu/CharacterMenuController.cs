@@ -39,7 +39,6 @@ public class CharacterMenuController : MonoBehaviour
     {
         characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
         saveController = menuController.GetComponent<SaveController>();
-
         SetCharacter(saveController.characterSave.list[0].id);
     }
 

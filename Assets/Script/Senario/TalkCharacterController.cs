@@ -42,7 +42,7 @@ public class TalkCharacterController : MonoBehaviour
     {
         senarioTalkScript = talkController.senarioTalkScript;
         num = talkController.num;
-        if (senarioTalkScript.senarioTalks[num].name != currentCharacterName)
+        if (senarioTalkScript.GetSenarioTalks()[num].name != currentCharacterName)
         {
             while (canvasGroup.alpha > 0.0f)
             {
@@ -50,11 +50,11 @@ public class TalkCharacterController : MonoBehaviour
                 yield return new WaitForSeconds(0.01f);
             }
             rect.position = apperPosition;
-            currentCharacterName = senarioTalkScript.senarioTalks[num].name;
+            currentCharacterName = senarioTalkScript.GetSenarioTalks()[num].name;
             nameText.text = talkController.characterBasicInfos[currentCharacterName].GetCharacterName();
         }
         StartCoroutine(toSpeakColor());
-        image.sprite = talkController.characterBasicInfos[currentCharacterName].GetSprite(senarioTalkScript.senarioTalks[num].expressions);
+        image.sprite = talkController.characterBasicInfos[currentCharacterName].GetSprite(senarioTalkScript.GetSenarioTalks()[num].expressions);
 
         while (canvasGroup.alpha < 1.0f)
         {

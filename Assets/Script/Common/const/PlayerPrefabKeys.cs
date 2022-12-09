@@ -28,5 +28,8 @@ public class PlayerPrefabKeys : MonoBehaviour
     public const string volumeCV = "volume_cv";
 
     //setting
+    /// <summary>
+    /// 現在の使用言語(0:日本語 | 1:英語 | 2:中国語)
+    /// </summary>
     public const string currentLanguage = "current_language";
 }
