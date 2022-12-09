@@ -20,9 +20,9 @@ public class Message : ScriptableObject
     private string[] chineseMessageArray;
 
     /// <summary>
-    /// 番号に対応した言語のメッセージを返すメソッド
+    /// 番号に対応した言語のメッセージを返すメソッド(0:日本語 | 1:英語 | 2:中国語)
     /// </summary>
-    /// <param name="index"></param>
+    /// <param name="index">0:日本語 | 1:英語 | 2:中国語</param>
     /// <returns></returns>
     public string[] GetMessage(int index)
     {

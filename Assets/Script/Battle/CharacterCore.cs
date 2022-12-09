@@ -10,9 +10,6 @@ namespace Battle
     /// </summary>
     public class CharacterCore : MonoBehaviour, IDamage
     {
-        [SerializeField, Multiline(3)]
-        private string memo;
-
         [SerializeField]
         [Header("キャラクターID")]
         private CharacterId characterId;
@@ -28,6 +25,7 @@ namespace Battle
         private Viewport viewport;
 
         //ステータス
+        public int level = 0;
         private float maxHp;
         private float defKB;
         private float maxSpeed;
@@ -67,9 +65,17 @@ namespace Battle
         //プレイヤーキャラクターの種類
         public enum CharacterId
         {
-            Volcus_01 = 01,
-            Solider = 02,
-            Era_01 = 03
+            Volcus_01,
+            Voucus_02,
+            Era_01,
+            Eleth_01,
+            Orend_01,
+            Sara_01,
+            Shandy_01,
+            Loxy_01,
+            Soldier_01,
+            Collobo_01,
+            Vivien_01
         }
 
         //キャラクターの種類=>味方or敵
@@ -136,23 +142,29 @@ namespace Battle
 
         private void Start()
         {
-            //TODO0をレベルに変更する
-
+            if (characterType == CharacterType.Buddy)
+            {             //セーブデータを生成
+                SaveController saveController = new SaveController();
+                //セーブデータを取得
+                saveController.characterSave.Load();
+                //characterIdのセーブデータのレベルを取得 TODO敵はlevel0にする
+                level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level;
+            }
             //maxHp取得
-            maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].hp;
+            maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].hp;
             Hp = maxHp;
             //maxSpeed取得
-            maxSpeed = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].speed / 300;
+            maxSpeed = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].speed / 300;
             Speed = maxSpeed;
 
             //atkPower取得
-            atkPower = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].attack;
+            atkPower = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].attack;
 
             //atkKB取得
-            atkKB = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].atkKB;
+            atkKB = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].atkKB;
 
             //defKB取得
-            defKB = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].defKB;
+            defKB = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].defKB;
 
             //スキルのコスト取得
             skillCost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").skill.cost;
@@ -181,14 +193,25 @@ namespace Battle
         private void Update()
         {
             if (targets.Count == 0) state = State.Walk;
-            //Debug.Log(state);
+
             //状態の優先順位は死亡>ノックバック>攻撃>歩く
             if (!canState) return;
-            //プレイヤーキャラクターかつ移動入力中は処理を中断
-            //TODOアニメーションも中断する
-            if (isDominator && viewport.isMove) return;
-            if (state == State.KnockBack) StartCoroutine(KnockBack());
-            else if (state == State.Attack) StartCoroutine(Attack());
+
+
+            if (isDominator && viewport.isMove)
+            {
+                //プレイヤーキャラクターかつ移動入力中は処理を中断 TODOアニメーションも待機にする
+                return;
+            }
+            else if (state == State.KnockBack)
+            {
+                StartCoroutine(KnockBack());
+            }
+            else if (state == State.Attack)
+            {
+                StartCoroutine(Attack());
+
+            }
             else if (state == State.Walk)
             {
                 if (isDominator) return;

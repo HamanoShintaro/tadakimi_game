@@ -44,7 +44,7 @@ public class TalkController : MonoBehaviour
         voiceSource.volume = GameSettingParams.characterVoiceVolume;
 
         List<string> characterKeys = new List<string>();
-        foreach (SenarioTalkScript.SenarioTalk senarioTalk in senarioTalkScript.senarioTalks)
+        foreach (SenarioTalkScript.SenarioTalk senarioTalk in senarioTalkScript.GetSenarioTalks())
         {
             if (!characterKeys.Contains(senarioTalk.name))
             {
@@ -65,11 +65,11 @@ public class TalkController : MonoBehaviour
     public void nextTalk()
     {
         num++;
-        if (num < senarioTalkScript.senarioTalks.Count)
+        if (num < senarioTalkScript.GetSenarioTalks().Count)
         {
-            if (senarioTalkScript.senarioTalks[num].type == "talk")
+            if (senarioTalkScript.GetSenarioTalks()[num].type == "talk")
             {
-                if (senarioTalkScript.senarioTalks[num].LR == "L")
+                if (senarioTalkScript.GetSenarioTalks()[num].LR == "L")
                 {
                     StartCoroutine(characterL.GetComponent<TalkCharacterController>().Active());
                     StartCoroutine(characterR.GetComponent<TalkCharacterController>().inActive());
@@ -95,22 +95,22 @@ public class TalkController : MonoBehaviour
 
             }
             voiceSource.Stop();
-            if (senarioTalkScript.senarioTalks[num].voice)
+            if (senarioTalkScript.GetSenarioTalks()[num].voice)
             {
-                voiceSource.PlayOneShot(senarioTalkScript.senarioTalks[num].voice);
+                voiceSource.PlayOneShot(senarioTalkScript.GetSenarioTalks()[num].voice);
             }
-            if (senarioTalkScript.senarioTalks[num].BGM)
+            if (senarioTalkScript.GetSenarioTalks()[num].BGM)
             {
-                StartCoroutine(ChangeBGM(senarioTalkScript.senarioTalks[num].BGM));
+                StartCoroutine(ChangeBGM(senarioTalkScript.GetSenarioTalks()[num].BGM));
             }
-            if (senarioTalkScript.senarioTalks[num].SE)
+            if (senarioTalkScript.GetSenarioTalks()[num].SE)
             {
                 seSource.Stop();
-                voiceSource.PlayOneShot(senarioTalkScript.senarioTalks[num].SE);
+                voiceSource.PlayOneShot(senarioTalkScript.GetSenarioTalks()[num].SE);
             }
-            if (senarioTalkScript.senarioTalks[num].bgImage)
+            if (senarioTalkScript.GetSenarioTalks()[num].bgImage)
             {
-                StartCoroutine(ChangeBackGround(senarioTalkScript.senarioTalks[num].bgImage));
+                StartCoroutine(ChangeBackGround(senarioTalkScript.GetSenarioTalks()[num].bgImage));
             }
         }
         else

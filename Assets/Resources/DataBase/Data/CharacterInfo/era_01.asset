@@ -19,12 +19,12 @@ MonoBehaviour:
     \u3053\u306E\u4E16\u754C\u3067\u6700\u3082\u5F37\u304F\u795E\u3059\u3089\u5C4A\u304B\u306A\u3044\u529B\u3092\u6301\u3064\u3002
     \u6226\u4E89\u3067\u306F\u4EBA\u9593\u306B\u5927\u6557\u3057\u3001\u7D42\u6226\u9593\u969B\u306B\u6700\u611B\u306E\u4EBA\u3092\u5931\u3046\u3002
     \u832B\u7136\u81EA\u5931\u3068\u306A\u3063\u305F\u5F7C\u306F\u3001\u4E16\u754C\u3092\u305F\u3060\u65C5\u3059\u308B\u6D41\u6D6A\u4EBA\u3068\u306A\u308B\u3002"
-  type: support
+  type: 
   image:
     fullsize: {fileID: 21300000, guid: 256fd4527d93349eeaa283368f5f38b6, type: 3}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
     effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
-    icon: {fileID: 21300000, guid: ba077752023c44b42adc429215104038, type: 3}
+    icon: {fileID: 21300000, guid: b449c3c91f56b42e188e8930f2a0bf47, type: 3}
     prefab: {fileID: 5095262611280852148, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
   rank: 3
   status:

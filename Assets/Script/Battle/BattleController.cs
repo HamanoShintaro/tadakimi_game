@@ -71,6 +71,7 @@ public class BattleController : MonoBehaviour
 
         UpMagicLevel();
 
+
         //ステージ番号を取得
         var currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
 
@@ -157,9 +158,12 @@ public class BattleController : MonoBehaviour
             //TODO"広告を見る"パネルを表示
             //=>this.GetComponent<GoogleAdmobAd>().UserChoseToWatchAd();
         }
-
+        /*TODO消していいかも
         yield return new WaitForSeconds(3f);
         Time.timeScale = 0;
+        */
+        //TODO動きを止める
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("終了");
     }
 

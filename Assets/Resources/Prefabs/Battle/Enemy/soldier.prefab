@@ -282,5 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   memo: 
-  characterId: 1
+  characterId: 2
   characterType: 1
+  isDominator: 0
+  viewport: {fileID: 0}
