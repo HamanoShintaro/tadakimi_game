@@ -18,7 +18,6 @@ namespace Battle
             EnemyLeader
         }
 
-        //TODOダメージ判定時に呼び出す
         private void Update()
         {
             if (this.GetComponent<CharacterCore>().Hp == 0)
@@ -27,6 +26,5 @@ namespace Battle
                 GameObject.Find("Canvas").GetComponent<BattleController>().GameStop(type);
             }
         }
-
     }
 }

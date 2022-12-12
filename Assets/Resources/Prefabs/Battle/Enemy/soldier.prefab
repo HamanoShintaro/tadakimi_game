@@ -115,7 +115,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 55.28, y: 38.13}
+  m_Offset: {x: 57.247723, y: 49.10544}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -126,7 +126,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 55.3, y: 77.3}
+  m_Size: {x: 59.79545, y: 96.78009}
   m_EdgeRadius: 0
 --- !u!61 &3120535187910808080
 BoxCollider2D:
@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 57.2, y: 46.1}
+  m_Offset: {x: 76.29584, y: 48.746155}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 60.7, y: 93.41}
+  m_Size: {x: 97.03784, y: 96.40698}
   m_EdgeRadius: 0
 --- !u!95 &3120535187910808079
 Animator:
@@ -284,5 +284,7 @@ MonoBehaviour:
   characterId: 2
   characterType: 1
   isLeader: 0
-  viewport: {fileID: 0}
+  player: {fileID: 0}
   level: 0
+  targets: []
+  magicPowerController: {fileID: 0}

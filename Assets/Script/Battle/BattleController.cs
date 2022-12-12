@@ -81,8 +81,8 @@ public class BattleController : MonoBehaviour
         //ステージ情報(ステージ番号)が格納されたクラスを取得
         battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
 
-        //背景画像を設定
-        backGround.sprite = battleStageSummonEnemy.GetBackGround();
+        //背景画像を設定TODO修正
+        //backGround.sprite = battleStageSummonEnemy.GetBackGround();
 
         //タイマーをスタート
         StartCoroutine(StartTimer());

@@ -23,8 +23,7 @@ namespace Battle
         private bool isLeader;
 
         [SerializeField]
-        [HideInInspector]
-        private Viewport viewport;
+        private Player player;
 
         //ステータス
         public int level = 0;
@@ -49,6 +48,7 @@ namespace Battle
         public List<GameObject> targets = new List<GameObject>();
 
         //取得するコンポーネント
+        [SerializeField]
         private MagicPowerController magicPowerController;
         private Animator animator;
 
@@ -157,6 +157,7 @@ namespace Battle
             //maxHp取得
             maxHp = characterInfo.status[level].hp;
             Hp = maxHp;
+
             //maxSpeed取得
             maxSpeed = characterInfo.status[level].speed / 300;
             Speed = maxSpeed;
@@ -180,7 +181,7 @@ namespace Battle
             skillCoolTime = characterInfo.skill.cd;
 
             //マジックコントローラー取得
-            magicPowerController = GameObject.Find("Canvas/[ControlPanel]/Power").GetComponent<MagicPowerController>();
+            magicPowerController = GameObject.Find("Canvas_Dynamic/[ControlPanel]/Power").GetComponent<MagicPowerController>();
 
             //アニメーター取得
             animator = this.GetComponent<Animator>();
@@ -190,17 +191,17 @@ namespace Battle
 
             hasSkill = true;//TODOリソースorセーブから読み込む?
 
+            player = GameObject.Find("Player").GetComponent<Player>();
+
             //スキルのクールタイムを測る
             StartCoroutine(Count());
         }
 
         private void Update()
         {
-            if (targets.Count == 0) state = State.Walk;
-
             //状態の優先順位は死亡>ノックバック>攻撃>歩く
             if (!canState) return;
-            if (isLeader && viewport.isMove) animator.SetBool("Walk", true);
+            if (isLeader && player.isMove) animator.SetBool("Walk", true);
             else if (state == State.KnockBack) StartCoroutine(KnockBack());
             else if (state == State.Attack) Attack();
             else if (state == State.Walk)  Walk();
@@ -211,7 +212,7 @@ namespace Battle
         /// </summary>
         private void Walk()
         {
-            Debug.Log($"{characterType} : {characterId}は歩く");
+            Debug.Log($"{characterType}{isLeader}{player.isMove} : {characterId}は歩く");
             if (!canMove) return;
             if (isLeader) return;
             if (characterType == CharacterType.Buddy) this.transform.position = new Vector2(this.transform.position.x + speed, this.transform.position.y);
