@@ -11,13 +11,13 @@ namespace Battle
     /// </summary>
     public class SummonCharacter : MonoBehaviour
     {
-        [HideInInspector]
+        [SerializeField]
         public GameObject characterPanel;
 
         [SerializeField]
         private int characterFormationIndex;
 
-        [HideInInspector]
+        [SerializeField]
         public GameObject magicPower;
 
         [HideInInspector]
@@ -36,6 +36,8 @@ namespace Battle
 
         private void Start()
         {
+            magicPowerController = magicPower.GetComponent<MagicPowerController>();
+
             //SaveControllerを生成する
             SaveController saveController = new SaveController();
             //characterFormationIndexに一致するcharacterFormationのキャラクターを取得する
@@ -49,6 +51,7 @@ namespace Battle
                     this.gameObject.SetActive(false);
                     return;
                 }
+
                 //召喚するキャラクターをリソースから取得
                 characterPrefab = Resources.Load<GameObject>($"Prefabs/Battle/Buddy/{characterId}");
 
@@ -67,7 +70,7 @@ namespace Battle
                 }
                 //コストを取得
                 cost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].cost;
-                magicPowerController = magicPower.GetComponent<MagicPowerController>();
+                
                 backgroudImage = backgroud.GetComponent<Image>();
                 animator = GetComponent<Animator>();
                 transform.Find("character").GetComponent<Image>().sprite = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").image.icon;
@@ -78,7 +81,6 @@ namespace Battle
             }
             catch
             {
-
             }
         }
 
@@ -113,7 +115,7 @@ namespace Battle
             if (magicPowerController.UseMagicPower(cost))
             {
                 //キャラクターを生成する
-                GameObject characterClone = Instantiate(this.characterPrefab, this.transform);
+                GameObject characterClone = Instantiate(characterPrefab);
                 characterClone.transform.SetParent(characterPanel.transform, false);
                 summonCoolTime = summonCoolDown;
             }

@@ -19,21 +19,19 @@ public class SaveController : MonoBehaviour
 
     private void Start()
     {
-        
         //TODOデータ(list)を毎回初期化している
-        //データがあるならLoad()
-        //データがないor初期化ならInitUser()
-
         characterSave.list.RemoveRange(0, characterSave.list.Count);
 
-        //2キャラだけ解放する
+        //データがないor初期化ならInitUser() 
         InitUser();
+
+        //Era_01をキャラクターデータに追加
         AddCharacterDate("Era_01", 1, false);
+        //Era_01をキャラクターフォーメーション[1]に追加
+        UpdateCharacterFormationDate("Era_01", 1);
 
         characterSave.Load();
         characterFormation.Load();
-
-        Debug.Log(characterFormation.list[0]);
     }
 
     /// <summary>
@@ -55,17 +53,11 @@ public class SaveController : MonoBehaviour
         //言語の初期設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentLanguage)) { PlayerPrefs.SetInt(PlayerPrefabKeys.currentLanguage, GameSettingParams.currentLanguage); }
 
-        //初期キャラを追加
+        //初期キャラをキャラクターデータに追加
         AddCharacterDate(GameSettingParams.initCharacter, 1, false);
 
-        //初期編成の設定
-        CharacterFormation characterFormation = new CharacterFormation();
-        characterFormation.list[0] = GameSettingParams.initCharacter;
-        characterFormation.list[1] = "";
-        characterFormation.list[2] = "";
-        characterFormation.list[3] = "";
-
-        characterFormation.Save();
+        //初期キャラをキャラクターフォーメーション[0]に追加
+        UpdateCharacterFormationDate(GameSettingParams.initCharacter, 0);
     }
 
     /// <summary>
@@ -99,7 +91,7 @@ public class SaveController : MonoBehaviour
         characterFormation.list[selectIndex] = addId;
 
         //上書き保存する
-        //characterFormation.Save();
+        characterFormation.Save();
     }
 
     /// <summary>

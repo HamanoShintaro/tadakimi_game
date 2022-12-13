@@ -29,6 +29,7 @@ public class SideButtonController : MonoBehaviour
         this.GetComponent<AudioSource>().Play();
     }
 
+
     /*
     public void onClick()
     {

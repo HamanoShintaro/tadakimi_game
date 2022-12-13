@@ -199,6 +199,8 @@ namespace Battle
 
         private void Update()
         {
+            if (targets.Count == 0) state = State.Walk;
+
             //状態の優先順位は死亡>ノックバック>攻撃>歩く
             if (!canState) return;
             if (isLeader && player.isMove) animator.SetBool("Walk", true);
@@ -212,7 +214,7 @@ namespace Battle
         /// </summary>
         private void Walk()
         {
-            Debug.Log($"{characterType}{isLeader}{player.isMove} : {characterId}は歩く");
+            //Debug.Log($"{characterType}{isLeader}{player.isMove} : {characterId}は歩く");
             if (!canMove) return;
             if (isLeader) return;
             if (characterType == CharacterType.Buddy) this.transform.position = new Vector2(this.transform.position.x + speed, this.transform.position.y);
@@ -287,9 +289,7 @@ namespace Battle
 
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
-            //ターゲットをリセット
-            ResetTargets();
-            yield return null;
+
             //ダメージ処理
             try
             {
@@ -303,6 +303,10 @@ namespace Battle
             {
 
             }
+
+            //ターゲットをリセット
+            ResetTargets();
+
             //TODOサウンドエフェクトを再生
             yield return new WaitForSeconds(2f);//TODOマジックナンバー リソースのインターバルから取得する
 
@@ -368,7 +372,7 @@ namespace Battle
         /// <param name="atkPower">攻撃力</param>
         public void Damage(float atkPower = 0, float atkkb = 0)
         {
-            //Debug.Log($"{characterType} : {characterId}は被ダメージ / Hpは{Hp}");
+            Debug.Log($"{characterType} : {characterId}は被ダメージ / Hpは{Hp}");
             //ダメージ計算TODO防御力も計算
             Hp -= atkPower;
             if (Hp <= 0)

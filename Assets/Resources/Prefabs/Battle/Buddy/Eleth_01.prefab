@@ -281,8 +281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542f8f24575d843208082f02847cd7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterId: 1
+  characterId: 3
   characterType: 0
   isLeader: 0
-  viewport: {fileID: 0}
+  player: {fileID: 0}
   level: 0
+  targets: []
+  magicPowerController: {fileID: 0}
