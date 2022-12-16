@@ -13,6 +13,11 @@ namespace Battle
         private int itemNumber = 0;
 
         [SerializeField]
+        [Header("敵キャラを生成する位置(appearTransform ± y")]
+        private float minY = 0, maxY = 0;
+
+        [SerializeField]
+        [Header("AppearTransformをセットする")]
         private Transform appearTransform;
 
         private void Start()
@@ -43,7 +48,8 @@ namespace Battle
                 if (time >= times[itemNumber])
                 {
                     GameObject characterClone = Instantiate(enemies[itemNumber], this.transform);
-                    characterClone.transform.localPosition = appearTransform.localPosition;
+                    var range = Random.Range(minY, maxY);
+                    characterClone.transform.localPosition = new Vector2(appearTransform.localPosition.x, appearTransform.localPosition.y + range);
                     characterClone.GetComponent<CharacterCore>().level = levels[itemNumber];
                     itemNumber++;
                 }

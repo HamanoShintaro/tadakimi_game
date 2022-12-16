@@ -191,7 +191,13 @@ namespace Battle
 
             hasSkill = true;//TODOリソースorセーブから読み込む?
 
-            player = GameObject.Find("Player").GetComponent<Player>();
+            try
+            {
+                player = GameObject.Find("Player").GetComponent<Player>();
+            }
+            catch
+            {
+            }
 
             //スキルのクールタイムを測る
             StartCoroutine(Count());
@@ -290,22 +296,7 @@ namespace Battle
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
 
-            //ダメージ処理
-            try
-            {
-                foreach (GameObject target in targets)
-                {
-                    //TODODamageのタイミングをアニメーションに合わせる
-                    target.GetComponent<IDamage>().Damage(atkPower, atkKB);
-                }
-            }
-            catch
-            {
-
-            }
-
-            //ターゲットをリセット
-            ResetTargets();
+            
 
             //TODOサウンドエフェクトを再生
             yield return new WaitForSeconds(2f);//TODOマジックナンバー リソースのインターバルから取得する
@@ -314,6 +305,25 @@ namespace Battle
             animator.SetBool("Attack", false);
 
             canState = true;
+        }
+
+        private void InflictDamage()
+        {
+            //ダメージ処理
+            try
+            {
+                foreach (GameObject target in targets)
+                {
+                    //TODODamageのタイミングをアニメーションに合わせる & 単体攻撃と複数攻撃を分ける
+                    target.GetComponent<IDamage>().Damage(atkPower, atkKB);
+                }
+            }
+            catch
+            {
+
+            }
+            //ターゲットをリセット
+            ResetTargets();
         }
 
         /// <summary>
