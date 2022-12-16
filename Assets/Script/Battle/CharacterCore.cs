@@ -212,7 +212,7 @@ namespace Battle
             if (isLeader && player.isMove) animator.SetBool("Walk", true);
             else if (state == State.KnockBack) StartCoroutine(KnockBack());
             else if (state == State.Attack) Attack();
-            else if (state == State.Walk)  Walk();
+            else if (state == State.Walk) Walk();
         }
 
         /// <summary>
@@ -248,7 +248,6 @@ namespace Battle
             {
                 StartCoroutine(NomalAttack());
             }
-            
         }
 
         private IEnumerator SkillAttack()
@@ -296,8 +295,22 @@ namespace Battle
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
 
-            
 
+            //ダメージ処理
+            try
+            {
+                foreach (GameObject target in targets)
+                {
+                    //TODODamageのタイミングをアニメーションに合わせる & 単体攻撃と複数攻撃を分ける
+                    target.GetComponent<IDamage>().Damage(atkPower, atkKB);
+                }
+            }
+            catch
+            {
+
+            }
+            //ターゲットをリセット
+            ResetTargets();
             //TODOサウンドエフェクトを再生
             yield return new WaitForSeconds(2f);//TODOマジックナンバー リソースのインターバルから取得する
 
