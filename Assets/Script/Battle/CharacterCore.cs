@@ -191,7 +191,13 @@ namespace Battle
 
             hasSkill = true;//TODOリソースorセーブから読み込む?
 
-            player = GameObject.Find("Player").GetComponent<Player>();
+            try
+            {
+                player = GameObject.Find("Player").GetComponent<Player>();
+            }
+            catch
+            {
+            }
 
             //スキルのクールタイムを測る
             StartCoroutine(Count());
@@ -295,7 +301,7 @@ namespace Battle
             {
                 foreach (GameObject target in targets)
                 {
-                    //TODODamageのタイミングをアニメーションに合わせる
+                    //TODODamageのタイミングをアニメーションに合わせる & 単体攻撃と複数攻撃を分ける
                     target.GetComponent<IDamage>().Damage(atkPower, atkKB);
                 }
             }
