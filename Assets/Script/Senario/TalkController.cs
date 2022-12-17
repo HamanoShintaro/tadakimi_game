@@ -71,13 +71,13 @@ public class TalkController : MonoBehaviour
             {
                 if (senarioTalkScript.GetSenarioTalks()[num].LR == "L")
                 {
-                    StartCoroutine(characterL.GetComponent<TalkCharacterController>().Active());
-                    StartCoroutine(characterR.GetComponent<TalkCharacterController>().inActive());
+                    characterL.GetComponent<TalkCharacterController>().CallActive();
+                    characterR.GetComponent<TalkCharacterController>().CallInActive();
                 }
                 else
                 {
-                    StartCoroutine(characterR.GetComponent<TalkCharacterController>().Active());
-                    StartCoroutine(characterL.GetComponent<TalkCharacterController>().inActive());
+                    characterR.GetComponent<TalkCharacterController>().CallActive();
+                    characterL.GetComponent<TalkCharacterController>().CallInActive();
                 }
                 //2番目のトークを削除
                 if (secondBubble)
@@ -127,7 +127,7 @@ public class TalkController : MonoBehaviour
     {
         while (bgmSource.volume > 0)
         {
-            bgmSource.volume -= Time.deltaTime * 3.0f;
+            bgmSource.volume -= Time.deltaTime * 10.0f;
             yield return new WaitForSecondsRealtime(0.03f);
         }
         bgmSource.Stop();
@@ -146,14 +146,14 @@ public class TalkController : MonoBehaviour
         float colorParam;
         while (BackGroundImage.color.r > 0.0f)
         {
-            colorParam = BackGroundImage.color.r - Time.deltaTime * 3.0f;
+            colorParam = BackGroundImage.color.r - Time.deltaTime * 10.0f;
             BackGroundImage.color = new Color(colorParam, colorParam, colorParam);
             yield return new WaitForSecondsRealtime(0.01f);
         }
         BackGroundImage.sprite = bgImage;
         while (BackGroundImage.color.r < 1.0f)
         {
-            colorParam = BackGroundImage.color.r + Time.deltaTime * 3.0f;
+            colorParam = BackGroundImage.color.r + Time.deltaTime * 10.0f;
             BackGroundImage.color = new Color(colorParam, colorParam, colorParam);
             yield return new WaitForSecondsRealtime(0.01f);
         }
