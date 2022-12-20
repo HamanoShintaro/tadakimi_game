@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class SaveController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject tutorial;
     /// <summary>
     /// セーブデータから取り出した値(list)を格納したCharacterSaveDate
     /// </summary>
@@ -19,19 +21,22 @@ public class SaveController : MonoBehaviour
 
     private void Start()
     {
-        //TODOデータ(list)を毎回初期化している
-        characterSave.list.RemoveRange(0, characterSave.list.Count);
-
-        //データがないor初期化ならInitUser() 
-        InitUser();
-
-        //Era_01をキャラクターデータに追加
-        AddCharacterDate("Era_01", 1, false);
-        //Era_01をキャラクターフォーメーション[1]に追加
-        UpdateCharacterFormationDate("Era_01", 1);
-
+        //ロード
         characterSave.Load();
         characterFormation.Load();
+
+        //TODOロードしてデータがないor初期化ならInitUser()
+        if (characterSave.list.Count == 0 || characterSave == null)
+        {
+            InitUser();
+            tutorial.SetActive(true);
+
+            //Era_01をキャラクターデータに追加
+            AddCharacterDate("Era_01", 1, false);
+            //Era_01をキャラクターフォーメーション[1]に追加
+            UpdateCharacterFormationDate("Era_01", 1);
+        }
+
     }
 
     /// <summary>

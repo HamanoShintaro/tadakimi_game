@@ -95,6 +95,7 @@ namespace Battle
             Attack,
             KnockBack,
             Death,
+            StandBy,
             None
         }
 
@@ -208,7 +209,7 @@ namespace Battle
             if (targets.Count == 0) state = State.Walk;
 
             //状態の優先順位は死亡>ノックバック>攻撃>歩く
-            if (!canState) return;
+            //if (!canState) return;
             if (isLeader && player.isMove) animator.SetBool("Walk", true);
             else if (state == State.KnockBack) StartCoroutine(KnockBack());
             else if (state == State.Attack) Attack();
@@ -295,22 +296,6 @@ namespace Battle
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
 
-
-            //ダメージ処理
-            try
-            {
-                foreach (GameObject target in targets)
-                {
-                    //TODODamageのタイミングをアニメーションに合わせる & 単体攻撃と複数攻撃を分ける
-                    target.GetComponent<IDamage>().Damage(atkPower, atkKB);
-                }
-            }
-            catch
-            {
-
-            }
-            //ターゲットをリセット
-            ResetTargets();
             //TODOサウンドエフェクトを再生
             yield return new WaitForSeconds(2f);//TODOマジックナンバー リソースのインターバルから取得する
 
@@ -327,7 +312,7 @@ namespace Battle
             {
                 foreach (GameObject target in targets)
                 {
-                    //TODODamageのタイミングをアニメーションに合わせる & 単体攻撃と複数攻撃を分ける
+                    //TODO単体攻撃と複数攻撃を分ける / 攻撃力をスキルと奥義で分ける
                     target.GetComponent<IDamage>().Damage(atkPower, atkKB);
                 }
             }

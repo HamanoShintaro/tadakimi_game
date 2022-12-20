@@ -1,10 +1,6 @@
 using GoogleMobileAds.Api;
-using UnityEngine.Events;
-using UnityEngine;
-using GoogleMobileAds.Common;
-using UnityEngine.UI;
 using System;
-using System.Collections.Generic;
+using UnityEngine;
 
 public class GoogleAdmobAd : MonoBehaviour
 {
@@ -26,6 +22,8 @@ public class GoogleAdmobAd : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
         // Load the rewarded ad with the request.
         this.rewardedAd.LoadAd(request);
+
+        //this.rewardedAd.OnAdClosed += HandleRewardedAdClosed;
     }
 
     public void UserChoseToWatchAd()
@@ -36,4 +34,10 @@ public class GoogleAdmobAd : MonoBehaviour
         }
     }
 
+    public void UserAdClosed()
+    {
+        //rewardedAd.OnAdClosed();
+    }
+
+    
 }

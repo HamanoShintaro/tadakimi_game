@@ -8,8 +8,14 @@ public class Tower : MonoBehaviour, IDamage
     [SerializeField]
     private float maxHp;
 
+    [SerializeField]
+    private GameObject performancePanel;
+
+    [SerializeField]
+    private BattleController battleController;
+
     //Hpプロパティ
-    private float hp = 100;
+    public float hp = 100;
     public float Hp
     {
         get { return hp; }
@@ -37,9 +43,9 @@ public class Tower : MonoBehaviour, IDamage
         if (Hp == 0)
         {
             //ゲームをストップ
-            GameObject.Find("Canvas").GetComponent<BattleController>().GameStop(Battle.Dominator.TypeLeader.EnemyLeader);
+            battleController.GameStop(Battle.Dominator.TypeLeader.EnemyLeader);
             //リザルト画面(勝利)を表示
-            GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(true);
+            performancePanel.GetComponent<ResultController>().OnResultPanel(true);
         }
     }
 }

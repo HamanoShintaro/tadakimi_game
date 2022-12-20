@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class OkCancelDialog : MonoBehaviour
 {
+    /*
     public enum DialogResult
     {
         OK,
@@ -35,4 +36,5 @@ public class OkCancelDialog : MonoBehaviour
         // テキストの設定
         textObj.GetComponent<Text>().text = text;
     }
+    */
 }
