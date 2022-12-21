@@ -12,22 +12,27 @@ namespace Battle
     {
         #region 変数
         [SerializeField]
-        [Header("キャラクターID")]
+        [Tooltip("キャラクターID")]
         private CharacterId characterId;
 
         [SerializeField]
-        [Header("味方/敵")]
+        [Tooltip("味方/敵")]
         private CharacterType characterType;
 
         [SerializeField]
-        [Header("リーダー")]
-        private bool isLeader;
+        private AttackType attackType = AttackType.single;
 
         [SerializeField]
+        [Tooltip("リーダー")]
+        private bool isLeader;
+
+        [HideInInspector]
         private Player player;
 
         //ステータス
+        [Tooltip("現在のレベル")]
         public int level = 0;
+
         private float maxHp;
         private float defKB;
         private float maxSpeed;
@@ -99,9 +104,6 @@ namespace Battle
             StandBy,
             None
         }
-
-        [SerializeField]
-        private AttackType attackType = AttackType.single;
 
         private enum AttackType
         {
