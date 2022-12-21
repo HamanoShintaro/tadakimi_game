@@ -10,13 +10,20 @@ namespace Battle
     public class Player : MonoBehaviour
     {
         [SerializeField]
+        [Range(0.1f,100f)]
+        private float speed = 2.0f;
+
+        [SerializeField]
         public bool isMove = true;
 
         private RectTransform player;
 
+        private Animator animator;
+
         private void Start()
         {
             player = this.GetComponent<RectTransform>();
+            animator = this.GetComponent<Animator>();
         }
 
         private void Update()
@@ -49,7 +56,7 @@ namespace Battle
             if (player.anchoredPosition.x > 2300) return;
 
             //前進
-            player.anchoredPosition = new Vector3(player.anchoredPosition.x + 2, -250, 0);
+            player.anchoredPosition = new Vector3(player.anchoredPosition.x + speed, -250, 0);
             isMove = true;
         }
 
@@ -62,8 +69,10 @@ namespace Battle
             if (player.anchoredPosition.x < -2300) return;
 
             //後進
-            player.anchoredPosition = new Vector3(player.anchoredPosition.x - 2, -250, 0);
+            player.anchoredPosition = new Vector3(player.anchoredPosition.x - speed, -250, 0);
             isMove = true;
+
+            animator.SetBool("Attack", false);
         }
 
     }

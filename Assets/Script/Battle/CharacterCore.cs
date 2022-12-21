@@ -10,6 +10,7 @@ namespace Battle
     /// </summary>
     public class CharacterCore : MonoBehaviour, IDamage
     {
+        #region 変数
         [SerializeField]
         [Header("キャラクターID")]
         private CharacterId characterId;
@@ -99,6 +100,15 @@ namespace Battle
             None
         }
 
+        [SerializeField]
+        private AttackType attackType = AttackType.single;
+
+        private enum AttackType
+        {
+            single,
+            range
+        }
+
         //Hpプロパティ
         private float hp = 100;
         public float Hp
@@ -137,7 +147,8 @@ namespace Battle
                 else if (skillCoolTime > skillCoolDown) skillCoolTime = skillCoolDown;
             }
         }
-
+        #endregion
+        #region 初期設定
         private void OnEnable()
         {
             canMove = true;
@@ -203,13 +214,13 @@ namespace Battle
             //スキルのクールタイムを測る
             StartCoroutine(Count());
         }
-
+        #endregion
         private void Update()
         {
             if (targets.Count == 0) state = State.Walk;
 
             //状態の優先順位は死亡>ノックバック>攻撃>歩く
-            //if (!canState) return;
+            if (!canState) return;
             if (isLeader && player.isMove) animator.SetBool("Walk", true);
             else if (state == State.KnockBack) StartCoroutine(KnockBack());
             else if (state == State.Attack) Attack();
@@ -291,7 +302,7 @@ namespace Battle
 
         private IEnumerator NomalAttack()
         {
-            Debug.Log($"{characterType} : {characterId}は通常攻撃");
+            //Debug.Log($"{characterType} : {characterId}は通常攻撃");
 
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
@@ -312,8 +323,9 @@ namespace Battle
             {
                 foreach (GameObject target in targets)
                 {
-                    //TODO単体攻撃と複数攻撃を分ける / 攻撃力をスキルと奥義で分ける
+                    //攻撃力をスキルと奥義で分ける
                     target.GetComponent<IDamage>().Damage(atkPower, atkKB);
+                    if (attackType == AttackType.single) break;
                 }
             }
             catch

@@ -17218,15 +17218,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.00016617775
-    y: 0
-    width: 0.99966764
-    height: 1
+    x: 0
+    y: 0.00007021427
+    width: 1
+    height: 0.9998596
   near clip plane: 1
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4017954
+  orthographic size: 5.4
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2

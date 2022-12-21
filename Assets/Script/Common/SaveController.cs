@@ -25,7 +25,7 @@ public class SaveController : MonoBehaviour
         characterSave.Load();
         characterFormation.Load();
 
-        //TODOロードしてデータがないor初期化ならInitUser()
+        //ロードしてデータがないor初期化ならInitUser()
         if (characterSave.list.Count == 0 || characterSave == null)
         {
             InitUser();
@@ -36,7 +36,6 @@ public class SaveController : MonoBehaviour
             //Era_01をキャラクターフォーメーション[1]に追加
             UpdateCharacterFormationDate("Era_01", 1);
         }
-
     }
 
     /// <summary>

@@ -707,6 +707,7 @@ MonoBehaviour:
   level: 0
   targets: []
   magicPowerController: {fileID: 1337964780}
+  attackType: 0
 --- !u!114 &183811140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,6 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abe96938de9140b4b98a587bf257100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1.3
   isMove: 0
 --- !u!1 &233319610
 GameObject:
@@ -1710,9 +1712,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.02897194
+    y: 0.40090537
     width: 1
-    height: 0.9420561
+    height: 0.19818924
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1741,7 +1743,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1780.9525, y: -34.000046, z: -10}
+  m_LocalPosition: {x: 0.00024414062, y: -34, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7576,7 +7578,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8871251, y: 1}
+    m_SensorSize: {x: 8.973085, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7593,7 +7595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735806792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1864.619, y: -34.000015, z: -10}
+  m_LocalPosition: {x: 3395.1863, y: -34.000015, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15315,7 +15317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852149, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852149, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_AnchorMax.x
