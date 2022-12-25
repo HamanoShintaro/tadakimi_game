@@ -4,11 +4,10 @@ using UnityEngine;
 
 namespace Battle
 {
-    //TODOhasSkillとhasSpecialをつける=>インターフェイスで呼び出す??
     /// <summary>
     /// キャラクター > (ステータス管理/歩くor攻撃or死亡orノックバックの処理/回復or被ダメージor強化の処理)をするメソッド
     /// </summary>
-    public class CharacterCore : MonoBehaviour, IDamage
+    public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhance
     {
         #region 変数
         [SerializeField]
@@ -17,10 +16,15 @@ namespace Battle
 
         [SerializeField]
         [Tooltip("味方/敵")]
-        private CharacterType characterType;
+        private CharacterType characterType = CharacterType.Buddy;
 
         [SerializeField]
+        [Tooltip("攻撃範囲の種類")]
         private AttackType attackType = AttackType.single;
+
+        [SerializeField]
+        [Tooltip("役職")]
+        private CharacterRole characterRole = CharacterRole.Attacker;
 
         [SerializeField]
         [Tooltip("リーダー")]
@@ -47,8 +51,16 @@ namespace Battle
         private float skillCoolDown;
         private float skillInterval;
         private bool hasSkill;
-        private GameObject skillEffect;
-        private RectTransform skillEffectPanel;
+        private float skillRatio;
+        //private GameObject skillEffect;
+        //private RectTransform skillEffectPanel;
+
+        //奥義
+        private int specialCost;
+        private float specialCoolTime;
+        private float specialInterval;
+        private bool hasSpecial;
+        private float specialRatio;
 
         //検知しているターゲットのリスト
         public List<GameObject> targets = new List<GameObject>();
@@ -69,6 +81,9 @@ namespace Battle
 
         //スキルのクールタイムを測れるかどうか
         private bool canSkillCoolTime = true;
+
+        //スペシャルのクールタイムを測れるかどうか
+        private bool canSpecialCoolTime = true;
 
         //プレイヤーキャラクターの種類
         public enum CharacterId
@@ -91,6 +106,13 @@ namespace Battle
         {
             Buddy,
             Enemy
+        }
+
+        //キャラクターの役割
+        private enum CharacterRole
+        {
+            Attacker,
+            Supporter
         }
 
         //状態のプロパティ
@@ -191,8 +213,17 @@ namespace Battle
             //スキルクールタイム取得
             skillCoolTime = characterInfo.skill.cd;
 
-            //スキルエフェクト取得
-            skillCoolTime = characterInfo.skill.cd;
+            //スキルレート
+            skillRatio = characterInfo.skill.Ratio;
+
+            //スペシャルコスト
+            specialCost = characterInfo.skill.cost;
+
+            //スペシャルクールタイム
+            specialCoolTime = characterInfo.special.cd;
+
+            //スペシャルレート
+            specialRatio = characterInfo.special.Ratio;
 
             //マジックコントローラー取得
             magicPowerController = GameObject.Find("Canvas_Dynamic/[ControlPanel]/Power").GetComponent<MagicPowerController>();
@@ -203,7 +234,13 @@ namespace Battle
             //初めのステートを設定
             state = State.Walk;
 
-            hasSkill = true;//TODOリソースorセーブから読み込む?
+            //スキル名がないならhasSkill = false
+            if (characterInfo.skill.name == "" || characterInfo.skill.name == null) hasSkill = false;
+            else hasSkill = true;
+
+            //スキル名がないならhasSpecial = false
+            if (characterInfo.special.name == "" || characterInfo.special.name == null) hasSpecial = false;
+            else hasSpecial = true;
 
             try
             {
@@ -214,7 +251,7 @@ namespace Battle
             }
 
             //スキルのクールタイムを測る
-            StartCoroutine(Count());
+            StartCoroutine(SkillCoolTimeCount());
         }
         #endregion
         private void Update()
@@ -225,7 +262,7 @@ namespace Battle
             if (!canState) return;
             if (isLeader && player.isMove) animator.SetBool("Walk", true);
             else if (state == State.KnockBack) StartCoroutine(KnockBack());
-            else if (state == State.Attack) Attack();
+            else if (state == State.Attack) Action();
             else if (state == State.Walk) Walk();
         }
 
@@ -244,65 +281,59 @@ namespace Battle
         /// <summary>
         /// 攻撃するメソッド
         /// </summary>
-        private void Attack()
+        private void Action()
         {
             if (!canState) return;
             canState = false;
-            if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)//TODOスキルクールタイム計算メソッド
+            if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
             {
-                StartCoroutine(SkillAttack());
+                StartCoroutine(SpecialAction());
             }
-            /*
-            else if (奥義の条件)
+            if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
-                StartCoroutine(SpecialAttack());
+                StartCoroutine(SkillAction());
             }
-             */
             else
             {
-                StartCoroutine(NomalAttack());
+                StartCoroutine(NomalAction());
             }
         }
 
-        private IEnumerator SkillAttack()
+        private IEnumerator SkillAction()
         {
             Debug.Log($"{characterType} : {characterId}はスキル");
 
             //スキル処理>開始
             animator.SetBool("Skill", true);
 
-            //エフェクトを生成
-            yield return new WaitForSeconds(3);//TODOリソースから取得する
-
-            //TODO修正 var ef = Instantiate(skillEffect, skillEffectPanel.transform);//TODOスキル開始~終了までアニメーションで管理もあり
-            //ef.position = new Vector2()
-            yield return new WaitForSeconds(skillInterval);//TODOリソースから取得する
+            yield return new WaitForSeconds(skillInterval);
 
             //スキル処理>終了
             animator.SetBool("Skill", false);
 
             //スキルのクールタイムを測る
-            StartCoroutine(Count());
+            StartCoroutine(SkillCoolTimeCount());
 
             canState = true;
         }
 
-        private IEnumerator SpecialAttack()
+        private IEnumerator SpecialAction()
         {
-            //TODO
             //奥義処理>開始
-            yield return new WaitForSeconds(1);
+            animator.SetBool("Special", true);
 
-            //エフェクトを生成
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(specialInterval);
 
             //奥義処理>終了
-            //奥義のクールタイム測る?
+            animator.SetBool("Special", false);
+
+            //奥義のクールタイム測る
+            StartCoroutine(SpecialCoolTimeCounto());
 
             canState = true;
         }
 
-        private IEnumerator NomalAttack()
+        private IEnumerator NomalAction()
         {
             //Debug.Log($"{characterType} : {characterId}は通常攻撃");
 
@@ -318,15 +349,23 @@ namespace Battle
             canState = true;
         }
 
-        private void InflictDamage()
+        /// <summary>
+        /// targetにダメージを与える
+        /// </summary>
+        /// <param name="type">0:通常攻撃 / 1: スキル攻撃 / 2:スペシャル攻撃</param>
+        private void InflictDamage(int type)
         {
+            float ratio = 1;
+            if (type == 1 && hasSkill) ratio = skillRatio;
+            else if (type == 2 && hasSpecial) ratio = specialRatio;
+
             //ダメージ処理
             try
             {
                 foreach (GameObject target in targets)
                 {
                     //攻撃力をスキルと奥義で分ける
-                    target.GetComponent<IDamage>().Damage(atkPower, atkKB);
+                    target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
                     if (attackType == AttackType.single) break;
                 }
             }
@@ -338,11 +377,41 @@ namespace Battle
             ResetTargets();
         }
 
+        private void GiveRecovery()
+        {
+            try
+            {
+                foreach (GameObject target in targets)
+                {
+                    target.GetComponent<IRecovery>().Recovery(2);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void GiveTemporaryEnhance()
+        {
+            try
+            {
+                foreach (GameObject target in targets)
+                {
+                    target.GetComponent<ITemporaryEnhance>().TemporaryEnhance(5,5,5);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
         /// <summary>
         ///  スキルのクールタイムを測るメソッド
         /// </summary>
         /// <returns></returns>
-        private IEnumerator Count()
+        private IEnumerator SkillCoolTimeCount()
         {
             if (!canSkillCoolTime) yield break;
             canSkillCoolTime = false;
@@ -350,10 +419,26 @@ namespace Battle
             {
                 yield return new WaitForSeconds(1);
                 SkillCoolTime--;
-                //Debug.Log($"{SkillCoolTime}");
                 if (SkillCoolTime == 0) break;
             }
             canSkillCoolTime = true;
+        }
+
+        /// <summary>
+        ///  スペシャルのクールタイムを測るメソッド
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator SpecialCoolTimeCounto()
+        {
+            if (!canSpecialCoolTime) yield break;
+            canSpecialCoolTime = false;
+            while (true)
+            {
+                yield return new WaitForSeconds(1);
+                specialCoolTime--;
+                if (specialCoolTime == 0) break;
+            }
+            canSpecialCoolTime = true;
         }
 
         /// <summary>
@@ -365,7 +450,7 @@ namespace Battle
             canState = false;
             Debug.Log($"{characterType} : {characterId}はノックバック");
 
-            //ノックバック処理>開始 TODOノックバック処理
+            //ノックバック処理>開始
             yield return new WaitForSeconds(1);
 
             //ノックバック処理>終了
@@ -380,8 +465,9 @@ namespace Battle
         private IEnumerator Death()
         {
             Debug.Log($"{characterType} : {characterId}は死亡");
-            //死亡処理>開始　TODO死亡処理
+            //死亡処理>開始
             animator.SetBool("Death", true);
+
             yield return new WaitForSeconds(1);
 
             //死亡処理>終了
@@ -413,7 +499,7 @@ namespace Battle
         /// 回復するメソッド
         /// </summary>
         /// <param name="heal"></param>
-        public void Recover(int heal)
+        public void Recovery(int heal)
         {
             Hp += heal;
         }
@@ -429,7 +515,7 @@ namespace Battle
             maxHp += addMaxHp;
             yield return new WaitForSeconds(duration);
             this.Speed = speed;
-            maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[0].hp;//TODO現在のレベルを読み込む
+            maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].hp;
         }
 
         /// <summary>
@@ -443,11 +529,22 @@ namespace Battle
         private void OnTriggerStay2D(Collider2D t)
         {
             if (t.isTrigger == true) return;
-            if (characterType == CharacterType.Buddy && t.CompareTag("Enemy") || characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
+            if (characterRole == CharacterRole.Attacker)
             {
-                state = State.Attack;
-                if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
-                //Debug.Log("攻撃範囲にターゲットがいます");
+                if (characterType == CharacterType.Buddy && t.CompareTag("Enemy") || characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
+                {
+                    state = State.Attack;
+                    if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
+                }
+            }
+            else if (characterRole == CharacterRole.Supporter)
+            {
+                if (characterType == CharacterType.Buddy && t.CompareTag("Buddy") || characterType == CharacterType.Enemy && t.CompareTag("Enemy"))
+                {
+                    state = State.Attack;
+                    if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
+                }
+
             }
         }
 
