@@ -701,7 +701,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: volcus_01
+          m_StringArgument: Volcus_01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &61252202
@@ -1718,8 +1718,8 @@ RectTransform:
   m_Father: {fileID: 61252203}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.44893175, y: 0}
-  m_AnchorMax: {x: 0.9673535, y: 1}
+  m_AnchorMin: {x: 0.44893172, y: 0}
+  m_AnchorMax: {x: 0.96735346, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5643,7 +5643,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: volcus_01
+          m_StringArgument: Volcus_01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &817254282
@@ -5738,7 +5738,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: volcus_01
+          m_StringArgument: Volcus_01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &818101722
@@ -6861,7 +6861,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: volcus_01
+          m_StringArgument: Volcus_01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &978972292
@@ -7844,7 +7844,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: volcus_01
+          m_StringArgument: Volcus_01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1076612813
@@ -10477,8 +10477,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 211674991}
   m_HandleRect: {fileID: 211674990}
   m_Direction: 0
-  m_Value: 0.9322093
-  m_Size: 0.51842177
+  m_Value: 0.93220925
+  m_Size: 0.5184217
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10727,7 +10727,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: era_01
+          m_StringArgument: Era_01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1373387817
@@ -17218,15 +17218,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.00003260374
+    x: 0.00009903312
     y: 0
-    width: 0.9999348
+    width: 0.99980193
     height: 1
   near clip plane: 1
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 5.400352
+  orthographic size: 5.40107
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
@@ -18152,7 +18152,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: volcus_01
+          m_StringArgument: Volcus_01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1711664234

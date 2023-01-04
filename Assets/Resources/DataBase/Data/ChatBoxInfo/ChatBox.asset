@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: ChatBox
   m_EditorClassIdentifier: 
   japaneseMessageArray:
-  - "\u3053\u3093\u306B\u3061\u306F"
-  - "\u3053\u3093\u306B\u3061\u306F1"
+  - "\u4ECA\u65E5\u3082\u4E00\u7DD2\u306B\u9811\u5F35\u308D\u3046\u306D\u3002\u307B\u3052\u307B\u3052\u307B\u3052\u3002"
+  - "\u307B\u3052~~~~"
+  - "\u307B\u3052~~~~"
   englishMessageArray:
-  - Hello
-  - Hello1
+  - Hello!!!!!!!
+  - HogeHogeHoge
   chineseMessageArray:
   - "\u4F60\u597D\n"
   - "\u4F60\u597D1"

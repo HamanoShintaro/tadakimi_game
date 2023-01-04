@@ -22,7 +22,7 @@ public class GoogleAdmobAd : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
         // Load the rewarded ad with the request.
         this.rewardedAd.LoadAd(request);
-
+        UserChoseToWatchAd();
         //this.rewardedAd.OnAdClosed += HandleRewardedAdClosed;
     }
 
@@ -39,5 +39,9 @@ public class GoogleAdmobAd : MonoBehaviour
         //rewardedAd.OnAdClosed();
     }
 
-    
+    public void HandleUserEarnedReward(object sender, Reward args)
+    {
+        string type = args.Type;
+        double amount = args.Amount;
+    }
 }
