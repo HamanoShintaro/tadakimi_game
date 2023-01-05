@@ -120,7 +120,7 @@ namespace Battle
         private enum State
         {
             Walk,
-            Attack,
+            Action,
             KnockBack,
             Death,
             StandBy,
@@ -249,21 +249,38 @@ namespace Battle
             catch
             {
             }
-
             //スキルのクールタイムを測る
             StartCoroutine(SkillCoolTimeCount());
         }
         #endregion
         private void Update()
         {
+            /*
             if (targets.Count == 0) state = State.Walk;
-
             //状態の優先順位は死亡>ノックバック>攻撃>歩く
             if (!canState) return;
-            if (isLeader && player.isMove) animator.SetBool("Walk", true);
+            if (isLeader && player.isMove) return;//TODOanimator.SetBool("Walk", true)
             else if (state == State.KnockBack) StartCoroutine(KnockBack());
             else if (state == State.Attack) Action();
             else if (state == State.Walk) Walk();
+            */
+
+            //状態の優先順位は死亡>ノックバック>状態遷移可能かどうか>歩くorアクション
+
+            //ノックバック処理
+            if (state == State.KnockBack) StartCoroutine(KnockBack());
+            if (!canState) return;
+            if (isLeader && player.isMove) return;//TODOanimator.SetBool("Walk", true)
+            //ターゲットが居ない=>歩く
+            if (targets.Count == 0)
+            {
+                Walk();
+            }
+            //ターゲットが居る=>アクション
+            else
+            {
+                Action();
+            }
         }
 
         /// <summary>
@@ -271,7 +288,7 @@ namespace Battle
         /// </summary>
         private void Walk()
         {
-            //Debug.Log($"{characterType}{isLeader}{player.isMove} : {characterId}は歩く");
+            Debug.Log($"{characterType}{isLeader}{player.isMove} : {characterId}は歩く");
             if (!canMove) return;
             if (isLeader) return;
             if (characterType == CharacterType.Buddy) this.transform.position = new Vector2(this.transform.position.x + speed, this.transform.position.y);
@@ -289,7 +306,7 @@ namespace Battle
             {
                 StartCoroutine(SpecialAction());
             }
-            if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
+            else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
                 StartCoroutine(SkillAction());
             }
@@ -335,7 +352,7 @@ namespace Battle
 
         private IEnumerator NomalAction()
         {
-            //Debug.Log($"{characterType} : {characterId}は通常攻撃");
+            Debug.Log($"{characterType} : {characterId}は通常攻撃");
 
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
@@ -355,7 +372,7 @@ namespace Battle
         /// <param name="type">0:通常攻撃 / 1: スキル攻撃 / 2:スペシャル攻撃</param>
         private void InflictDamage(int type)
         {
-            float ratio = 1;
+            float ratio = 1f;
             if (type == 1 && hasSkill) ratio = skillRatio;
             else if (type == 2 && hasSpecial) ratio = specialRatio;
 
@@ -371,7 +388,6 @@ namespace Battle
             }
             catch
             {
-
             }
             //ターゲットをリセット
             ResetTargets();
@@ -388,7 +404,6 @@ namespace Battle
             }
             catch
             {
-
             }
         }
 
@@ -403,7 +418,6 @@ namespace Battle
             }
             catch
             {
-
             }
         }
 
@@ -464,6 +478,7 @@ namespace Battle
         /// </summary>
         private IEnumerator Death()
         {
+            canState = false;
             Debug.Log($"{characterType} : {characterId}は死亡");
             //死亡処理>開始
             animator.SetBool("Death", true);
@@ -472,6 +487,7 @@ namespace Battle
 
             //死亡処理>終了
             this.gameObject.SetActive(false);
+            canState = true;
         }
 
         /// <summary>
@@ -480,8 +496,7 @@ namespace Battle
         /// <param name="atkPower">攻撃力</param>
         public void Damage(float atkPower = 0, float atkkb = 0)
         {
-            Debug.Log($"{characterType} : {characterId}は被ダメージ / Hpは{Hp}");
-            //ダメージ計算TODO防御力も計算
+            Debug.Log($"{characterType} : {characterId}は被ダメージ | Hpは{Hp}");
             Hp -= atkPower;
             if (Hp <= 0)
             {
@@ -489,9 +504,9 @@ namespace Battle
                 canState = false;
                 StartCoroutine(Death());
             }
-            else
+            else if ((atkkb - defKB) * Random.value > 1)
             {
-                if ((atkkb - defKB) * Random.value > 1) state = State.KnockBack;
+                state = State.KnockBack;
             }
         }
 
@@ -533,7 +548,7 @@ namespace Battle
             {
                 if (characterType == CharacterType.Buddy && t.CompareTag("Enemy") || characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
                 {
-                    state = State.Attack;
+                    state = State.Action;
                     if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
                 }
             }
@@ -541,7 +556,7 @@ namespace Battle
             {
                 if (characterType == CharacterType.Buddy && t.CompareTag("Buddy") || characterType == CharacterType.Enemy && t.CompareTag("Enemy"))
                 {
-                    state = State.Attack;
+                    state = State.Action;
                     if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
                 }
 

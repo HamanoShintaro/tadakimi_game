@@ -29,6 +29,8 @@ public class SaveController : MonoBehaviour
         if (characterSave.list.Count == 0 || characterSave == null)
         {
             InitUser();
+
+            //チュートリアルを表示する
             tutorial.SetActive(true);
 
             //Era_01をキャラクターデータに追加
@@ -58,10 +60,10 @@ public class SaveController : MonoBehaviour
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentLanguage)) { PlayerPrefs.SetInt(PlayerPrefabKeys.currentLanguage, GameSettingParams.currentLanguage); }
 
         //初期キャラをキャラクターデータに追加
-        AddCharacterDate(GameSettingParams.initCharacter, 1, false);
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData)) AddCharacterDate(GameSettingParams.initCharacter, 1, false);
 
         //初期キャラをキャラクターフォーメーション[0]に追加
-        UpdateCharacterFormationDate(GameSettingParams.initCharacter, 0);
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation)) UpdateCharacterFormationDate(GameSettingParams.initCharacter, 0);
     }
 
     /// <summary>

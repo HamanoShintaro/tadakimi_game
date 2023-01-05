@@ -6,9 +6,15 @@ using UnityEngine;
 
 public class GoogleMobileAdsDemoScript : MonoBehaviour
 {
+    [SerializeField]
+    private int reward = 100;
+
+    [SerializeField]
+    private BattleController battleController;
+
     private RewardedAd rewardedAd;
 
-    public void Start()
+    private void Start()
     {
         string adUnitId;
 #if UNITY_ANDROID
@@ -38,7 +44,6 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
         // Load the rewarded ad with the request.
         this.rewardedAd.LoadAd(request);
-        UserChoseToWatchAd();
     }
 
     public void UserChoseToWatchAd()
@@ -78,6 +83,7 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
     {
         string type = args.Type;
         double amount = args.Amount;
+        battleController.StartCoroutine("OnDisplayMoney", reward);
         Debug.Log("広告の報酬をもらう : HandleRewardedAdRewarded event received for "+ amount.ToString() + " " + type);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GoogleAdmobAd : MonoBehaviour
 {
+    /*
 #if UNITY_ANDROID
     private const string AdUnitId = "ca-app-pub-3940256099942544/6300978111";
 #elif UNITY_IPHONE
@@ -44,4 +45,5 @@ public class GoogleAdmobAd : MonoBehaviour
         string type = args.Type;
         double amount = args.Amount;
     }
+    */
 }
