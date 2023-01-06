@@ -138,7 +138,7 @@ public class BattleController : MonoBehaviour
         if (type == TypeLeader.BuddyLeader)
         {
             //ゲームのプレイ時間を記録
-            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime + gameTimer));
+            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) + gameTimer);
 
             //リザルト画面を表示
             performancePanel.GetComponent<ResultController>().OnResultPanel(false);
