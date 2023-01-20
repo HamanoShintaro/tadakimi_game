@@ -3,6 +3,7 @@ using GoogleMobileAds.Api;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GoogleMobileAdsDemoScript : MonoBehaviour
 {
@@ -12,10 +13,24 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
     [SerializeField]
     private BattleController battleController;
 
+    [SerializeField]
+    private Toggle[] toggles;
+
     private RewardedAd rewardedAd;
 
     private void Start()
     {
+        if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
+        {
+            toggles[0].isOn = true;
+            toggles[1].isOn = true;
+        }
+        else
+        {
+            toggles[0].isOn = false;
+            toggles[1].isOn = false;
+        }
+
         string adUnitId;
 #if UNITY_ANDROID
             adUnitId = "ca-app-pub-3940256099942544/5224354917";
@@ -85,5 +100,17 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
         double amount = args.Amount;
         battleController.StartCoroutine("OnDisplayMoney", reward);
         Debug.Log("広告の報酬をもらう : HandleRewardedAdRewarded event received for "+ amount.ToString() + " " + type);
+    }
+
+    /// <summary>
+    /// トグルによって広告表示モードの切り替えを行うメソッド
+    /// </summary>
+    /// <param name="toggle"></param>
+    public void OnChangeAdsMode(Toggle toggle)
+    {
+        int index;
+        if (toggle.isOn) index = 0;
+        else index = 1;
+        PlayerPrefs.SetInt(PlayerPrefabKeys.currentAdsMode, index);
     }
 }

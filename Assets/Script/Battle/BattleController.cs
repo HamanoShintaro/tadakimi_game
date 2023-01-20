@@ -135,6 +135,11 @@ public class BattleController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator GameStopCoroutine(TypeLeader type)
     {
+        //広告が表示モードなら動画を提示
+        if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
+        {
+            GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
+        }
         if (type == TypeLeader.BuddyLeader)
         {
             //ゲームのプレイ時間を記録

@@ -30,7 +30,7 @@ public class SaveController : MonoBehaviour
         {
             InitUser();
 
-            //チュートリアルを表示する
+            //チュートリアルを表示
             tutorial.SetActive(true);
 
             //Era_01をキャラクターデータに追加
@@ -64,6 +64,9 @@ public class SaveController : MonoBehaviour
 
         //初期キャラをキャラクターフォーメーション[0]に追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation)) UpdateCharacterFormationDate(GameSettingParams.initCharacter, 0);
+
+        //広告表示モードを表示に設定
+        PlayerPrefs.SetInt(PlayerPrefabKeys.currentAdsMode, 0);
     }
 
     /// <summary>

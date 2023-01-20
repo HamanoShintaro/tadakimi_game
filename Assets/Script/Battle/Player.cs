@@ -28,8 +28,8 @@ namespace Battle
 
         private void Update()
         {
+            Debug.Log($"{Screen.width} * {Screen.height} : {Screen.fullScreenMode}");
             //移動入力がある場合は背景を動かす&歩きアニメーション再生 / ない場合はアニメーションを停止
-
             if (Input.GetKey(KeyCode.D))
             {
                 MoveRight();
