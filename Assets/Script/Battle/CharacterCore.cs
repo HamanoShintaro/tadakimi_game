@@ -288,7 +288,7 @@ namespace Battle
         /// </summary>
         private void Walk()
         {
-            Debug.Log($"{characterType}{isLeader}{player.isMove} : {characterId}は歩く");
+            //Debug.Log($"{characterType}{isLeader}{player.isMove} : {characterId}は歩く");
             if (!canMove) return;
             if (isLeader) return;
             if (characterType == CharacterType.Buddy) this.transform.position = new Vector2(this.transform.position.x + speed, this.transform.position.y);
