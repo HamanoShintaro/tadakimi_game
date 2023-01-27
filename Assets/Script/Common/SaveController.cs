@@ -75,7 +75,7 @@ public class SaveController : MonoBehaviour
     /// <param name="id">キャラクターID(string)</param>
     /// <param name="level">キャラクターレベル</param>
     /// <param name="hasSpecial">奥義の有無</param>
-    private void AddCharacterDate(string id, int level, bool hasSpecial)
+    public void AddCharacterDate(string id, int level, bool hasSpecial)
     {
         //追加するキャラクターのデータを作成
         CharacterSaveData.CharacterData characterData = new CharacterSaveData.CharacterData();

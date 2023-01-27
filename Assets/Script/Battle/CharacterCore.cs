@@ -255,22 +255,16 @@ namespace Battle
         #endregion
         private void Update()
         {
-            /*
-            if (targets.Count == 0) state = State.Walk;
-            //状態の優先順位は死亡>ノックバック>攻撃>歩く
-            if (!canState) return;
-            if (isLeader && player.isMove) return;//TODOanimator.SetBool("Walk", true)
-            else if (state == State.KnockBack) StartCoroutine(KnockBack());
-            else if (state == State.Attack) Action();
-            else if (state == State.Walk) Walk();
-            */
-
             //状態の優先順位は死亡>ノックバック>状態遷移可能かどうか>歩くorアクション
 
             //ノックバック処理
             if (state == State.KnockBack) StartCoroutine(KnockBack());
             if (!canState) return;
-            if (isLeader && player.isMove) return;//TODOanimator.SetBool("Walk", true)
+            if (isLeader && player.isMove)
+            {
+                //animator.SetBool("Walk", true);
+                return;
+            }
             //ターゲットが居ない=>歩く
             if (targets.Count == 0)
             {
@@ -559,16 +553,25 @@ namespace Battle
                     state = State.Action;
                     if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
                 }
-
             }
         }
 
         private void OnTriggerExit2D(Collider2D t)
         {
             if (t.isTrigger == true) return;
-            if (characterType == CharacterType.Buddy && t.CompareTag("Enemy") || characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
+            if (characterRole.Equals(CharacterRole.Attacker))
             {
-                if (targets.Contains(t.gameObject)) targets.Remove(t.gameObject);
+                if (characterType == CharacterType.Buddy && t.CompareTag("Enemy") || characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
+                {
+                    if (targets.Contains(t.gameObject)) targets.Remove(t.gameObject);
+                }
+            }
+            else if (characterRole.Equals(CharacterRole.Supporter))
+            {
+                if (characterType == CharacterType.Buddy && t.CompareTag("Buddy") || characterType == CharacterType.Enemy && t.CompareTag("Enemy"))
+                {
+                    if (!targets.Contains(t.gameObject)) targets.Remove(t.gameObject);
+                }
             }
         }
     }

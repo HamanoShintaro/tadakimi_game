@@ -8830,7 +8830,9 @@ MonoBehaviour:
   characterKnockBackObj: {fileID: 1719810627}
   characterKnockBackDeffenceObj: {fileID: 367288516}
   characterLvUpCostObj: {fileID: 130165034}
+  characterButton: {fileID: 0}
   menuController: {fileID: 1470701935}
+  content: {fileID: 0}
 --- !u!1001 &1176843466
 PrefabInstance:
   m_ObjectHideFlags: 0
