@@ -13,9 +13,11 @@ public class CharacterButton : MonoBehaviour
         characterBox = GameObject.Find("Canvas/Render/BaseMenu/CharacterBox").GetComponent<CharacterBox>();    
     }
 
+    /// <summary>
+    /// キャラクター編成画面でボタンが選択されたら呼び出すメソッド
+    /// </summary>
     public void OnSelectedCharacter()
     {
         characterBox.OnSelectedCharacter(characterId);
-        Debug.Log($"{characterId}をクリックした");
     }
 }

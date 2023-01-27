@@ -26,7 +26,6 @@ public class CharacterMenuController : MonoBehaviour
     public GameObject characterKnockBackObj;
     public GameObject characterKnockBackDeffenceObj;
     public GameObject characterLvUpCostObj;
-    public GameObject characterButton;
 
     // コントローラークラス、リソースのロード用
     public MenuController menuController;
@@ -35,8 +34,6 @@ public class CharacterMenuController : MonoBehaviour
 
     //現在選択しているキャラクター名
     private string currentCharacter;
-
-    public Transform content;
 
     private void Start()
     {
@@ -107,16 +104,5 @@ public class CharacterMenuController : MonoBehaviour
             saveController.characterSave.Save();
             SetCharacter(characterId);
         }
-    }
-
-    private void CreateCharacterButton()
-    {
-        //キャラボタンを生成
-        var onClick = Instantiate(characterButton, content).GetComponent<Button>().onClick;
-        //イメージを取得
-        //idを取得
-        //関数を登録
-        var characterId = "";
-        SetCharacter(characterId);
     }
 }
