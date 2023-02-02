@@ -28,10 +28,7 @@ public class backButtonController : MonoBehaviour
         {
             StartCoroutine(menuController.backMenuFromSetting());
         }
-        else if (PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView) == PlayerPrefabKeys.characterFormationMenuView)
-        {
-            CharacterBox.CloseCharacterFormation();
-        }
+        CharacterBox.CloseCharacterFormation();
         this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
         this.GetComponent<AudioSource>().Play();
     }

@@ -27,11 +27,13 @@ public class BuyCharacter : MonoBehaviour
         //解放されているキャラクターはカラー表示にする
         if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId) >= releaseStageId)
         {
+            GetComponent<Button>().enabled = true;
             transform.Find("Image").GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f);
             transform.Find("GrayLabel").gameObject.SetActive(false);
         }
         else
         {
+            GetComponent<Button>().enabled = false;
             transform.Find("Image").GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f);
             transform.Find("GrayLabel").gameObject.SetActive(true);
         }

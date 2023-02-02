@@ -4506,6 +4506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1470701930}
   menuController: {fileID: 1470701935}
+  parent: {fileID: 0}
+  dialog: {fileID: 0}
   buttonType: setting
 --- !u!95 &651982044
 Animator:
@@ -6660,6 +6662,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1470701930}
   menuController: {fileID: 1470701935}
+  parent: {fileID: 0}
+  dialog: {fileID: 0}
   buttonType: character
 --- !u!114 &941322143
 MonoBehaviour:
@@ -17507,9 +17511,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.027545571
     width: 1
-    height: 1
+    height: 0.94490886
   near clip plane: 1
   far clip plane: 100
   field of view: 60
@@ -20228,6 +20232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1470701930}
   menuController: {fileID: 1470701935}
+  parent: {fileID: 0}
+  dialog: {fileID: 0}
   buttonType: senario
 --- !u!114 &1986039868
 MonoBehaviour:

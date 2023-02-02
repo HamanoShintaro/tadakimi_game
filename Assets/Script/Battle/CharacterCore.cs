@@ -351,7 +351,6 @@ namespace Battle
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
 
-            //TODOサウンドエフェクトを再生
             yield return new WaitForSeconds(2f);//TODOマジックナンバー リソースのインターバルから取得する
 
             //通常攻撃の処理>終了
