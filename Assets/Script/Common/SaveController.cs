@@ -9,6 +9,7 @@ public class SaveController : MonoBehaviour
 {
     [SerializeField]
     private GameObject tutorial;
+
     /// <summary>
     /// セーブデータから取り出した値(list)を格納したCharacterSaveDate
     /// </summary>

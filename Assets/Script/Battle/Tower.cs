@@ -37,7 +37,6 @@ public class Tower : MonoBehaviour, IDamage
 
     public void Damage(float attackPower = 0, float kb = 0)
     {
-        //ダメージ計算TODO防御力も計算
         Debug.Log("被ダメージ");
         Hp -= attackPower;
         if (Hp == 0)

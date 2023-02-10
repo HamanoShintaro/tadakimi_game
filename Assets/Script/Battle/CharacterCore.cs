@@ -43,7 +43,7 @@ namespace Battle
 
         //通常攻撃
         private float atkKB;
-        private float atkPower;
+        public float atkPower;
         private float atkInterval;
 
         //スキル
@@ -238,7 +238,7 @@ namespace Battle
             if (characterInfo.skill.name == "" || characterInfo.skill.name == null) hasSkill = false;
             else hasSkill = true;
 
-            //スキル名がないならhasSpecial = false
+            //スペシャル名がないならhasSpecial = false
             if (characterInfo.special.name == "" || characterInfo.special.name == null) hasSpecial = false;
             else hasSpecial = true;
 
@@ -256,7 +256,6 @@ namespace Battle
         private void Update()
         {
             //状態の優先順位は死亡>ノックバック>状態遷移可能かどうか>歩くorアクション
-
             //ノックバック処理
             if (state == State.KnockBack) StartCoroutine(KnockBack());
             if (!canState) return;
@@ -299,6 +298,7 @@ namespace Battle
             if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
             {
                 StartCoroutine(SpecialAction());
+
             }
             else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
@@ -487,7 +487,7 @@ namespace Battle
         /// ダメージを受けたときのメソッド(インターフェイス)
         /// </summary>
         /// <param name="atkPower">攻撃力</param>
-        public void Damage(float atkPower = 0, float atkkb = 0)
+        public void Damage(float atkPower = 0, float atkKB = 0)
         {
             Debug.Log($"{characterType} : {characterId}は被ダメージ | Hpは{Hp}");
             Hp -= atkPower;
@@ -497,7 +497,7 @@ namespace Battle
                 canState = false;
                 StartCoroutine(Death());
             }
-            else if ((atkkb - defKB) * Random.value > 1)
+            else if ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity))
             {
                 state = State.KnockBack;
             }
