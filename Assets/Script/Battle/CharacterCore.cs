@@ -35,6 +35,7 @@ namespace Battle
 
         //ステータス
         [Tooltip("現在のレベル")]
+        [HideInInspector]
         public int level = 0;
 
         private float maxHp;
@@ -43,6 +44,7 @@ namespace Battle
 
         //通常攻撃
         private float atkKB;
+        [HideInInspector]
         public float atkPower;
         private float atkInterval;
 
@@ -66,7 +68,6 @@ namespace Battle
         public List<GameObject> targets = new List<GameObject>();
 
         //取得するコンポーネント
-        [SerializeField]
         private MagicPowerController magicPowerController;
         private Animator animator;
 
@@ -187,7 +188,14 @@ namespace Battle
                 //セーブデータを取得
                 saveController.characterSave.Load();
                 //characterIdのセーブデータのレベルを取得
-                level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level;
+                try
+                {
+                    level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level;
+                }
+                catch
+                {
+                    level = 1;
+                }
             }
             var characterInfo = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}");
             //maxHp取得
@@ -229,7 +237,7 @@ namespace Battle
             magicPowerController = GameObject.Find("Canvas_Dynamic/[ControlPanel]/Power").GetComponent<MagicPowerController>();
 
             //アニメーター取得
-            animator = this.GetComponent<Animator>();
+            animator = GetComponent<Animator>();
 
             //初めのステートを設定
             state = State.Walk;
@@ -317,6 +325,7 @@ namespace Battle
             //スキル処理>開始
             animator.SetBool("Skill", true);
 
+            skillInterval = 2;
             yield return new WaitForSeconds(skillInterval);
 
             //スキル処理>終了
