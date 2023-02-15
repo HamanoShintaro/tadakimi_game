@@ -71,9 +71,6 @@ namespace Battle
         private MagicPowerController magicPowerController;
         private Animator animator;
 
-        //移動可能かどうか
-        private bool canMove = true;
-
         //ステート変更可能かどうか
         private bool canState = true;
 
@@ -176,7 +173,6 @@ namespace Battle
         #region 初期設定
         private void OnEnable()
         {
-            canMove = true;
         }
 
         private void Start()
@@ -335,13 +331,8 @@ namespace Battle
 
         private void SkillAction()
         {
-            Debug.Log($"{characterType} : {characterId}はスキル");
-
             //スキル処理>開始
             animator.SetBool("Skill", true);
-
-            //skillInterval = 2;
-            //yield return new WaitForSeconds(skillInterval);
         }
 
         public void EndASkillAction()
@@ -357,8 +348,6 @@ namespace Battle
 
         private void NomalAction()
         {
-            Debug.Log($"{characterType} : {characterId}は通常攻撃");
-
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
         }
@@ -369,7 +358,6 @@ namespace Battle
             animator.SetBool("Attack", false);
 
             canState = true;
-            Debug.Log("アタックアニメーションを終了");
         }
 
         /// <summary>
@@ -468,7 +456,6 @@ namespace Battle
         {
             if (!canState) yield break;
             canState = false;
-            Debug.Log($"{characterType} : {characterId}はノックバック");
 
             //ノックバック処理>開始
             yield return new WaitForSeconds(1);
@@ -485,7 +472,6 @@ namespace Battle
         private IEnumerator Death()
         {
             canState = false;
-            Debug.Log($"{characterType} : {characterId}は死亡");
             //死亡処理>開始
             animator.SetBool("Death", true);
 
@@ -502,7 +488,6 @@ namespace Battle
         /// <param name="atkPower">攻撃力</param>
         public void Damage(float atkPower = 0, float atkKB = 0)
         {
-            Debug.Log($"{characterType} : {characterId}は被ダメージ | Hpは{Hp}");
             Hp -= atkPower;
             if (Hp <= 0)
             {
