@@ -261,7 +261,7 @@ namespace Battle
             StartCoroutine(SkillCoolTimeCount());
         }
         #endregion
-        private void Update()
+        private void FixedUpdate()
         {
             //状態の優先順位は死亡>ノックバック>状態遷移可能かどうか>歩くorアクション
             //ノックバック処理
@@ -289,11 +289,9 @@ namespace Battle
         /// </summary>
         private void Walk()
         {
-            //Debug.Log($"{characterType}{isLeader}{player.isMove} : {characterId}は歩く");
-            if (!canMove) return;
             if (isLeader) return;
-            if (characterType == CharacterType.Buddy) this.transform.position = new Vector2(this.transform.position.x + speed, this.transform.position.y);
-            else if (characterType == CharacterType.Enemy) this.transform.position = new Vector2(this.transform.position.x - speed, this.transform.position.y);
+            if (characterType == CharacterType.Buddy) transform.position = new Vector2(transform.position.x + speed, transform.position.y);
+            else if (characterType == CharacterType.Enemy) transform.position = new Vector2(transform.position.x - speed, transform.position.y);
         }
 
         /// <summary>
@@ -305,45 +303,27 @@ namespace Battle
             canState = false;
             if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
             {
-                StartCoroutine(SpecialAction());
+                SpecialAction();
 
             }
             else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
-                StartCoroutine(SkillAction());
+                SkillAction();
             }
             else
             {
-                StartCoroutine(NomalAction());
+                NomalAction();
             }
         }
 
-        private IEnumerator SkillAction()
-        {
-            Debug.Log($"{characterType} : {characterId}はスキル");
-
-            //スキル処理>開始
-            animator.SetBool("Skill", true);
-
-            skillInterval = 2;
-            yield return new WaitForSeconds(skillInterval);
-
-            //スキル処理>終了
-            animator.SetBool("Skill", false);
-
-            //スキルのクールタイムを測る
-            StartCoroutine(SkillCoolTimeCount());
-
-            canState = true;
-        }
-
-        private IEnumerator SpecialAction()
+        private void SpecialAction()
         {
             //奥義処理>開始
             animator.SetBool("Special", true);
+        }
 
-            yield return new WaitForSeconds(specialInterval);
-
+        public void EndSpecialAction()
+        {
             //奥義処理>終了
             animator.SetBool("Special", false);
 
@@ -353,26 +333,50 @@ namespace Battle
             canState = true;
         }
 
-        private IEnumerator NomalAction()
+        private void SkillAction()
+        {
+            Debug.Log($"{characterType} : {characterId}はスキル");
+
+            //スキル処理>開始
+            animator.SetBool("Skill", true);
+
+            //skillInterval = 2;
+            //yield return new WaitForSeconds(skillInterval);
+        }
+
+        public void EndASkillAction()
+        {
+            //スキル処理>終了
+            animator.SetBool("Skill", false);
+
+            //スキルのクールタイムを測る
+            StartCoroutine(SkillCoolTimeCount());
+
+            canState = true;
+        }
+
+        private void NomalAction()
         {
             Debug.Log($"{characterType} : {characterId}は通常攻撃");
 
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
+        }
 
-            yield return new WaitForSeconds(2f);//TODOマジックナンバー リソースのインターバルから取得する
-
+        public void EndNomalAction()
+        {
             //通常攻撃の処理>終了
             animator.SetBool("Attack", false);
 
             canState = true;
+            Debug.Log("アタックアニメーションを終了");
         }
 
         /// <summary>
         /// targetにダメージを与える
         /// </summary>
         /// <param name="type">0:通常攻撃 / 1: スキル攻撃 / 2:スペシャル攻撃</param>
-        private void InflictDamage(int type)
+        public void InflictDamage(int type)
         {
             float ratio = 1f;
             if (type == 1 && hasSkill) ratio = skillRatio;
@@ -395,7 +399,7 @@ namespace Battle
             ResetTargets();
         }
 
-        private void GiveRecovery()
+        public void GiveRecovery()
         {
             try
             {
@@ -409,7 +413,7 @@ namespace Battle
             }
         }
 
-        private void GiveTemporaryEnhance()
+        public void GiveTemporaryEnhance()
         {
             try
             {

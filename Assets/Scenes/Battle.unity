@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abe96938de9140b4b98a587bf257100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.3
+  speed: 0.8
   isMove: 0
 --- !u!224 &198453900 stripped
 RectTransform:
@@ -1942,10 +1942,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.4845679
-    y: 0
-    width: 0.030864198
-    height: 1
+    x: 0
+    y: 0.15573472
+    width: 1
+    height: 0.68853056
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1974,7 +1974,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1205.8572, y: 506, z: -10}
+  m_LocalPosition: {x: 1751.961, y: 506, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7810,7 +7810,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.054894477, y: 1}
+    m_SensorSize: {x: 2.583153, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7827,7 +7827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735806792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1205.8572, y: 506, z: -10}
+  m_LocalPosition: {x: 1751.961, y: 506, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13619,8 +13619,8 @@ RectTransform:
   - {fileID: 842893472}
   - {fileID: 357969463}
   - {fileID: 996915637}
-  - {fileID: 183811130}
   - {fileID: 1884822573}
+  - {fileID: 183811130}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15604,7 +15604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852149, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852149, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_AnchorMax.x
@@ -16879,7 +16879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852149, guid: 3d9c58dc185aa4edfa151b783b9a5fb6, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852149, guid: 3d9c58dc185aa4edfa151b783b9a5fb6, type: 3}
       propertyPath: m_AnchorMax.x

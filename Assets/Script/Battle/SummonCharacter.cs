@@ -55,7 +55,6 @@ namespace Battle
                 //召喚するキャラクターをリソースから取得
                 characterPrefab = Resources.Load<GameObject>($"Prefabs/Battle/Buddy/{characterId}");
 
-                Debug.Log(characterId);
                 //リストからcharacterIdに一致するデータのレベルを取得
                 saveController.characterSave.Load();
                 var list = saveController.characterSave.list;
@@ -65,7 +64,7 @@ namespace Battle
                     if (list[i].id == characterId)
                     {
                         level = list[i].level;
-                        Debug.Log($"{list[i].id}:Lv{list[i].level}");
+                        //Debug.Log($"{list[i].id}:Lv{list[i].level}");
                     }
                 }
                 //コストを取得
