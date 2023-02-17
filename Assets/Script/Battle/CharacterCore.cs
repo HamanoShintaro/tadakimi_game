@@ -377,6 +377,7 @@ namespace Battle
                 {
                     //攻撃力をスキルと奥義で分ける
                     target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
+                    Debug.Log("攻撃");
                     if (attackType == AttackType.single) break;
                 }
             }
