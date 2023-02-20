@@ -388,34 +388,6 @@ namespace Battle
             ResetTargets();
         }
 
-        public void GiveRecovery()
-        {
-            try
-            {
-                foreach (GameObject target in targets)
-                {
-                    target.GetComponent<IRecovery>().Recovery(2);
-                }
-            }
-            catch
-            {
-            }
-        }
-
-        public void GiveTemporaryEnhance()
-        {
-            try
-            {
-                foreach (GameObject target in targets)
-                {
-                    target.GetComponent<ITemporaryEnhance>().TemporaryEnhance(5,5,5);
-                }
-            }
-            catch
-            {
-            }
-        }
-
         /// <summary>
         ///  スキルのクールタイムを測るメソッド
         /// </summary>

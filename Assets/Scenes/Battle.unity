@@ -1942,10 +1942,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.38025752
-    width: 1
-    height: 0.23948498
+    x: 0.48971194
+    y: 0
+    width: 0.020576132
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1974,7 +1974,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 506, z: -10}
+  m_LocalPosition: {x: 1201.9044, y: 506, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8038,7 +8038,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 5.5675035, y: 1}
+    m_SensorSize: {x: 0.03659465, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8055,7 +8055,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735806792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2396.5806, y: 506, z: -10}
+  m_LocalPosition: {x: 1201.9044, y: 506, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23995,7 +23995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5429095949005290253, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 119
+      value: 1838
       objectReference: {fileID: 0}
     - target: {fileID: 5429095949005290253, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
       propertyPath: m_AnchoredPosition.y
