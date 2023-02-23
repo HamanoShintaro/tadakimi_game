@@ -46,21 +46,16 @@ namespace Battle
         private float atkKB;
         [HideInInspector]
         public float atkPower;
-        private float atkInterval;
 
         //スキル
         private int skillCost;
         private float skillCoolDown;
-        private float skillInterval;
         private bool hasSkill;
         private float skillRatio;
-        //private GameObject skillEffect;
-        //private RectTransform skillEffectPanel;
 
         //奥義
         private int specialCost;
         private float specialCoolTime;
-        private float specialInterval;
         private bool hasSpecial;
         private float specialRatio;
 
@@ -74,9 +69,6 @@ namespace Battle
         //ステート変更可能かどうか
         private bool canState = true;
 
-        //スキル使用可能かどうか
-        private bool canSkill = false;
-
         //スキルのクールタイムを測れるかどうか
         private bool canSkillCoolTime = true;
 
@@ -86,17 +78,8 @@ namespace Battle
         //プレイヤーキャラクターの種類
         public enum CharacterId
         {
-            Volcus_01,
-            Volcus_02,
-            Era_01,
-            Eleth_01,
-            Orend_01,
-            Sara_01,
-            Shandy_01,
-            Loxy_01,
-            Soldier_01,
-            Collobo_01,
-            Vivien_01
+            Volcus_01, Volcus_02, Era_01, Eleth_01, Orend_01, Sara_01, Shandy_01, Loxy_01, Collobo_01, Vivien_01,
+            Soldier_01
         }
 
         //キャラクターの種類=>味方or敵
