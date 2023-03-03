@@ -244,7 +244,7 @@ namespace Battle
         {
             //状態の優先順位は死亡>ノックバック>状態遷移可能かどうか>歩くorアクション
             //ノックバック処理
-            if (state == State.KnockBack) StartCoroutine(KnockBack());
+            if (state == State.KnockBack) KnockBack();
             if (!canState) return;
             if (isLeader && player.isMove)
             {
@@ -408,33 +408,33 @@ namespace Battle
         /// <summary>
         /// ノックバックをするメソッド
         /// </summary>
-        private IEnumerator KnockBack()
+        private void KnockBack()
         {
-            if (!canState) yield break;
+            if (!canState) return;
             canState = false;
+        }
 
-            //ノックバック処理>開始
-            yield return new WaitForSeconds(1);
-
+        public void EndKnockBack()
+        {
             //ノックバック処理>終了
             animator.SetBool("KnockBack", false);
-
             canState = true;
         }
 
         /// <summary>
         /// 死亡するメソッド
         /// </summary>
-        private IEnumerator Death()
+        private void Death()
         {
             canState = false;
             //死亡処理>開始
             animator.SetBool("Death", true);
+        }
 
-            yield return new WaitForSeconds(1);
-
+        public void EndDeath()
+        {
             //死亡処理>終了
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
             canState = true;
         }
 
@@ -449,7 +449,7 @@ namespace Battle
             {
                 //死亡処理
                 canState = false;
-                StartCoroutine(Death());
+                Death();
             }
             else if ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity))
             {
