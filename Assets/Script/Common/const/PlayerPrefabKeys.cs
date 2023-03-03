@@ -32,4 +32,9 @@ public class PlayerPrefabKeys : MonoBehaviour
     /// 現在の使用言語(0:日本語 | 1:英語 | 2:中国語)
     /// </summary>
     public const string currentLanguage = "current_language";
+
+    /// <summary>
+    /// 広告のモード(0:表示 | 1:非表示)
+    /// </summary>
+    public const string currentAdsMode = "currentAdsMode";
 }

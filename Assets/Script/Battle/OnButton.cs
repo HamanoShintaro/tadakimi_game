@@ -13,7 +13,7 @@ public class OnButton : MonoBehaviour
     /// </summary>
     public void OnChangeMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu");
     }
     /// <summary>
     /// シナリオシーンに切り替えるメソッド

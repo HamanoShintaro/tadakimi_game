@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class SaveController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject tutorial;
+
     /// <summary>
     /// セーブデータから取り出した値(list)を格納したCharacterSaveDate
     /// </summary>
@@ -19,21 +22,23 @@ public class SaveController : MonoBehaviour
 
     private void Start()
     {
-        
-        //TODOデータ(list)を毎回初期化している
-        //データがあるならLoad()
-        //データがないor初期化ならInitUser()
-
-        characterSave.list.RemoveRange(0, characterSave.list.Count);
-
-        //2キャラだけ解放する
-        InitUser();
-        AddCharacterDate("Era_01", 1, false);
-
+        //ロード
         characterSave.Load();
         characterFormation.Load();
 
-        Debug.Log(characterFormation.list[0]);
+        //ロードしてデータがないor初期化ならInitUser()
+        if (characterSave.list.Count == 0 || characterSave == null)
+        {
+            InitUser();
+
+            //チュートリアルを表示
+            tutorial.SetActive(true);
+
+            //Era_01をキャラクターデータに追加
+            AddCharacterDate("Era_01", 1, false);
+            //Era_01をキャラクターフォーメーション[1]に追加
+            UpdateCharacterFormationDate("Era_01", 1);
+        }
     }
 
     /// <summary>
@@ -55,17 +60,14 @@ public class SaveController : MonoBehaviour
         //言語の初期設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentLanguage)) { PlayerPrefs.SetInt(PlayerPrefabKeys.currentLanguage, GameSettingParams.currentLanguage); }
 
-        //初期キャラを追加
-        AddCharacterDate(GameSettingParams.initCharacter, 1, false);
+        //初期キャラをキャラクターデータに追加
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData)) AddCharacterDate(GameSettingParams.initCharacter, 1, false);
 
-        //初期編成の設定
-        CharacterFormation characterFormation = new CharacterFormation();
-        characterFormation.list[0] = GameSettingParams.initCharacter;
-        characterFormation.list[1] = "";
-        characterFormation.list[2] = "";
-        characterFormation.list[3] = "";
+        //初期キャラをキャラクターフォーメーション[0]に追加
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation)) UpdateCharacterFormationDate(GameSettingParams.initCharacter, 0);
 
-        characterFormation.Save();
+        //広告表示モードを表示に設定
+        PlayerPrefs.SetInt(PlayerPrefabKeys.currentAdsMode, 0);
     }
 
     /// <summary>
@@ -74,7 +76,7 @@ public class SaveController : MonoBehaviour
     /// <param name="id">キャラクターID(string)</param>
     /// <param name="level">キャラクターレベル</param>
     /// <param name="hasSpecial">奥義の有無</param>
-    private void AddCharacterDate(string id, int level, bool hasSpecial)
+    public void AddCharacterDate(string id, int level, bool hasSpecial)
     {
         //追加するキャラクターのデータを作成
         CharacterSaveData.CharacterData characterData = new CharacterSaveData.CharacterData();
@@ -99,7 +101,7 @@ public class SaveController : MonoBehaviour
         characterFormation.list[selectIndex] = addId;
 
         //上書き保存する
-        //characterFormation.Save();
+        characterFormation.Save();
     }
 
     /// <summary>

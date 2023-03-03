@@ -14,18 +14,17 @@ namespace Battle
 
         public enum TypeLeader
         {
-            AllyLeader,
+            BuddyLeader,
             EnemyLeader
         }
 
         private void Update()
         {
-            if (this.GetComponent<CharacterCore>().Hp == 0)
+            if (GetComponent<CharacterCore>().Hp == 0)
             {
                 //ゲームをストップ
-                GameObject.Find("Canvas").GetComponent<BattleController>().GameStop(type);
+                GameObject.Find("Canvas_Dynamic").GetComponent<BattleController>().GameStop(type);
             }
         }
-
     }
 }

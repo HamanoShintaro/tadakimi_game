@@ -17,6 +17,9 @@ public class BattleController : MonoBehaviour
     [Header("トータル金額テキスト")]
     private Text[] totalMoneyText;
 
+    [SerializeField]
+    private GameObject performancePanel;
+
     private Dictionary<int, float> recovery_magic = new Dictionary<int, float>();
     private Dictionary<int, int> max_magic = new Dictionary<int, int>();
 
@@ -58,6 +61,7 @@ public class BattleController : MonoBehaviour
         recovery_magic[5] = 22.5f * magic_recovery_adjust;
         recovery_magic[6] = 30.0f * magic_recovery_adjust;
         recovery_magic[7] = 40.0f * magic_recovery_adjust;
+
         //レベルごとの最大値
         max_magic[1] = 50 + (magic_level - 1) * 5;
         max_magic[2] = 100 + (magic_level - 1) * 10;
@@ -70,7 +74,6 @@ public class BattleController : MonoBehaviour
         magicPowerController = magicPower.GetComponent<MagicPowerController>();
 
         UpMagicLevel();
-
 
         //ステージ番号を取得
         var currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
@@ -132,39 +135,31 @@ public class BattleController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator GameStopCoroutine(TypeLeader type)
     {
-        if (type == TypeLeader.AllyLeader)
+        //広告が表示モードなら動画を提示
+        if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
+        {
+            GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
+        }
+        if (type == TypeLeader.BuddyLeader)
         {
             //ゲームのプレイ時間を記録
-            var playTime = PlayerPrefs.GetInt(PlayerPrefabKeys.playTime);
-            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, playTime + gameTimer);
-
-            //取得した金額を計算
-            UpdateMoneyUI();
+            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) + gameTimer);
 
             //リザルト画面を表示
-            GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(false);
+            performancePanel.GetComponent<ResultController>().OnResultPanel(false);
         }
         else
         {
             //ゲームのプレイ時間をリセット
             PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, 0);
-
-            UpdateMoneyUI();
+            
             NextStage();
 
             //リザルト画面を表示
-            GameObject.Find("Canvas/Render/PerformancePanel").GetComponent<ResultController>().OnResultPanel(true);
-
-            //TODO"広告を見る"パネルを表示
-            //=>this.GetComponent<GoogleAdmobAd>().UserChoseToWatchAd();
+            performancePanel.GetComponent<ResultController>().OnResultPanel(true);
         }
-        /*TODO消していいかも
-        yield return new WaitForSeconds(3f);
-        Time.timeScale = 0;
-        */
-        //TODO動きを止める
+        UpdateMoneyUI();
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("終了");
     }
 
     /// <summary>
@@ -174,17 +169,13 @@ public class BattleController : MonoBehaviour
     private void UpdateMoneyUI()
     {
         //取得した金額を計算
-        var getMoney = 1 * gameTimer;
+        var getMoney = 1 * gameTimer; //TODO 1がマジックナンバー
 
-        getMoneyText[0].text = $"{getMoney}";
-        getMoneyText[1].text = $"{getMoney}";
         //取得金額をセーブ
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerGetMoney, getMoney);
 
-        //トータル金額を計算
-        int totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney) + getMoney;
-        totalMoneyText[0].text = $"{totalMoney}";
-        totalMoneyText[1].text = $"{totalMoney}";
+        //トータル金額を表示
+        StartCoroutine(OnDisplayMoney(getMoney));
     }
 
     /// <summary>
@@ -198,5 +189,31 @@ public class BattleController : MonoBehaviour
         PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, currentStageId);
         //次のステージを現在のステージとして記録する
         PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, currentStageId + 1);
+    }
+
+    /// <summary>
+    /// "合計金額に取得金額を加算するアニメーション"のメソッド
+    /// </summary>
+    /// <param name="_totalMoney"></param>
+    /// <param name="_getMoney"></param>
+    /// <returns></returns>
+    public IEnumerator OnDisplayMoney(int _getMoney)
+    {
+        //所持している金額
+        var totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
+        //獲得した金額
+        var getMoney = _getMoney;
+        //アニメーション
+        while (getMoney > 0)
+        {
+            getMoney--;
+            getMoneyText[0].text = $"{getMoney}";
+            getMoneyText[1].text = $"{getMoney}";
+
+            totalMoney++;
+            totalMoneyText[0].text = $"{totalMoney}";
+            totalMoneyText[1].text = $"{totalMoney}";
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

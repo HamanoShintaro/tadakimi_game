@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 /// <summary>
 /// ダメージの処理をするインターフェイス(enemy or player のタグをつける)
 /// </summary>

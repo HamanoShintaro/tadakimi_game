@@ -52,8 +52,6 @@ public class CharacterMenuController : MonoBehaviour
         CharacterInfo character = characterInfoDataBase.GetCharacterInfoByID(characterId);
         currentCharacter = characterId;
 
-        Debug.Log(characterId);
-
         //キャラクター情報のセット
         characterNameObj.GetComponent<Text>().text = character.name;
         characterAiliasObj.GetComponent<Text>().text = "ーー" + character.alias;

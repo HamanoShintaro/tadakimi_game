@@ -22,6 +22,9 @@ public class TalkCharacterController : MonoBehaviour
     private Vector3 orgPosition;
     private Vector3 apperPosition;
 
+    private Coroutine activeCoroutine;
+    private Coroutine inActiveCoroutine;
+
     void Start()
     {
         rect = GetComponent<RectTransform>();
@@ -36,6 +39,8 @@ public class TalkCharacterController : MonoBehaviour
         num = talkController.num;
         image = characterImage.GetComponent<Image>();
         rectImage = characterImage.GetComponent<RectTransform>();
+        activeCoroutine = null;
+        inActiveCoroutine = null;
     }
 
     public IEnumerator Active()
@@ -46,7 +51,7 @@ public class TalkCharacterController : MonoBehaviour
         {
             while (canvasGroup.alpha > 0.0f)
             {
-                canvasGroup.alpha -= Time.deltaTime * 5.0f;
+                canvasGroup.alpha -= Time.deltaTime * 30.0f;
                 yield return new WaitForSeconds(0.01f);
             }
             rect.position = apperPosition;
@@ -58,9 +63,10 @@ public class TalkCharacterController : MonoBehaviour
 
         while (canvasGroup.alpha < 1.0f)
         {
-            rect.position = new Vector3(rect.position.x + (orgPosition.x - apperPosition.x) * Time.deltaTime * 3.0f, rect.position.y, rect.position.z);
-            canvasGroup.alpha += Time.deltaTime * 3.0f;
+            rect.position = new Vector3(rect.position.x + (orgPosition.x - apperPosition.x) * Time.deltaTime * 15.0f, rect.position.y, rect.position.z);
+            canvasGroup.alpha += Time.deltaTime * 15.0f;
             yield return new WaitForSeconds(0.01f);
+            Debug.Log(canvasGroup.alpha);
         }
         rect.position = orgPosition;
     }
@@ -81,9 +87,25 @@ public class TalkCharacterController : MonoBehaviour
         Debug.Log(image.color.r);
         while (image.color.r > GameSettingParams.inActiveColorParam || image.color.g > GameSettingParams.inActiveColorParam || image.color.b > GameSettingParams.inActiveColorParam)
         {
-            float colorParam = image.color.r - Time.deltaTime * 3.0f;
+            float colorParam = image.color.r - Time.deltaTime * 10.0f;
             image.color = new Color(colorParam, colorParam, colorParam);
             yield return new WaitForSeconds(0.01f);
         }
+    }
+    public void CallActive() {
+        if (activeCoroutine != null) {
+            StopCoroutine(activeCoroutine);
+        }
+        activeCoroutine = StartCoroutine(Active());
+        return;
+    }
+    public void CallInActive()
+    {
+        if (inActiveCoroutine != null)
+        {
+            StopCoroutine(inActiveCoroutine);
+        }
+        inActiveCoroutine = StartCoroutine(inActive());
+        return;
     }
 }

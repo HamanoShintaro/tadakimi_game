@@ -19,7 +19,7 @@ MonoBehaviour:
   - 15
   - 20
   Enemies:
-  - {fileID: 3120535187910808087, guid: 20783fa420e1f544fa9446486a9782e4, type: 3}
+  - {fileID: 5429095949005290252, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
   - {fileID: 3120535187910808087, guid: 20783fa420e1f544fa9446486a9782e4, type: 3}
   - {fileID: 3120535187910808087, guid: 20783fa420e1f544fa9446486a9782e4, type: 3}
   - {fileID: 3120535187910808087, guid: 20783fa420e1f544fa9446486a9782e4, type: 3}
@@ -27,5 +27,3 @@ MonoBehaviour:
   TowerHp: 100
   stageSprite: {fileID: 21300000, guid: cde97145a047b4536b306aba368853b5, type: 3}
   enemyTower: {fileID: 0}
-  position: {x: 0, y: 0}
-  wide: 0

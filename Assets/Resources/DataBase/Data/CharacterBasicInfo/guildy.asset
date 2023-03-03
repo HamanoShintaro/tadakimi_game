@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8440f74f0b8ef4c916b986000d0201, type: 3}
+  m_Name: guildy
+  m_EditorClassIdentifier: 
+  key: guildy
+  characterName: "\u30AE\u30EB\u30C7\u30A3"
+  description: "\u6A29\u529B\u3068\u91D1\u306E\u795E"
+  normal: {fileID: 21300000, guid: 20e3fccb6494b4a27aef972c651557bc, type: 3}
+  smile: {fileID: 21300000, guid: 20e3fccb6494b4a27aef972c651557bc, type: 3}
+  angry: {fileID: 21300000, guid: 20e3fccb6494b4a27aef972c651557bc, type: 3}
+  cry: {fileID: 21300000, guid: 20e3fccb6494b4a27aef972c651557bc, type: 3}
+  confuse: {fileID: 21300000, guid: 20e3fccb6494b4a27aef972c651557bc, type: 3}
+  unique: {fileID: 21300000, guid: 20e3fccb6494b4a27aef972c651557bc, type: 3}

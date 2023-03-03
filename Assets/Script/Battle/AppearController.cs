@@ -12,12 +12,20 @@ namespace Battle
         private float time = 0.0f;
         private int itemNumber = 0;
 
+        [SerializeField]
+        [Header("敵キャラを生成する位置(appearTransform ± y")]
+        private float minY = 0, maxY = 0;
+
+        [SerializeField]
+        [Header("AppearTransformをセットする")]
+        private Transform appearTransform;
+
         private void Start()
         {
+            //TODO消す
             PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, 101);
             //現在のステージを取得する
             var stageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
-            //TODOstageIdに変更する
             var battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{stageId}");
             times = battleStageSummonEnemy.GetTimes();
             enemies = battleStageSummonEnemy.GetEnemies();
@@ -40,7 +48,8 @@ namespace Battle
                 if (time >= times[itemNumber])
                 {
                     GameObject characterClone = Instantiate(enemies[itemNumber], this.transform);
-                    characterClone.transform.SetParent(this.gameObject.transform, false);
+                    var range = Random.Range(minY, maxY);
+                    characterClone.transform.localPosition = new Vector2(appearTransform.localPosition.x, appearTransform.localPosition.y + range);
                     characterClone.GetComponent<CharacterCore>().level = levels[itemNumber];
                     itemNumber++;
                 }

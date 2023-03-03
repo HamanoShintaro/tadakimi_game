@@ -30,7 +30,8 @@ public class OkCancelDialog : MonoBehaviour
     }
 
     // ゲームオブジェクト
-    public void SetText(string text) {
+    public void SetText(string text)
+    {
 
         // テキストの設定
         textObj.GetComponent<Text>().text = text;

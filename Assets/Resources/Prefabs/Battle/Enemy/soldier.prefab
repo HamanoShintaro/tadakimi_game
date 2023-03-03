@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 3120535187910808079}
   - component: {fileID: 3120535187910808078}
   - component: {fileID: -7035672404364616847}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: soldier
-  m_TagString: enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,14 +33,14 @@ RectTransform:
   m_GameObject: {fileID: 3120535187910808087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: -2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 200, y: 300}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &3120535187910808081
@@ -100,8 +100,8 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_CollisionDetection: 1
+  m_Constraints: 6
 --- !u!61 &3120535187910808084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 55.28, y: 38.13}
+  m_Offset: {x: 55.942318, y: 49.10544}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -126,7 +126,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 55.3, y: 77.3}
+  m_Size: {x: 57.18464, y: 96.78009}
   m_EdgeRadius: 0
 --- !u!61 &3120535187910808080
 BoxCollider2D:
@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 57.2, y: 46.1}
+  m_Offset: {x: 68.72452, y: 48.746155}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 60.7, y: 93.41}
+  m_Size: {x: 81.8952, y: 96.40698}
   m_EdgeRadius: 0
 --- !u!95 &3120535187910808079
 Animator:
@@ -281,8 +281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542f8f24575d843208082f02847cd7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  memo: 
   characterId: 2
   characterType: 1
-  isDominator: 0
-  viewport: {fileID: 0}
+  isLeader: 0
+  player: {fileID: 0}
+  level: 0
+  targets: []
+  magicPowerController: {fileID: 0}

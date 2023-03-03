@@ -12,7 +12,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
   m_Name: 001
   m_EditorClassIdentifier: 
-  stage: "1\u7AE01\u8A71"
+  stage: "0\u7AE01\u8A71"
   title: "\u611B\u306E\u9A0E\u58EB\u3068\u91D1\u306E\u795E"
-  senarioTalksJapanese: []
-  senarioTalksEnglish: []
+  senarioTalks:
+  - script: English
+    script_jp: "\u65E5\u672C\u8A9E"
+    script_en: English
+    script_ch: "\u4E2D\u56FD\u8A9E"
+    type: 
+    name: 
+    LR: 
+    expressions: 
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: bc3787ec902eff74f8647fdf01083bc1, type: 3}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: English
+    script_jp: "\u65E5\u672C\u8A9E"
+    script_en: English
+    script_ch: "\u4E2D\u56FD\u8A9E"
+    type: 
+    name: 
+    LR: 
+    expressions: 
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: bc3787ec902eff74f8647fdf01083bc1, type: 3}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: English
+    script_jp: "\u65E5\u672C\u8A9E"
+    script_en: English
+    script_ch: "\u4E2D\u56FD\u8A9E"
+    type: 
+    name: 
+    LR: 
+    expressions: 
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: bc3787ec902eff74f8647fdf01083bc1, type: 3}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: English
+    script_jp: "\u65E5\u672C\u8A9E"
+    script_en: English
+    script_ch: "\u4E2D\u56FD\u8A9E"
+    type: 
+    name: 
+    LR: 
+    expressions: 
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: English
+    script_jp: "\u65E5\u672C\u8A9E"
+    script_en: English
+    script_ch: "\u4E2D\u56FD\u8A9E"
+    type: 
+    name: 
+    LR: 
+    expressions: 
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
