@@ -97,7 +97,7 @@ namespace Battle
         }
 
         //状態のプロパティ
-        private State state;
+        //private State state;
         private enum State
         {
             Walk,
@@ -219,7 +219,7 @@ namespace Battle
             animator = GetComponent<Animator>();
 
             //初めのステートを設定
-            state = State.Walk;
+            //state = State.Walk;
 
             //スキル名がないならhasSkill = false
             if (characterInfo.skill.name == "" || characterInfo.skill.name == null) hasSkill = false;
@@ -244,7 +244,7 @@ namespace Battle
         {
             //状態の優先順位は死亡>ノックバック>状態遷移可能かどうか>歩くorアクション
             //ノックバック処理
-            if (state == State.KnockBack) StartCoroutine(KnockBack());
+            //if (state == State.KnockBack) KnockBack();
             if (!canState) return;
             if (isLeader && player.isMove)
             {
@@ -408,34 +408,34 @@ namespace Battle
         /// <summary>
         /// ノックバックをするメソッド
         /// </summary>
-        private IEnumerator KnockBack()
+        private void KnockBack()
         {
-            if (!canState) yield break;
+            //if (!canState) return;
             canState = false;
+            animator.SetBool("KnockBack", true);
+        }
 
-            //ノックバック処理>開始
-            yield return new WaitForSeconds(1);
-
+        public void EndKnockBack()
+        {
             //ノックバック処理>終了
             animator.SetBool("KnockBack", false);
-
             canState = true;
         }
 
         /// <summary>
         /// 死亡するメソッド
         /// </summary>
-        private IEnumerator Death()
+        private void Death()
         {
-            canState = false;
             //死亡処理>開始
+            canState = false;
             animator.SetBool("Death", true);
+        }
 
-            yield return new WaitForSeconds(1);
-
+        public void EndDeath()
+        {
             //死亡処理>終了
-            this.gameObject.SetActive(false);
-            canState = true;
+            gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -448,12 +448,12 @@ namespace Battle
             if (Hp <= 0)
             {
                 //死亡処理
-                canState = false;
-                StartCoroutine(Death());
+                Death();
             }
             else if ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity))
             {
-                state = State.KnockBack;
+                //state = State.KnockBack;
+                KnockBack();
             }
         }
 
@@ -495,7 +495,7 @@ namespace Battle
             {
                 if (characterType == CharacterType.Buddy && t.CompareTag("Enemy") || characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
                 {
-                    state = State.Action;
+                    //state = State.Action;
                     if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
                 }
             }
@@ -503,7 +503,7 @@ namespace Battle
             {
                 if (characterType == CharacterType.Buddy && t.CompareTag("Buddy") || characterType == CharacterType.Enemy && t.CompareTag("Enemy"))
                 {
-                    state = State.Action;
+                    //state = State.Action;
                     if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
                 }
             }
