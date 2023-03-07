@@ -246,10 +246,17 @@ namespace Battle
             //ノックバック処理
             //if (state == State.KnockBack) KnockBack();
             if (!canState) return;
-            if (isLeader && player.isMove)
+            if (isLeader)
             {
-                //animator.SetBool("Walk", true);
-                return;
+                if (player.isMove)
+                {
+                    animator.SetBool("Walk", true);
+                    return;
+                }
+                else
+                {
+                    animator.SetBool("Walk", false);
+                }
             }
             //ターゲットが居ない=>歩く
             if (targets.Count == 0)
