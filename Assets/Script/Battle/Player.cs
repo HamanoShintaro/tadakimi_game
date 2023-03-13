@@ -40,7 +40,7 @@ namespace Battle
             }
             else
             {
-                isMove = false;
+                isMove = false;//TODOタッチ操作に対応
             }
         }
 
@@ -53,7 +53,7 @@ namespace Battle
             if (player.GetComponent<CharacterCore>().targets.Count > 0) return;
 
             //範囲を制限
-            if (player.anchoredPosition.x > 2300) return;
+            if (player.anchoredPosition.x > 2600) return;
 
             //前進
             player.anchoredPosition = new Vector3(player.anchoredPosition.x + speed, -250, 0);
@@ -66,14 +66,11 @@ namespace Battle
             player.transform.localEulerAngles = new Vector3(0, 180, 0);
 
             //範囲を制限
-            if (player.anchoredPosition.x < -2300) return;
+            if (player.anchoredPosition.x < -2600) return;
 
             //後進
             player.anchoredPosition = new Vector3(player.anchoredPosition.x - speed, -250, 0);
             isMove = true;
-
-            animator.SetBool("Attack", false);
         }
-
     }
 }

@@ -76,7 +76,6 @@ public class BattleLevelController : MonoBehaviour
     {
         if (magicPowerController.UseMagicPower(level_up_cost[battleController.magic_recovery_level]))
         {
-            //TODO??????????????
             if (battleController.magic_recovery_level == 6) isMax = true;
             status = false;
             this.GetComponent<EventTrigger>().enabled = false;

@@ -75,11 +75,14 @@ namespace Battle
         //スペシャルのクールタイムを測れるかどうか
         private bool canSpecialCoolTime = true;
 
+        private GameObject characterPanel;
+
         //プレイヤーキャラクターの種類
         public enum CharacterId
         {
             Volcus_01, Volcus_02, Era_01, Eleth_01, Orend_01, Sara_01, Shandy_01, Loxy_01, Collobo_01, Vivien_01,
-            Soldier_01
+            Soldier_01, Enemy_301, Enemy_302, Enemy_303, Enemy_304, Enemy_305, Enemy_306, Enemy_307, Enemy_308, Enemy_309, Enemy_310,
+            Enemy_311, Enemy_312, Enemy_313, Enemy_314, Enemy_315, Enemy_316, Enemy_317, Enemy_318, Enemy_319, Enemy_320 , Enemy_323
         }
 
         //キャラクターの種類=>味方or敵
@@ -154,10 +157,6 @@ namespace Battle
         }
         #endregion
         #region 初期設定
-        private void OnEnable()
-        {
-        }
-
         private void Start()
         {
             if (characterType == CharacterType.Buddy)
@@ -176,6 +175,7 @@ namespace Battle
                     level = 1;
                 }
             }
+            characterPanel = transform.parent.gameObject;
             var characterInfo = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}");
             //maxHp取得
             maxHp = characterInfo.status[level].hp;
@@ -304,6 +304,9 @@ namespace Battle
 
         private void SpecialAction()
         {
+            //1番前面に配置
+            var index = characterPanel.transform.childCount - 1;
+            transform.SetSiblingIndex(index);
             //奥義処理>開始
             animator.SetBool("Special", true);
         }
@@ -321,11 +324,14 @@ namespace Battle
 
         private void SkillAction()
         {
+            //1番前面に配置
+            var index = characterPanel.transform.childCount - 1;
+            transform.SetSiblingIndex(index);
             //スキル処理>開始
             animator.SetBool("Skill", true);
         }
 
-        public void EndASkillAction()
+        public void EndSkillAction()
         {
             //スキル処理>終了
             animator.SetBool("Skill", false);
