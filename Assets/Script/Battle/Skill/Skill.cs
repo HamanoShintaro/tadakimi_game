@@ -12,41 +12,49 @@ namespace Battle
         [SerializeField]
         protected CharacterCore.CharacterId characterId;
 
-        protected List<GameObject> enemyTargets = new List<GameObject>();
-        protected List<GameObject> buddyTargets = new List<GameObject>();
+        public List<GameObject> enemyTargets = new List<GameObject>();
+        public List<GameObject> buddyTargets = new List<GameObject>();
 
         protected virtual void OnEnable()
         {
             StartCoroutine(Action());
+            //Action();
+            Debug.Log("アクション開始");
         }
 
         protected virtual void OnDisable()
         {
-
+            enemyTargets.Clear();
+            buddyTargets.Clear();
         }
 
-        protected virtual void OnTriggerStay(Collider target)
+        protected virtual void OnTriggerStay2D(Collider2D target)
         {
             if (target.CompareTag("Enemy"))
             {
+                if (enemyTargets.Contains(target.gameObject)) return;
                 enemyTargets.Add(target.gameObject);
             }
             else if (target.CompareTag("Buddy"))
             {
+                if (buddyTargets.Contains(target.gameObject)) return;
                 buddyTargets.Add(target.gameObject);
             }
+            Debug.Log("当たり判定");
         }
 
-        private IEnumerator Action()
+        public IEnumerator Action()
         {
             yield return null;
             foreach (GameObject target in enemyTargets)
             {
                 SkillActionToEnemy(target);
+                Debug.Log("スキルアクション(敵へ)");
             }
             foreach (GameObject target in buddyTargets)
             {
                 SkillActionforBuddy(target);
+                Debug.Log("スキルアクション(味方へ)");
             }
         }
 

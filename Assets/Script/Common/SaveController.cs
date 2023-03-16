@@ -26,6 +26,8 @@ public class SaveController : MonoBehaviour
         characterSave.Load();
         characterFormation.Load();
 
+        characterSave = null;
+
         //ロードしてデータがないor初期化ならInitUser()
         if (characterSave.list.Count == 0 || characterSave == null)
         {
@@ -35,9 +37,16 @@ public class SaveController : MonoBehaviour
             tutorial.SetActive(true);
 
             //Era_01をキャラクターデータに追加
-            AddCharacterDate("Era_01", 1, false);
+            AddCharacterDate("Era_01", 1, true);
             //Era_01をキャラクターフォーメーション[1]に追加
             UpdateCharacterFormationDate("Era_01", 1);
+
+            AddCharacterDate("Eleth_01", 1, true);
+            UpdateCharacterFormationDate("Eleth_01", 1);
+
+            //オレンドを追加
+            AddCharacterDate("Orend_01", 1, true);
+            UpdateCharacterFormationDate("Orend_01", 1);
         }
     }
 

@@ -315,10 +315,8 @@ namespace Battle
         {
             //奥義処理>終了
             animator.SetBool("Special", false);
-
             //奥義のクールタイム測る
             StartCoroutine(SpecialCoolTimeCounto());
-
             canState = true;
         }
 

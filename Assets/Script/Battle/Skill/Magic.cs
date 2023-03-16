@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace Battle
 {
+#if UNITY_EDITOR
+    [CustomEditor(typeof(Skill))]
+#endif
     public class Magic : Skill
     {
         /// <summary>

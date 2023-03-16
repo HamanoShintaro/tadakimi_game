@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-/// <summary>
-/// ???UP?????????????
-/// </summary>
 public class BattleLevelController : MonoBehaviour
 {
     public GameObject canvas;

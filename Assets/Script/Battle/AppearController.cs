@@ -47,8 +47,11 @@ namespace Battle
             {
                 if (time >= times[itemNumber])
                 {
-                    GameObject characterClone = Instantiate(enemies[itemNumber], this.transform);
+                    GameObject characterClone = Instantiate(enemies[itemNumber], transform);
+
+                    //生成したキャラは後面に出す
                     characterClone.transform.SetAsFirstSibling();
+
                     var range = Random.Range(minY, maxY);
                     characterClone.transform.localPosition = new Vector2(appearTransform.localPosition.x, appearTransform.localPosition.y + range);
                     characterClone.GetComponent<CharacterCore>().level = levels[itemNumber];

@@ -116,6 +116,15 @@ namespace Battle
                 //キャラクターを生成する
                 GameObject characterClone = Instantiate(characterPrefab);
                 characterClone.transform.SetParent(characterPanel.transform, false);
+
+                //キャラの初期位置を設定
+                var pos = characterClone.GetComponent<RectTransform>().anchoredPosition;
+                pos.y = 450;
+
+                //生成したキャラは後面に出す
+                characterClone.transform.SetAsFirstSibling();
+
+                characterClone.GetComponent<RectTransform>().anchoredPosition = pos;
                 summonCoolTime = summonCoolDown;
             }
         }
