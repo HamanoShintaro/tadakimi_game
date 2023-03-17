@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
+  m_Name: Buddy_110
+  m_EditorClassIdentifier: 
+  id: Buddy_103
+  name: "\u5927\u9053\u5177\u3055\u3093"
+  alias: "\u5287\u56E3\u54E1"
+  detail: "\u5287\u56E3\u3092\u88CF\u65B9\u304B\u3089\u652F\u3048\u308B\u30CA\u30A4\u30B9\u30AC\u30A4\u3002\u6301\u3061\u5473\u306E\u30D1\u30EF\u30FC\u3067\u4EF2\u9593\u306E\u524D\u7DDA\u306B\u7ACB\u3063\u3066\u6226\u3046\u3002"
+  type: Defence
+  image:
+    fullsize: {fileID: 21300000, guid: 6af66ec138c154b2a95668084273ed61, type: 3}
+    backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
+    effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
+    icon: {fileID: 21300000, guid: 8654dc656acb84147bc114e238779c19, type: 3}
+    prefab: {fileID: 5095262611280852148, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
+  rank: 1
+  status:
+  - cost: 4
+    attack: 2
+    interval: 6
+    hp: 20
+    speed: 10
+    atkKB: 10
+    defKB: 30
+    growth: 4
+  - cost: 30
+    attack: 2
+    interval: 6
+    hp: 46
+    speed: 10
+    atkKB: 10
+    defKB: 50
+    growth: 48
+  - cost: 30
+    attack: 3
+    interval: 6
+    hp: 32
+    speed: 10
+    atkKB: 10
+    defKB: 30
+    growth: 160
+  - cost: 30
+    attack: 3
+    interval: 6
+    hp: 38
+    speed: 10
+    atkKB: 10
+    defKB: 30
+    growth: 240
+  - cost: 30
+    attack: 4
+    interval: 6
+    hp: 50
+    speed: 10
+    atkKB: 10
+    defKB: 30
+    growth: 0
+  skill:
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
+    effect: {fileID: 0}
+    Ratio: 0
+  special:
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
+    effect: {fileID: 0}
+    Ratio: 0
+    still: {fileID: 0}
+    BackGround: {fileID: 0}
+  price: 20000
