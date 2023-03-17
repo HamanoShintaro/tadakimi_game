@@ -57,7 +57,7 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
 
     public void HandleRewardedAdLoaded(object sender, EventArgs args)
     {
-        Debug.Log("HandleRewardedAdLoaded event received");
+        //Debug.Log("HandleRewardedAdLoaded event received");
     }
 
     public void HandleRewardedAdFailedToLoad(object sender, AdErrorEventArgs args)

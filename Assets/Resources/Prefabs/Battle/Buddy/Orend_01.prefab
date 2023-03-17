@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 367111837}
   - component: {fileID: 367111839}
   - component: {fileID: 367111838}
+  - component: {fileID: 4837010393271453538}
   m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
@@ -76,6 +77,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4837010393271453538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367111836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a8763970608400fa672ed159e2e515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterId: 4
+  enemyTargets: []
+  buddyTargets: []
+  orend: {fileID: 5095262611280852148}
+  _puppet: {fileID: 5429095949005290252, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
+  _puppetTank: {fileID: 5429095949005290252, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
 --- !u!1 &752206702
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,4 +843,3 @@ MonoBehaviour:
   level: 0
   atkPower: 0
   targets: []
-  magicPowerController: {fileID: 0}

@@ -304,17 +304,24 @@ namespace Battle
 
         private void SpecialAction()
         {
+            //コストを消費
+            magicPowerController.magicPower -= specialCost;
+
             //1番前面に配置
             var index = characterPanel.transform.childCount - 1;
             transform.SetSiblingIndex(index);
+
             //奥義処理>開始
             animator.SetBool("Special", true);
+
+            Debug.Log("スペシャル発動");
         }
 
         public void EndSpecialAction()
         {
             //奥義処理>終了
             animator.SetBool("Special", false);
+
             //奥義のクールタイム測る
             StartCoroutine(SpecialCoolTimeCounto());
             canState = true;
@@ -322,11 +329,16 @@ namespace Battle
 
         private void SkillAction()
         {
+            //コストを消費
+            magicPowerController.magicPower -= skillCost;
+
             //1番前面に配置
             var index = characterPanel.transform.childCount - 1;
             transform.SetSiblingIndex(index);
+
             //スキル処理>開始
             animator.SetBool("Skill", true);
+            Debug.Log("スキル発動");
         }
 
         public void EndSkillAction()
@@ -371,7 +383,7 @@ namespace Battle
                 {
                     //攻撃力をスキルと奥義で分ける
                     target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
-                    Debug.Log("攻撃");
+                    Debug.Log($"{target}を攻撃");
                     if (attackType == AttackType.single) break;
                 }
             }
@@ -440,6 +452,12 @@ namespace Battle
         {
             //死亡処理>開始
             canState = false;
+            /*
+            foreach (Collider2D col in GetComponents<Collider2D>())
+            {
+                col.isTrigger = false;
+            }
+            */
             animator.SetBool("Death", true);
         }
 
