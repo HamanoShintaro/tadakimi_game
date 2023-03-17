@@ -30,9 +30,6 @@ namespace Battle
         [Tooltip("リーダー")]
         private bool isLeader;
 
-        [HideInInspector]
-        private Player player;
-
         //ステータス
         [Tooltip("現在のレベル")]
         [HideInInspector]
@@ -80,7 +77,7 @@ namespace Battle
         //プレイヤーキャラクターの種類
         public enum CharacterId
         {
-            Volcus_01, Volcus_02, Era_01, Eleth_01, Orend_01, Sara_01, Shandy_01, Loxy_01, Collobo_01, Vivien_01,
+            Volcus_001, Volcus_002, Era_001, Eleth_01, Orend_01, Sara_01, Shandy_01, Loxy_01, Collobo_01, Vivien_01,
             Soldier_01, Enemy_301, Enemy_302, Enemy_303, Enemy_304, Enemy_305, Enemy_306, Enemy_307, Enemy_308, Enemy_309, Enemy_310,
             Enemy_311, Enemy_312, Enemy_313, Enemy_314, Enemy_315, Enemy_316, Enemy_317, Enemy_318, Enemy_319, Enemy_320 , Enemy_323
         }
@@ -228,7 +225,7 @@ namespace Battle
             //スペシャル名がないならhasSpecial = false
             if (characterInfo.special.name == "" || characterInfo.special.name == null) hasSpecial = false;
             else hasSpecial = true;
-
+            /*
             try
             {
                 player = GameObject.Find("Player").GetComponent<Player>();
@@ -236,6 +233,7 @@ namespace Battle
             catch
             {
             }
+            */
             //スキルのクールタイムを測る
             StartCoroutine(SkillCoolTimeCount());
         }
@@ -248,7 +246,7 @@ namespace Battle
             if (!canState) return;
             if (isLeader)
             {
-                if (player.isMove)
+                if (GetComponent<Player>().isMove)
                 {
                     animator.SetBool("Walk", true);
                     return;

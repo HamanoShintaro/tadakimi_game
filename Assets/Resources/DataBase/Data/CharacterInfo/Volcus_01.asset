@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
   m_Name: Volcus_01
   m_EditorClassIdentifier: 
-  id: Volcus_01
+  id: Volcus_001
   name: "\u30F4\u30A7\u30EB"
   alias: "\u5931\u610F\u306E\u6D41\u6D6A\u4EBA"
   detail: "\u4EBA\u3068\u9B54\u738B\u306E\u9593\u306B\u751F\u307E\u308C\u305F\u534A\u9B54\u306E\u5A18\u3002

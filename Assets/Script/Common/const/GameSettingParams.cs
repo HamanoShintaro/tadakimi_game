@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class GameSettingParams : MonoBehaviour
 {
-    public const string initCharacter = "Volcus_01";
+    public const string initCharacter = "Volcus_001";
 
     public const float characterVoiceVolume = 1.0f;
     public const float cvVolume = 1.0f;

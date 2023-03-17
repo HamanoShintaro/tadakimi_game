@@ -18,8 +18,6 @@ namespace Battle
         protected virtual void OnEnable()
         {
             StartCoroutine(Action());
-            //Action();
-            Debug.Log("アクション開始");
         }
 
         protected virtual void OnDisable()
@@ -40,7 +38,6 @@ namespace Battle
                 if (buddyTargets.Contains(target.gameObject)) return;
                 buddyTargets.Add(target.gameObject);
             }
-            Debug.Log("当たり判定");
         }
 
         public IEnumerator Action()

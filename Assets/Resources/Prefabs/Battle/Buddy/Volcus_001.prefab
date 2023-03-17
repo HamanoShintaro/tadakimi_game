@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 612331453}
   - component: {fileID: 7211816822891827991}
   m_Layer: 6
-  m_Name: Volcus_01
+  m_Name: Volcus_001
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

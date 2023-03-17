@@ -26,10 +26,8 @@ public class SaveController : MonoBehaviour
         characterSave.Load();
         characterFormation.Load();
 
-        characterSave = null;
-
         //ロードしてデータがないor初期化ならInitUser()
-        if (characterSave.list.Count == 0 || characterSave == null)
+        if (characterSave == null || characterSave.list.Count == 0)
         {
             InitUser();
 
@@ -39,14 +37,14 @@ public class SaveController : MonoBehaviour
             //Era_01をキャラクターデータに追加
             AddCharacterDate("Era_01", 1, true);
             //Era_01をキャラクターフォーメーション[1]に追加
-            UpdateCharacterFormationDate("Era_01", 1);
+            UpdateCharacterFormationDate("Era_01", 0);
 
             AddCharacterDate("Eleth_01", 1, true);
             UpdateCharacterFormationDate("Eleth_01", 1);
 
             //オレンドを追加
             AddCharacterDate("Orend_01", 1, true);
-            UpdateCharacterFormationDate("Orend_01", 1);
+            UpdateCharacterFormationDate("Orend_01", 2);
         }
     }
 
@@ -147,7 +145,7 @@ public class SaveController : MonoBehaviour
 
         public void Load()
         {
-            Debug.Log("保持キャラクターをロードします");
+            //Debug.Log("保持キャラクターをロードします");
             if (PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
             {
                 string saveData = PlayerPrefs.GetString(PlayerPrefabKeys.playerCharacterData);
@@ -180,7 +178,7 @@ public class SaveController : MonoBehaviour
 
         public void Load()
         {
-            Debug.Log("フォーメーションデータをロードします");
+            //Debug.Log("フォーメーションデータをロードします");
             string saveData = PlayerPrefs.GetString(PlayerPrefabKeys.playerCharacterFormation);
             Wrapper wrapper = JsonUtility.FromJson<Wrapper>(saveData);
             for (int i = 0; i < list.Length; i++)

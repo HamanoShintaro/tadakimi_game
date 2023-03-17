@@ -33,10 +33,10 @@ MonoBehaviour:
     atkKB: 10
     defKB: 50
     growth: 200
-  - cost: 200
-    attack: 15
+  - cost: 400
+    attack: 8
     interval: 0
-    hp: 150
+    hp: 60
     speed: 300
     atkKB: 10
     defKB: 50
