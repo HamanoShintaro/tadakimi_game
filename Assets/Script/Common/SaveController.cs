@@ -26,25 +26,11 @@ public class SaveController : MonoBehaviour
         characterSave.Load();
         characterFormation.Load();
 
+        characterSave.list.Clear();//TODOデバッグ用  後で消す
         //ロードしてデータがないor初期化ならInitUser()
         if (characterSave == null || characterSave.list.Count == 0)
         {
             InitUser();
-
-            //チュートリアルを表示
-            tutorial.SetActive(true);
-
-            //Era_01をキャラクターデータに追加
-            AddCharacterDate("Era_01", 1, true);
-            //Era_01をキャラクターフォーメーション[1]に追加
-            UpdateCharacterFormationDate("Era_01", 0);
-
-            AddCharacterDate("Eleth_01", 1, true);
-            UpdateCharacterFormationDate("Eleth_01", 1);
-
-            //オレンドを追加
-            AddCharacterDate("Orend_01", 1, true);
-            UpdateCharacterFormationDate("Orend_01", 2);
         }
     }
 
@@ -53,6 +39,9 @@ public class SaveController : MonoBehaviour
     /// </summary>
     private void InitUser()
     {
+        //チュートリアルを表示
+        tutorial.SetActive(true);
+
         //menu表示のための設定
         PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         //セーブデータの初期設定
@@ -68,10 +57,24 @@ public class SaveController : MonoBehaviour
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentLanguage)) { PlayerPrefs.SetInt(PlayerPrefabKeys.currentLanguage, GameSettingParams.currentLanguage); }
 
         //初期キャラをキャラクターデータに追加
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData)) AddCharacterDate(GameSettingParams.initCharacter, 1, false);
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
+        {
+            AddCharacterDate(GameSettingParams.initCharacter, 1, true);
+            AddCharacterDate("Era_01", 1, true);
+            AddCharacterDate("Eleth_01", 1, true);
+            AddCharacterDate("Orend_01", 1, true);
+            Debug.Log("キャラクターデータ初期化");
+        }
 
         //初期キャラをキャラクターフォーメーション[0]に追加
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation)) UpdateCharacterFormationDate(GameSettingParams.initCharacter, 0);
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
+        {
+            UpdateCharacterFormationDate(GameSettingParams.initCharacter, 0);
+            UpdateCharacterFormationDate("Era_01", 1);
+            UpdateCharacterFormationDate("Eleth_01", 2);
+            UpdateCharacterFormationDate("Orend_01", 3);
+            Debug.Log("フォーメーション初期化");
+        }
 
         //広告表示モードを表示に設定
         PlayerPrefs.SetInt(PlayerPrefabKeys.currentAdsMode, 0);
