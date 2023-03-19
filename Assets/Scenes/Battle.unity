@@ -2159,10 +2159,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.20570502
-    width: 1
-    height: 0.58858997
+    x: 0.4845679
+    y: 0
+    width: 0.030864198
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2191,7 +2191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -286.60547, y: 506.00003, z: -10}
+  m_LocalPosition: {x: 716.8543, y: 506, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8385,7 +8385,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 3.0210266, y: 1}
+    m_SensorSize: {x: 0.054881047, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8402,7 +8402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735806792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -746.45825, y: 506, z: -10}
+  m_LocalPosition: {x: 716.8543, y: 506, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14070,9 +14070,9 @@ RectTransform:
   m_Father: {fileID: 357969463}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -163, y: 386}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2633, y: -364}
   m_SizeDelta: {x: 900, y: 900}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!61 &1003201801
@@ -17002,7 +17002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852149, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2359
+      value: -255
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852149, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -17022,7 +17022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852150, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_Size.x
-      value: 188.44897
+      value: 601.864
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852150, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_Size.y
@@ -17034,7 +17034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852150, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_Offset.x
-      value: -32.411255
+      value: -239.11877
       objectReference: {fileID: 0}
     - target: {fileID: 5095262611280852150, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
       propertyPath: m_Offset.y

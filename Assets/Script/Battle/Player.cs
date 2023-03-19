@@ -32,10 +32,12 @@ namespace Battle
             //移動入力がある場合は背景を動かす&歩きアニメーション再生 / ない場合はアニメーションを停止
             if (Input.GetKey(KeyCode.D))
             {
+                //isMove = true;
                 MoveRight();
             }
             else if (Input.GetKey(KeyCode.A))
             {
+                //isMove = true;
                 MoveLeft();
             }
             else
@@ -50,7 +52,13 @@ namespace Battle
             player.transform.localEulerAngles = new Vector3(0, 0, 0);
 
             //接敵中は前進不可
-            if (player.GetComponent<CharacterCore>().targets.Count > 0) return;
+            if (player.GetComponent<CharacterCore>().targets.Count > 0)
+            {
+                var distance = Vector2.Distance(player.GetComponent<CharacterCore>().targets[0].GetComponent<RectTransform>().anchoredPosition, GetComponent<RectTransform>().anchoredPosition);
+                //敵に近づける限界の距離
+                var limitZoneDistance = 300;
+                if (distance <= limitZoneDistance) return;
+            }
 
             //範囲を制限
             if (player.anchoredPosition.x > 2600) return;

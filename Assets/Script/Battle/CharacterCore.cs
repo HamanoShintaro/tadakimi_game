@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Battle
@@ -215,9 +216,6 @@ namespace Battle
             //アニメーター取得
             animator = GetComponent<Animator>();
 
-            //初めのステートを設定
-            //state = State.Walk;
-
             //スキル名がないならhasSkill = false
             if (characterInfo.skill.name == "" || characterInfo.skill.name == null) hasSkill = false;
             else hasSkill = true;
@@ -225,15 +223,7 @@ namespace Battle
             //スペシャル名がないならhasSpecial = false
             if (characterInfo.special.name == "" || characterInfo.special.name == null) hasSpecial = false;
             else hasSpecial = true;
-            /*
-            try
-            {
-                player = GameObject.Find("Player").GetComponent<Player>();
-            }
-            catch
-            {
-            }
-            */
+
             //スキルのクールタイムを測る
             StartCoroutine(SkillCoolTimeCount());
         }
@@ -283,12 +273,11 @@ namespace Battle
         /// </summary>
         private void Action()
         {
-            if (!canState) return;
+            //if (!canState) return;
             canState = false;
             if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
             {
                 SpecialAction();
-
             }
             else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
@@ -352,15 +341,32 @@ namespace Battle
 
         private void NomalAction()
         {
+            if (isLeader)
+            {
+                //近いターゲットを割り出す
+                var nearTarget = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).ToList()[0];
+            　
+                var distance = Vector2.Distance(nearTarget.GetComponent<RectTransform>().anchoredPosition, GetComponent<RectTransform>().anchoredPosition);
+                //遠距離攻撃をする最小の距離
+                var longAttackDistance = 600;
+                if (distance > longAttackDistance)
+                {
+                    animator.SetBool("Long", true);
+                }
+                Debug.Log($"{nearTarget}:{distance}");
+            }
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
         }
 
         public void EndNomalAction()
         {
+            if (isLeader)
+            {
+                animator.SetBool("Long", false);
+            }
             //通常攻撃の処理>終了
             animator.SetBool("Attack", false);
-
             canState = true;
         }
 
@@ -381,7 +387,7 @@ namespace Battle
                 {
                     //攻撃力をスキルと奥義で分ける
                     target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
-                    Debug.Log($"{target}を攻撃");
+                    //Debug.Log($"{target}を攻撃");
                     if (attackType == AttackType.single) break;
                 }
             }
@@ -431,7 +437,6 @@ namespace Battle
         /// </summary>
         private void KnockBack()
         {
-            //if (!canState) return;
             canState = false;
             animator.SetBool("KnockBack", true);
         }
@@ -440,6 +445,7 @@ namespace Battle
         {
             //ノックバック処理>終了
             animator.SetBool("KnockBack", false);
+            animator.SetBool("Attack", false);
             canState = true;
         }
 
@@ -522,16 +528,16 @@ namespace Battle
             {
                 if (characterType == CharacterType.Buddy && t.CompareTag("Enemy") || characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
                 {
-                    //state = State.Action;
                     if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
+                    targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x);
                 }
             }
             else if (characterRole == CharacterRole.Supporter)
             {
                 if (characterType == CharacterType.Buddy && t.CompareTag("Buddy") || characterType == CharacterType.Enemy && t.CompareTag("Enemy"))
                 {
-                    //state = State.Action;
                     if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
+                    targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x);
                 }
             }
         }
@@ -544,6 +550,7 @@ namespace Battle
                 if (characterType == CharacterType.Buddy && t.CompareTag("Enemy") || characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
                 {
                     if (targets.Contains(t.gameObject)) targets.Remove(t.gameObject);
+                    targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x);
                 }
             }
             else if (characterRole.Equals(CharacterRole.Supporter))
@@ -551,6 +558,7 @@ namespace Battle
                 if (characterType == CharacterType.Buddy && t.CompareTag("Buddy") || characterType == CharacterType.Enemy && t.CompareTag("Enemy"))
                 {
                     if (!targets.Contains(t.gameObject)) targets.Remove(t.gameObject);
+                    targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x);
                 }
             }
         }
