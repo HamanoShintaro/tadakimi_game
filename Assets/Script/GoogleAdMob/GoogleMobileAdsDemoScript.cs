@@ -84,7 +84,9 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
     {
         string type = args.Type;
         double amount = args.Amount;
+        Debug.Log("広告の報酬をもらう : HandleRewardedAdRewarded event received for " + amount.ToString() + " " + type);
+
+        var reward = PlayerPrefs.GetInt(PlayerPrefabKeys.playerGetMoney);
         battleController.StartCoroutine("OnDisplayMoney", reward);
-        Debug.Log("広告の報酬をもらう : HandleRewardedAdRewarded event received for "+ amount.ToString() + " " + type);
     }
 }

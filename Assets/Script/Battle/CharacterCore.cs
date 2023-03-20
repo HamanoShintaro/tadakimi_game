@@ -456,12 +456,6 @@ namespace Battle
         {
             //死亡処理>開始
             canState = false;
-            /*
-            foreach (Collider2D col in GetComponents<Collider2D>())
-            {
-                col.isTrigger = false;
-            }
-            */
             animator.SetBool("Death", true);
         }
 
@@ -485,7 +479,6 @@ namespace Battle
             }
             else if ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity))
             {
-                //state = State.KnockBack;
                 KnockBack();
             }
         }
