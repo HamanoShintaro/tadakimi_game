@@ -4715,8 +4715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089121fbaa6594d5fbb7fc06dd27e848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearStage: {fileID: 575946231}
-  money: {fileID: 807927769}
+  clearStageText: {fileID: 575946233}
+  moneyText: {fileID: 807927771}
 --- !u!1 &701417561
 GameObject:
   m_ObjectHideFlags: 0
@@ -16605,15 +16605,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.00013253093
-    width: 1
-    height: 0.99973494
+    x: 0.00010344386
+    y: 0
+    width: 0.9997931
+    height: 1
   near clip plane: 1
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4
+  orthographic size: 5.401118
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2

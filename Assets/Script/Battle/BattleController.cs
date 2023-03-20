@@ -31,11 +31,11 @@ public class BattleController : MonoBehaviour
 
     [SerializeField, HideInInspector]
     private GameObject magicPower;
-
+    
     [SerializeField]
     [Header("ゲームタイマー")]
-    public int gameTimer = 0;
-
+    public int gameTimer;
+    
     [SerializeField]
     private Image backGround;
 
@@ -48,6 +48,11 @@ public class BattleController : MonoBehaviour
 
     void Start()
     {
+        //TODO後で消す
+        PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, 0);
+        PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, 0);
+        PlayerPrefs.SetInt(PlayerPrefabKeys.playerGetMoney, 0);
+
         magic_level = 1;
 
         magic_recovery_level = 0;
@@ -86,10 +91,6 @@ public class BattleController : MonoBehaviour
 
         //タイマーをスタート
         StartCoroutine(StartTimer());
-
-        //ゲームのプレイ時間をリセットする
-        var playTime = PlayerPrefs.GetInt(PlayerPrefabKeys.playTime);
-        PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, playTime + gameTimer);
     }
 
     /// <summary>
@@ -135,11 +136,6 @@ public class BattleController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator GameStopCoroutine(TypeLeader type)
     {
-        //広告が表示モードなら動画を提示
-        if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
-        {
-            GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
-        }
         if (type == TypeLeader.BuddyLeader)
         {
             //ゲームのプレイ時間を記録
@@ -159,7 +155,13 @@ public class BattleController : MonoBehaviour
             performancePanel.GetComponent<ResultController>().OnResultPanel(true);
         }
         UpdateMoneyUI();
-        yield return new WaitForSeconds(0.5f);
+
+        //6秒後に広告を表示する
+        yield return new WaitForSeconds(6.0f);
+        if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
+        {
+            GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
+        }
     }
 
     /// <summary>
@@ -169,7 +171,8 @@ public class BattleController : MonoBehaviour
     private void UpdateMoneyUI()
     {
         //取得した金額を計算
-        var getMoney = 1 * gameTimer; //TODO 1がマジックナンバー
+        var rate = 10;//TODO 1がマジックナンバー
+        var getMoney = rate * PlayerPrefs.GetInt(PlayerPrefabKeys.playTime);
 
         //取得金額をセーブ
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerGetMoney, getMoney);
@@ -203,6 +206,7 @@ public class BattleController : MonoBehaviour
         var totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
         //獲得した金額
         var getMoney = _getMoney;
+
         //アニメーション
         while (getMoney > 0)
         {
@@ -215,5 +219,7 @@ public class BattleController : MonoBehaviour
             totalMoneyText[1].text = $"{totalMoney}";
             yield return new WaitForEndOfFrame();
         }
+        //所持金額+獲得金額を新しい所得金額として保存
+        PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, totalMoney + _getMoney);
     }
 }

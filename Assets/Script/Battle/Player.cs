@@ -18,12 +18,9 @@ namespace Battle
 
         private RectTransform player;
 
-        private Animator animator;
-
         private void Start()
         {
-            player = this.GetComponent<RectTransform>();
-            animator = this.GetComponent<Animator>();
+            player = GetComponent<RectTransform>();
         }
 
         private void Update()

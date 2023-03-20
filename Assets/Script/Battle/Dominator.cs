@@ -12,6 +12,9 @@ namespace Battle
         [SerializeField]
         public TypeLeader type;
 
+        //一度しか呼び出されないようにする
+        private bool isStop = false;
+
         public enum TypeLeader
         {
             BuddyLeader,
@@ -20,10 +23,12 @@ namespace Battle
 
         private void Update()
         {
+            if (isStop) return;
             if (GetComponent<CharacterCore>().Hp == 0)
             {
                 //ゲームをストップ
                 GameObject.Find("Canvas_Dynamic").GetComponent<BattleController>().GameStop(type);
+                isStop = true;
             }
         }
     }
