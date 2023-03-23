@@ -65,7 +65,7 @@ namespace Battle
         private Animator animator;
 
         //ステート変更可能かどうか
-        private bool canState = true;
+        public bool canState = true;
 
         //スキルのクールタイムを測れるかどうか
         private bool canSkillCoolTime = true;
@@ -345,7 +345,6 @@ namespace Battle
             {
                 //近いターゲットを割り出す
                 var nearTarget = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).ToList()[0];
-            　
                 var distance = Vector2.Distance(nearTarget.GetComponent<RectTransform>().anchoredPosition, GetComponent<RectTransform>().anchoredPosition);
                 //遠距離攻撃をする最小の距離
                 var longAttackDistance = 600;
@@ -361,12 +360,17 @@ namespace Battle
 
         public void EndNomalAction()
         {
+            //通常攻撃の処理>終了
             if (isLeader)
             {
                 animator.SetBool("Long", false);
+                animator.SetBool("Attack", false);
+                Debug.Log("プレイヤーはアクションを終了しました");
             }
-            //通常攻撃の処理>終了
-            animator.SetBool("Attack", false);
+            else
+            {
+                animator.SetBool("Attack", false);
+            }
             canState = true;
         }
 

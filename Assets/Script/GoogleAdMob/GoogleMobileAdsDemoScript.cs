@@ -25,7 +25,6 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
 #else
         adUnitId = "unexpected_platform";
 #endif
-
         rewardedAd = new RewardedAd("unexpected_platform");
 
         // Called when an ad request has successfully loaded.
@@ -40,7 +39,6 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
         rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
         // Called when the ad is closed.
         rewardedAd.OnAdClosed += HandleRewardedAdClosed;
-
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the rewarded ad with the request.
@@ -86,7 +84,6 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
         double amount = args.Amount;
         Debug.Log("広告の報酬をもらう : HandleRewardedAdRewarded event received for " + amount.ToString() + " " + type);
 
-        var reward = PlayerPrefs.GetInt(PlayerPrefabKeys.playerGetMoney);
-        battleController.StartCoroutine("OnDisplayMoney", reward);
+        battleController.StartCoroutine("UpdateMoneyUI", 2);
     }
 }

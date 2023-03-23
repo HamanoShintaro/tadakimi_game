@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour, IDamage
 {
-    //maxHp
     [SerializeField]
     private float maxHp;
 
@@ -14,7 +13,6 @@ public class Tower : MonoBehaviour, IDamage
     [SerializeField]
     private BattleController battleController;
 
-    //Hpプロパティ
     public float hp = 100;
     public float Hp
     {
@@ -32,7 +30,6 @@ public class Tower : MonoBehaviour, IDamage
         //maxHp読み込み TODOデータベースにステージ情報を入れる(初期位置/maxHp/タワー画像/背景画像/横幅)
         //maxHp = Resources.Load<PlayerInfo>($"DataBase/Data/PlayerInfo/{playerCharacterId}").MaxHp;
         Hp = maxHp;
-        //Damage(100);
     }
 
     public void Damage(float attackPower = 0, float kb = 0)
