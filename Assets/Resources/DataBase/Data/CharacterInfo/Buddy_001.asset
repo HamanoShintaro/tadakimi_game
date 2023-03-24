@@ -59,7 +59,7 @@ MonoBehaviour:
     speed: 25
     atkKB: 50
     defKB: 50
-    growth: 200
+    growth: 1000
   - cost: 0
     attack: 20
     interval: 0

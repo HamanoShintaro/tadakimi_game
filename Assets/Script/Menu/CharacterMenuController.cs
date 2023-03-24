@@ -63,7 +63,7 @@ public class CharacterMenuController : MonoBehaviour
         characterFullSizeImage.GetComponent<Image>().sprite = character.image.fullsize;
         characterEffect.GetComponent<Image>().sprite = character.image.effect;
 
-        //レベルの取得
+        //レベルの取得 
         int level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level;
         int index = level - 1;
 

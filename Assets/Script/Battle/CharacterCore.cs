@@ -238,7 +238,6 @@ namespace Battle
         {
             //状態の優先順位は死亡>ノックバック>状態遷移可能かどうか>歩くorアクション
             //ノックバック処理
-            //if (state == State.KnockBack) KnockBack();
             if (!canState) return;
             if (isLeader)
             {

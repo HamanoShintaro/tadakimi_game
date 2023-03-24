@@ -26,85 +26,85 @@ MonoBehaviour:
   rank: 3
   status:
   - cost: 200
-    attack: 10
-    interval: 0
-    hp: 30
-    speed: 300
-    atkKB: 10
-    defKB: 50
-    growth: 200
-  - cost: 200
     attack: 15
     interval: 0
-    hp: 150
+    hp: 25
     speed: 300
     atkKB: 10
     defKB: 50
     growth: 500
   - cost: 200
-    attack: 20
+    attack: 15
     interval: 0
-    hp: 200
+    hp: 25
     speed: 300
     atkKB: 10
     defKB: 50
-    growth: 2000
-  - cost: 250
-    attack: 50
+    growth: 500
+  - cost: 200
+    attack: 15
     interval: 0
-    hp: 1000
-    speed: 400
-    atkKB: 15
-    defKB: 70
-    growth: 1500
-  - cost: 250
-    attack: 55
+    hp: 25
+    speed: 300
+    atkKB: 10
+    defKB: 50
+    growth: 500
+  - cost: 200
+    attack: 15
     interval: 0
-    hp: 1100
-    speed: 400
-    atkKB: 15
-    defKB: 70
-    growth: 2000
-  - cost: 250
-    attack: 60
+    hp: 25
+    speed: 300
+    atkKB: 10
+    defKB: 50
+    growth: 500
+  - cost: 200
+    attack: 15
     interval: 0
-    hp: 1200
-    speed: 400
-    atkKB: 15
-    defKB: 70
-    growth: 5000
-  - cost: 350
-    attack: 150
+    hp: 25
+    speed: 300
+    atkKB: 10
+    defKB: 50
+    growth: 500
+  - cost: 200
+    attack: 15
     interval: 0
-    hp: 3000
-    speed: 450
-    atkKB: 20
-    defKB: 70
-    growth: 3000
-  - cost: 350
-    attack: 160
+    hp: 25
+    speed: 300
+    atkKB: 10
+    defKB: 50
+    growth: 500
+  - cost: 200
+    attack: 15
     interval: 0
-    hp: 3300
-    speed: 450
-    atkKB: 20
-    defKB: 70
-    growth: 4500
-  - cost: 350
-    attack: 170
+    hp: 25
+    speed: 300
+    atkKB: 10
+    defKB: 50
+    growth: 500
+  - cost: 200
+    attack: 15
     interval: 0
-    hp: 3600
-    speed: 450
-    atkKB: 20
-    defKB: 70
-    growth: 15000
-  - cost: 400
-    attack: 250
+    hp: 25
+    speed: 300
+    atkKB: 10
+    defKB: 50
+    growth: 500
+  - cost: 200
+    attack: 15
     interval: 0
-    hp: 6000
-    speed: 500
-    atkKB: 30
-    defKB: 70
-    growth: 0
+    hp: 25
+    speed: 300
+    atkKB: 10
+    defKB: 50
+    growth: 500
+  - cost: 200
+    attack: 15
+    interval: 0
+    hp: 25
+    speed: 300
+    atkKB: 10
+    defKB: 50
+    growth: 500
   skill:
     name: 
     cost: 100
