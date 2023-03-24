@@ -13,50 +13,58 @@ MonoBehaviour:
   m_Name: Buddy_107
   m_EditorClassIdentifier: 
   id: Buddy_107
-  name: "\u5927\u9053\u5177\u3055\u3093"
-  alias: "\u5287\u56E3\u54E1"
-  detail: "\u5287\u56E3\u3092\u88CF\u65B9\u304B\u3089\u652F\u3048\u308B\u30CA\u30A4\u30B9\u30AC\u30A4\u3002\u6301\u3061\u5473\u306E\u30D1\u30EF\u30FC\u3067\u4EF2\u9593\u306E\u524D\u7DDA\u306B\u7ACB\u3063\u3066\u6226\u3046\u3002"
-  type: Defence
+  name: "\u30A4\u30F3\u30D7\u65CF\u306E\u5F13\u5175"
+  alias: "\u30A4\u30F3\u30D7"
+  detail: "\u5C0F\u578B\u9B54\u65CF\u306E\u5F13\u5175\u3002\u9AD8\u3044\u8996\u529B\u3068\u904B\u52D5\u80FD\u529B\u3067\u6575\u3092\u9060\u8DDD\u96E2\u304B\u3089\u5C04\u6483\u3059\u308B\u3002"
+  type: Attack
   image:
     fullsize: {fileID: 21300000, guid: 6af66ec138c154b2a95668084273ed61, type: 3}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
     effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
-    icon: {fileID: 21300000, guid: 8654dc656acb84147bc114e238779c19, type: 3}
-    prefab: {fileID: 5095262611280852148, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
+    icon: {fileID: 21300000, guid: bc79795b00a7b46c0b39bd74a86f8cc2, type: 3}
+    prefab: {fileID: 2599859326184550953, guid: 7486ef334b997457a90d1b1723cb297c, type: 3}
   rank: 1
   status:
-  - cost: 4
-    attack: 2
+  - cost: 50
+    attack: 3
     interval: 6
-    hp: 20
-    speed: 450
+    hp: 10
+    speed: 15
     atkKB: 10
-    defKB: 30
-    growth: 4
-  - cost: 4
-    attack: 2
+    defKB: 0
+    growth: 3
+  - cost: 50
+    attack: 5
     interval: 6
-    hp: 20
-    speed: 450
+    hp: 11
+    speed: 15
     atkKB: 10
-    defKB: 30
-    growth: 4
-  - cost: 4
-    attack: 2
+    defKB: 0
+    growth: 36
+  - cost: 50
+    attack: 7
     interval: 6
-    hp: 20
-    speed: 450
+    hp: 11
+    speed: 15
     atkKB: 10
-    defKB: 30
-    growth: 4
-  - cost: 4
-    attack: 2
+    defKB: 0
+    growth: 75
+  - cost: 50
+    attack: 12
     interval: 6
-    hp: 20
-    speed: 450
+    hp: 13
+    speed: 15
     atkKB: 10
-    defKB: 30
-    growth: 4
+    defKB: 0
+    growth: 150
+  - cost: 50
+    attack: 20
+    interval: 6
+    hp: 15
+    speed: 15
+    atkKB: 10
+    defKB: 0
+    growth: 0
   skill:
     name: 
     cost: 0
