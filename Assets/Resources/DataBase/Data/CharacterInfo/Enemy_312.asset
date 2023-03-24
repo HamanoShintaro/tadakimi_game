@@ -10,60 +10,60 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
-  m_Name: Enemy_310
+  m_Name: Enemy_312
   m_EditorClassIdentifier: 
-  id: Enemy_310
-  name: "\u8CB4\u65CF\u306E\u731F\u72AC"
-  alias: "\u8CB4\u65CF\u5175"
+  id: Enemy_312
+  name: "\u91CE\u6B21\u99AC\u3059\u308B\u6751\u4EBA"
+  alias: "\u6751\u4EBA"
   detail: 
-  type: 
+  type: Defence
   image:
     fullsize: {fileID: 21300000, guid: 6af66ec138c154b2a95668084273ed61, type: 3}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
     effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
-    icon: {fileID: 21300000, guid: e7afebecb5eba4ba48c9be721cafd372, type: 3}
-    prefab: {fileID: 1706060308533771130, guid: cb38a0b43690f4073bca9441632ca470, type: 3}
-  rank: 3
+    icon: {fileID: 21300000, guid: 5d0fc8d8fb596450bb6a1726d1cffda8, type: 3}
+    prefab: {fileID: 4241449921041689916, guid: 22366544b347043fcaaf14734f6bd333, type: 3}
+  rank: 1
   status:
+  - cost: 0
+    attack: 1
+    interval: 0
+    hp: 20
+    speed: 15
+    atkKB: 10
+    defKB: 20
+    growth: 0
+  - cost: 0
+    attack: 1
+    interval: 0
+    hp: 30
+    speed: 15
+    atkKB: 10
+    defKB: 20
+    growth: 0
   - cost: 0
     attack: 2
     interval: 0
-    hp: 5
-    speed: 80
+    hp: 60
+    speed: 15
     atkKB: 10
-    defKB: 0
+    defKB: 20
     growth: 0
   - cost: 0
     attack: 3
     interval: 0
-    hp: 15
-    speed: 80
+    hp: 120
+    speed: 15
     atkKB: 10
-    defKB: 0
+    defKB: 20
     growth: 0
   - cost: 0
-    attack: 4
+    attack: 10
     interval: 0
-    hp: 15
-    speed: 80
+    hp: 300
+    speed: 15
     atkKB: 10
-    defKB: 0
-    growth: 0
-  - cost: 0
-    attack: 6
-    interval: 0
-    hp: 30
-    speed: 80
-    atkKB: 10
-    defKB: 0
-    growth: 0
-  - cost: 0
-    attack: 20
-    interval: 0
-    hp: 75
-    speed: 80
-    atkKB: 10
-    defKB: 0
+    defKB: 20
     growth: 0
   skill:
     name: 
