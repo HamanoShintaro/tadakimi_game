@@ -18,6 +18,7 @@ public class TalkController : MonoBehaviour
     public GameObject Render;
     private AudioSource seSource;
     private AudioSource voiceSource;
+    private float bgmVolume;
 
     public GameObject prefabNormal;
 
@@ -39,9 +40,10 @@ public class TalkController : MonoBehaviour
         bgmSource = canvas.GetComponent<AudioSource>();
         bgmSource.volume = 0.0f;
         seSource = Render.GetComponent<AudioSource>();
-        seSource.volume = GameSettingParams.seVolume;
+        seSource.volume = GameSettingParams.seVolume * PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
         voiceSource = this.GetComponent<AudioSource>();
-        voiceSource.volume = GameSettingParams.characterVoiceVolume;
+        voiceSource.volume = GameSettingParams.characterVoiceVolume * PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeCV);
+        bgmVolume = GameSettingParams.bgmVolume * PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
 
         List<string> characterKeys = new List<string>();
         foreach (SenarioTalkScript.SenarioTalk senarioTalk in senarioTalkScript.GetSenarioTalks())
@@ -92,7 +94,6 @@ public class TalkController : MonoBehaviour
                 }
                 //次のトークを生成
                 currentBublle = createBubble();
-
             }
             voiceSource.Stop();
             if (senarioTalkScript.GetSenarioTalks()[num].voice)
@@ -133,12 +134,11 @@ public class TalkController : MonoBehaviour
         bgmSource.Stop();
         bgmSource.clip = bgm;
         bgmSource.Play();
-        while (bgmSource.volume < GameSettingParams.bgmVolume)
+        while (bgmSource.volume < bgmVolume)
         {
             bgmSource.volume += Time.deltaTime * 1.0f;
             yield return new WaitForSecondsRealtime(0.03f);
         }
-
     }
 
     private IEnumerator ChangeBackGround(Sprite bgImage)

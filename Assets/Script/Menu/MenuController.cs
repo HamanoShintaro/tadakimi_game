@@ -22,7 +22,7 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         currentView = PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView);
         switchingFlg = false;
-        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
+        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM) * GameSettingParams.bgmVolume;
         saveController = this.GetComponent<SaveController>();
     }
 

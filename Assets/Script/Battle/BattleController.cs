@@ -104,6 +104,9 @@ public class BattleController : MonoBehaviour
 
         //タイマーをスタート
         StartCoroutine(StartTimer());
+
+        //戦闘背景音の設定
+        this.GetComponent<AudioSource>().volume = GameSettingParams.bgmVolume * PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
     }
 
     /// <summary>

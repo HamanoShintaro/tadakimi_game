@@ -66,7 +66,6 @@ public class TalkCharacterController : MonoBehaviour
             rect.position = new Vector3(rect.position.x + (orgPosition.x - apperPosition.x) * Time.deltaTime * 15.0f, rect.position.y, rect.position.z);
             canvasGroup.alpha += Time.deltaTime * 15.0f;
             yield return new WaitForSeconds(0.01f);
-            Debug.Log(canvasGroup.alpha);
         }
         rect.position = orgPosition;
     }
@@ -84,7 +83,6 @@ public class TalkCharacterController : MonoBehaviour
     public IEnumerator inActive()
     {
         image = characterImage.GetComponent<Image>();
-        Debug.Log(image.color.r);
         while (image.color.r > GameSettingParams.inActiveColorParam || image.color.g > GameSettingParams.inActiveColorParam || image.color.b > GameSettingParams.inActiveColorParam)
         {
             float colorParam = image.color.r - Time.deltaTime * 10.0f;
