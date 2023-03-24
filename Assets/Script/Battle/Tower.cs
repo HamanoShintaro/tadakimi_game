@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour, IDamage
 {
@@ -8,9 +9,11 @@ public class Tower : MonoBehaviour, IDamage
     private float maxHp;
 
     [SerializeField]
+    [HideInInspector]
     private GameObject performancePanel;
 
     [SerializeField]
+    [HideInInspector]
     private BattleController battleController;
 
     public float hp = 100;
@@ -27,16 +30,21 @@ public class Tower : MonoBehaviour, IDamage
 
     private void Start()
     {
-        //maxHp読み込み TODOデータベースにステージ情報を入れる(初期位置/maxHp/タワー画像/背景画像/横幅)
-        //maxHp = Resources.Load<PlayerInfo>($"DataBase/Data/PlayerInfo/{playerCharacterId}").MaxHp;
+        var currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
+        var enemyTowerInfo = Resources.Load<EnemyTowerDateBase>($"DataBase/Data/EnemyTowerInfo/{currentStageId}");
+
+        //タワーの画像を取得
+        GetComponent<Image>().sprite = enemyTowerInfo.sprite;
+
+        //タワーの最大体力を取得
+        maxHp = enemyTowerInfo.maxHp;
         Hp = maxHp;
     }
 
     public void Damage(float attackPower = 0, float kb = 0)
     {
-        Debug.Log("被ダメージ");
         Hp -= attackPower;
-        if (Hp == 0)
+        if (Hp <= 0)
         {
             //ゲームをストップ
             battleController.GameStop(Battle.Dominator.TypeLeader.EnemyLeader);
