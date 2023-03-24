@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
   m_Name: Buddy_107
   m_EditorClassIdentifier: 
-  id: Buddy_103
+  id: Buddy_107
   name: "\u5927\u9053\u5177\u3055\u3093"
   alias: "\u5287\u56E3\u54E1"
   detail: "\u5287\u56E3\u3092\u88CF\u65B9\u304B\u3089\u652F\u3048\u308B\u30CA\u30A4\u30B9\u30AC\u30A4\u3002\u6301\u3061\u5473\u306E\u30D1\u30EF\u30FC\u3067\u4EF2\u9593\u306E\u524D\u7DDA\u306B\u7ACB\u3063\u3066\u6226\u3046\u3002"
@@ -29,42 +29,34 @@ MonoBehaviour:
     attack: 2
     interval: 6
     hp: 20
-    speed: 10
+    speed: 450
     atkKB: 10
     defKB: 30
     growth: 4
-  - cost: 30
+  - cost: 4
     attack: 2
     interval: 6
-    hp: 46
-    speed: 10
-    atkKB: 10
-    defKB: 50
-    growth: 48
-  - cost: 30
-    attack: 3
-    interval: 6
-    hp: 32
-    speed: 10
+    hp: 20
+    speed: 450
     atkKB: 10
     defKB: 30
-    growth: 160
-  - cost: 30
-    attack: 3
+    growth: 4
+  - cost: 4
+    attack: 2
     interval: 6
-    hp: 38
-    speed: 10
+    hp: 20
+    speed: 450
     atkKB: 10
     defKB: 30
-    growth: 240
-  - cost: 30
-    attack: 4
+    growth: 4
+  - cost: 4
+    attack: 2
     interval: 6
-    hp: 50
-    speed: 10
+    hp: 20
+    speed: 450
     atkKB: 10
     defKB: 30
-    growth: 0
+    growth: 4
   skill:
     name: 
     cost: 0

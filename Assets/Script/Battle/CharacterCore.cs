@@ -31,6 +31,11 @@ namespace Battle
         [Tooltip("リーダー")]
         private bool isLeader;
 
+        [SerializeField]
+        [Header("遠距離攻撃する最小の距離")]
+        [Tooltip("トリガー範囲>(遠距離攻撃)>longAttackDistance>(近距離攻撃)>limitMovePosition>(近づけない)")]
+        private float longAttackDistance = 600;
+
         //ステータス
         [Tooltip("現在のレベル")]
         [HideInInspector]
@@ -80,7 +85,8 @@ namespace Battle
         {
             Buddy_001, Volcus_002, Era_001, Eleth_01, Orend_01, Sara_01, Shandy_01, Loxy_01, Collobo_01, Vivien_01,
             Soldier_01, Enemy_301, Enemy_302, Enemy_303, Enemy_304, Enemy_305, Enemy_306, Enemy_307, Enemy_308, Enemy_309, Enemy_310,
-            Enemy_311, Enemy_312, Enemy_313, Enemy_314, Enemy_315, Enemy_316, Enemy_317, Enemy_318, Enemy_319, Enemy_320 , Enemy_323
+            Enemy_311, Enemy_312, Enemy_313, Enemy_314, Enemy_315, Enemy_316, Enemy_317, Enemy_318, Enemy_319, Enemy_320 , Enemy_323,
+            Buddy_106, Buddy_107, Buddy_108
         }
 
         //キャラクターの種類=>味方or敵
@@ -116,7 +122,7 @@ namespace Battle
         }
 
         //Hpプロパティ
-        private float hp = 100;
+        public float hp = 100;
         public float Hp
         {
             get { return hp; }
@@ -273,7 +279,7 @@ namespace Battle
         /// </summary>
         private void Action()
         {
-            //if (!canState) return;
+            if (!canState) return;
             canState = false;
             if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
             {
@@ -300,8 +306,6 @@ namespace Battle
 
             //奥義処理>開始
             animator.SetBool("Special", true);
-
-            Debug.Log("スペシャル発動");
         }
 
         public void EndSpecialAction()
@@ -325,7 +329,6 @@ namespace Battle
 
             //スキル処理>開始
             animator.SetBool("Skill", true);
-            Debug.Log("スキル発動");
         }
 
         public void EndSkillAction()
@@ -335,7 +338,6 @@ namespace Battle
 
             //スキルのクールタイムを測る
             StartCoroutine(SkillCoolTimeCount());
-
             canState = true;
         }
 
@@ -347,12 +349,11 @@ namespace Battle
                 var nearTarget = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).ToList()[0];
                 var distance = Vector2.Distance(nearTarget.GetComponent<RectTransform>().anchoredPosition, GetComponent<RectTransform>().anchoredPosition);
                 //遠距離攻撃をする最小の距離
-                var longAttackDistance = 600;
                 if (distance > longAttackDistance)
                 {
                     animator.SetBool("Long", true);
                 }
-                Debug.Log($"{nearTarget}:{distance}");
+                //Debug.Log($"{nearTarget}:{distance}");
             }
             //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
@@ -365,7 +366,6 @@ namespace Battle
             {
                 animator.SetBool("Long", false);
                 animator.SetBool("Attack", false);
-                Debug.Log("プレイヤーはアクションを終了しました");
             }
             else
             {
@@ -410,9 +410,10 @@ namespace Battle
         {
             if (!canSkillCoolTime) yield break;
             canSkillCoolTime = false;
+            var wait = new WaitForSeconds(1);
             while (true)
             {
-                yield return new WaitForSeconds(1);
+                yield return wait;
                 SkillCoolTime--;
                 if (SkillCoolTime == 0) break;
             }
@@ -427,9 +428,10 @@ namespace Battle
         {
             if (!canSpecialCoolTime) yield break;
             canSpecialCoolTime = false;
+            var wait = new WaitForSeconds(1);
             while (true)
             {
-                yield return new WaitForSeconds(1);
+                yield return wait;
                 specialCoolTime--;
                 if (specialCoolTime == 0) break;
             }
@@ -478,13 +480,13 @@ namespace Battle
             Hp -= atkPower;
             if (Hp <= 0)
             {
-                //死亡処理
                 Death();
             }
             else if ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity))
             {
                 KnockBack();
             }
+            Debug.Log($"{characterId}はダメージを受けた");
         }
 
         /// <summary>

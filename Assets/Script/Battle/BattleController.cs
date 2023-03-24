@@ -94,7 +94,7 @@ public class BattleController : MonoBehaviour
         UpMagicLevel();
 
         //ステージ番号を取得
-        var currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
+        var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
 
         //ステージ情報(ステージ番号)が格納されたクラスを取得
         battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
@@ -260,10 +260,11 @@ public class BattleController : MonoBehaviour
     private void NextStage()
     {
         //現在のステージを取得する
-        int currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId);
+        var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
+        var nextStageId = int.Parse(currentStageId) + 1;
         //現在のステージをクリアステージとして記録する
-        PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, currentStageId);
+        PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, currentStageId);
         //次のステージを現在のステージとして記録する
-        PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, currentStageId + 1);
+        PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, nextStageId.ToString("000"));
     }
 }

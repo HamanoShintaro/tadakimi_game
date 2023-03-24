@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
   m_Name: 102
   m_EditorClassIdentifier: 
-  stage: 2
+  stage: 102
   Times:
   - 5
   - 10
@@ -27,5 +27,3 @@ MonoBehaviour:
   TowerHp: 100
   stageSprite: {fileID: 21300000, guid: 9a43efb8129bc479d9bc886331f6cf88, type: 3}
   enemyTower: {fileID: 0}
-  position: {x: 0, y: 0}
-  wide: 0

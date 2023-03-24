@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
   m_Name: 101
   m_EditorClassIdentifier: 
-  stage: 1
+  stage: 101
   Times:
   - 5
   - 10

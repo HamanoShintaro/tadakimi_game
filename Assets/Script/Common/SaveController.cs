@@ -26,7 +26,6 @@ public class SaveController : MonoBehaviour
         characterSave.Load();
         characterFormation.Load();
 
-        characterSave.list.Clear();//TODOデバッグ用  後で消す
         //ロードしてデータがないor初期化ならInitUser()
         if (characterSave == null || characterSave.list.Count == 0)
         {
@@ -43,15 +42,15 @@ public class SaveController : MonoBehaviour
         tutorial.SetActive(true);
 
         //menu表示のための設定
-        PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentMenuView)) PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         //セーブデータの初期設定
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId)) { PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101"); }
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.clearStageId)) { PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, "101"); }
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerMoney)) { PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, 0); }
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101");
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.clearStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, "101");
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerMoney)) PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, 0);
         //音量の初期設定
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeBGM)) { PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeBGM, GameSettingParams.bgmVolume); }
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeSE)) { PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeSE, GameSettingParams.seVolume); }
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeCV)) { PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeCV, GameSettingParams.cvVolume); }
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeBGM)) PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeBGM, GameSettingParams.bgmVolume);
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeSE)) PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeSE, GameSettingParams.seVolume);
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeCV)) PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeCV, GameSettingParams.cvVolume);
 
         //言語の初期設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentLanguage)) { PlayerPrefs.SetInt(PlayerPrefabKeys.currentLanguage, GameSettingParams.currentLanguage); }
@@ -59,20 +58,20 @@ public class SaveController : MonoBehaviour
         //初期キャラをキャラクターデータに追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
         {
-            AddCharacterDate(GameSettingParams.initCharacter, 1, true);
-            AddCharacterDate("Era_01", 1, true);
-            AddCharacterDate("Eleth_01", 1, true);
             AddCharacterDate("Orend_01", 1, true);
+            AddCharacterDate("Buddy_106", 1, true);
+            AddCharacterDate("Buddy_107", 1, true);
+            AddCharacterDate("Buddy_108", 1, true);
             Debug.Log("キャラクターデータ初期化");
         }
 
         //初期キャラをキャラクターフォーメーション[0]に追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
         {
-            UpdateCharacterFormationDate(GameSettingParams.initCharacter, 0);
-            UpdateCharacterFormationDate("Era_01", 1);
-            UpdateCharacterFormationDate("Eleth_01", 2);
-            UpdateCharacterFormationDate("Orend_01", 3);
+            UpdateCharacterFormationDate("Orend_01", 0);
+            UpdateCharacterFormationDate("Buddy_106", 1);
+            UpdateCharacterFormationDate("Buddy_107", 2);
+            UpdateCharacterFormationDate("Buddy_108", 3);
             Debug.Log("フォーメーション初期化");
         }
 
@@ -181,9 +180,9 @@ public class SaveController : MonoBehaviour
 
         public void Load()
         {
-            //Debug.Log("フォーメーションデータをロードします");
             string saveData = PlayerPrefs.GetString(PlayerPrefabKeys.playerCharacterFormation);
             Wrapper wrapper = JsonUtility.FromJson<Wrapper>(saveData);
+            if (wrapper == null) return;
             for (int i = 0; i < list.Length; i++)
             {
                 list[i] = wrapper.list[i];

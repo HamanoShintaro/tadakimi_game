@@ -10,7 +10,6 @@ public class EnemyTowerDateBase : ScriptableObject
     [SerializeField]
     [Tooltip("最大体力")]
     public float maxHp = 500;
-
     [SerializeField]
     [Tooltip("敵タワーの画像")]
     public Sprite sprite;

@@ -30,7 +30,7 @@ public class Tower : MonoBehaviour, IDamage
 
     private void Start()
     {
-        var currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
+        var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
         var enemyTowerInfo = Resources.Load<EnemyTowerDateBase>($"DataBase/Data/EnemyTowerInfo/{currentStageId}");
 
         //タワーの画像を取得

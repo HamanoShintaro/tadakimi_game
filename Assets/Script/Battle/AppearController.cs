@@ -23,10 +23,8 @@ namespace Battle
 
         private void Start()
         {
-            //TODO消す
-            PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, 101);
             //現在のステージを取得する
-            var stageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
+            var stageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
             var battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{stageId}");
             times = battleStageSummonEnemy.GetTimes();
             enemies = battleStageSummonEnemy.GetEnemies();
@@ -49,7 +47,6 @@ namespace Battle
                 if (time >= times[itemNumber])
                 {
                     var characterClone = Instantiate(enemies[itemNumber], transform);
-
                     var pos = characterClone.transform.localPosition;
 
                     //生成位置を決定
