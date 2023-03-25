@@ -14,13 +14,22 @@ namespace Battle
         private float speed = 2.0f;
 
         [SerializeField]
+        [Range(0f, 1000f)]
         private float limitZoneDistance = 300;
 
         [SerializeField]
-        private float minLimitMovePosition = -2600f, maxLimitMovePosition = 2600f;
+        [Range(-5000f, 0f)]
+        private float minLimitMovePosition = -2600f;
+
+        [SerializeField]
+        [Range(0f, 5000f)]
+        private float maxLimitMovePosition = 2600f;
 
         [SerializeField]
         public bool isMove = true;
+
+        [SerializeField]
+        public bool isRight;
 
         private RectTransform player;
 
@@ -32,11 +41,11 @@ namespace Battle
         private void Update()
         {
             //移動入力がある場合は背景を動かす&歩きアニメーション再生 / ない場合はアニメーションを停止
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D)/* || (isRight && isMove)*/)
             {
                 MoveRight();
             }
-            else if (Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(KeyCode.A)/* || (!isRight && isMove)*/)
             {
                 MoveLeft();
             }
@@ -77,6 +86,13 @@ namespace Battle
 
             //後進
             transform.localPosition = new Vector3(transform.localPosition.x - speed * Time.deltaTime, -315, 0);
+            isMove = true;
+        }
+
+        public void MoveButtonDown(bool isRight)
+        {
+            if (isRight) this.isRight = true;
+            else this.isRight = false;
             isMove = true;
         }
 

@@ -186,7 +186,7 @@ namespace Battle
             Hp = maxHp;
 
             //maxSpeed取得
-            maxSpeed = characterInfo.status[level].speed / 300;
+            maxSpeed = characterInfo.status[level].speed / 20;
             Speed = maxSpeed;
 
             //atkPower取得
@@ -444,6 +444,7 @@ namespace Battle
         {
             canState = false;
             animator.SetBool("KnockBack", true);
+
         }
 
         public void EndKnockBack()
