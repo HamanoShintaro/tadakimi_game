@@ -508,7 +508,7 @@ namespace Battle
             Speed += addSpeed;
             maxHp += addMaxHp;
             yield return new WaitForSeconds(duration);
-            this.Speed = speed;
+            Speed = speed;
             maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].hp;
         }
 

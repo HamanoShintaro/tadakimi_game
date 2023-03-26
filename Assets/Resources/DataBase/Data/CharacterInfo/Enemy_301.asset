@@ -31,7 +31,7 @@ MonoBehaviour:
     hp: 25
     speed: 300
     atkKB: 10
-    defKB: 50
+    defKB: 0
     growth: 500
   - cost: 200
     attack: 15
@@ -39,7 +39,7 @@ MonoBehaviour:
     hp: 25
     speed: 300
     atkKB: 10
-    defKB: 50
+    defKB: 0
     growth: 500
   - cost: 200
     attack: 15
