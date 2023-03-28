@@ -641,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd3d20b851954988995f1a70480385d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reward: 100
+  reward: 111
   battleController: {fileID: 1507704278}
 --- !u!114 &183811140 stripped
 MonoBehaviour:
