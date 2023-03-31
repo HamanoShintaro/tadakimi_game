@@ -10,7 +10,7 @@ public class CharacterButton : MonoBehaviour
 
     private void OnEnable()
     {
-        characterBox = GameObject.Find("Canvas/Render/BaseMenu/CharacterBox").GetComponent<CharacterBox>();    
+        characterBox = GameObject.Find("Canvas/Render/BaseMenu/CharaBox").GetComponent<CharacterBox>();    
     }
 
     /// <summary>
