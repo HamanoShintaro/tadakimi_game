@@ -35,7 +35,6 @@ public class CharacterBox : MonoBehaviour
     public void OpenCharacterFormation(int selectIndex)
     {
         this.selectIndex = selectIndex;
-        //TODO必要なら選択中の枠を強調する
         characterFormationUI.SetActive(true);
         //現在のメニューを更新
         PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.characterFormationMenuView);
@@ -47,8 +46,7 @@ public class CharacterBox : MonoBehaviour
     /// </summary>
     public void CloseCharacterFormation()
     {
-        this.selectIndex = 1;
-        //TODO必要なら強調表示を消す
+        selectIndex = 1;
         characterFormationUI.SetActive(false);
         UpdateCharacterUI();
     }
@@ -68,6 +66,7 @@ public class CharacterBox : MonoBehaviour
         }
         saveController.UpdateCharacterFormationDate(addId, selectIndex);
         UpdateCharacterUI();
+        CloseCharacterFormation();
         Debug.Log($"{selectIndex}番を選択して{addId}に変更する");
     }
 
