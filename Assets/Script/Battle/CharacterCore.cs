@@ -269,8 +269,8 @@ namespace Battle
         private void Walk()
         {
             if (isLeader) return;
-            if (characterType == CharacterType.Buddy) transform.position = new Vector2(transform.position.x + speed, transform.position.y);
-            else if (characterType == CharacterType.Enemy) transform.position = new Vector2(transform.position.x - speed, transform.position.y);
+            if (characterType.Equals(CharacterType.Buddy)) transform.position = new Vector2(transform.position.x + speed, transform.position.y);
+            else if (characterType.Equals(CharacterType.Enemy)) transform.position = new Vector2(transform.position.x - speed, transform.position.y);
         }
 
         /// <summary>
@@ -296,46 +296,36 @@ namespace Battle
 
         private void SpecialAction()
         {
-            //コストを消費
             magicPowerController.magicPower -= specialCost;
 
-            //1番前面に配置
             var index = characterPanel.transform.childCount - 1;
             transform.SetSiblingIndex(index);
 
-            //奥義処理>開始
             animator.SetBool("Special", true);
         }
 
         public void EndSpecialAction()
         {
-            //奥義処理>終了
             animator.SetBool("Special", false);
 
-            //奥義のクールタイム測る
             StartCoroutine(SpecialCoolTimeCounto());
             canState = true;
         }
 
         private void SkillAction()
         {
-            //コストを消費
             magicPowerController.magicPower -= skillCost;
 
-            //1番前面に配置
             var index = characterPanel.transform.childCount - 1;
             transform.SetSiblingIndex(index);
 
-            //スキル処理>開始
             animator.SetBool("Skill", true);
         }
 
         public void EndSkillAction()
         {
-            //スキル処理>終了
             animator.SetBool("Skill", false);
 
-            //スキルのクールタイムを測る
             StartCoroutine(SkillCoolTimeCount());
             canState = true;
         }
@@ -352,15 +342,12 @@ namespace Battle
                 {
                     animator.SetBool("Long", true);
                 }
-                //Debug.Log($"{nearTarget}:{distance}");
             }
-            //通常攻撃の処理>開始
             animator.SetBool("Attack", true);
         }
 
         public void EndNomalAction()
         {
-            //通常攻撃の処理>終了
             if (isLeader)
             {
                 animator.SetBool("Long", false);
@@ -388,9 +375,7 @@ namespace Battle
             {
                 foreach (GameObject target in targets)
                 {
-                    //攻撃力をスキルと奥義で分ける
                     target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
-                    //Debug.Log($"{target}を攻撃");
                     if (attackType == AttackType.single) break;
                 }
             }
@@ -440,11 +425,16 @@ namespace Battle
         /// <summary>
         /// ノックバックをするメソッド
         /// </summary>
-        private void KnockBack()
+        private IEnumerator KnockBack()
         {
             canState = false;
             animator.SetBool("KnockBack", true);
-
+            for (int i = 0; i < 10; i++)
+            {
+                yield return new WaitForSeconds(0.1f);
+                if (characterType.Equals(CharacterType.Buddy)) transform.position = new Vector2(transform.position.x - 3, transform.position.y);
+                else if (characterType.Equals(CharacterType.Enemy)) transform.position = new Vector2(transform.position.x + 3, transform.position.y);
+            }
         }
 
         public void EndKnockBack()
@@ -484,7 +474,7 @@ namespace Battle
             }
             else if ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity))
             {
-                KnockBack();
+                StartCoroutine(KnockBack());
             }
             Debug.Log($"{characterId}はダメージを受けた");
         }

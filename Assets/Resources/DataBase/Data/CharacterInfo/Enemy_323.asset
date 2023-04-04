@@ -37,7 +37,7 @@ MonoBehaviour:
     attack: 15
     interval: 0
     hp: 150
-    speed: 300
+    speed: 100
     atkKB: 10
     defKB: 50
     growth: 500
