@@ -50,6 +50,7 @@ public class CSVLoader : MonoBehaviour
             row.alias = values[3];
             row.detail = values[4];
             row.type = values[5];
+            //TODOrow.price = int.Parse(values[]);
 
             //ステータス
             for (int k = 0; k < 5; k++)
@@ -59,14 +60,14 @@ public class CSVLoader : MonoBehaviour
                 {
                     status.attack = (int)float.Parse(values[3 * (k + 2)]);
                     status.hp = int.Parse(values[3 * (k + 2) + 1]);
+                    status.growth = int.Parse(values[3 * (k + 2) + 2]);
                 }
                 catch
                 {
                     status.attack = 1;
                     status.hp = 1;
+                    status.growth = 1;
                 }
-
-                //status.growth = int.Parse(values[3 * (k + 2) + 2]);
 
                 status.cost = int.Parse(values[21]);
                 //22クールタイム
@@ -74,6 +75,19 @@ public class CSVLoader : MonoBehaviour
                 status.defKB = float.Parse(values[24]);
                 status.speed = float.Parse(values[25]);
             }
+
+            //スキル
+            row.skill.cost = int.Parse(values[30]);
+            row.skill.cd = int.Parse(values[31]);
+            row.skill.name = values[32];
+            row.skill.Detail = values[33];
+
+            //奥義
+            row.special.cost = int.Parse(values[35]);
+            row.special.cd = int.Parse(values[36]);
+            row.special.name = values[37];
+            row.special.Detail = values[38];
+
 
             csvData.characterInfoList[index] = row;
 
