@@ -1,30 +1,32 @@
-// CSVファイルの読み込みとScriptableObjectへのデータ代入
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System;
+using static SenarioTalkScript;
 
 public class CSVLoader : MonoBehaviour
 {
-    // Unityエディタ上でCSVファイル（TextAsset）をアサインするための変数
-    public TextAsset csvFile;
-    // Unityエディタ上でCSVDataのインスタンス（ScriptableObject）をアサインするための変数
-    public CharacterInfoDataBase csvData;
+    [Header("読み込むCSV")]
+    public TextAsset characterDataBaseCsvFile, senarioTalkScriptCsvFile;
 
+    [Header("反映させるCharacterInfoDataBase")]
+    public CharacterInfoDataBase characterDataBase;
+
+    [Header("反映させるSenarioTalkScriptDateBase")]
+    public SenarioTalkScriptDateBase senarioTalkScriptDateBase;
+
+    [Header("読み込みを始める行")]
     public int startRow;
 
-    // シーン開始時にCSVファイルを読み込む
     private void Start()
     {
-        LoadCSVData();
+        LoadCharacterInfoDataBaseCsv();
+        LoadSenarioTalkScriptCsv();
     }
 
-    // CSVファイルを読み込み、ScriptableObjectへデータを代入する関数
-    public void LoadCSVData()
+    public void LoadCharacterInfoDataBaseCsv()
     {
         // CSVファイルを読み込むためのStringReaderを作成
-        StringReader reader = new StringReader(csvFile.text);
-        // ヘッダー行をスキップ
+        StringReader reader = new StringReader(characterDataBaseCsvFile.text);
+        // startRow行をスキップ
         for (int i = 0; i < startRow; i++)
         {
             reader.ReadLine();
@@ -34,7 +36,7 @@ public class CSVLoader : MonoBehaviour
         // 読み込む行がある間繰り返す
         while (reader.Peek() > -1)
         {
-            if (index >= csvData.characterInfoList.Count) return;
+            if (index >= characterDataBase.characterInfoList.Count) return;
 
             // CSVファイルから1行読み込む
             string line = reader.ReadLine();
@@ -42,7 +44,7 @@ public class CSVLoader : MonoBehaviour
             string[] values = line.Split(',');
 
             // 分割したフィールドをCSVRowオブジェクトに代入
-            CharacterInfo row = csvData.characterInfoList[index];
+            CharacterInfo row = characterDataBase.characterInfoList[index];
 
             //基本情報
             row.id = values[1];
@@ -88,9 +90,44 @@ public class CSVLoader : MonoBehaviour
             row.special.name = values[37];
             row.special.Detail = values[38];
 
+            characterDataBase.characterInfoList[index] = row;
 
-            csvData.characterInfoList[index] = row;
+            index++;
+        }
+    }
 
+    public void LoadSenarioTalkScriptCsv()
+    {
+        StringReader reader = new StringReader(senarioTalkScriptCsvFile.text);
+
+        for (int i = 0; i < 3; i++)
+        {
+            reader.ReadLine();
+        }
+
+        int index = 0;
+        while (reader.Peek() > -1)
+        {
+            // CSVファイルから1行読み込む
+            string line = reader.ReadLine();
+            // カンマで区切って各フィールドに分割
+            string[] values = line.Split(',');
+
+            // 分割したフィールドをCSVRowオブジェクトに代入
+            SenarioTalkScript row = senarioTalkScriptDateBase.senarioTalkScripts[0];
+
+            //名前は3列目から取得する
+            //row.name = values[3];
+            try
+            {
+                var senarioTalkScript = row.senarioTalks[index];
+                senarioTalkScript.script_jp = values[4];
+                senarioTalkScriptDateBase.senarioTalkScripts[0].senarioTalks[index] = senarioTalkScript;
+            }
+            catch
+            {
+
+            }
             index++;
         }
     }
