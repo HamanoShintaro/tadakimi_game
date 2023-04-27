@@ -31,6 +31,7 @@ public class BuyCharacter : MonoBehaviour
 
     public void ReleaseCharacterButton()
     {
+        if (int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId)) < releaseStageId) return;
         saveController.AddCharacterDate($"{characterId}", 1, false);
         releaseButton.SetActive(false);
     }
