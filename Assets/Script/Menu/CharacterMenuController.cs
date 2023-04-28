@@ -92,7 +92,7 @@ public class CharacterMenuController : MonoBehaviour
         int maxLevet = character.status.Count;
         if (level == maxLevet) return;
 
-        int index = level - 1;
+        int index = level;//TODO
         int cost = character.status[index].growth;
         int money = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
 
