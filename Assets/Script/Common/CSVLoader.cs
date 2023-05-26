@@ -5,7 +5,7 @@ using static SenarioTalkScript;
 public class CSVLoader : MonoBehaviour
 {
     [Header("読み込むCSV")]
-    public TextAsset characterDataBaseCsvFile, senarioTalkScriptCsvFile;
+    public TextAsset[] characterDataBaseCsvFile, senarioTalkScriptCsvFile;
 
     [Header("反映させるCharacterInfoDataBase")]
     public CharacterInfoDataBase characterDataBase;
@@ -18,117 +18,139 @@ public class CSVLoader : MonoBehaviour
 
     private void Start()
     {
-        LoadCharacterInfoDataBaseCsv();
+        //LoadCharacterInfoDataBaseCsv();
         LoadSenarioTalkScriptCsv();
     }
 
     public void LoadCharacterInfoDataBaseCsv()
     {
-        // CSVファイルを読み込むためのStringReaderを作成
-        StringReader reader = new StringReader(characterDataBaseCsvFile.text);
-        // startRow行をスキップ
-        for (int i = 0; i < startRow; i++)
+        for (int i = 0; i < characterDataBaseCsvFile.Length; i++)
         {
-            reader.ReadLine();
-        }
-
-        int index = 0;
-        // 読み込む行がある間繰り返す
-        while (reader.Peek() > -1)
-        {
-            if (index >= characterDataBase.characterInfoList.Count) return;
-
-            // CSVファイルから1行読み込む
-            string line = reader.ReadLine();
-            // カンマで区切って各フィールドに分割
-            string[] values = line.Split(',');
-
-            // 分割したフィールドをCSVRowオブジェクトに代入
-            CharacterInfo row = characterDataBase.characterInfoList[index];
-
-            //基本情報
-            row.id = values[1];
-            row.name = values[2];
-            row.alias = values[3];
-            row.detail = values[4];
-            row.type = values[5];
-            //TODOrow.price = int.Parse(values[]);
-
-            //ステータス
-            for (int k = 0; k < 5; k++)
+            // CSVファイルを読み込むためのStringReaderを作成
+            StringReader reader = new StringReader(characterDataBaseCsvFile[i].text);
+            // startRow行をスキップ
+            for (int j = 0; j < startRow; j++)
             {
-                var status = row.status[k];
-                try
-                {
-                    status.attack = (int)float.Parse(values[3 * (k + 2)]);
-                    status.hp = int.Parse(values[3 * (k + 2) + 1]);
-                    status.growth = int.Parse(values[3 * (k + 2) + 2]);
-                }
-                catch
-                {
-                    status.attack = 1;
-                    status.hp = 1;
-                    status.growth = 1;
-                }
-
-                status.cost = int.Parse(values[21]);
-                //22クールタイム
-                status.atkKB = float.Parse(values[23]);
-                status.defKB = float.Parse(values[24]);
-                status.speed = float.Parse(values[25]);
+                reader.ReadLine();
             }
 
-            //スキル
-            row.skill.cost = int.Parse(values[30]);
-            row.skill.cd = int.Parse(values[31]);
-            row.skill.name = values[32];
-            row.skill.Detail = values[33];
+            int index = 0;
+            // 読み込む行がある間繰り返す
+            while (reader.Peek() > -1)
+            {
+                if (index >= characterDataBase.characterInfoList.Count) return;
 
-            //奥義
-            row.special.cost = int.Parse(values[35]);
-            row.special.cd = int.Parse(values[36]);
-            row.special.name = values[37];
-            row.special.Detail = values[38];
+                // CSVファイルから1行読み込む
+                string line = reader.ReadLine();
+                // カンマで区切って各フィールドに分割
+                string[] values = line.Split(',');
 
-            characterDataBase.characterInfoList[index] = row;
+                // 分割したフィールドをCSVRowオブジェクトに代入
+                CharacterInfo row = characterDataBase.characterInfoList[index];
 
-            index++;
+                //基本情報
+                row.id = values[1];
+                row.name = values[2];
+                row.alias = values[3];
+                row.detail = values[4];
+                row.type = values[5];
+                //TODOrow.price = int.Parse(values[]);
+
+                for (int k = 0; k < 5; k++)
+                {
+                    var status = row.status[k];
+                    float tempFloat;
+                    int tempInt;
+
+                    if (float.TryParse(values[3 * (k + 2)], out tempFloat))
+                    {
+                        status.attack = (int)tempFloat;
+                    }
+                    else
+                    {
+                        status.attack = 1;
+                        Debug.LogError("Invalid float value for attack: " + values[3 * (k + 2)]);
+                    }
+
+                    if (int.TryParse(values[3 * (k + 2) + 1], out tempInt))
+                    {
+                        status.hp = tempInt;
+                    }
+                    else
+                    {
+                        status.hp = 1;
+                        Debug.LogError("Invalid integer value for hp: " + values[3 * (k + 2) + 1]);
+                    }
+
+                    if (int.TryParse(values[3 * (k + 2) + 2], out tempInt))
+                    {
+                        status.growth = tempInt;
+                    }
+                    else
+                    {
+                        status.growth = 1;
+                        Debug.LogError("Invalid integer value for growth: " + values[3 * (k + 2) + 2]);
+                    }
+                }
+
+                //スキル
+                row.skill.cost = int.Parse(values[30]);
+                row.skill.cd = int.Parse(values[31]);
+                row.skill.name = values[32];
+                row.skill.Detail = values[33];
+
+                //奥義
+                row.special.cost = int.Parse(values[35]);
+                row.special.cd = int.Parse(values[36]);
+                row.special.name = values[37];
+                row.special.Detail = values[38];
+
+                characterDataBase.characterInfoList[index] = row;
+
+                index++;
+            }
         }
     }
 
     public void LoadSenarioTalkScriptCsv()
     {
-        StringReader reader = new StringReader(senarioTalkScriptCsvFile.text);
-
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < senarioTalkScriptCsvFile.Length; i++)
         {
-            reader.ReadLine();
-        }
+            StringReader reader = new StringReader(senarioTalkScriptCsvFile[i].text);
 
-        int index = 0;
-        while (reader.Peek() > -1)
-        {
-            // CSVファイルから1行読み込む
-            string line = reader.ReadLine();
-            // カンマで区切って各フィールドに分割
-            string[] values = line.Split(',');
-
-            // 分割したフィールドをCSVRowオブジェクトに代入
-            SenarioTalkScript row = senarioTalkScriptDateBase.senarioTalkScripts[0];
-
-            //名前は3列目から取得する
-            //row.name = values[3];
-            try
+            for (int j = 0; j < 3; j++)
             {
-                var senarioTalkScript = row.senarioTalks[index];
-                senarioTalkScript.script_jp = values[4];
-                senarioTalkScriptDateBase.senarioTalkScripts[0].senarioTalks[index] = senarioTalkScript;
+                reader.ReadLine();
             }
-            catch
-            {
 
+            int index = 0;
+            while (reader.Peek() > -1)
+            {
+                // CSVファイルから1行読み込む
+                string line = reader.ReadLine();
+                // カンマで区切って各フィールドに分割
+                string[] values = line.Split(',');
+
+                // 分割したフィールドをCSVRowオブジェクトに代入
+                SenarioTalkScript row = senarioTalkScriptDateBase.senarioTalkScripts[i];
+
+                row.name = values[2];
+                try
+                {
+                    var senarioTalkScript = row.senarioTalks[index];
+                    senarioTalkScript.script_jp = values[3];
+                    senarioTalkScript.script_en = values[4];
+                    senarioTalkScript.script_ch = values[5];
+                    senarioTalkScript.LR = values[6];
+                    senarioTalkScript.expressions = values[7];
+
+                    senarioTalkScriptDateBase.senarioTalkScripts[0].senarioTalks[index] = senarioTalkScript;
+                }
+                catch
+                {
+                }
+                index++;
             }
-            index++;
         }
     }
 }
