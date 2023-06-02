@@ -13,12 +13,12 @@ public class CSVLoader : MonoBehaviour
     [Header("反映させるSenarioTalkScriptDateBase")]
     public SenarioTalkScriptDateBase senarioTalkScriptDateBase;
 
-    [Header("読み込みを始める行")]
+    [Header("CharacterInfoDateBase : 読み込みを始める行")]
     public int startRow;
 
     private void Start()
     {
-        //LoadCharacterInfoDataBaseCsv();
+        LoadCharacterInfoDataBaseCsv();
         LoadSenarioTalkScriptCsv();
     }
 
