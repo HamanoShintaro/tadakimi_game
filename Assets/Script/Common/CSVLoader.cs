@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.IO;
-using static SenarioTalkScript;
+//using static SenarioTalkScript;
 
 public class CSVLoader : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class CSVLoader : MonoBehaviour
     private void Start()
     {
         LoadCharacterInfoDataBaseCsv();
-        LoadSenarioTalkScriptCsv();
+        //LoadSenarioTalkScriptCsv();
     }
 
     public void LoadCharacterInfoDataBaseCsv()
@@ -134,17 +134,18 @@ public class CSVLoader : MonoBehaviour
                 // 分割したフィールドをCSVRowオブジェクトに代入
                 SenarioTalkScript row = senarioTalkScriptDateBase.senarioTalkScripts[i];
 
-                row.name = values[2];
+                //row.name = values[2];
                 try
                 {
                     var senarioTalkScript = row.senarioTalks[index];
+                    senarioTalkScript.name = values[2];
                     senarioTalkScript.script_jp = values[3];
                     senarioTalkScript.script_en = values[4];
                     senarioTalkScript.script_ch = values[5];
                     senarioTalkScript.LR = values[6];
                     senarioTalkScript.expressions = values[7];
 
-                    senarioTalkScriptDateBase.senarioTalkScripts[0].senarioTalks[index] = senarioTalkScript;
+                    senarioTalkScriptDateBase.senarioTalkScripts[i].senarioTalks[index] = senarioTalkScript;
                 }
                 catch
                 {
