@@ -18,8 +18,8 @@ public class CSVLoader : MonoBehaviour
 
     private void Start()
     {
-        LoadCharacterInfoDataBaseCsv();
-        //LoadSenarioTalkScriptCsv();
+        //LoadCharacterInfoDataBaseCsv();
+        LoadSenarioTalkScriptCsv();
     }
 
     public void LoadCharacterInfoDataBaseCsv()
@@ -134,7 +134,6 @@ public class CSVLoader : MonoBehaviour
                 // 分割したフィールドをCSVRowオブジェクトに代入
                 SenarioTalkScript row = senarioTalkScriptDateBase.senarioTalkScripts[i];
 
-                //row.name = values[2];
                 try
                 {
                     var senarioTalkScript = row.senarioTalks[index];
@@ -144,7 +143,6 @@ public class CSVLoader : MonoBehaviour
                     senarioTalkScript.script_ch = values[5];
                     senarioTalkScript.LR = values[6];
                     senarioTalkScript.expressions = values[7];
-
                     senarioTalkScriptDateBase.senarioTalkScripts[i].senarioTalks[index] = senarioTalkScript;
                 }
                 catch
