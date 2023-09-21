@@ -131,8 +131,10 @@ public class CSVLoader : MonoBehaviour
             int index = 0;
             while (reader.Peek() > -1)
             {
-                // シナリオテキストの取得
+                // シナリオテキストの(index + 3)行目を取得
                 string line = reader.ReadLine();
+
+                // シナリオテキストの(index + 3)行目の各列をvaluesに格納
                 string[] values = line.Split(',');
 
                 // 取得したデータをオブジェクトに格納
