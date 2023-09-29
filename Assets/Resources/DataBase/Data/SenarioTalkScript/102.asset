@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 102
   m_EditorClassIdentifier: 
   stage: "1\u7AE0"
-  title: 
+  title: "\u3042\u3042\u3042\u3042"
   senarioTalks:
   - script: "\u30FC\u30FC\u65E9\u671D\u3001\u30A4\u30F3\u30D7\u65CF\u306E\u30AF\u30EA\u30B7\u30E5\u30AA\u30E9\u304C\u65C5\u7ACB\u3064\u3002"
     script_jp: "\u30FC\u30FC\u65E9\u671D\u3001\u30A4\u30F3\u30D7\u65CF\u306E\u30AF\u30EA\u30B7\u30E5\u30AA\u30E9\u304C\u65C5\u7ACB\u3064\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: 
     LR: 
     expressions: 
@@ -32,7 +32,7 @@ MonoBehaviour:
     script_jp: "\u52A9\u3051\u3066\u3044\u305F\u3060\u3044\u3066\u3001\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3057\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: silhouette_man
     LR: L
     expressions: confuse

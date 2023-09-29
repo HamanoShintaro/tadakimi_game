@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TalkController : MonoBehaviour
 {
     private string stageId;
-    public SenarioTalkScript senarioTalkScript;
+    public SenarioTalkScript senarioTalkScript; // TODO修正
     public int num;
     private GameObject currentBublle;
     private GameObject secondBubble;
