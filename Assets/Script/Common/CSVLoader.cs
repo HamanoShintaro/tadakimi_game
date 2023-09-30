@@ -143,15 +143,16 @@ public class CSVLoader : MonoBehaviour
                 try
                 {
                     var senarioTalkScript = row.senarioTalks[index];
-                    senarioTalkScript.name = values[2];
-                    senarioTalkScript.script_jp = values[3];
-                    senarioTalkScript.script_en = values[4];
-                    senarioTalkScript.script_ch = values[5];
-                    senarioTalkScript.LR = values[6];
-                    senarioTalkScript.expressions = values[7];
-                    senarioTalkScriptDateBase.senarioTalkScripts[i].senarioTalks[index] = senarioTalkScript;
-
+                    senarioTalkScript.name = values[1];
+                    senarioTalkScript.script_jp = values[2];
+                    senarioTalkScript.script_en = values[3];
+                    senarioTalkScript.script_ch = values[4];
+                    senarioTalkScript.LR = values[5];
+                    senarioTalkScript.expressions = values[6];
+                    senarioTalkScript.type = values[7];
                     senarioTalkScript.script = senarioTalkScript.script_jp;
+                    senarioTalkScriptDateBase.senarioTalkScripts[i].senarioTalks[index] = senarioTalkScript;
+                    
                 }
                 catch (FormatException ex)
                 {
