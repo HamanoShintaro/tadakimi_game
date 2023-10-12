@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 6036421074941263716}
   - component: {fileID: 4021760426937549774}
   m_Layer: 6
-  m_Name: Buddy_111
+  m_Name: Buddy_112
   m_TagString: Buddy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,7 +272,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -83.5225, y: 92.17378}
+  m_Offset: {x: -105.77527, y: 92.17378}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -283,7 +283,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 77.745056, y: 178.44754}
+  m_Size: {x: 122.25055, y: 178.44754}
   m_EdgeRadius: 0
 --- !u!61 &1545771121956627567
 BoxCollider2D:
@@ -298,7 +298,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -17.950008, y: 92.40001}
+  m_Offset: {x: -50.46331, y: 92.40001}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -309,7 +309,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 102.758736, y: 182.1}
+  m_Size: {x: 167.78532, y: 182.1}
   m_EdgeRadius: 0
 --- !u!95 &1545771121956627573
 Animator:
@@ -321,7 +321,7 @@ Animator:
   m_GameObject: {fileID: 1545771121956627565}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 85d088bba9f284eeaa3b35c47caa0f18, type: 2}
+  m_Controller: {fileID: 9100000, guid: b10cbbd1690264ba6be66ba64095ece2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
