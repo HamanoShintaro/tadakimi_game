@@ -16,7 +16,7 @@ public class Tower : MonoBehaviour, IDamage
     [HideInInspector]
     private BattleController battleController;
 
-    public float hp = 100;
+    public float hp;
     public float Hp
     {
         get { return hp; }

@@ -41,7 +41,7 @@ namespace Battle
         {
             hp = tower.Hp;
             if (hp == befHp) return;
-            //Debug.Log($"HP:{hp}");
+            Debug.Log($"HP:{hp}");
             //Hpに変更があるならゲージアニメーションをする
             GaugeReduction(maxHp, 1.0f * befHp / maxHp, 1.0f * hp / maxHp);
             befHp = hp;
