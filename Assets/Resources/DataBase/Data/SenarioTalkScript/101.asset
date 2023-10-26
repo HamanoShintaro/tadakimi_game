@@ -402,7 +402,7 @@ MonoBehaviour:
     expressions: normal
     voice: {fileID: 8300000, guid: aabc6174da60845aeb122949864a2038, type: 3}
     SE: {fileID: 0}
-    bgImage: {fileID: 21300000, guid: 8fc08fd3d25234d81bfe568b1f789892, type: 3}
+    bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u3059\u3054\u3044\uFF01"
