@@ -144,7 +144,7 @@ RectTransform:
   m_GameObject: {fileID: 4241449921041689916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -2, y: 2, z: 1}
+  m_LocalScale: {x: -2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1685880374932057542}
@@ -174,9 +174,12 @@ MonoBehaviour:
   attackType: 0
   characterRole: 0
   isLeader: 0
+  longAttackDistance: 600
   level: 0
   atkPower: 0
   targets: []
+  canState: 1
+  hp: 100
 --- !u!222 &4241449921041689914
 CanvasRenderer:
   m_ObjectHideFlags: 0
