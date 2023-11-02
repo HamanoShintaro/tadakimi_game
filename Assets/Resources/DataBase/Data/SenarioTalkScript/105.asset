@@ -793,7 +793,7 @@ MonoBehaviour:
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 21300000, guid: c752709efc7ac46039f3073561bdc742, type: 3}
-    BGM: {fileID: 0}
+    BGM: {fileID: 8300000, guid: d232f76b3120345dfa6cd9913ae3cf75, type: 3}
     still: {fileID: 0}
   - script: "\u305D\u308C\u3067\u3001\u3084\u3063\u3068\u306E\u601D\u3044\u3067\u6301\u3061\u5E30\u3063\u3066\u304D\u305F\u3082\u306E\u304C\u3053\u308C\u3067\u3059\u304B\u3002"
     script_jp: "\u305D\u308C\u3067\u3001\u3084\u3063\u3068\u306E\u601D\u3044\u3067\u6301\u3061\u5E30\u3063\u3066\u304D\u305F\u3082\u306E\u304C\u3053\u308C\u3067\u3059\u304B\u3002"
@@ -871,7 +871,7 @@ MonoBehaviour:
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 21300000, guid: 4133ea07bb00f41e7940cd71573aac48, type: 3}
-    BGM: {fileID: 0}
+    BGM: {fileID: 8300000, guid: 398a6a2bca2a64e04bf67324f057fdc2, type: 3}
     still: {fileID: 0}
   - script: "\u304A...\u91CD\u3081\u3047...\u3078\u3073\u3043\u3060\u305C..."
     script_jp: "\u304A...\u91CD\u3081\u3047...\u3078\u3073\u3043\u3060\u305C..."
@@ -3044,7 +3044,7 @@ MonoBehaviour:
     bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
     BGM: {fileID: 8300000, guid: 088ad26212b054fbb86cf1545fe939b1, type: 3}
     still: {fileID: 0}
-  - script: "\u305D\u3046\u3067\u3059\u3002\u8853\u8005\u306E\u9B54\u7D20\u3092\u4F7F\u308F\u306A\u3044\u306E\u3067\u3001\u305F\u3068\u3048\u79C1\u304C\u6B7B\u3093\u3067\u3082\u3001\u546A\u3044\u306F\u6D88\u3048\u307E\u305B\u3093\u3002"
+  - script: 028_Inside_Castle
     script_jp: 028_Inside_Castle
     script_en: 
     script_ch: 
@@ -5514,7 +5514,7 @@ MonoBehaviour:
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
-  - script: "\u30B5\u30E9\u3055\u3093...\u3002\u30B2\u30DB\u30B2\u30DB\u30C3\uFF01"
+  - script: 028_Inside_Castle
     script_jp: 028_Inside_Castle
     script_en: 
     script_ch: 
@@ -6437,7 +6437,7 @@ MonoBehaviour:
     bgImage: {fileID: 21300000, guid: c752709efc7ac46039f3073561bdc742, type: 3}
     BGM: {fileID: 8300000, guid: 9e98768b9811048a6ad210f81a922870, type: 3}
     still: {fileID: 0}
-  - script: "\u305D\u3046\u304B...\u3002\u305D\u308C\u3092\u30ED\u30AF\u30B7\u30FC\u306E\u6545\u90F7\u306E\u5BB6\u306B\u5C4A\u3051\u308C\u3070\u3044\u3044\u3093\u3060\u306A\u3002"
+  - script: 017_office_sara
     script_jp: 017_office_sara
     script_en: 
     script_ch: 

@@ -1716,7 +1716,7 @@ MonoBehaviour:
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 21300000, guid: 4993b864e4be44142a8d8236e2a71f54, type: 3}
-    BGM: {fileID: 0}
+    BGM: {fileID: 8300000, guid: e21065ed7b58344c285e4c678cffd12b, type: 3}
     still: {fileID: 0}
   - script: "\u3048\u30FC\u3002\u30AA\u30EC\u30F3\u30C9\u306F\u6226\u4E89\u304C\u597D\u304D\u3060\u3063\u305F\u306E\uFF1F"
     script_jp: "\u3048\u30FC\u3002\u30AA\u30EC\u30F3\u30C9\u306F\u6226\u4E89\u304C\u597D\u304D\u3060\u3063\u305F\u306E\uFF1F"
