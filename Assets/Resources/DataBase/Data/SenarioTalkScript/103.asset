@@ -19,20 +19,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u30A8\u30EA\u30B9\u306E\u5BB6\u304C\u4E00\u4EBA\u3067\u5BB6\u4E8B\u3092\u3057\u3066\u3044\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 4993b864e4be44142a8d8236e2a71f54, type: 3}
+    BGM: {fileID: 8300000, guid: e21065ed7b58344c285e4c678cffd12b, type: 3}
     still: {fileID: 0}
   - script: "\u306A\u3093\u3060\u304B\u3042\u3063\u3068\u3044\u3046\u9593\u306E\u51FA\u6765\u4E8B\u3067\u3057\u305F\u306D\u3048\u3002\u5BC2\u3057\u3044\u3088\u3046\u306A\u3001\u61D0\u304B\u3057\u3044\u3088\u3046\u306A\u3002\u4E0D\u601D\u8B70\u306A\u6C17\u6301\u3061\u3067\u3059\u3002"
     script_jp: "\u306A\u3093\u3060\u304B\u3042\u3063\u3068\u3044\u3046\u9593\u306E\u51FA\u6765\u4E8B\u3067\u3057\u305F\u306D\u3048\u3002\u5BC2\u3057\u3044\u3088\u3046\u306A\u3001\u61D0\u304B\u3057\u3044\u3088\u3046\u306A\u3002\u4E0D\u601D\u8B70\u306A\u6C17\u6301\u3061\u3067\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -45,7 +45,7 @@ MonoBehaviour:
     script_jp: "\u30ED\u30AF\u30B7\u30FC\u3084\u3001\u3042\u306A\u305F\u306E\u5B50\u3082\u3001\u3042\u306A\u305F\u305D\u3063\u304F\u308A\u3067\u3057\u305F\u3088\u3002\u306F\u3041...\u7247\u4ED8\u3051\u3082\u3057\u306A\u3044\u3067\u51FA\u3066\u3044\u3063\u3066\u3057\u307E\u3063\u3066\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -58,7 +58,7 @@ MonoBehaviour:
     script_jp: "\u3061\u3087\u3063\u3068\u30A4\u30FC\u30E9\u306E\u90E8\u5C4B\u3092\u6574\u7406\u3057\u307E\u3059\u304B\u306D...\u3046\u30FC\u3093\u3001\u3055\u3066\u3001\u5E83\u3044\u304A\u90E8\u5C4B\u306F\u3069\u3053\u3067\u3057\u305F\u3063\u3051\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -84,7 +84,7 @@ MonoBehaviour:
     script_jp: "\u4E8C\u65E5\u9593\u4E16\u8A71\u306B\u306A\u3063\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -97,7 +97,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: cry
@@ -110,7 +110,7 @@ MonoBehaviour:
     script_jp: "\u3068\u3093\u3067\u3082\u3054\u3056\u3044\u307E\u305B\u3093\u3002\u79C1\u305F\u3061\u306E\u65B9\u3053\u305D\u3001\u304A\u4E16\u8A71\u306B\u306A\u308A\u307E\u3057\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -123,7 +123,7 @@ MonoBehaviour:
     script_jp: "\u826F\u3044\u3002\u30B3\u30FC\u30D2\u30FC\u306E\u793C\u3060\u3002\u65C5\u3092\u3057\u306A\u304C\u3089\u5404\u5730\u3092\u56DE\u3063\u3066\u304D\u305F\u304C\u3001\u6700\u3082\u7F8E\u5473\u306A\u30B3\u30FC\u30D2\u30FC\u3060\u3063\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
@@ -136,7 +136,7 @@ MonoBehaviour:
     script_jp: "\u307E\u3041\u3002\u3075\u3075\u3075\u3002\u76F8\u5909\u308F\u3089\u305A\u5927\u8888\u88DF\u3067\u3059\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -149,7 +149,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
@@ -162,7 +162,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u30A4\u30FC\u30E9\u3084\u3002\u3054\u6328\u62F6\u306F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -175,7 +175,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u306D\u3048\u3001\u3070\u3042\u3070\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: cry
@@ -188,7 +188,7 @@ MonoBehaviour:
     script_jp: "\u306A\u3093\u3060\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -201,7 +201,7 @@ MonoBehaviour:
     script_jp: "\u3070\u3042\u3070\u306F\u3001\u79C1\u304C\u3044\u306A\u304F\u3066\u3082\u5BC2\u3057\u304F\u306A\u3044\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -214,7 +214,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u305D\u3046\u3055\u306D\u3002\u3082\u3061\u308D\u3093\u3001\u5BC2\u3057\u3044\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -227,7 +227,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u305D\u3063\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -240,7 +240,7 @@ MonoBehaviour:
     script_jp: "\u30A4\u30FC\u30E9\u3084\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -253,7 +253,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3046\u3093\u3002\u3044\u3044\u306E\u3002\u306A\u3093\u3067\u3082\u306A\u3044\u3002\u306A\u3093\u3067\u3082\u306A\u3044\u306E\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: smile
@@ -266,7 +266,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -279,7 +279,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A7\u30EB\uFF01\u3044\u3063\u3071\u3044\u304A\u8A71\u3057\u3066\u304F\u308C\u3066\u3042\u308A\u304C\u3068\u3046\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: smile
@@ -292,7 +292,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
@@ -305,7 +305,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u30A4\u30FC\u30E9\u3084\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -318,7 +318,7 @@ MonoBehaviour:
     script_jp: "\u306A\u306B\uFF1F\u3070\u3042\u3070\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -331,7 +331,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3064\u304B\u3042\u306A\u305F\u306B\u898B\u305B\u3088\u3046\u3068\u601D\u3063\u3066\u3044\u305F\u3082\u306E\u304C\u3042\u308B\u306E\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -344,7 +344,7 @@ MonoBehaviour:
     script_jp: "\u898B\u305B\u3088\u3046\u3068\u601D\u3063\u3066\u3044\u305F\u3082\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -357,7 +357,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046...\u3002\u30F4\u30A7\u30EB\u69D8\u3001\u3059\u307F\u307E\u305B\u3093\u304C\u3001\u3082\u3046\u5C11\u3057\u3060\u3051\u3053\u306E\u5834\u3067\u6642\u9593\u3092\u3082\u3089\u3048\u307E\u3059\u304B\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -370,7 +370,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u69CB\u308F\u306A\u3044\u3002\u65C5\u4EBA\u306A\u306E\u3067\u306A\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -383,7 +383,7 @@ MonoBehaviour:
     script_jp: "\u4ECA\u3001\u304A\u6301\u3061\u3057\u307E\u3059\u304B\u3089\u3002\u4E8C\u4EBA\u3068\u3082\u3061\u3087\u3063\u3068\u3060\u3051\u304A\u5F85\u3061\u304F\u3060\u3055\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -396,7 +396,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -409,7 +409,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -422,7 +422,7 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u30A8\u30EA\u30B9\u306F\u90E8\u5C4B\u306B\u623B\u308A\u30ED\u30AF\u30B7\u30FC\u306E\u90E8\u5C4B\u304B\u3089\u4E00\u901A\u306E\u624B\u7D19\u3092\u53D6\u308A\u51FA\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
@@ -435,7 +435,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3063\u305F\u3042\u3063\u305F\u3002\u61D0\u304B\u3057\u3044\u3067\u3059\u306D\u3047\u3002\u3053\u306E\u624B\u7D19\u3092\u6700\u521D\u306B\u8AAD\u3093\u3060\u6642\u306B\u306F\u5927\u6CE3\u304D\u3057\u307E\u3057\u305F\u3063\u3051\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -448,7 +448,7 @@ MonoBehaviour:
     script_jp: "\u4ECA\u306F\u306A\u3093\u3060\u304B\u3001\u3042\u306E\u5B50\u306B\u80CC\u4E2D\u3092\u62BC\u3055\u308C\u3066\u3044\u308B\u3088\u3046\u3067\u3001\u4E0D\u601D\u8B70\u306A\u3082\u306E\u3067\u3059\u306D\u3047...\u3002\u3055\u3066\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -461,20 +461,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u5BB6\u306E\u5916\u3001\u30A4\u30FC\u30E9\u304C\u60A9\u3093\u3067\u3044\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: d883d65fc31904159bea09f30f3a706e, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30FB\u30FB\u30FB\u3046\u3046\u3045\u3046\u3045..."
     script_jp: "\u30FB\u30FB\u30FB\u3046\u3046\u3045\u3046\u3045..."
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: era
     LR: R
     expressions: confuse
@@ -487,7 +487,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: volcus
     LR: L
     expressions: normal
@@ -500,7 +500,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3046\u3046\u306B\u3083\u3046\u3046\u3046...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: era
     LR: R
     expressions: confuse
@@ -513,7 +513,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3002\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: volcus
     LR: L
     expressions: normal
@@ -526,7 +526,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3045\u3046\u3045\u3045...\u306D\u3047\u3001\u30F4\u30A7\u30EB\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: era
     LR: R
     expressions: cry
@@ -539,7 +539,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: volcus
     LR: L
     expressions: normal
@@ -552,7 +552,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u79C1\u304C\u3064\u3044\u3066\u3044\u3063\u305F\u3089...\u8FF7\u60D1\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: era
     LR: R
     expressions: normal
@@ -565,7 +565,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u96E3\u3057\u3044\u8CEA\u554F\u3060\u3002\u8FF7\u60D1\u3067\u306F\u3042\u308B\u304C\u3001\u5ACC\u3067\u306F\u306A\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: volcus
     LR: L
     expressions: normal
@@ -578,7 +578,7 @@ MonoBehaviour:
     script_jp: "\u3078...\uFF1F\u3069\u3046\u3044\u3046\u3053\u3068\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: era
     LR: R
     expressions: normal
@@ -591,7 +591,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u69CB\u308F\u306A\u3044\u3002\u3068\u3044\u3046\u3053\u3068\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: volcus
     LR: L
     expressions: normal
@@ -604,7 +604,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u305D\u3063\u304B\uFF01\u30FB\u30FB\u30FB\u3042\u308A\u304C\u3068\u3046\u3002\u3070\u3042\u3070\u3001\u6012\u308B\u304B\u306A..."
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: era
     LR: R
     expressions: smile
@@ -617,7 +617,7 @@ MonoBehaviour:
     script_jp: "\u3069\u3046\u3060\u308D\u3046\u304B\u3002\u308F\u304B\u3089\u306C\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: volcus
     LR: L
     expressions: normal
@@ -630,7 +630,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3045\u3046\u3046...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: ' talk'
     name: era
     LR: R
     expressions: cry
@@ -656,7 +656,7 @@ MonoBehaviour:
     script_jp: "\u304A\u5F85\u305F\u305B\u3057\u307E\u3057\u305F\u306D\u3048\u3002\u305A\u3044\u3076\u3093\u5965\u306B\u3057\u307E\u3063\u3066\u307E\u3057\u3066\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -669,7 +669,7 @@ MonoBehaviour:
     script_jp: "\u304B\u307E\u308F\u306C\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -682,7 +682,7 @@ MonoBehaviour:
     script_jp: "\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059...\u3002\u30A4\u30FC\u30E9\u3084\u3001\u3053\u308C\u3092\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -695,7 +695,7 @@ MonoBehaviour:
     script_jp: "\u3078\uFF1F\u308F\u305F\u3057\u306B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -708,7 +708,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3067\u3059\u3002\u3042\u306A\u305F\u306E\u30DE\u30DE\u304B\u3089\u306E\u624B\u7D19\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -721,7 +721,7 @@ MonoBehaviour:
     script_jp: "\u3048...\uFF1F\u30DE\u30DE\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -734,7 +734,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3067\u3059\u3002\u4ECA\u65E5\u307F\u305F\u3044\u306A\u65E5\u304C\u304F\u308B\u3068\u3068\u601D\u3063\u3066\u305A\u3063\u3068\u5927\u5207\u306B\u3068\u3063\u3066\u304A\u304D\u307E\u3057\u305F\u3002\u3042\u306A\u305F\u306E\u30DE\u30DE\u304C\u79C1\u306B\u66F8\u3044\u305F\u624B\u7D19\u3067\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -747,7 +747,7 @@ MonoBehaviour:
     script_jp: "\u3070\u3042\u3070\u306B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -760,7 +760,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3067\u3059\u3002\u6700\u5F8C\u306B\u4E00\u3064\u3060\u3051\u304A\u9858\u3044\u304C\u66F8\u3044\u3066\u3042\u308A\u307E\u3057\u305F\u3002\u3055\u3001\u958B\u3051\u3066\u8AAD\u3093\u3067\u3054\u3089\u3093\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -773,7 +773,7 @@ MonoBehaviour:
     script_jp: "\u3046...\u3046\u3093\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -786,7 +786,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: 
@@ -799,20 +799,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u30ED\u30AF\u30B7\u30FC\u306E\u624B\u7D19"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8fc08fd3d25234d81bfe568b1f789892, type: 3}
+    BGM: {fileID: 8300000, guid: ab411f1d3ad8240e3bb65006493173f8, type: 3}
     still: {fileID: 0}
   - script: "\u89AA\u611B\u306A\u308B\u30DE\u30DE\u3078\u3002\u3078\u3044\uFF01\u30DE\u30DE\uFF01\u5143\u6C17\u306B\u3057\u3066\u308B\u30FC\uFF1F\u79C1\u306F\u8D85\u5143\u6C17\u3088\u30FC\uFF01\u305A\u3063\u3068\u5E30\u308C\u306A\u304F\u3066\u3054\u3081\u3093\u306D\uFF01"
     script_jp: "\u89AA\u611B\u306A\u308B\u30DE\u30DE\u3078\u3002\u3078\u3044\uFF01\u30DE\u30DE\uFF01\u5143\u6C17\u306B\u3057\u3066\u308B\u30FC\uFF1F\u79C1\u306F\u8D85\u5143\u6C17\u3088\u30FC\uFF01\u305A\u3063\u3068\u5E30\u308C\u306A\u304F\u3066\u3054\u3081\u3093\u306D\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -825,7 +825,7 @@ MonoBehaviour:
     script_jp: "\u9B54\u5927\u9678\u306B\u6765\u3066\u304B\u3089\u79C1\u306F\u305A\u30FC\u3063\u3068\u697D\u3057\u304F\u3057\u3066\u307E\u3057\u305F\uFF01\u9B54\u738B\u3068\u7D50\u5A5A\u3059\u308B\u3063\u3066\u8A00\u3063\u305F\u6642\u306E\u30DE\u30DE\u306E\u56F0\u3063\u305F\u9854\u3001\u8D85\u5091\u4F5C\uFF01\u9762\u767D\u304B\u3063\u305F\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -838,7 +838,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3075\u3075\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -851,7 +851,7 @@ MonoBehaviour:
     script_jp: "\u5927\u597D\u304D\u306A\u9B54\u738B\u3082\u52FF\u8AD6\u3060\u3051\u3069\u3001\u9B54\u65CF\u306E\u307F\u3093\u306A\u3082\u3059\u3063\u3054\u304F\u512A\u3057\u304F\u3066\u306D\uFF01\u79C1\u306F\u6BCE\u65E5\u3042\u3063\u3061\u3053\u3063\u3061\u306B\u3044\u3063\u3066\u306F\u3001\u3059\u3093\u3054\u3044\u5192\u967A\u3092\u3057\u3066\u3044\u307E\u3059\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -864,7 +864,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3064\u304B\u30DE\u30DE\u306B\u3082\u805E\u304B\u305B\u3066\u3042\u3052\u308B\u304B\u3089\u697D\u3057\u307F\u306B\u3057\u3066\u3066\u306D\uFF01\u3053\u3063\u3061\u306B\u6765\u3066\u304B\u3089\uFF12\u4EBA\u306E\u53CB\u9054\u306B\u51FA\u4F1A\u3044\u307E\u3057\u305F\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -877,7 +877,7 @@ MonoBehaviour:
     script_jp: "\u4F55\u306B\u3067\u3082\u5316\u3051\u3066\u5927\u66B4\u308C\u3059\u308B\u30B9\u30FC\u30D1\u30FC\u30DE\u30F3\uFF01\u6398\u524A\u6A5F\uFF08\u30C9\u30EA\u30EB\uFF09\u306B\u5316\u3051\u3066\u79C1\u306E\u5192\u967A\u306E\u304A\u624B\u4F1D\u3044\u3082\u3057\u3066\u304F\u308C\u308B\u306E\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -890,7 +890,7 @@ MonoBehaviour:
     script_jp: "\u300C\u571F\u3092\u6398\u308B\u305C\u3047\uFF01\u3069\u308A\u3083\u3069\u308A\u3083\u3069\u308A\u3083\u3042\uFF01\u300D\u3063\u3066\u8D85\u9762\u767D\u3044\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -903,7 +903,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3042\u306E\u7537\u306F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -916,7 +916,7 @@ MonoBehaviour:
     script_jp: "\u305D\u308C\u3068\u306D\u3001\u306A\u3093\u3067\u3082\u77E5\u3063\u3066\u3066\u982D\u306E\u3044\u3044\u5927\u4EBA\u306E\u5973\u6027\uFF01\u79C1\u304C\u6301\u3063\u3066\u304D\u305F\u907A\u7269\u3092\u306A\u3093\u3067\u3082\u9451\u5B9A\u3057\u3066\u304F\u308C\u308B\u30A6\u30EB\u30C8\u30E9\u535A\u58EB\u306A\u306E\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -929,7 +929,7 @@ MonoBehaviour:
     script_jp: "\u300C\u30ED\u30AF\u30B7\u30FC\u3055\u3093\u3001\u307E\u305F\u3053\u3093\u306A\u3082\u306E\u6398\u3063\u3066\u304D\u3066...\u3002\u3053\u308C\u306F\u7CDE\u306E\u5316\u77F3\u3067\u3059\u3002\u3068\u8A00\u3044\u307E\u3059\u304B\u3001"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -942,7 +942,7 @@ MonoBehaviour:
     script_jp: "\u3042\u306A\u305F\u306F\u9B54\u738B\u69D8\u306E\u611B\u3059\u308B\u304A\u65B9\u3067\u3042\u3063\u3066\u3001\u305D\u3093\u306A\u6C17\u8EFD\u306B\u5916\u51FA\u3055\u308C\u3066\u306F...\u3063\u3066\u3061\u3087\u3063\u3068\uFF01\u8A71\u805E\u3044\u3066\u307E\u3059\u304B\uFF01\uFF1F\u300D"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -955,7 +955,7 @@ MonoBehaviour:
     script_jp: "\u3063\u3066\u4F55\u56DE\u8A00\u308F\u308C\u305F\u3053\u3068\u3084\u3089\uFF01\u79C1\u3063\u3066\u306A\u3093\u3067\u3053\u3093\u306A\u306B\u304A\u30D0\u30AB\u306A\u3093\u3060\u308D\u3046\uFF01\u3046\u30FC\u3093\u3002\u304D\u3063\u3068\u30DE\u30DE\u306B\u4F3C\u305F\u306E\u304B\u306A\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -968,7 +968,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3075\u3075\u3002\u305D\u3046\u306A\u3093\u3067\u3057\u3087\u3046\u304B\u306D\u3048\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -981,7 +981,7 @@ MonoBehaviour:
     script_jp: "\u9B54\u738B\u69D8\u306F\u306D\u3001\u30F4\u30A9\u30EB\u30AB\u30B9\u3063\u3066\u3044\u3046\u306E\uFF01\u30AB\u30C3\u30B3\u3088\u304F\u3066\u3001\u512A\u3057\u304F\u3066\u3001\u5F37\u304F\u3066\u3001\u306A\u3093\u3067\u3082\u77E5\u3063\u3066\u3066\uFF01\u307B\u3093\u3063\u3063\u3063\u3068\u306B\u7406\u60F3\u306E\u7537\u6027\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -994,7 +994,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u304C\u4E00\u4EBA\u5192\u967A\u306B\u51FA\u3066\u3063\u3066\u602A\u6211\u3068\u304B\u3059\u308B\u3068\u3001\u3059\u3050\u98DB\u3093\u3067\u304F\u308B\uFF01\u306A\u3093\u3060\u304B\u3001\u305A\u30FC\u3063\u3068\u898B\u5B88\u3063\u3066\u304F\u308C\u308B\u3088\u3046\u306A\u6C17\u304C\u3059\u308B\u3093\u3060\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1007,7 +1007,7 @@ MonoBehaviour:
     script_jp: "\u304D\u3063\u3068\u795E\u8A71\u306E\u9A0E\u58EB\u69D8\u306A\u3093\u3058\u3083\u306A\u3044\u304B\u306A\u3063\u3066\uFF01\u79C1\u306F\u601D\u3046\u306E\u3002\u5927\u5207\u306A\u672C\u3067\u3001\u304A\u5BB6\u306B\u7F6E\u3044\u3066\u304D\u305F\u304B\u3089\u7D76\u5BFE\u306B\uFF11\u56DE\u306F\u8AAD\u3093\u3067\u306D\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1020,7 +1020,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u61D0\u304B\u3057\u3044\u306A\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     script_jp: "\u3046\u30FC\u3093\u3002\u4ED6\u306B\u3082\u66F8\u304D\u305F\u3044\u3053\u3068\u306F\u4E00\u676F\u3042\u308B\u3093\u3060\u3051\u3069\u306D\uFF01\u3048\u3063\u3068\u306D\u3001\u4E00\u3064\u3060\u3051\u3001\u30DE\u30DE\u306B\u8B1D\u308A\u305F\u3044\u3053\u3068\u304C\u3042\u308B\u306E\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1046,7 +1046,7 @@ MonoBehaviour:
     script_jp: "\u6700\u521D\u306B\u5143\u6C17\u3063\u3066\u66F8\u3044\u305F\u306E\u306F\u5618\u3002\u304D\u3063\u3068\u30DE\u30DE\u304C\u3053\u308C\u3092\u8AAD\u3080\u9803\u306B\u306F\u79C1\u306F\u3082\u3046\u6B7B\u3093\u3067\u3044\u308B\u3093\u3060\u3068\u601D\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1059,7 +1059,7 @@ MonoBehaviour:
     script_jp: "\u9B54\u738B\u306E\u304A\u5AC1\u3055\u3093\u306A\u3093\u3066\u3059\u3054\u3044\u3053\u3068\u3057\u3061\u3083\u3063\u305F\u304B\u3089\u4E00\u751F\u5206\u306E\u5E78\u305B\u3092\u4F7F\u3044\u5207\u3063\u3061\u3083\u3063\u305F\u306E\u304B\u3082\u3002\u3067\u3082\u3068\u3063\u3066\u3082\u5E78\u305B\u3067\u697D\u3057\u304B\u3063\u305F\u306A\u3063\u3066\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1072,7 +1072,7 @@ MonoBehaviour:
     script_jp: "\u30DE\u30DE\u3084\u5468\u308A\u306E\u307F\u3093\u306A\u3092\u6B8B\u3057\u3066\u5148\u7ACB\u3063\u3061\u3083\u3046\u3053\u3068\u304C\u5FC3\u6B8B\u308A\u3060\u3051\u3069\u3001\u79C1\u306F\u307B\u3093\u3063\u3068\u3046\u306B\u697D\u3057\u304B\u3063\u305F\u306A\u3041\u3063\u3066\u601D\u3046\u306E\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1085,7 +1085,7 @@ MonoBehaviour:
     script_jp: "\u3060\u304B\u3089\u60B2\u3057\u307E\u306A\u3044\u3067\u306D\u3002\u5148\u306B\u884C\u3063\u3061\u3083\u3063\u3066\u3054\u3081\u3093\u306A\u3055\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1098,7 +1098,7 @@ MonoBehaviour:
     script_jp: "\u30DE\u30DE\u3001\u7523\u3093\u3067\u304F\u308C\u3066\u3001\u308F\u304C\u307E\u307E\u3092\u305F\u3063\u304F\u3055\u3093\u805E\u3044\u3066\u304F\u308C\u3066\u3001\u3044\u3063\u3063\u3071\u3044\u6211\u6162\u3057\u3066\u304F\u308C\u3066\u3001\u3042\u308A\u304C\u3068\u3046\uFF01\u307B\u3063\u3068\u3046\u306B\u3042\u308A\u304C\u3068\u3046\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1111,7 +1111,7 @@ MonoBehaviour:
     script_jp: "\uFF08\u3057\u304F\u3057\u304F\u3068\u6CE3\u304D\u59CB\u3081\u3066\uFF09\u30FB\u30FB\u30FB\u3044\u3064\u8AAD\u3093\u3067\u3082\u3001\u6D99\u304C\u51FA\u3066\u304F\u308B\u3093\u3067\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: cry
@@ -1124,7 +1124,7 @@ MonoBehaviour:
     script_jp: "\u3057\u307F\u3063\u307D\u304F\u306A\u3063\u3061\u3083\u3063\u305F\u306D\u3002\u3042\uFF01\u3042\u3068\u306D\uFF01\u79C1\u5B50\u4F9B\u304C\u751F\u307E\u308C\u307E\u3057\u305F\u3002\u540D\u524D\u306F\u30A4\u30FC\u30E9\u3063\u3066\u540D\u524D\u306B\u3057\u3088\u3046\u3068\u601D\u3046\u306E\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -1139,7 +1139,7 @@ MonoBehaviour:
       \u30ED\u30FC\u30A4\u3001\u3053\u308C\u306F\u9B54\u7269\u306E\u738B\u3063\u3066\u610F\u5473\u306A\u3093\u3060\u3063\u3066\uFF01\u3067\u3001\u79C1\u304C\u30EA\u30E5\u30A6\u30FC\u30EB\u3001\u3053\u308C\u304C\u8F1D\u304D\u3063\u3066\u610F\u5473\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -1154,7 +1154,7 @@ MonoBehaviour:
       \u30C7\u30A3\u30A2\u30D6\u30ED \u30EA\u30E5\u30A6\u30FC\u30EB \u30C9\u30EC\u3063\u3066\u540D\u524D\uFF01\u3069\u3046\uFF1F\u304B\u3063\u3053\u3044\u3044\u3067\u3057\u3087\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -1167,7 +1167,7 @@ MonoBehaviour:
     script_jp: "\u30A4\u30FC\u30E9\u304C\u6642\u4EE3\u3068\u304B\u8C61\u5FB4\u3063\u3066\u610F\u5473\uFF01\u30C9\u30EC\u304C\u91D1\u8272\u3063\u3066\u610F\u5473\uFF01\u79C1\u306E\u53CB\u9054\u306B\u30DE\u30DE\u306E\u3068\u3053\u308D\u306B\u9023\u308C\u3066\u3044\u3063\u3066\u3082\u3089\u3046\u3088\u3046\u306B\u304A\u9858\u3044\u3057\u305F\u304B\u3089\u3001"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -1180,7 +1180,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u3068\u601D\u3063\u3066\u3057\u3063\u304B\u308A\u9762\u5012\u898B\u3066\u3042\u3052\u3066\u3088\u306D\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -1193,7 +1193,7 @@ MonoBehaviour:
     script_jp: "\u305D\u306E\u3088\u3046\u306A\u3053\u3068\u3092\u8003\u3048\u3066\u304A\u3063\u305F\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -1206,7 +1206,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u3001\u9B54\u738B\u57CE\u304B\u3089\u898B\u308B\u671D\u65E5\u304C\u672C\u5F53\u306B\u7DBA\u9E97\u3067\u597D\u304D\u3060\u3063\u305F\u306E\u3002\u4EBA\u3068\u9B54\u65CF\u3001\u4E8C\u3064\u306E\u5927\u9678\u4E00\u7DD2\u306B\u660E\u304B\u308A\u304C\u5DEE\u3059\u306E\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1219,7 +1219,7 @@ MonoBehaviour:
     script_jp: "\u305A\u3063\u3068\u6226\u4E89\u304C\u7D9A\u3044\u3066\u308B\u3051\u3069\u3001\u304A\u65E5\u69D8\u306F\u5E73\u7B49\u306A\u306E\u3088\u3002\u79C1\u3082\u305D\u3093\u306A\u98A8\u306B\u3042\u308A\u305F\u3044\u3068\u601D\u3063\u305F\u3057\u3001\u30A4\u30FC\u30E9\u306B\u3082\u305D\u3046\u306A\u3063\u3066\u6B32\u3057\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1232,7 +1232,7 @@ MonoBehaviour:
     script_jp: "\u3061\u3087\u3063\u3068\u5927\u8888\u88DF\u304B\u306A\u3002\u3042\u306F\u306F\u30FC...\u3002\u3067\u3001\u305D\u306E\u671D\u65E5\u304C\u5927\u597D\u304D\u3060\u3063\u305F\u304B\u3089\u3001\u305D\u3046\u3044\u3046\u540D\u524D\u306B\u3057\u305F\u306E\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1245,7 +1245,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3093\uFF01\u4E00\u756A\u5927\u4E8B\u306A\u3053\u3068\u306F\u4F1D\u3048\u305F\u304B\u3089\u3053\u308C\u3067\u304A\u3057\u307E\u3044\uFF01\u6211\u306A\u304C\u3089\u307E\u3068\u307E\u308A\u306A\u3044\u306A\u30FC\u3002\u672C\u5F53\u306B\u8FF7\u60D1\u304B\u3051\u3066\u3070\u3063\u304B\u308A\u3060\u3063\u305F\u3051\u3069\u3055\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1258,7 +1258,7 @@ MonoBehaviour:
     script_jp: "\u30DE\u30DE\u3001\u3042\u308A\u304C\u3068\u3046\u3001\u5927\u597D\u304D\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1271,7 +1271,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u7D42\u3044\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: smile
@@ -1284,7 +1284,7 @@ MonoBehaviour:
     script_jp: "\uFF08\u6D99\u3092\u62ED\u3044\u3066\uFF09\u30FB\u30FB\u30FB\u3044\u3044\u3048\u3001\u7D9A\u304D\u304C\u3042\u308A\u307E\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: cry
@@ -1297,7 +1297,7 @@ MonoBehaviour:
     script_jp: "\u307B\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -1310,7 +1310,7 @@ MonoBehaviour:
     script_jp: "\u8FFD\u4F38\uFF01\u30A4\u30FC\u30E9\u3078\uFF01\u4E00\u5EA6\u3082\u4F1A\u3048\u306A\u304F\u3066\u3054\u3081\u3093\u306D\u3002\u9854\u304C\u898B\u308C\u306A\u3044\u306E\u304C\u6B8B\u5FF5\u3060\u3051\u3069\u3001\u304D\u3063\u3068\u53EF\u611B\u3044\u3093\u3067\u3057\u3087\u3046\u306D\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1323,7 +1323,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u306E\u5B50\u3060\u304B\u3089\uFF01\u9B54\u738B\u69D8\u306F\u79C1\u306E\u65E6\u90A3\u3060\u304B\u3089\u3001\u4F1A\u3063\u305F\u3089\u3061\u3083\u3093\u3068\u6328\u62F6\u3059\u308B\u3053\u3068\uFF01\u305D\u308C\u3068\u3001\u305C\u3063\u305F\u3044\u306B\u597D\u304D\u306B\u306A\u3063\u3061\u3083\u30C0\u30E1\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1336,7 +1336,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3068\u3044\u3046\u306E\u306F\u5197\u8AC7\u3067\u30FC...\u3002\u81EA\u7531\u306B\u751F\u304D\u3066\u306D\u3002\u3070\u3042\u3070\u306F\u304D\u3063\u3068\u5FC3\u914D\u3059\u308B\u3068\u601D\u3046\u3051\u3069\u3001\u3042\u306A\u305F\u3092\u898B\u5B88\u3063\u3066\u304F\u308C\u307E\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1349,7 +1349,7 @@ MonoBehaviour:
     script_jp: "\u3042\u306A\u305F\u304C\u3084\u308A\u305F\u3044\u3053\u3068\u305F\u3063\u304F\u3055\u3093\u3057\u3066\u3001\u305F\u3063\u304F\u3055\u3093\u7B11\u3063\u3066\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1362,7 +1362,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u306D\u3001\u3042\u306A\u305F\u3068\u30F4\u30A9\u30EB\u30AB\u30B9\u3068\u4E00\u7DD2\u306B\u9B54\u738B\u57CE\u304B\u3089\u3053\u306E\u671D\u65E5\u3092\u898B\u3066\u307F\u305F\u304B\u3063\u305F\u306A\u3041\u3063\u3066\u3001\u305D\u308C\u304C\u4E00\u756A\u306E\u5FC3\u6B8B\u308A\u304B\u306A...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1375,7 +1375,7 @@ MonoBehaviour:
     script_jp: "\u3055\u3066\uFF01\u3042\u306A\u305F\u306F\u3042\u306A\u305F\u306E\u601D\u3046\u3088\u3046\u306B\u751F\u304D\u306A\u3055\u3044\u3002\u79C1\u3082\u3070\u3042\u3070\u3082\u3042\u306A\u305F\u306E\u3053\u3068\u3092\u5FDC\u63F4\u3057\u3066\u3044\u308B\u304B\u3089\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1388,7 +1388,7 @@ MonoBehaviour:
     script_jp: "\u30D4\u30F3\u30C1\u306B\u306A\u3063\u3066\u30F4\u30A9\u30EB\u30AB\u30B9\u304C\u3042\u306A\u305F\u306E\u3053\u3068\u3092\u304D\u3063\u3068\u5B88\u3063\u3066\u304F\u308C\u308B\u308F\u3002\u3060\u304B\u3089\u81C6\u3059\u308B\u3053\u3068\u306A\u304F\u8272\u3093\u306A\u3053\u3068\u306B\u6311\u6226\u3059\u308B\u306E\u3088\uFF01\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1401,7 +1401,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3051\uFF01\u82E5\u8005\u3088\uFF01\u81C6\u3059\u3053\u3068\u306A\u304F\u524D\u306B\u9032\u3080\u306E\u3060\u30FC\uFF01\uFF01\u308F\u3063\u306F\u3063\u306F\u30FC\uFF01\u3042\u306A\u305F\u306E\u6BCD\u3001\u30ED\u30AF\u30B7\u30FC\u3088\u308A\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: smile
@@ -1414,20 +1414,20 @@ MonoBehaviour:
     script_jp: "\u7ACB\u6D3E\u306A\u4FBF\u308A\u3067\u3042\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: d883d65fc31904159bea09f30f3a706e, type: 3}
+    BGM: {fileID: 8300000, guid: 2dd38687e471c4cfea2dafde02633f6e, type: 3}
     still: {fileID: 0}
   - script: "\u3046\u3075\u3075\u3002\u5A18\u3089\u3057\u304F\u3066\u3002"
     script_jp: "\u3046\u3075\u3075\u3002\u5A18\u3089\u3057\u304F\u3066\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -1440,7 +1440,7 @@ MonoBehaviour:
     script_jp: "\u3050\u3059\u3063....\u3046\u3063...\u3046\u3063...\u3046\u308F\u3042\u3042\u3042\u3042\u3093\uFF01\u3070\u3042\u3070\u3042\u3042\u3042\uFF01\uFF08\u30A8\u30EA\u30B9\u306B\u62B1\u304D\u3064\u3044\u3066\u306A\u304F\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: cry
@@ -1453,7 +1453,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3089\u3042\u3089\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: confuse
@@ -1466,7 +1466,7 @@ MonoBehaviour:
     script_jp: "\u3054\u3081\u3093\u306A\u3055\u3044\uFF01\u3070\u3042\u3070\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: cry
@@ -1479,7 +1479,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3044\u306A\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -1492,7 +1492,7 @@ MonoBehaviour:
     script_jp: "\u79C1\uFF01\u30F4\u30A7\u30EB\u3068\u65C5\u304C\u3057\u305F\u3044\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: smile
@@ -1505,7 +1505,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3067\u3059\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -1518,7 +1518,7 @@ MonoBehaviour:
     script_jp: "\u79C1\uFF01\u3044\u308D\u3093\u306A\u3082\u306E\u3001\u307F\u3066\u307F\u305F\u3044\u306E\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: smile
@@ -1531,7 +1531,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3075\u3075\u3002\u305D\u3093\u306A\u65E5\u304C\u6765\u308B\u3068\u601D\u3063\u3066\u305F\u3055\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -1544,7 +1544,7 @@ MonoBehaviour:
     script_jp: "\u308F\u3042\u3042\u3042\u3093\uFF01\u3070\u3042\u3070\u3001\u5927\u597D\u304D\u3001\u3070\u3042\u3070\u3042\u3042\u3042\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: cry
@@ -1557,7 +1557,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3089\u3042\u3089\u3002\u79C1\u3082\u5927\u597D\u304D\u3088\u3002\u30A4\u30FC\u30E9\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -1570,7 +1570,7 @@ MonoBehaviour:
     script_jp: "\u3046\u308F\u3042\u3042\u3042\u3042\u3093\u3001\u3070\u3042\u3070\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\uFF08\u305F\u3063\u3077\u308A\u6CE3\u304D\u3064\u3044\u3066\u304F\u3060\u3055\u3044\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: cry
@@ -1583,7 +1583,7 @@ MonoBehaviour:
     script_jp: "(\u6CE3\u304D\u3064\u304F\u30A4\u30FC\u30E9\u3092\u3042\u3084\u3059)"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -1609,7 +1609,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u30A4\u30FC\u30E9\u3088\u3002\u843D\u3061\u7740\u3044\u305F\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
@@ -1622,7 +1622,7 @@ MonoBehaviour:
     script_jp: "\uFF08\u3050\u3059\u3050\u3059\u8A00\u3044\u306A\u304C\u3089\uFF09\u30FB\u30FB\u30FB\u3046\u3093..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: cry
@@ -1635,7 +1635,7 @@ MonoBehaviour:
     script_jp: "\u3057\u3066\u3001\u884C\u304D\u305F\u3044\u5834\u6240\u306F\u6C7A\u307E\u3063\u305F\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
@@ -1648,7 +1648,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3093...\u9B54\u738B\u57CE\u306B\u884C\u304D\u305F\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: smile
@@ -1661,7 +1661,7 @@ MonoBehaviour:
     script_jp: "\u66AB\u304F\u306F\u5E30\u3063\u3066\u3053\u308C\u306A\u3044\u304C\u826F\u3044\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
@@ -1674,7 +1674,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3093\uFF01\u5927\u4E08\u592B\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: smile
@@ -1687,7 +1687,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080...\u3068\u306E\u3053\u3068\u3060\u3001\u30A8\u30EA\u30B9\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -1700,7 +1700,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3089\u3042\u3089\u3002\u308F\u304B\u308A\u307E\u3057\u305F\u3002\u3057\u3063\u304B\u308A\u9762\u5012\u3092\u898B\u3066\u3042\u3052\u3066\u304F\u3060\u3055\u3044\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -1713,7 +1713,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3041..\u4EFB\u305B\u3066\u304F\u308C\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
@@ -1726,7 +1726,7 @@ MonoBehaviour:
     script_jp: "\u3088\u308D\u3057\u304F\u306D\uFF01\u30F4\u30A7\u30EB\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: smile
@@ -1739,7 +1739,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
@@ -1752,7 +1752,7 @@ MonoBehaviour:
     script_jp: "\u306D\u3048\u30F4\u30A7\u30EB\u3002\uFF11\u3064\u3060\u3051\u3001\u6301\u3063\u3066\u3044\u304D\u305F\u3044\u3082\u306E\u304C\u3042\u308B\u3093\u3060\u3051\u3069\u3044\u3044\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: smile
@@ -1765,7 +1765,7 @@ MonoBehaviour:
     script_jp: "\u304B\u307E\u308F\u306A\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -1778,7 +1778,7 @@ MonoBehaviour:
     script_jp: "\u3084\u3063\u305F\uFF01\u3059\u3050\u3068\u3063\u3066\u304F\u308B\u306D\u30FC\uFF01\uFF08\u5BB6\u306B\u5411\u304B\u3063\u3066\u8D70\u308A\u51FA\u3059\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: smile
@@ -1791,7 +1791,7 @@ MonoBehaviour:
     script_jp: "\u30A4\u30FC\u30E9\u3084\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -1804,7 +1804,7 @@ MonoBehaviour:
     script_jp: "\u306A\u3042\u306B\uFF1F\u3070\u3042\u3070\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -1817,7 +1817,7 @@ MonoBehaviour:
     script_jp: "\u30AB\u30D0\u30F3\u306B\u3061\u3087\u3063\u3068\u3057\u305F\u8377\u7269\u3092\u5165\u308C\u3066\u304A\u3044\u305F\u3055\u306D\u3002\u305D\u308C\u3082\u6301\u3063\u3066\u3044\u304D\u306A\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -1830,7 +1830,7 @@ MonoBehaviour:
     script_jp: "\u306F\u30FC\u3044\uFF01\u30FB\u30FB\u30FB\uFF08\u5BB6\u306E\u30C9\u30A2\u306B\u5165\u308B\u524D\u306B\uFF09\u3070\u3042\u3070\uFF01\u3042\u308A\u304C\u3068\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: smile
@@ -1843,7 +1843,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3075\u3075...\u3067\u306F\u3001\u983C\u307F\u307E\u3059\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: smile
@@ -1856,7 +1856,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -1869,7 +1869,7 @@ MonoBehaviour:
     script_jp: "\u3068\u3053\u308D\u3067...\u65C5\u306E\u652F\u5EA6\u91D1\u306F\u3042\u308B\u306E\u3067\u3057\u3087\u3046\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: normal
@@ -1882,7 +1882,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: confuse
@@ -1895,7 +1895,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3089...\u30F4\u30A7\u30EB...\u69D8\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: eleth
     LR: R
     expressions: confuse
@@ -1908,20 +1908,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u65C5\u56E3\u306E\u5927\u578B\u9B54\u5C0E\u79FB\u9001\u8ECA"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 00347eed708a6453ea3811ba729fd64e, type: 3}
+    BGM: {fileID: 8300000, guid: e21065ed7b58344c285e4c678cffd12b, type: 3}
     still: {fileID: 0}
   - script: "\u3078\u3047\u301C\uFF01\u305D\u308C\u3067\u4FFA\u305F\u3061\u306B\u540C\u884C\u3057\u305F\u304F\u3066\u30D5\u30EC\u30FC\u30F3\u30C9\u30A5\u306E\u4FFA\u306B\u58F0\u3092\u304B\u3051\u3066\u304D\u305F\u3063\u3066\u3053\u3068\u304B\u3042\uFF01"
     script_jp: "\u3078\u3047\u301C\uFF01\u305D\u308C\u3067\u4FFA\u305F\u3061\u306B\u540C\u884C\u3057\u305F\u304F\u3066\u30D5\u30EC\u30FC\u30F3\u30C9\u30A5\u306E\u4FFA\u306B\u58F0\u3092\u304B\u3051\u3066\u304D\u305F\u3063\u3066\u3053\u3068\u304B\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -1934,7 +1934,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -1947,7 +1947,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3093\u3084\u30FC\uFF01\u307E\u3055\u304B\u51FA\u4F1A\u3063\u305F\u305D\u306E\u7FCC\u3005\u65E5\u306B\u540C\u884C\uFF01\u30C8\u30A5\u30AE\u30E3\u30B6\u30FC\uFF01\u306B\u306A\u308B\u306A\u3093\u3066\u3048\uFF01\u30F4\u30A7\u30A7\u30EB\u3068\u4FFA\u306F\u904B\u547D\u306E\u7CF8\u3067\u7D50\u3070\u308C\u3066\u3044\u308B\u3093\u3060\u306D\u3048\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -1960,7 +1960,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u306F\u305D\u3046\u306F\u601D\u308F\u3093\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -1973,7 +1973,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3084\u304A\u3084\u3042\uFF1F\u30F4\u30A7\u30EB\u306E\u305D\u3046\u3044\u3046\u3068\u3053\u308D\u3001\u4FFA\u5ACC\u3044\u3058\u3083\u306A\u3044\u306A\u3041\uFF01\u3042\u3063\u306F\u3063\u306F\u30FC\uFF01\u30FB\u30FB\u30FB\u3068\u3053\u308D\u3067\u3068\u3053\u308D\u3067\uFF01\uFF01\u30A4\u30A3\u30A3\u30A3\u30A3\u30A3\u30E9\u3061\u3083\u3093\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -1986,7 +1986,7 @@ MonoBehaviour:
     script_jp: "\u3078\uFF01\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -1999,7 +1999,7 @@ MonoBehaviour:
     script_jp: "\u3094\u3047\u3048\u3048\u308B\u306F\u9762\u767D\u3044\u306A\u3042\uFF01\u3053\u30FC\u3093\u306A\u3061\u3073\u3063\u3053\u3092\u9023\u308C\u3066\u304D\u305F\u3068\u601D\u3063\u305F\u3089\u3001\u307E\u3063\u3055\u304B\u3001\u9B54\u738B\u306E\u5A18\u3060\u306A\u3093\u3066\u3048\u3048\uFF01\u30A4\u30A3\u30A3\u30A3\u30A3\u30A3\u30E9\u3061\u3083\u3093"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2012,7 +2012,7 @@ MonoBehaviour:
     script_jp: "\u3042\u306A\u305F\u306F\u672C\u5F53\u306B\u3069\u30FC\u305F\u30FC\uFF01\u9B54\u738B\u306E\u5A18\u306A\u306E\u304B\u3042\u3044\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2025,7 +2025,7 @@ MonoBehaviour:
     script_jp: "\u308F\u3001\u308F\u308F\u3001\u308F\u304B\u308A\u307E\u305B\u3093...\u3002\u3067\u3082\u3001\u591A\u5206\u305D\u3046\u3067\u3059.."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: confuse
@@ -2038,7 +2038,7 @@ MonoBehaviour:
     script_jp: "WoW\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -2051,7 +2051,7 @@ MonoBehaviour:
     script_jp: "\u3053\u3001\u6016\u304C\u3063\u305F\u308A\u3057\u306A\u3044\u3093\u3067\u3059\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: confuse
@@ -2064,7 +2064,7 @@ MonoBehaviour:
     script_jp: "\u306A\u3093\u3067\u6016\u304C\u308B\u5FC5\u8981\u304C\u3042\u308B\u3093\u3060\u3041\u3044\uFF01\u3053\u30FC\u3093\u306A\u306B\u3061\u3063\u3061\u3083\u304F\u3066\u304B\u308F\u3044\u3044\u5B50\u3092\u524D\u306B\u6016\u304C\u3063\u3066\u3061\u3083\u3042\u640D\u3058\u3083\u306A\u3044\u304B\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: unique
@@ -2077,7 +2077,7 @@ MonoBehaviour:
     script_jp: "\u30C9\u30F3\u30C8\u30EF\u30A9\u30FC\u30EA\u30FC\uFF01\u30C9\u30F3\u30C8\u30EF\u30A9\u30FC\u30EA\u30FC\uFF01\u3063\u306F\u3063\u306F\uFF01\u30EC\u30C7\u30A3\u304A\u624B\u3092\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: unique
@@ -2090,7 +2090,7 @@ MonoBehaviour:
     script_jp: "\u3084\u3081\u308D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: angry
@@ -2103,7 +2103,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01\uFF01\u3053\u3063\u3061\u306E\u5927\u7537\u306E\u65B9\u304C\u3088\u3063\u307D\u3069\u3060\u3088\u306D\u3047\u3001\u304A\u30FC\u6016\u3044\u6016\u3044\u3002\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -2116,7 +2116,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u306D\u3048\uFF01\u30AA\u30EC\u30F3\u30C9\u306F\u30F4\u30A9\u30EB\u30AB\u30B9\u306E\u3053\u3068\u77E5\u3063\u3066\u308B\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -2129,7 +2129,7 @@ MonoBehaviour:
     script_jp: "\u3093\u30FC\uFF1F\u30F4\u30A9\u30EB\u30AB\u30B9\uFF01\uFF1F\u3093\u30FC...\u805E\u3044\u305F\u3053\u3068\u3042\u308B\u3088\u3046\u306A...\u306A\u3044\u3088\u3046\u306A\uFF1F\u3046\u30FC\u3093...\u305D\u308C\u306F\u8AB0\u3060\u3044\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: normal
@@ -2142,7 +2142,7 @@ MonoBehaviour:
     script_jp: "\u3048\uFF1F\u30FB\u30FB\u30FB\u3046\u30FC\u3093\u3002\u9B54\u738B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -2155,7 +2155,7 @@ MonoBehaviour:
     script_jp: "\u3078\u3048\u30FC\uFF01\u9B54\u738B\u306F\u30F4\u30A9\u30EB\u30AB\u30B9\u3063\u3066\u3044\u3046\u306E\u304B\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -2168,7 +2168,7 @@ MonoBehaviour:
     script_jp: "\u306A\u3093\u3067\u77E5\u3089\u306A\u3044\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -2181,7 +2181,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3088\u3088\uFF01\uFF1F\u9762\u767D\u3044\u3053\u3068\u3092\u805E\u304F\u5B50\u3060\u306A\u3042\uFF01\u3042\u3063\u306F\u3063\u306F\uFF01\u4EBA\u9593\u306E\u4E16\u754C\u3058\u3083\u3001\u9B54\u738B\uFF01\u3068\u547C\u3070\u308C\u3066\u3044\u308B\u3060\u3051\u3067\u3001"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: normal
@@ -2194,7 +2194,7 @@ MonoBehaviour:
     script_jp: "\u540D\u524D\u306F\u305C\u30FC\u3093\u305C\u3093\u805E\u304B\u306A\u304B\u3063\u305F\u304B\u3089\u77E5\u3089\u306A\u304B\u3063\u305F\u3088\u30FC\uFF01\u30F4\u30A9\u30EB\u30AB\u30B9\u3001\u30F4\u30A9\u30EB\u30AB\u30B9\uFF01\u3046\u3093\uFF01\u899A\u3048\u305F\u304B\u3089\u4ECA\u306F\u77E5\u3063\u3066\u308B\u3055\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: normal
@@ -2207,7 +2207,7 @@ MonoBehaviour:
     script_jp: "\u30AA\u30EC\u30F3\u30C9\u306F\u30F4\u30A9\u30EB\u30AB\u30B9\u306E\u53CB\u9054\u3060\u3063\u305F\u3093\u3058\u3083\u306A\u3044\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -2220,7 +2220,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3078\uFF1F\u3042\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\uFF01\uFF01\uFF01\u672C\u5F53\u306B\u9762\u767D\u3044\u3061\u3073\u3063\u3053\u3044\u3044\u3089\u3061\u3083\u3093\u3060\u306A\u3041\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -2233,7 +2233,7 @@ MonoBehaviour:
     script_jp: "\u4FFA\u304C\u9B54\u738B\u306E\u304A\u53CB\u9054\uFF01\uFF1F\u3042\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\uFF01\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -2246,7 +2246,7 @@ MonoBehaviour:
     script_jp: "\u306A\u3093\u3067\u7B11\u3046\u306E\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: angry
@@ -2259,7 +2259,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\uFF01\u306F\u3041...\u3044\u3084\u3001\u3054\u3081\u3093\u3054\u3081\u3093\u3002\u30BD\u30FC\u30EA\u30FC\u30BD\u30FC\u30EA\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2272,7 +2272,7 @@ MonoBehaviour:
     script_jp: "\u3080\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: angry
@@ -2285,7 +2285,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3049\uFF01\u6012\u3063\u305F\u9854\u3082\u53EF\u611B\u3089\u3057\u3044\u306A\u3041\uFF01\u306F\u3063\u306F\u3063\u306F\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2298,7 +2298,7 @@ MonoBehaviour:
     script_jp: "\u771F\u9762\u76EE\u306B\u76F8\u624B\u3092\u3057\u3066\u3084\u308C\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -2311,7 +2311,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\uFF01\u308F\u304B\u3063\u305F\u308F\u304B\u3063\u305F\u3002\u4FFA\u306F\u3055\uFF01\u82E5\u3044\u6642\u306E\u8A18\u61B6\u304C\u306A\u3044\u306E\u3055\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2324,7 +2324,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u306A\u306E\uFF1F\u307B\u3093\u3068\u306B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -2337,7 +2337,7 @@ MonoBehaviour:
     script_jp: "\u307B\u3093\u3068\u3046\u3055\uFF01\u3053\u3046\u3044\u3046\u8A71\u3092\u3059\u308B\u3068\u3001\u3057\u307F\u3063\u305F\u308C\u306A\u7A7A\u6C17\u306B\u306A\u308B\u304B\u3089\u5ACC\u306A\u3093\u3060\u3051\u3069\u3055\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2350,7 +2350,7 @@ MonoBehaviour:
     script_jp: "\u8A18\u61B6\u304C\u3042\u308B\u306E\u306F\u7D42\u6226\u76F4\u524D\u306B\u3053\u306E\u5287\u56E3\u306B\u62FE\u308F\u308C\u3066\u305F\u3063\u3066\u3053\u3068\u3068\u30FC\u3001\u81EA\u5206\u306E\u540D\u524D\u30AA\u30F3\u30EA\u30FC\uFF01\u4F55\u304C\u3042\u3063\u305F\u3093\u308D\u3046\u3060\u306D\u3048\uFF01\u30D0\u30C3\u30C8\u30D0\u30C3\u30C8\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2363,7 +2363,7 @@ MonoBehaviour:
     script_jp: "\u4FFA\u306F\u534A\u9B54\u3067\u9B54\u529B\u306F\u5168\u304F\u306A\u3044\u304B\u3089\uFF01\u591A\u5206\u5F31\u3059\u304E\u3066\u6226\u5730\u304B\u3089\u9003\u3052\u305F\u3068\u304B\u3001\u305D\u3093\u306A\u3053\u3068\u3058\u3083\u306A\u3044\u304B\u306A\u3041\uFF01\u3063\u3066\u601D\u3063\u3066\u308B\u306E\u3055\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2376,7 +2376,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u306A\u3093\u3060\u3001\u305D\u308C\u3067\u30AA\u30EC\u30F3\u30C9\u306F\u5BC2\u3057\u304F\u306A\u3044\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -2389,7 +2389,7 @@ MonoBehaviour:
     script_jp: "\u4FFA\u304C\uFF1F\u5BC2\u3057\u3044\uFF1F\u3042\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\uFF01\u3072\u30FC\u3072\u30FC\uFF01\u3042\u3063\u306F\u3063\u306F\u3063\u306F\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2402,7 +2402,7 @@ MonoBehaviour:
     script_jp: "\u3069\u3046\u3057\u3066\u7B11\u3046\u306E\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: angry
@@ -2415,7 +2415,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3084\u306D\u3001\u3069\u3046\u306A\u3093\u3060\u308D\u3046\u3063\u3066\u601D\u3063\u3066\u306D\u3002\u4FFA\u306F\u3055\uFF01\u3042\u3093\u307E\u308A\u5FC3\u3063\u3066\u3084\u3064\u304C\u308F\u304B\u3089\u306A\u3044\u306E\u3055\uFF01\u3042\uFF01\u306A\u3093\u3060\u308D\u3046\u306A\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -2428,7 +2428,7 @@ MonoBehaviour:
     script_jp: "\u5168\u304F\u306A\u3044\u3063\u3066\u308F\u3051\u3058\u3083\u306A\u3044\u3093\u3060\u3002\u8AAC\u660E\u3059\u308B\u306E\u306F\u96E3\u3057\u3044\u3051\u3069..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -2441,7 +2441,7 @@ MonoBehaviour:
     script_jp: "\u60B2\u3057\u3044\u30FC\u3001\u3068\u304B\u3001\u3064\u3089\u3044\u30FC\u3068\u304B\u3001\u611B\u3057\u3044\u30FC\u3001\u3068\u304B\u308F\u304B\u3093\u306A\u3044\u3093\u3060\u3088\u306A\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -2454,7 +2454,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u306A\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -2467,7 +2467,7 @@ MonoBehaviour:
     script_jp: "\u306A\u3093\u3067\u3060\u308D\u3046\u306D\uFF01\u3067\u3082\u60AA\u3044\u3053\u3068\u3070\u3063\u304B\u308A\u3058\u3083\u306A\u3044\u3088\uFF01\u81EA\u5206\u306E\u611F\u60C5\u304C\u306A\u3044\u65B9\u304C\u5F79\u8005\u3068\u3057\u3066\u306F\u512A\u79C0\u3055\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2480,7 +2480,7 @@ MonoBehaviour:
     script_jp: "\u30B0\u30C3\u30C9\u30B0\u30C3\u30C9\uFF01\u6F14\u3058\u308B\u5F79\u306E\u5FC3\u3092\u305D\u306E\u307E\u3093\u307E\u98F2\u307F\u8FBC\u3081\u308B\u3093\u3060\u304B\u3089\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2493,7 +2493,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3075\u30FC\u3093\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -2506,7 +2506,7 @@ MonoBehaviour:
     script_jp: "\u3061\u3087\u3063\u3068\u5EA7\u9577\u30FC\uFF01\u3069\u3053\u3044\u3063\u305F\u3093\u3067\u3059\u304B\u30FC\uFF01\u30FB\u30FB\u30FB\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -2519,7 +2519,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3089\u30FC\u3001\u3054\u304D\u3052\u3093\u9E97\u3057\u3085\u3046\u3001\u30B7\u30E3\u30F3\u30C7\u30A3\u3001\u4ECA\u65E5\u3082\u7DBA\u9E97\u3060\u306D\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2532,7 +2532,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3044\u306F\u3044\u3002\u7DF4\u7FD2\u3059\u3063\u307D\u304B\u3057\u3066\u3069\u3053\u306B\u884C\u3063\u305F\u304B\u3068\u601D\u3063\u305F\u3089...\u3053\u3061\u3089\u306E\u65B9\u3005\u306F\u3069\u306A\u305F\u3067\u3059\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -2545,7 +2545,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3063\u3075\u30FC\u3093\u3002\u4FFA\u306E\u3075\u308C\u3093\u3069\u306E\u3001\u5909\u306A\u30F4\u30A7\u30EB\u3068\u9B54\u738B\u306E\u5A18\u30A4\u30FC\u30E9\u3001\u3055\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -2558,7 +2558,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u4E16\u8A71\u306B\u306A\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -2571,7 +2571,7 @@ MonoBehaviour:
     script_jp: "\u3088\u3001\u3088\u308D\u3057\u304F\u304A\u9858\u3044\u3057\u307E\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -2584,7 +2584,7 @@ MonoBehaviour:
     script_jp: "\u3067\u3001\u3053\u3061\u3089\u306F\u3053\u306E\u5287\u56E3\u306E\u540D\u5973\u512A\uFF01\u30D7\u30EA\u30DE\u30C9\u30F3\u30CA\u306E\u30B7\u30E3\u30F3\u30C7\u30A3\u3061\u3083\u3093\u3067\u3059\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2597,7 +2597,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3057\u3066\u305D\u3057\u3066\u306A\u3093\u3068\u3049\uFF01\u4FFA\u306E\u5A5A\u7D04\u8005\u3067\u3082\u3042\u308B\u306E\u3055\u3042\uFF01\u3069\u3046\u3060\u3042\uFF01\u7DBA\u9E97\u3060\u308D\u304A\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2610,7 +2610,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3044\u306F\u3044\u3002\u305D\u308C\u3067\u3001\u7DF4\u7FD2\u30B5\u30DC\u3063\u3066\u305F\u7406\u7531\u306F\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -2623,7 +2623,7 @@ MonoBehaviour:
     script_jp: "\u7DF4\u7FD2\u3088\u308A\u5927\u4E8B\u306A\u7528\u4E8B\u304C\u3042\u3063\u305F\u304B\u3089\u306B\u6C7A\u307E\u3063\u3066\u308B\u3058\u3083\u306A\u3044\u304B\uFF01\u30BD\u30FC\u30EA\u30FC\u30BD\u30FC\u30EA\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2636,7 +2636,7 @@ MonoBehaviour:
     script_jp: "\u5927\u4E8B\u306A\u30D5\u30EC\u30F3\u30C9\u304C\u6545\u90F7\u306B\u5E30\u308A\u305F\u3044\u306E\u306B\u304A\u91D1\u304C\u306A\u304F\u3066\u56F0\u3063\u3066\u308B\u306A\u3093\u3066\u805E\u3044\u3066\u306D\u3048\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2649,7 +2649,7 @@ MonoBehaviour:
     script_jp: "\u3046...\u3046\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: confuse
@@ -2662,7 +2662,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3059\u307F\u307E\u305B\u3093\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: confuse
@@ -2675,7 +2675,7 @@ MonoBehaviour:
     script_jp: "\u3042\u306A\u305F\u305F\u3061\u304C\u8B1D\u308B\u3053\u3068\u3067\u306F\u306A\u3044\u308F\u3002\u3067\u3001\u3069\u3046\u3059\u308B\u306E\uFF1F\u5EA7\u9577"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -2688,7 +2688,7 @@ MonoBehaviour:
     script_jp: "\u540C\u884C\u3059\u308C\u3070\u3044\u3044\u306E\u3055\u30FC\uFF01\u65C5\u306E\u53CB\u306F\u591A\u3044\u65B9\u304C\u3044\u3044\u3060\u308D\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2701,7 +2701,7 @@ MonoBehaviour:
     script_jp: "\u3067\u3001\u3069\u3053\u307E\u3067\u540C\u884C\u3059\u308B\u8A71\u306B\u306A\u3063\u3066\u3044\u308B\u306E\u304B\u3057\u3089\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -2714,7 +2714,7 @@ MonoBehaviour:
     script_jp: "\u30A2\u30AD\u30E5\u30A8\u30EA\u307E\u3067\u3055\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -2727,7 +2727,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3061\u3087\u3063\u3068\u304D\u3066\u304F\u3060\u3055\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -2740,7 +2740,7 @@ MonoBehaviour:
     script_jp: "\u3078\uFF1F\u3042\u3001\u3061\u3087\uFF01\u8A71\u306F\u307E\u3060\u7D42\u308F\u3063\u3066\u306A\u304F\u3066\uFF01\u30C8\u30FC\u30AD\u30F3\u30B0\u3001\u30C8\u30FC\u30AD\u30F3\u30B0\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: confuse
@@ -2753,7 +2753,7 @@ MonoBehaviour:
     script_jp: "\u95A2\u4FC2\u3042\u308A\u307E\u305B\u3093\u3002\u3044\u3044\u304B\u3089\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -2766,7 +2766,7 @@ MonoBehaviour:
     script_jp: "\u3053\u308C\u306F\uFF01\u6012\u3089\u308C\u308B\u3084\u3064\u3060\u3042\u3042\u3042\uFF01\u3094\u3047\u3048\u3048\u3048\u3048\u3048\u3047\u308B\u3046\u3046\uFF01\u52A9\u3051\u3066\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: cry
@@ -2779,7 +2779,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -2792,7 +2792,7 @@ MonoBehaviour:
     script_jp: "\u5927\u4E08\u592B\u304B\u306A\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -2805,7 +2805,7 @@ MonoBehaviour:
     script_jp: "\u307E\u3042..\u5927\u4E08\u592B\u3067\u3042\u308D\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -2818,7 +2818,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u305D\u3063\u304B\u3002\u30F4\u30A7\u30EB\u304C\u8A00\u3046\u306A\u3089\u5927\u4E08\u592B\u3060\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -2844,20 +2844,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u5965\u3067\u30B7\u30E3\u30F3\u30C7\u30A3\u304C\u30AA\u30EC\u30F3\u30C9\u306B\u8A70\u3081\u5BC4\u308B"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8cf327b9693544325837585c9d303c7c, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30A2\u30AD\u30E5\u30A8\u30EA\u307E\u3067\u306F\u771F\u3063\u76F4\u3050\u884C\u3063\u3066\u3082\uFF12\u30F6\u6708\u3002\u8208\u884C\u3057\u306A\u304C\u3089\u884C\u3051\u3070\u534A\u5E74\u8FD1\u304F\u304B\u304B\u308B\u308F\u3002"
     script_jp: "\u30A2\u30AD\u30E5\u30A8\u30EA\u307E\u3067\u306F\u771F\u3063\u76F4\u3050\u884C\u3063\u3066\u3082\uFF12\u30F6\u6708\u3002\u8208\u884C\u3057\u306A\u304C\u3089\u884C\u3051\u3070\u534A\u5E74\u8FD1\u304F\u304B\u304B\u308B\u308F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -2870,7 +2870,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3055\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -2883,7 +2883,7 @@ MonoBehaviour:
     script_jp: "\u307E\u3055\u304B\u305D\u306E\u9593\u305A\u3063\u3068\u3001\u5C0F\u3055\u306A\u65C5\u82B8\u4EBA\u306E\u79C1\u305F\u3061\u304C\u7A3C\u3044\u3060\u65E5\u92AD\u3092\u5DEE\u3057\u4E0A\u3052\u308B\u3063\u3066\u8A71\u304B\u3057\u3089\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -2896,7 +2896,7 @@ MonoBehaviour:
     script_jp: "\u306D\u3048\uFF1F\u3044\u3064\u304B\u3089\u79C1\u305F\u3061\u306F\u6148\u5584\u6D3B\u52D5\u3092\u59CB\u3081\u305F\u306E\u304B\u3057\u3089\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -2909,7 +2909,7 @@ MonoBehaviour:
     script_jp: "\u3042\u308C\uFF1F\u78BA\u304B\u306B\uFF01\u304A\u91D1\u306E\u3053\u3068\u5168\u7136\u8003\u3048\u3066\u306A\u304B\u3063\u305F\u306A\u3041\uFF01\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -2922,7 +2922,7 @@ MonoBehaviour:
     script_jp: "\u306A\u3081\u3066\u308B\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -2935,7 +2935,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3063\uFF01\u3054\u3001\u3054\u3081\u3093\u306A\u3055\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: confuse
@@ -2948,7 +2948,7 @@ MonoBehaviour:
     script_jp: "\u3067\u3001\u3069\u3046\u3059\u308B\u304B\u306F\u8003\u3048\u3066\u308B\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -2961,7 +2961,7 @@ MonoBehaviour:
     script_jp: "\u3093\u30FC\uFF01\u307E\u3063\u305F\u304F\u3002\u3067\u3082\u306A\u3042\uFF01\u4FFA\u306F\u30F4\u30A7\u30A7\u30A7\u30EB\u306B\u904B\u547D\u3092\u611F\u3058\u3066\u308B\u306E\u3055\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -2974,7 +2974,7 @@ MonoBehaviour:
     script_jp: "\u8A00\u8449\u306B\u306F\u3067\u304D\u306A\u3044\u3051\u3069\uFF01\u304D\u3063\u3068\u3044\u3044\u3053\u3068\u304C\u3042\u308B\u3068\u601D\u3046\u3093\u3060\u3088\u306A\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -2987,7 +2987,7 @@ MonoBehaviour:
     script_jp: "\u4F55\u3088\u305D\u308C\u3002\u306F\u3041...\u3067\u3082\u79C1\u306F\u5225\u306B\u964D\u308D\u3057\u305F\u3044\u3068\u601D\u3063\u3066\u3044\u308B\u308F\u3051\u3058\u3083\u306A\u3044\u308F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -3000,7 +3000,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3001\u304A\u3084\uFF1F\u305D\u3046\u306A\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -3013,7 +3013,7 @@ MonoBehaviour:
     script_jp: "\u5F53\u305F\u308A\u524D\u3067\u3057\u3087\u3002\u5A5A\u7D04\u8005\u306E\u53CB\u9054\u3092\u7121\u7406\u3084\u308A\u964D\u308D\u3059\u306F\u305A\u306A\u3044\u3058\u3083\u306A\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -3026,7 +3026,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3049\u304A\uFF01\u30B7\u30E3\u30A1\u30A1\u30F3\u30C7\u30A3\u30A3\u30A3\uFF01\u30B5\u30F3\u30AD\u30E5\u30FC\u306A\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -3039,7 +3039,7 @@ MonoBehaviour:
     script_jp: "\u3067\u3082\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -3052,7 +3052,7 @@ MonoBehaviour:
     script_jp: "\u3067\u3082\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: normal
@@ -3065,7 +3065,7 @@ MonoBehaviour:
     script_jp: "\u304A\u91D1\u306F\u5225\u554F\u984C\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -3078,7 +3078,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3042\u3042\uFF01\u305D\u3046\u3060\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -3091,7 +3091,7 @@ MonoBehaviour:
     script_jp: "\u306A\u306B\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -3104,7 +3104,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A7\u30EB\u306B\u6F14\u5287\u306B\u51FA\u3066\u8CB0\u3048\u3070\u3044\u3044\u3093\u3060\u3088\u30FC\uFF01\u80CC\u3082\u9AD8\u3044\u3057\u3001\u306A\u3093\u304B\u3001\u8CAB\u7984\u3042\u308B\u3057\u3044\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -3117,7 +3117,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u307E\u3041\u3001\u305D\u308C\u3067\u3044\u3044\u308F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -3130,7 +3130,7 @@ MonoBehaviour:
     script_jp: "\u3088\u30FC\u3057\u6C7A\u307E\u308A\uFF01\u30B7\u30E3\u30F3\u30C7\u30A3\u30A3\u30A3\u3042\u308A\u304C\u3068\u30FC\uFF01\u304A\u91D1\u306E\u3053\u3068\u306A\u30FC\u3093\u306B\u3082\u8003\u3048\u3066\u306A\u304B\u3063\u305F\u306A\u3041\uFF01\u3042\u3063\u306F\u3063\u306F\u30FC\uFF01\u30B5\u30F3\u30AD\u30E5\u30FC\u306A\u3041\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -3143,7 +3143,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3041...\u307E\u3063\u305F\u304F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -3156,7 +3156,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01\u3055\u3093\u304D\u3085\u30FC\u306A\u3041\uFF01\u30B7\u30E3\u30F3\u30C7\u30A3\u3001\u30B5\u30F3\u30AD\u30E5\u30FC\u306A\u3041\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -3169,33 +3169,33 @@ MonoBehaviour:
     script_jp: "\uFF08\uFF2D\uFF09\u305D\u308C\u304B\u3089\u79C1\u305F\u3061\u306F\u30A2\u30AD\u30E5\u30A8\u30EA\u306E\u8857\u3078\u5411\u304B\u3046\u9053\u4E2D\u3001\u6F14\u5287\u306E\u6307\u5C0E\u3092\u53D7\u3051\u3064\u3064\u3001\u3055\u307E\u3056\u307E\u306A\u8857\u306E\u69D8\u5B50\u3092\u898B\u3066\u56DE\u3063\u305F\u306E\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8628a0611aaeb4c1e9e097dc4d9a6e57, type: 3}
+    BGM: {fileID: 8300000, guid: 757359b65fcc0471bb3c5750e03f9e9c, type: 3}
     still: {fileID: 0}
   - script: "\u30FC\u30FC\u30A4\u30FC\u30E9\u3068\u30F4\u30A7\u30EB\u304C\u65C5\u306E\u9014\u4E2D\u306E\u8857\u3067"
     script_jp: "\u30FC\u30FC\u30A4\u30FC\u30E9\u3068\u30F4\u30A7\u30EB\u304C\u65C5\u306E\u9014\u4E2D\u306E\u8857\u3067"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 334d060a849d74c8ca1939cf689e2967, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u306D\u3047\u30F4\u30A7\u30EB\uFF01\u3042\u308C\u306A\u30FC\u306B\uFF01"
     script_jp: "\u306D\u3047\u30F4\u30A7\u30EB\uFF01\u3042\u308C\u306A\u30FC\u306B\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3208,7 +3208,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u91CE\u83DC\u9732\u5929\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3221,7 +3221,7 @@ MonoBehaviour:
     script_jp: "\u3078\u3048\u30FC\uFF01\u3042\u306E\u68EE\u307F\u305F\u3044\u306A\u306E\u3082\u91CE\u83DC\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3234,7 +3234,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3060\u3002\u30D6\u30ED\u30C3\u30B3\u30EA\u30FC\u3068\u3044\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3247,7 +3247,7 @@ MonoBehaviour:
     script_jp: "\u3078\u3048\u30FC\uFF01\u3059\u3054\u3044\u5F62\u306D\uFF01\u3042\uFF01\u3042\u3063\u3061\u306F\uFF01\uFF1F\u304B\u308F\u3044\u3044\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3260,7 +3260,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u3042\u308C\u306F\u30AD\u30E3\u30F3\u30C7\u30A3\u30FC\u3068\u3044\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3273,7 +3273,7 @@ MonoBehaviour:
     script_jp: "\u304D\u3083\u3093\u3067\u3043\u30FC\uFF1F\u3063\u3066\u306A\u30FC\u306B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3286,7 +3286,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u53E3\u306B\u542B\u3093\u3067\u697D\u3057\u3080\u3082\u306E\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3299,7 +3299,7 @@ MonoBehaviour:
     script_jp: "\u3078\u3048\u30FC\uFF01\u7518\u3044\u306E\uFF01\uFF1F\u3057\u3087\u3063\u3071\u3044\u306E\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3312,7 +3312,7 @@ MonoBehaviour:
     script_jp: "\u7518\u3044\u5473\u306E\u3082\u306E\u304C\u591A\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3325,7 +3325,7 @@ MonoBehaviour:
     script_jp: "\u3078\u3048\u30FC\u30FC\u3002.\u3075\u30FC\u3093..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3338,7 +3338,7 @@ MonoBehaviour:
     script_jp: "\u6B32\u3057\u3044\u306E\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3351,7 +3351,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3044\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3364,7 +3364,7 @@ MonoBehaviour:
     script_jp: "\u304B\u307E\u308F\u3093\u3002\u6F14\u5287\u304C\u306A\u304B\u306A\u304B\u96E3\u3057\u3044\u3086\u3048\u3001\u307E\u3060\u3042\u307E\u308A\u8CC3\u91D1\u304C\u3082\u3089\u3048\u306A\u3044\u304C...\u8CB7\u3046\u3053\u3068\u306F\u3067\u304D\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3377,7 +3377,7 @@ MonoBehaviour:
     script_jp: "\u3084\u3063\u305F\u30FC\uFF01\u306D\u3048\u3001\u79C1\u9ED2\u3044\u306E\u304C\u3044\u3044\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: smile
@@ -3390,7 +3390,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u5E97\u4E3B\u3088\u3001\u305D\u306E\u9ED2\u3044\u3082\u306E\u3092\u3072\u3068\u3064\u3082\u3089\u304A\u3046...\u3002\u3075\u3080\u3002\u307B\u3089\u3001\u30A4\u30FC\u30E9\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3403,7 +3403,7 @@ MonoBehaviour:
     script_jp: "\u306B\u3078\u3078\u3001\u30F4\u30A7\u30EB\u3042\u308A\u304C\u3068\u30FC\uFF01\u3044\u305F\u3060\u304D\u307E\u30FC\u3059\uFF01\u3042\u30FC\u3093\u3063\uFF01\u30FB\u30FB\u30FB\u304B\u3001\u304B\u305F\u30FC\u3044\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: smile
@@ -3416,7 +3416,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u8210\u3081\u3066\u697D\u3057\u3080\u3082\u306E\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3429,7 +3429,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3001\u305D\u3046\u3060\u3063\u305F\u3093\u3060\u3002\u3066\u3078\u3078\u3002\u306F\u3080\u3002\u3093..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3442,7 +3442,7 @@ MonoBehaviour:
     script_jp: "\u3057\u3066\u3001\u3069\u3046\u306A\u306E\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3455,7 +3455,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u307E\u305A\u3044..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: confuse
@@ -3468,7 +3468,7 @@ MonoBehaviour:
     script_jp: "\u307B\u3046\u3002\u5E97\u4E3B\u3088\u3002\u9ED2\u3044\u306E\u306F\u4F55\u5473\u306A\u306E\u3060\u3002\u30FB\u30FB\u30FB\u307B\u3046\u3002\u30A4\u30AB\u30B9\u30DF\u3068\u3044\u3046\u306E\u304B\u3002\u77E5\u3089\u306C\u306A\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3481,7 +3481,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u30F4\u30A7\u30EB...\u3046\u30FC...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3494,7 +3494,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u5E97\u4E3B\u3088\u3001\u3059\u307E\u306A\u3044\u304C\u3082\u3046\u4E00\u3064\u3001\u8D64\u3044\u306E\u3092\u3082\u3089\u304A\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3507,7 +3507,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u4F55\u5473\u306A\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3520,7 +3520,7 @@ MonoBehaviour:
     script_jp: "\u304A\u305D\u3089\u304F\u3044\u3061\u3054\u3068\u3044\u3046\u679C\u5B9F\u306E\u5473\u3060...\u3002\u9ED2\u3044\u65B9\u306F\u79C1\u304C\u9810\u304B\u308D\u3046\u3002\uFF08\u98F4\u3092\u6E21\u3059\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3533,7 +3533,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A7\u30EB\u3001\u3044\u3044\u306E\uFF1F\u3042\u3063\u3001\u3042\u308A\u304C\u3068\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3546,7 +3546,7 @@ MonoBehaviour:
     script_jp: "\u304B\u307E\u308F\u3093\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3559,7 +3559,7 @@ MonoBehaviour:
     script_jp: "\u3067\u3082..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3572,7 +3572,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u30A4\u30AB\u30B9\u30DF\u3068\u3084\u3089\u304C\u597D\u7269\u3067\u3042\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3585,7 +3585,7 @@ MonoBehaviour:
     script_jp: "\u307B\u3093\u3068\u306B\uFF01\uFF1F\u305D\u3046\u306A\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3598,7 +3598,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3001\u3046\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -3611,20 +3611,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u305D\u306E\u5F8C\u5287\u56E3\u306B\u623B\u3063\u3066"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 9790ef2de0b504ac093f8aeed398cb80, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u305F\u3060\u3044\u307E\u30FC\uFF01\uFF01"
     script_jp: "\u305F\u3060\u3044\u307E\u30FC\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -3637,7 +3637,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3046\uFF01\u304A\u304B\u3048\u308A\u306A\u3055\u3041\u30FC\u3044\uFF01\u3063\u3066\u3001\u306A\u3093\u3058\u3083\u305D\u308A\u3083\u3042\u30F4\u30A7\u30A7\u30A7\u30A7\u30EB\u30A5\u30A5\u3046\u3046\uFF01\u3042\u3063\u306F\u3063\u306F\u3063\u306F\u3063\u306F\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -3650,7 +3650,7 @@ MonoBehaviour:
     script_jp: "\u3075...\u3075\u3075\u3075...\u3053\u3089\u3001\u5EA7\u9577\u3001\u4EBA\u306E\u9854\u3092\u307F\u3066...\u3077\u304F\u304F...\u7B11\u3063\u305F\u3089\u5931\u793C\u3067\u3059\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: smile
@@ -3663,7 +3663,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u306E\u9854\u304C\u305D\u3093\u306A\u306B\u304A\u304B\u3057\u3044\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -3676,7 +3676,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3042\u3063\u306F\u3063\u306F\u306F\u306F\uFF01\u304A\u304B\u3057\u3044\u3063\u3066\u305D\u308A\u3083\u3001\u306F\u3063\u306F\u3063\u306F\u3063\u306F\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -3689,7 +3689,7 @@ MonoBehaviour:
     script_jp: "\u3075\u30FB\u30FB\u30FB\u3075\u3075\u3075\u30FB\u30FB\u30FB\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -3702,7 +3702,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u30A4\u30FC\u30E9\u3001\u79C1\u306E\u9854\u306F\u3069\u3046\u306A\u3063\u3066\u304A\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -3715,7 +3715,7 @@ MonoBehaviour:
     script_jp: "\u3048\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -3728,7 +3728,7 @@ MonoBehaviour:
     script_jp: "\u305A\u3063\u3068\u4E00\u7DD2\u306B\u304A\u3063\u305F\u306E\u3060\u3001\u6C17\u3065\u3044\u3066\u304A\u308B\u306E\u3060\u308D\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -3741,7 +3741,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u53E3\u304C\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: smile
@@ -3754,7 +3754,7 @@ MonoBehaviour:
     script_jp: "\u53E3\u304C\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -3767,7 +3767,7 @@ MonoBehaviour:
     script_jp: "\u771F\u3063\u9ED2...\u3077\u304F\u304F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: smile
@@ -3780,7 +3780,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -3793,14 +3793,14 @@ MonoBehaviour:
     script_jp: "\uFF08\uFF2D\uFF09\u65E5\u3005\u306E\u6F14\u5287\u7DF4\u7FD2\u3082\u79C1\u306E\u52E4\u3081\u3067\u3042\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: f48a22709434f4059bf8afece8a5b216, type: 3}
+    BGM: {fileID: 8300000, guid: d232f76b3120345dfa6cd9913ae3cf75, type: 3}
     still: {fileID: 0}
   - script: "\u30FC\u30FC\u30B7\u30E3\u30F3\u30C7\u30A3\u304C\u30F4\u30A7\u30EB\u306E\u6307\u5C0E\u3092\u3057\u3066\u3044\u308B\u306E\u3092\u30A4\u30FC\u30E9\u3068\u30AA\u30EC\u30F3\u30C9\u304C\u898B\u3066\u3044\u308B"
     script_jp: "\u30FC\u30FC\u30B7\u30E3\u30F3\u30C7\u30A3\u304C\u30F4\u30A7\u30EB\u306E\u6307\u5C0E\u3092\u3057\u3066\u3044\u308B\u306E\u3092\u30A4\u30FC\u30E9\u3068\u30AA\u30EC\u30F3\u30C9\u304C\u898B\u3066\u3044\u308B"
@@ -3819,7 +3819,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A7\u30EB\u304C\u3093\u3070\u308C\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -3832,12 +3832,12 @@ MonoBehaviour:
     script_jp: "\u9055\u3046\uFF01\u3082\u3063\u3068\u611F\u60C5\u3092\u6307\u5148\u307E\u3067\u8868\u73FE\u3059\u308B\u306E\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
     voice: {fileID: 0}
-    SE: {fileID: 0}
+    SE: {fileID: 8300000, guid: 073ab404fe4c14c3cb746d92b47f3fef, type: 3}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
@@ -3845,7 +3845,7 @@ MonoBehaviour:
     script_jp: "\u3053\u3046\u304B\u3002\u304A\u3049\uFF01\u59EB\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -3858,12 +3858,12 @@ MonoBehaviour:
     script_jp: "\u9055\u3046\uFF01\u4F55\u305D\u306E\u5909\u306A\u4E2D\u8170\uFF01\u4E0B\u3052\u308B\u306A\u3089\u4E0B\u3052\u308B\uFF01\u7ACB\u3064\u306A\u3089\u7ACB\u3064\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
     voice: {fileID: 0}
-    SE: {fileID: 0}
+    SE: {fileID: 8300000, guid: 073ab404fe4c14c3cb746d92b47f3fef, type: 3}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
@@ -3871,7 +3871,7 @@ MonoBehaviour:
     script_jp: "\u3075...\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -3884,7 +3884,7 @@ MonoBehaviour:
     script_jp: "\u624B\u8DB3\u304C\u9577\u3044\u3093\u3060\u304B\u3089\u3057\u3063\u304B\u308A\u6B62\u3081\u308B\u3068\u3053\u308D\u3067\u6B62\u3081\u306A\u3044\u3068\u30BF\u30B3\u307F\u305F\u3044\u306B\u306A\u3063\u3061\u3083\u3046\u3093\u3060\u304B\u3089\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -3897,7 +3897,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080...\u3002\u79C1\u304C\u30BF\u3001\u30BF\u30B3\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: confuse
@@ -3910,7 +3910,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A7\u30EB\u304B\u3063\u3053\u3044\u3044\u3088\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -3923,7 +3923,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3049\uFF01\uFF1F\u3088\u30FC\u3057\u3002\u30B7\u30E3\u30F3\u30C7\u30A3\u3082\u53EF\u611B\u3044\u305E\u30FC\uFF01\u6012\u3063\u3066\u308B\u9854\u3082\u3059\u3066\u304D\u3060\u305C\u30FC\uFF01\u30AD\u30E5\u30FC\u30C6\u30A3\u30FC\u30AD\u30E5\u30FC\u30C6\u30A3\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -3936,7 +3936,7 @@ MonoBehaviour:
     script_jp: "\u3053\u3046\u304B\u3002\u304A\u3049\uFF01\u59EB\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -3949,7 +3949,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A7\u30EB\u304B\u3063\u3053\u3044\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: normal
@@ -3962,7 +3962,7 @@ MonoBehaviour:
     script_jp: "\u30B7\u30E3\u30F3\u30C7\u30A3\u30FC\u7D20\u6575\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -3975,7 +3975,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3041...\u30F4\u30A7\u30EB\u3055\u3093\u3001\u3061\u3087\u3063\u3068\u5F85\u3063\u3066\u3066\u304F\u3060\u3055\u3044\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -3988,7 +3988,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4001,12 +4001,12 @@ MonoBehaviour:
     script_jp: "\uFF08\u3059\u3045...\uFF09\u3042\u3093\u305F\u305F\u3061\uFF01\u4ECA\u3059\u3050\u51FA\u3066\u3044\u304D\u306A\u3055\u3044\uFF01\u90AA\u9B54\u306A\u306E\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
     voice: {fileID: 0}
-    SE: {fileID: 0}
+    SE: {fileID: 8300000, guid: 073ab404fe4c14c3cb746d92b47f3fef, type: 3}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
@@ -4014,7 +4014,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3063\u306F\u3063\u306F\u3063\u306F\uFF01\u6012\u3089\u308C\u3061\u3063\u305F\u306A\u3041\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -4027,7 +4027,7 @@ MonoBehaviour:
     script_jp: "\u306B\u3078\u3078\u301C\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: smile
@@ -4040,7 +4040,7 @@ MonoBehaviour:
     script_jp: "\u3067\u3082\u3084\u3063\u3071\u308A\u6012\u3063\u305F\u9854\u3082\u304B\u308F\u3044\u3044\u305C\u3048\u30FC\uFF01\u30D3\u30E5\u30FC\u30C6\u30A3\u30D5\u30A9\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -4053,12 +4053,12 @@ MonoBehaviour:
     script_jp: "\u3044\u3044\u304B\u3089\uFF01\u3059\u3050\uFF01\u51FA\u3066\u3044\u304D\u306A\u3055\u3044\uFF01\u3055\u3063\u3055\u3068\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
     voice: {fileID: 0}
-    SE: {fileID: 0}
+    SE: {fileID: 8300000, guid: 073ab404fe4c14c3cb746d92b47f3fef, type: 3}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
@@ -4066,7 +4066,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3089\u3001\u307B\u3093\u3068\u306B\u6012\u3063\u3061\u3083\u3063\u305F\u304B\u3082\uFF01\u3042\u3063\u306F\u3063\u306F\uFF01\u3044\u3053\u30FC\u305C\u30FC\uFF01\u30A4\u30FC\u30E9\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -4079,7 +4079,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3093\uFF01\u30F4\u30A7\u30EB\u304C\u3093\u3070\u3063\u3066\u306D\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: R
     expressions: smile
@@ -4092,20 +4092,20 @@ MonoBehaviour:
     script_jp: "\uFF08\uFF2D\uFF09\u30A4\u30FC\u30E9\u3082\u3059\u3063\u304B\u308A\u99B4\u67D3\u3093\u3060\u3082\u306E\u3060\u3002\u4EBA\u898B\u77E5\u308A\u305B\u305A\u3001\u7686\u3068\u6253\u3061\u89E3\u3051\u3066\u3089\u308C\u3066\u3044\u308B\u3002\u3075\u3063..\u8AB0\u306B\u4F3C\u305F\u306E\u3084\u3089\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u3042\u3089\uFF1F\u30A4\u30FC\u30E9\u3061\u3083\u3093\u3001\u4E00\u4EBA\u3067\u73CD\u3057\u3044\u308F\u306D\u3002"
     script_jp: "\u3042\u3089\uFF1F\u30A4\u30FC\u30E9\u3061\u3083\u3093\u3001\u4E00\u4EBA\u3067\u73CD\u3057\u3044\u308F\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -4118,7 +4118,7 @@ MonoBehaviour:
     script_jp: "\u3093\u30FC\uFF1F\u305D\u3046\u304B\u306A\uFF1F\uFF08\u7269\u66F8\u304D\u3092\u3057\u306A\u304C\u3089\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -4131,7 +4131,7 @@ MonoBehaviour:
     script_jp: "\u3093\uFF1F\u4F55\u304B\u66F8\u3044\u3066\u308B\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -4144,7 +4144,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3093\u30FC\u3001\u811A\u672C\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -4157,7 +4157,7 @@ MonoBehaviour:
     script_jp: "\u3078\u3048\u30FC\u3002\u3069\u3093\u306A\u304A\u8A71\u3092\u66F8\u3044\u3066\u308B\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -4170,7 +4170,7 @@ MonoBehaviour:
     script_jp: "\u30DE\u30DE\u306E\u304A\u306F\u306A\u3057\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -4183,7 +4183,7 @@ MonoBehaviour:
     script_jp: "\u3078\u3048\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -4196,7 +4196,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A7\u30EB\u304C\u6559\u3048\u3066\u304F\u308C\u308B\u306E\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -4209,7 +4209,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u306A\u3093\u3060...\u3002\u306D\u3063\u3001\u3069\u3093\u306A\u304A\u8A71\u306A\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -4222,7 +4222,7 @@ MonoBehaviour:
     script_jp: "\uFF08\u7B46\u3092\u7F6E\u3044\u3066\uFF09\u3046\u30FC\u3093\u3068\u306D\u3001\u3048\u30FC\u3063\u3068\u30FC...\uFF08\u3061\u3087\u3063\u3068\u7167\u308C\u81ED\u305D\u3046\u306B\u7B11\u3046\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -4235,20 +4235,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u30B5\u30E9\u304C\u30F4\u30A9\u30EB\u30AB\u30B9\u306B\u8A71\u304B\u3051\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
+    BGM: {fileID: 8300000, guid: 53a338edc39ab476190929a51f533442, type: 3}
     still: {fileID: 0}
   - script: "\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3001\u4F55\u3084\u3089\u6D77\u5CB8\u6CBF\u3044\u306E\u8857\u3067\u4EBA\u65CF\u306E\u5A18\u304C\u66B4\u308C\u3066\u3044\u308B\u3068\u5831\u544A\u304C\u3042\u3063\u305F\u306E\u3067\u3059\u304C..."
     script_jp: "\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3001\u4F55\u3084\u3089\u6D77\u5CB8\u6CBF\u3044\u306E\u8857\u3067\u4EBA\u65CF\u306E\u5A18\u304C\u66B4\u308C\u3066\u3044\u308B\u3068\u5831\u544A\u304C\u3042\u3063\u305F\u306E\u3067\u3059\u304C..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -4261,7 +4261,7 @@ MonoBehaviour:
     script_jp: "\u4EBA\u65CF\u306E\u5A18\uFF1F\u3075\u3080...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4274,7 +4274,7 @@ MonoBehaviour:
     script_jp: "\u8239\u306A\u3069\u3092\u898B\u304B\u3051\u305F\u8005\u306F\u304A\u3089\u305A\u3001\u6E2F\u304C\u3042\u308B\u3088\u3046\u306A\u5834\u6240\u3067\u3082\u306A\u304F\u3002\u79C1\u305F\u3061\u304C\u77E5\u3089\u306C\u8853\u3092\u7528\u3044\u308B\u305D\u3046\u3067\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -4287,7 +4287,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u30AA\u30EC\u30F3\u30C9\u306F\u3069\u3046\u3057\u3066\u3044\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4300,7 +4300,7 @@ MonoBehaviour:
     script_jp: "\u4ECA\u306F\u4EBA\u65CF\u306E\u5730\u306E\u4FB5\u653B\u3078\u5411\u304B\u3063\u3066\u304A\u308A\u307E\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -4313,7 +4313,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u304B\u3002\u3067\u306F\u3001\u79C1\u304C\u69D8\u5B50\u3092\u898B\u3066\u304F\u308B\u3053\u3068\u3068\u3057\u3088\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4326,7 +4326,7 @@ MonoBehaviour:
     script_jp: "\uFF01\uFF1F\u30FB\u30FB\u30FB\u5DEE\u3057\u51FA\u304C\u307E\u3057\u3044\u3067\u3059\u304C\u3001\u6575\u306E\u6B63\u4F53\u306F\u4E0D\u660E\u306A\u3093\u3067\u3059...\u3002\u4E07\u304C\u4E00\u3067\u3082\u3042\u308C\u3070..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -4339,7 +4339,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u306B\u4E07\u304C\u4E00\u304C\u3042\u308B\u3068\u3044\u3046\u306E\u3060\u306A\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4352,7 +4352,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3001\u3044\u3048...\u5931\u793C\u3057\u307E\u3057\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -4365,7 +4365,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080...\u3002\u3044\u3084\u3001\u3059\u307E\u306A\u304B\u3063\u305F\u3002\u5FD8\u308C\u3066\u304F\u308C\u3002\u3069\u3046\u306B\u3082\u305D\u306A\u305F\u306B\u306F\u7518\u3048\u3066\u3057\u307E\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4378,7 +4378,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3069\u3046\u3055\u308C\u307E\u3057\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -4391,7 +4391,7 @@ MonoBehaviour:
     script_jp: "\u666E\u901A\u306B\u8003\u3048\u308C\u3070\u305D\u306A\u305F\u306E\u8A00\u3046\u3053\u3068\u304C\u6B63\u3057\u3044\u3002\u5927\u5C06\u306E\u79C1\u304C\u8FC2\u95CA\u306B\u5916\u306B\u3067\u308B\u306A\u3069\u3068\u629C\u304B\u3057\u305F\u79C1\u304C\u60AA\u3044\u306E\u3060...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4404,7 +4404,7 @@ MonoBehaviour:
     script_jp: "\u3060\u304C\u3001\u79C1\u3082\u9B54\u738B\u3067\u3042\u308B\u524D\u306B\u4E00\u4EBA\u306E\u9B54\u65CF\u306A\u306E\u3060...\u3002\u79C1\u3082\u6642\u306B\u306F\u305F\u3060\u306E\u9B54\u65CF\u3068\u3057\u3066\u5916\u306B\u51FA\u3066\u77E5\u3089\u306C\u4F55\u304B\u3092\u898B\u3066\u307F\u305F\u3044\u306E\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4417,7 +4417,7 @@ MonoBehaviour:
     script_jp: "\u5805\u82E6\u3057\u3044\u601D\u3044\u3092\u3057\u7D9A\u3051\u308B\u306E\u306F\u3069\u3046\u3082\u80A9\u304C\u3053\u3063\u3066\u3057\u307E\u3046\u306E\u3067\u306A\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4430,7 +4430,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3063...\u305D\u3046\u306A\u306E\u3067\u3059\u306D\u3002\u3067\u3082\u79C1\u3082\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u306B\u9B54\u738B\u69D8\u3068\u3057\u3066\u306E\u3042\u308A\u65B9\u3092\u6C42\u3081\u3059\u304E\u3066\u3044\u307E\u3057\u305F\u3002\u7533\u3057\u8A33\u3042\u308A\u307E\u305B\u3093\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -4443,7 +4443,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3084\u3001\u3044\u3044\u306E\u3060\u3002\u30B5\u30E9\u3088\u3002\u305D\u306A\u305F\u3082\u5916\u306B\u51FA\u305F\u304F\u306A\u3063\u305F\u3089\u8A00\u3046\u3068\u826F\u3044\u3002\u3059\u3050\u306B\u3067\u3082\u805E\u304D\u5C4A\u3051\u3088\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4456,7 +4456,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3044\u3002\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -4469,7 +4469,7 @@ MonoBehaviour:
     script_jp: "\u3067\u306F\u3001\u69D8\u5B50\u3092\u898B\u3066\u3053\u3088\u3046\u3002\u4F55\u4E8B\u3082\u306A\u304F\u5E30\u3063\u3066\u304F\u308B\u3002\u5B89\u5FC3\u3059\u308B\u3068\u826F\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4482,7 +4482,7 @@ MonoBehaviour:
     script_jp: "\u308F\u304B\u308A\u307E\u3057\u305F\u3002\u304A\u6C17\u3092\u3064\u3051\u3066\u3002\u5FC5\u305A\u3054\u7121\u4E8B\u306B\u5E30\u3063\u3066\u304D\u3066\u304F\u3060\u3055\u3044\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: smile
@@ -4508,25 +4508,25 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u30ED\u30AF\u30B7\u30FC\u304C\u4ED8\u8FD1\u306E\u9B54\u7269\u3092\u8E74\u6563\u3089\u3057\u3066\u3044\u308B\u3002\u8DB3\u5143\u3092\u4E2D\u5FC3\u306B\u6570\u30E1\u30FC\u30C8\u30EB\u7BC4\u56F2\u306B\u9B54\u6CD5\u9663\u304C\u66F8\u304B\u308C\u3066\u3044\u308B\u3002\u305D\u3053\u3078\u30F4\u30A9\u30EB\u30AB\u30B9\u304C\u8A2A\u308C\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 06cf8d7073ba342baa6610572a5b632e, type: 3}
+    BGM: {fileID: 8300000, guid: 595b6af5684944f0f93dbe3eed912ea7, type: 3}
     still: {fileID: 0}
   - script: "\u3046\u304A\u308A\u3083\u3042\u3042\u3042\u3042\u3042\u3042\u3042\uFF01\u3069\u3063\u3063\u3063\u304B\u3042\u3042\u3042\u3093\uFF01...\u3042\u3042\u3082\u3046\uFF01\u3057\u3064\u3053\u3044\uFF01\uFF01\u3066\u3048\u3048\u308A\u3083\u3042\u3042\u3042\u3042\u3042\u3042\uFF01"
     script_jp: "\u3046\u304A\u308A\u3083\u3042\u3042\u3042\u3042\u3042\u3042\u3042\uFF01\u3069\u3063\u3063\u3063\u304B\u3042\u3042\u3042\u3093\uFF01...\u3042\u3042\u3082\u3046\uFF01\u3057\u3064\u3053\u3044\uFF01\uFF01\u3066\u3048\u3048\u308A\u3083\u3042\u3042\u3042\u3042\u3042\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
     voice: {fileID: 0}
-    SE: {fileID: 0}
+    SE: {fileID: 8300000, guid: 021eee629426546018aa929fd93d09d4, type: 3}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
@@ -4534,7 +4534,7 @@ MonoBehaviour:
     script_jp: "\u3069\u3063\u3063\u3063\u304B\u3042\u3042\u3042\u3093...\u306F\u3041...\u3001\u306F\u3042\uFF01\u3042\u3093\u305F\u305F\u3061\u306D\u3048\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4547,7 +4547,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u306F\u63A2\u691C\u306B\u6765\u305F\u3060\u3051\u306A\u306E\u306B\uFF01\u306A\u3042\u3093\u3067\u98DF\u3063\u3066\u304B\u304B\u3063\u3066\u304F\u308B\u306E\u3088\uFF01\u90AA\u9B54\u3057\u306A\u3044\u3067\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4560,7 +4560,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u968F\u5206\u3068\u8C6A\u5FEB\u306A...\u3002\u3093..\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4573,7 +4573,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3041\u306F\u3041...\u3093\uFF1F\u3042\u306A\u305F...\u3042\u306A\u305F\u3082\u79C1\u306E\u5192\u967A\u306E\u90AA\u9B54\u3092\u3057\u3088\u3046\u3063\u3066\u3044\u3046\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4586,7 +4586,7 @@ MonoBehaviour:
     script_jp: "\u305D\u306A\u305F\u624B\u52A0\u6E1B\u3092\u3057\u3066\u3044\u305F\u306E\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4599,7 +4599,7 @@ MonoBehaviour:
     script_jp: "\u3078\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -4612,7 +4612,7 @@ MonoBehaviour:
     script_jp: "\u6B7B\u306A\u306C\u3088\u3046\u306B\u624B\u52A0\u6E1B\u3057\u305F\u304B\u3001\u3068\u805E\u3044\u3066\u304A\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4625,7 +4625,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u306F\u3041...\u3078\u3047\u3002\u305D\u308C\u3067...\u3057\u3066\u306A\u3044\u3063\u3066\u8A00\u3063\u305F\u3089\u3042\u306A\u305F\u306F\u79C1\u3092\u3069\u3046\u3059\u308B\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -4638,7 +4638,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u3053\u3046\u3059\u308B\u3002\uFF08\u624B\u304B\u3089\u9B54\u5C0E\u6CE2\u304C\u51FA\u308B\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4651,7 +4651,7 @@ MonoBehaviour:
     script_jp: "\u304D\u3083\u3042\uFF01\uFF01\u5371\u306A\u3044\u3058\u3083\u306A\u3044\uFF01\u6025\u306B\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4664,7 +4664,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u3053\u306E\u9B54\u6CD5\u9663\u304C\u305D\u306E\u529B\u306E\u5143\u304B\u3002\uFF08\u8DB3\u5143\u306B\u3057\u3083\u304C\u3093\u3067\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4677,7 +4677,7 @@ MonoBehaviour:
     script_jp: "\u3061\u3087\u3063\u3068\u8FD1\u5BC4\u3089\u306A\u3044\u3067\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4690,7 +4690,7 @@ MonoBehaviour:
     script_jp: "\u90AA\u9B54\u3060\u3002\uFF08\u30ED\u30AF\u30B7\u30FC\u3092\u898B\u5411\u304D\u3082\u305B\u305A\u3001\u4F53\u304B\u3089\u9B54\u5C0E\u6CE2\u304C\u51FA\u308B\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4703,7 +4703,7 @@ MonoBehaviour:
     script_jp: "\u304D\u3083\u3042\uFF01\uFF01\uFF01\u3061\u3087\u3001\u3061\u3087\u3063\u3068\uFF01\u3042\u3093\u305F\u306D\u3047\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4716,7 +4716,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u826F\u304F\u3067\u304D\u305F\u53E4\u4EE3\u9B54\u6CD5\u3060\u3002\u4EBA\u306E\u5A18\u3088\u3002\u3069\u3053\u3067\u3053\u308C\u3092\u77E5\u3063\u305F\u306E\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4729,7 +4729,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3041\uFF01\uFF1F\u306A\u3093\u3067\u3042\u3093\u305F\u307F\u305F\u3044\u306A\u826F\u304F\u308F\u304B\u3089\u306A\u3044\u3084\u3064\u306B\u6559\u3048\u306A\u3044\u3068\u3044\u3051\u306A\u3044\u306E\u3088\uFF01\u3042\u3093\u305F\u3082\u30C8\u30EC\u30B8\u30E3\u30FC\u30CF\u30F3\u30BF\u30FC\u306A\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4742,7 +4742,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u79C1\u3092\u77E5\u3089\u306C\u306E\u304B\u3002\u9762\u767D\u3044\u3002\u79C1\u306F\u30F4\u30A9\u30EB\u30AB\u30B9\u3068\u3044\u3046\u3002\u9B54\u738B\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4755,7 +4755,7 @@ MonoBehaviour:
     script_jp: "\u3075\u30FC\u3093\u3002\u79C1\u306F\u30ED\u30AF\u30B7\u30FC\uFF01\u30C8\u30EC\u30B8\u30E3\u30FC\u30CF\u30F3\u30BF\u30FC\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4768,7 +4768,7 @@ MonoBehaviour:
     script_jp: "\u307B\u3046\u3002\u30ED\u30AF\u30B7\u30FC\u304B\u3002\u826F\u3044\u540D\u524D\u3060\u306A\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4781,7 +4781,7 @@ MonoBehaviour:
     script_jp: "\u4E16\u754C\u3067\u4E00\u756A\u7ACB\u6D3E\u306A\u306D\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4794,7 +4794,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u5618\u3060\u306A\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4807,7 +4807,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3001\u5618\u3058\u3083\u306A\u3044\u308F\u3088\uFF01\u3053\u308C\u304B\u3089\u306A\u308B\u3093\u3060\u304B\u3089\uFF01\u3053\u308C\u304B\u3089\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4820,7 +4820,7 @@ MonoBehaviour:
     script_jp: "\u3057\u3066\u30ED\u30AF\u30B7\u30FC\u3088\u3002\u3053\u306E\u53E4\u4EE3\u9B54\u6CD5\u306F\u3001\u826F\u304F\u3067\u304D\u3066\u306F\u3044\u308B\u304C\u3002\uFF08\u6307\u3092\u565B\u3080\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4833,7 +4833,7 @@ MonoBehaviour:
     script_jp: "\u3048\uFF01\uFF1F\u306A\u3001\u4F55\u3057\u3066\u308B\u306E\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4846,12 +4846,12 @@ MonoBehaviour:
     script_jp: "\u5B8C\u74A7\u3067\u306F\u306A\u3044\u3002\uFF08\u5C11\u3057\u79FB\u52D5\u3057\u3066\uFF09\u3053\u3053\u304C\u9593\u9055\u3063\u3066\u304A\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
     voice: {fileID: 0}
-    SE: {fileID: 0}
+    SE: {fileID: 8300000, guid: c2704930bab0c41d48cb255b1abcf639, type: 3}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
@@ -4859,7 +4859,7 @@ MonoBehaviour:
     script_jp: "\u3048\uFF01\uFF1F\u3061\u3087\u3001\u3061\u3087\u3063\u3068\u3049\uFF01\u306A\u3093\u3067\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4872,7 +4872,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u3053\u308C\u3067\u305D\u306A\u305F\u306E\u529B\u306F\u4EBA\u4E26\u307F\u3068\u306A\u3063\u305F\u3002\u89B3\u5FF5\u3059\u308B\u3068\u3088\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4885,7 +4885,7 @@ MonoBehaviour:
     script_jp: "\uFF08\u524D\u30BB\u30EA\u30D5\u98DF\u3044\u6C17\u5473\u3067\uFF09\u3048\uFF01\u3069\u3046\u3084\u3063\u305F\u306E\uFF01\uFF1F\u306D\u3048\uFF01\u3042\u306A\u305F\u3001\u53E4\u4EE3\u9B54\u6CD5\u306B\u3064\u3044\u3066\u77E5\u3063\u3066\u3044\u308B\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4898,7 +4898,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u3082\u5B8C\u74A7\u3067\u306F\u306A\u3044\u3068\u601D\u3063\u3066\u3044\u305F\u3093\u3060\u3051\u3069\uFF01\u4F55\u304C\u60AA\u3044\u306E\u304B\u5168\u7136\u308F\u304B\u3089\u306A\u304F\u3066\uFF01\u306D\u3048\uFF01\u3042\u306A\u305F\u306F\u8AB0\u306A\u306E\uFF01\uFF1F\u3069\u3046\u3057\u3066\u77E5\u3063\u3066\u3044\u308B\u306E\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -4911,7 +4911,7 @@ MonoBehaviour:
     script_jp: "\u3075...\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4924,7 +4924,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u306F\u30ED\u30AF\u30B7\u30FC\uFF01\u3042\u306A\u305F\u306F...\u30F4\u30A9\u30EB\u30AB\u30B9\u3060\u3063\u3051\uFF1F\u3042\uFF01\u30F4\u30A9\u30EB\u30AB\u30B9\uFF01\u307B\u3093\u3068\u306B\uFF01\u3048\uFF1F\u30F4\u30A9\u30EB\u30AB\u30B9\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -4937,7 +4937,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u306D\u3001\u907A\u8DE1\u3067\u898B\u3064\u3051\u305F\u672C\u3067\u8AAD\u3093\u3060\u3053\u3068\u304C\u3042\u308B\u306E\uFF01\u3042\u306A\u305F\u3001\u307E\u3055\u304B\u795E\u8A71\u6642\u4EE3\u304B\u3089\u751F\u304D\u3066\u3044\u308B\u30F4\u30A9\u30EB\u30AB\u30B9\u306A\u306E\uFF01\uFF1F\u306D\u3048\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -4950,7 +4950,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3001\u3075\u3080\u3002\u4E00\u5EA6\u3001\u843D\u3061\u7740\u3051\u308B\u5834\u6240\u306B\u3001\u884C\u304B\u306C\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -4963,20 +4963,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u30ED\u30AF\u30B7\u30FC\u3092\u9023\u308C\u3066\u9B54\u738B\u57CE\u306B\u5E30\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
+    BGM: {fileID: 8300000, guid: 53a338edc39ab476190929a51f533442, type: 3}
     still: {fileID: 0}
   - script: "\u304A\u304B\u3048\u308A\u306A\u3055\u3044\u307E\u305B\u3002\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8...\u3002\u305D\u306E\u4EBA\u65CF\u306F\u3069\u3061\u3089\u69D8\u3067\u3059\u304B\uFF1F"
     script_jp: "\u304A\u304B\u3048\u308A\u306A\u3055\u3044\u307E\u305B\u3002\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8...\u3002\u305D\u306E\u4EBA\u65CF\u306F\u3069\u3061\u3089\u69D8\u3067\u3059\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: normal
@@ -4989,7 +4989,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5002,7 +5002,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u306F\u30ED\u30AF\u30B7\u30FC\uFF01\u30C8\u30EC\u30B8\u30E3\u30FC\u30CF\u30F3\u30BF\u30FC\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -5015,7 +5015,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3068\u306E\u3053\u3068\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5028,7 +5028,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u306F\u3041\u3002\u3067\u3001\u305D\u306E\u30C8\u30EC\u30B8\u30E3\u30FC\u30CF\u30F3\u30BF\u30FC\u304C\u9B54\u738B\u57CE\u306B\u306A\u3093\u306E\u7528\u3067\u3059\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: confuse
@@ -5041,7 +5041,7 @@ MonoBehaviour:
     script_jp: "\u3042\u306A\u305F\u3053\u305D\u8AB0\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -5054,7 +5054,7 @@ MonoBehaviour:
     script_jp: "\u79C1\u306F\u30B5\u30E9\u3067\u3059\u3002\u3053\u306E\u57CE\u306E\u96D1\u52D9\u3092\u53D6\u308A\u4ED5\u5207\u308B\u57F7\u52D9\u5B98\u3067\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: confuse
@@ -5067,7 +5067,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u79C1\u304C\u62DB\u3044\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5080,7 +5080,7 @@ MonoBehaviour:
     script_jp: "\u898B\u308C\u3070\u308F\u304B\u308A\u307E\u3059\u3002\u3067\u3001\u306A\u30FB\u3093\u30FB\u306E\u7528\u306A\u3093\u3067\u3059\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: confuse
@@ -5093,7 +5093,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A9\u30EB\u30AB\u30B9\u306B\u53E4\u4EE3\u6587\u660E\u306E\u3053\u3068\u3092\u805E\u304D\u306B\u6765\u305F\u306E\uFF01\u3072\u3063\uFF01\uFF08\u80F8\u306B\u9055\u548C\u611F\u3092\u611F\u3058\u308B\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -5106,7 +5106,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u306E\u3053\u3068\u3092\u547C\u3073\u6368\u3066\u306B\u3059\u308B\u3068\u306F\u3002\u4ECA\u3053\u306E\u5834\u3067\u546A\u3044\u6BBA\u3057\u307E\u3057\u3087\u3046\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: angry
@@ -5119,7 +5119,7 @@ MonoBehaviour:
     script_jp: "\u30B5\u30E9\u3088\u3002\u79C1\u304C\u8A31\u3057\u3066\u304A\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5132,7 +5132,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u305D\u3046\u3067\u3059\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: confuse
@@ -5145,7 +5145,7 @@ MonoBehaviour:
     script_jp: "\u305D\u306A\u305F\u306E\u5FE0\u7FA9\u306B\u611F\u8B1D\u3059\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5158,7 +5158,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3063...\u3075\u30FC...\u52A9\u304B\u3063\u305F\u3041\u3002\u6B7B\u306C\u304B\u3068\u601D\u3063\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -5171,7 +5171,7 @@ MonoBehaviour:
     script_jp: "\u3059\u307E\u306C\u306A\u3002\u624B\u8352\u306A\u6B53\u8FCE\u3067\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5184,7 +5184,7 @@ MonoBehaviour:
     script_jp: "\u3044\u3044\u308F\u3088\u3002\u3069\u3046\u305B\u3001\u6B53\u8FCE\u3055\u308C\u306A\u3044\u306E\u306F\u308F\u304B\u3063\u3066\u308B\u3093\u3060\u304B\u3089\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -5197,7 +5197,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\u3063\u306F\u3042\uFF01\u30B5\u30E9\u306F\u771F\u9762\u76EE\u3060\u306A\u3041\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: unique
@@ -5210,7 +5210,7 @@ MonoBehaviour:
     script_jp: "\u308F\u3063\uFF01\u308F\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: confuse
@@ -5223,7 +5223,7 @@ MonoBehaviour:
     script_jp: "\u305D\u30FC\u3093\u306A\u306B\u6012\u3063\u3066\u3070\u3063\u304B\u308A\u3060\u3068\u5E78\u305B\u304C\u9003\u3052\u3066\u304F\u305E\u30FC\uFF01\u3088\u3044\u3057\u3087\u3063\u3068\u3001\u30A2\u30F3\u30CF\u30C3\u30D4\u30FC\u30A2\u30F3\u30CF\u30C3\u30D4\u30FC\uFF01...\u307B\u3044\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: normal
@@ -5236,7 +5236,7 @@ MonoBehaviour:
     script_jp: "\u3078\uFF1F\u308F\u3063\uFF01\uFF08\u306F\u308A\u3064\u3051\u306B\u306A\u308B\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -5249,7 +5249,7 @@ MonoBehaviour:
     script_jp: "\u30AA\u30EC\u30F3\u30C9\u3088\u3002\u60AA\u8DA3\u5473\u3060\u305E\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: confuse
@@ -5262,7 +5262,7 @@ MonoBehaviour:
     script_jp: "\u5E30\u3063\u3066\u304D\u305F\u306E\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: confuse
@@ -5275,7 +5275,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01\u521D\u3081\u307E\u3057\u3066\u3001\u30ED\u30AF\u30B7\u30FC\uFF01\u4FFA\u306F\u5080\u5121\u5E2B\u306E\u30AA\u30EC\u30F3\u30C9\u3055\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: normal
@@ -5288,7 +5288,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u304C\u4E00\u4EBA\u3067\u51FA\u3066\u884C\u3063\u305F\u3063\u3066\u30B5\u30E9\u304C\u9707\u3048\u305F\u58F0\u3067\u9023\u7D61\u3057\u3066\u304F\u308B\u3082\u3093\u3060\u304B\u3089\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: normal
@@ -5301,7 +5301,7 @@ MonoBehaviour:
     script_jp: "\u304D\u3066\u307F\u305F\u3089\u53EF\u611B\u3044\u53EF\u611B\u3044\u30EC\u30C7\u30A3\u30FC\u304C\u3044\u308B\u3058\u3083\u306A\u3044\u304B\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: normal
@@ -5314,7 +5314,7 @@ MonoBehaviour:
     script_jp: "\u3048\uFF01\u308F\u3063\uFF01\u304A\u3063\u3068\u3063\u3068\uFF01\uFF08\u7121\u7406\u77E2\u7406\u30B9\u30C6\u30C3\u30D7\u3092\u8E0F\u307E\u305B\u3089\u308C\u308B\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -5327,7 +5327,7 @@ MonoBehaviour:
     script_jp: "\u8E0A\u308D\u3046\u305C\u3047\uFF01\uFF01\u306F\u3063\u306F\u3063\u306F\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: smile
@@ -5340,7 +5340,7 @@ MonoBehaviour:
     script_jp: "\u3053\u3001\u3053\u3089\uFF01\u308F\u3041\uFF01\u96E2\u3057\u3066\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: angry
@@ -5353,7 +5353,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3080\u3002\u843D\u3061\u7740\u304F\u306E\u3060\u3002\u4E45\u3057\u304F\u8A2A\u308C\u305F\u5BA2\u4EBA\u3060\u304B\u3089\u3068\u3044\u3063\u3066\u3001\u306F\u3057\u3083\u304C\u306C\u3053\u3068\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5366,20 +5366,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u30A4\u30FC\u30E9\u3068\u30B7\u30E3\u30F3\u30C7\u30A3\u304C\u4ECA\u306E\u30B7\u30FC\u30F3\u306B\u3064\u3044\u3066\u4F1A\u8A71\u3059\u308B"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
+    BGM: {fileID: 8300000, guid: e21065ed7b58344c285e4c678cffd12b, type: 3}
     still: {fileID: 0}
   - script: "\u306D\u3048\u3001\u3053\u306E\u30AA\u30EC\u30F3\u30C9\u3063\u3066\u3055\u3001\u3042\u306E\u30AA\u30EC\u30F3\u30C9\u306A\u306E\u304B\u3057\u3089\uFF1F"
     script_jp: "\u306D\u3048\u3001\u3053\u306E\u30AA\u30EC\u30F3\u30C9\u3063\u3066\u3055\u3001\u3042\u306E\u30AA\u30EC\u30F3\u30C9\u306A\u306E\u304B\u3057\u3089\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -5392,7 +5392,7 @@ MonoBehaviour:
     script_jp: "\u308F\u304B\u3093\u306A\u3044\u306E...\u30AA\u30EC\u30F3\u30C9\u3001\u899A\u3048\u3066\u306A\u3044\u3063\u3066\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -5405,7 +5405,7 @@ MonoBehaviour:
     script_jp: "\u3042\u30FC\u3001\u305D\u3063\u304B\u3002\u3067\u3082\u306A\u3093\u304B\u4F3C\u3066\u308B\u308F\u306D\u3002\u3075\u3075\u3075\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -5418,7 +5418,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3093\uFF01\u305D\u3063\u304F\u308A\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -5431,7 +5431,7 @@ MonoBehaviour:
     script_jp: "\u306D\u3002\u3053\u306E\u30B7\u30FC\u30F3\u3001\u7A81\u7136\u30AA\u30EC\u30F3\u30C9\u304C\u51FA\u3066\u304D\u305F\u3088\u3046\u306B\u898B\u3048\u305F\u3051\u3069\u3001\u3069\u3053\u304B\u306B\u6F5C\u3093\u3067\u305F\u306E\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -5444,7 +5444,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3093\u3002\u30DE\u30DE\u306E\u9784\u306E\u4E2D\u304B\u3089\u51FA\u3066\u304D\u305F\u3093\u3060\u3063\u3066\u3001\u30F4\u30A7\u30EB\u306F\u8A00\u3063\u3066\u305F\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -5457,7 +5457,7 @@ MonoBehaviour:
     script_jp: "\u3078\u30FC...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -5470,20 +5470,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u30AA\u30EC\u30F3\u30C9\u304C\u546A\u3044\u3092\u89E3\u3044\u3066\u8A71\u306F\u7D9A\u304F"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
+    BGM: {fileID: 8300000, guid: 53a338edc39ab476190929a51f533442, type: 3}
     still: {fileID: 0}
   - script: "\u3067\u3048\uFF01\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u306F\u3069\u30FC\u3057\u3066\u4EBA\u65CF\u306E\u30EC\u30FC\u30C7\u30A3\u3092\u9023\u308C\u3066\u304D\u3061\u3083\u3063\u305F\u3093\u3067\u3059\u304B\u3041\u30FC\uFF1F\u306F\uFF01\u307E\u3055\u304B\u3042\uFF01LOVE\uFF01\uFF1F\u4E00\u76EE\u60DA\u308C\u3067\u3059\u304B\uFF01\uFF1F"
     script_jp: "\u3067\u3048\uFF01\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u306F\u3069\u30FC\u3057\u3066\u4EBA\u65CF\u306E\u30EC\u30FC\u30C7\u30A3\u3092\u9023\u308C\u3066\u304D\u3061\u3083\u3063\u305F\u3093\u3067\u3059\u304B\u3041\u30FC\uFF1F\u306F\uFF01\u307E\u3055\u304B\u3042\uFF01LOVE\uFF01\uFF1F\u4E00\u76EE\u60DA\u308C\u3067\u3059\u304B\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -5496,7 +5496,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u305D\u306E\u8005\u304C\u53E4\u4EE3\u9B54\u6CD5\u306E\u4F7F\u3044\u624B\u3067\u306A\u3002\u306A\u304B\u306A\u304B\u61D0\u304B\u3057\u304D\u3082\u306E\u3092\u898B\u305F\u3086\u3048\u3001\u793C\u3068\u3057\u3066\u62DB\u5F85\u3092\u3057\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5509,7 +5509,7 @@ MonoBehaviour:
     script_jp: "\u53E4\u4EE3\u9B54\u6CD5\u3067\u3059\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -5522,7 +5522,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3060\u3002\u795E\u4EE3\u306E\u9B54\u6CD5\u9663\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5535,7 +5535,7 @@ MonoBehaviour:
     script_jp: "\u3078\u3047\u301C\u3002\u3053\u3093\u306A\u5A18\u3063\u5B50\u304C\u306D\u3047\u301C\u3002\u3042\u3063\u306F\u3063\u306F\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: angry
@@ -5548,7 +5548,7 @@ MonoBehaviour:
     script_jp: "\u3093\uFF01\uFF1F\u306A\u306B\u3088\uFF01\u3053\u3046\u898B\u3048\u3066\u3001\u4EBA\u5927\u9678\u306F\u7AEF\u304B\u3089\u7AEF\u307E\u3067\u5192\u967A\u3057\u305F\u3093\u3060\u304B\u3089\uFF01\u305D\u3046\u3044\u3046\u3042\u3093\u305F\u306F\u982D\u304C\u3086\u308B\u305D\u3046\u306A\u9854\u3057\u3066\u308B\u308F\u306D\uFF01\u3075\u3075\u3093\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: angry
@@ -5561,7 +5561,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3042\u3093\uFF01\uFF1F\u304A\u3046\u304A\u3046\uFF01\u30EC\u30FC\u30C7\u30A3\uFF01\u3060\u3042\u308C\u306E\u9854\u304C\u3086\u308B\u3086\u308B\u3075\u306C\u3051\u9854\u3060\u3042\uFF01\u30A2\u30F3\u30B0\u30EA\u30FC\u3057\u3061\u3083\u3046\u305C\u3048\uFF01\u30A2\u30F3\u30B0\u30EA\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: angry
@@ -5574,7 +5574,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3093\u305F\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: angry
@@ -5587,7 +5587,7 @@ MonoBehaviour:
     script_jp: "\u307B\u30FC\u3046\uFF01\u306A\u3089\u3053\u308C\u306A\u3089\u3044\u3044\u3063\u3066\u304B\u3041\uFF01\uFF08\u8853\u3067\u81EA\u5206\u306E\u9854\u3092\u30ED\u30AF\u30B7\u30FC\u306E\u9854\u306B\u5909\u3048\u308B\uFF09\u307B\u30FC\u3089\u307B\u30FC\u3089\uFF01\u30AF\u30EC\u30D0\u30FC\u306A\u9854\u3060\u308D\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: unique
@@ -5600,7 +5600,7 @@ MonoBehaviour:
     script_jp: "\u3061\u3087\uFF01\u3061\u3087\u3063\u3068\u3042\u3093\u305F\uFF01\u305D\u308C\u79C1\u306E\u9854\u3058\u3083\u306A\u3044\uFF01\u79C1\u306E\u9854\u304B\u3048\u3057\u306A\u3055\u3044\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: angry
@@ -5613,7 +5613,7 @@ MonoBehaviour:
     script_jp: "\u3084\u306A\u3053\u3063\u305F\u30FC\uFF01\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01\u3060\u3044\u305F\u3044\u30ED\u30AF\u30B7\u30FC\u306E\u9854\u306F\u305D\u3053\u306B\u3042\u3093\u3060\u308D\u30FC\uFF01\u6094\u3057\u304B\u3063\u305F\u3089\u3053\u3053\u307E\u3067\u304A\u3044\u3066\u30FC\uFF01\u306F\u3063\u306F\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -5626,7 +5626,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3041\u3002\u304A\u5B50\u69D8\u540C\u58EB\u3001\u4EF2\u826F\u304F\u3084\u3063\u3066\u306A\u3055\u3044\u3088\u3002\u79C1\u306F\u3082\u3046\u623B\u308B\u308F\u3002\u4F55\u4E8B\u3082\u306A\u304B\u3063\u305F\u307F\u305F\u3044\u3060\u3057\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: confuse
@@ -5639,7 +5639,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01\u4FFA\u306F\u82E5\u3044\u304B\u3089\u30E2\u30C6\u3061\u3083\u3063\u3066\u3057\u3087\u30FC\u304C\u306A\u3044\u3082\u3093\u306A\u3041\u30FC\uFF01\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -5652,7 +5652,7 @@ MonoBehaviour:
     script_jp: "\u304A...\u30AA\u30EC\u30F3\u30C9...\u30FB\u3042\u3093\u305F\u305D\u308C\u306F\u60AA\u53E3\u304B\u3057\u3089...\uFF1F\u4ED5\u4E8B\u3058\u3083\u306A\u3044\u6642\u306B\u3042\u3063\u305F\u3089\u3001\u899A\u3048\u3066\u306A\u3055\u3044\u3088...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: angry
@@ -5665,7 +5665,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5678,7 +5678,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u30B5\u30E9\u3055\u3093\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -5691,7 +5691,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u4F55\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -5704,7 +5704,7 @@ MonoBehaviour:
     script_jp: "\u30C8\u30EC\u30B8\u30E3\u30FC\u30CF\u30F3\u30BF\u30FC\u3082\u306D\u7537\u3070\u3063\u304B\u308A\u306E\u4ED5\u4E8B\u306A\u3093\u3060\u3051\u3069...\u3002\u5973\u306E\u5B50\u540C\u58EB\uFF01\u3088\u308D\u3057\u304F\u306D\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -5717,7 +5717,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3088\u308D\u3057\u304F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: normal
@@ -5730,7 +5730,7 @@ MonoBehaviour:
     script_jp: "\u3048\u3078\u3078\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -5743,7 +5743,7 @@ MonoBehaviour:
     script_jp: "\u307E\u3063\u305F\u304F\u3002\u57CE\u5185\u3067\u3082\u6C17\u3092\u629C\u304B\u306A\u3044\u3053\u3068\u306D\u3002\u6226\u4E89\u3067\u5BB6\u65CF\u3092\u5931\u3063\u305F\u9B54\u65CF\u306F\u5C71\u307B\u3069\u3044\u308B\u308F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: normal
@@ -5756,7 +5756,7 @@ MonoBehaviour:
     script_jp: "\u57CE\u5185\u306F\u4EBA\u65CF\u3092\u826F\u304F\u601D\u308F\u306A\u3044\u9B54\u65CF\u3070\u3063\u304B\u308A\u306A\u3093\u3060\u304B\u3089\u3002\u6C17\u3092\u3064\u3051\u308B\u3053\u3068\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: normal
@@ -5769,7 +5769,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3044\uFF01\u3042\u308A\u304C\u3068\u30FC\uFF01\u30B5\u30E9\u3055\u3093\u306F\u4EBA\u65CF\u306E\u3053\u3068\u5ACC\u3044\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -5782,7 +5782,7 @@ MonoBehaviour:
     script_jp: "\u3055\u3041\uFF1F\u3042\u3093\u307E\u308A\u4F1A\u3063\u305F\u3053\u3068\u304C\u306A\u3044\u304B\u3089\u3001\u308F\u304B\u3089\u306A\u3044\u308F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: normal
@@ -5795,7 +5795,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3063\u304B\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: R
     expressions: normal
@@ -5808,7 +5808,7 @@ MonoBehaviour:
     script_jp: "\u6E80\u8DB3\u304B\u3057\u3089\u3002\u5931\u793C\u3059\u308B\u308F\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: L
     expressions: normal
@@ -5823,7 +5823,7 @@ MonoBehaviour:
     script_ch: 
     type: 
     name: 
-    LR: L
+    LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
@@ -5834,7 +5834,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u3057\u3066\u30AA\u30EC\u30F3\u30C9\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -5847,7 +5847,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3044\u306F\u30FC\u3044\uFF01\u306A\u3093\u3067\u3057\u3087\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: normal
@@ -5860,7 +5860,7 @@ MonoBehaviour:
     script_jp: "\u3057\u3070\u3089\u304F\u30ED\u30AF\u30B7\u30FC\u306E\u4E16\u8A71\u3092\u983C\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -5873,7 +5873,7 @@ MonoBehaviour:
     script_jp: "\u306F\uFF01\uFF1F\u306A\u3093\u3067\u79C1\u304C\u3053\u3093\u306A\u5974\u3068\u4E00\u7DD2\u306B\u3044\u306A\u304D\u3083\u306A\u3093\u306A\u3044\u306E\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: angry
@@ -5886,7 +5886,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u79C1\u306F\u591A\u5FD9\u3086\u3048\u3001\u306A\u3002\u30AA\u30EC\u30F3\u30C9\u3082\u6226\u306E\u306A\u3044\u6642\u306F\u57CE\u5185\u3067\u3082\u5916\u3067\u3082\u3001\u4ED8\u304D\u5408\u3063\u3066\u3084\u308B\u304C\u826F\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5899,7 +5899,7 @@ MonoBehaviour:
     script_jp: "\u6708\u306E\u51FA\u3066\u3044\u308B\u9593\u306F\u53E4\u4EE3\u9B54\u6CD5\u3067\u3082\u306A\u3093\u3067\u3082\u805E\u304D\u306B\u304F\u308B\u304C\u826F\u3044\u3002\u4EBA\u304C\u4F11\u3080\u6642\u9593\u5E2F\u3086\u3048\u3001\u307E\u3060\u6687\uFF08\u3044\u3068\u307E\uFF09\u304C\u3042\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -5912,7 +5912,7 @@ MonoBehaviour:
     script_jp: "\u3060\u3001\u305D\u3046\u3060\uFF01\u3088\u308D\u3057\u304F\u306A\u3042\uFF01\u30ED\u30AF\u30B7\u30FC\uFF01\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -5938,7 +5938,7 @@ MonoBehaviour:
     script_jp: "\u3082\u3046\uFF01\u305B\u3063\u304B\u304F\u53E4\u4EE3\u9B54\u6CD5\u306E\u3053\u3068\u805E\u3051\u308B\u3063\u3066\u601D\u3063\u305F\u306E\u306B\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: angry
@@ -5951,7 +5951,7 @@ MonoBehaviour:
     script_jp: "\u3093\u30FC\uFF1F\u591C\u307E\u3067\u5F85\u3066\u3070\u8A71\u3092\u805E\u3051\u308B\u3093\u3060\u308D\u30FC\u3002\u3046\u3047\u3044\u3068\u3046\u3047\u3044\u3068\uFF01\u306E\u3093\u3073\u308A\u5F85\u3066\u3070\u3044\u3044\u3058\u3083\u306D\u30FC\u304B\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -5964,7 +5964,7 @@ MonoBehaviour:
     script_jp: "\u3058\u3083\u3042\u305D\u306E\u9593\u3069\u3046\u3057\u305F\u3089\u3044\u3044\u306E\u3088\uFF01\u3053\u3093\u306A\u81EA\u7531\u306B\u52D5\u304D\u56DE\u308C\u306A\u3044\u57CE\u3067\u3001\u3042\u3041\u3002\u3058\u3063\u3068\u3057\u3066\u308B\u306E\u304C\u4E00\u756A\u5ACC\u3044\u306A\u306E\u306B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: angry
@@ -5977,7 +5977,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01\u3044\u3044\u3058\u3083\u306D\u3047\u304B\u3001\u305F\u307E\u306B\u306F\u306E\u3093\u3073\u308A\u3057\u3088\u30FC\u305C\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -5990,7 +5990,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3042\u3093\u305F\u306F\u3044\u3044\u308F\u3088\u306D\u3001\u80FD\u5929\u6C17\u3067\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -6003,7 +6003,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3088\u3088\uFF01\uFF1F\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01\u30CF\u30C3\u30D4\u30FC\u3060\u305C\u3048\uFF01\u3059\u3093\u3052\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -6016,7 +6016,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3042\u3042\u3041\u3041\u3042\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -6029,7 +6029,7 @@ MonoBehaviour:
     script_jp: "\u30ED\u30AF\u30B7\u30FC\u306F\u3055\u3042\u3001\u53E4\u4EE3\u6587\u660E\u304C\u597D\u304D\u3060\u3063\u305F\u3093\u3060\u3063\u3051\uFF1F\u306A\u3041\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -6042,7 +6042,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -6055,7 +6055,7 @@ MonoBehaviour:
     script_jp: "\u3078\u3048\u30FC\uFF01\u9762\u767D\u3044\u30ED\u30AF\u30B7\u30FC\u3060\u306A\u3041\uFF01\u3067\u3001\u306A\u3093\u3067\u3042\u3093\u306A\u306E\u304C\u597D\u304D\u306A\u306E\u3088\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6068,7 +6068,7 @@ MonoBehaviour:
     script_jp: "\u3046\u30FC\u3093\u3068\u306D\u3002\u306A\u3093\u3068\u3082\u8A00\u3048\u306A\u3044\u3042\u306E\u53E4\u81ED\u3041\u3044\u3051\u3069\u3001\u5B58\u5728\u611F\u304C\u3042\u308B\u907A\u7269\u304C\u5927\u597D\u304D\u306A\u306E...\u826F\u304F\u898B\u308B\u3068\u305D\u308C\u305E\u308C\u6A21\u69D8\u304C\u9055\u3063\u3066\u306D\u3048\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -6081,7 +6081,7 @@ MonoBehaviour:
     script_jp: "\u307B\u304A\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6094,7 +6094,7 @@ MonoBehaviour:
     script_jp: "\u8ABF\u3079\u3066\u7D44\u307F\u5408\u308F\u305B\u305F\u308A\u3057\u3066\u3001\u3053\u306E\u4E16\u754C\u306E\u771F\u7406\u3092\u8AAD\u307F\u89E3\u3044\u3066\u3044\u304F\u3088\u3046\u306A\u6C17\u304C\u3059\u308B\u306E\u3088\uFF01\u3042\u3042\u3041...\u3042\u3041\u3042\u3042..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -6107,7 +6107,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3044\u304A\u3044\u3001\u30ED\u30AF\u30B7\u30FC\u3001\u3088\u3060\u308C\u304C\u5782\u308C\u3066\u308B\u305E\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6120,7 +6120,7 @@ MonoBehaviour:
     script_jp: "\u306F\uFF01\uFF01\uFF08\u305A\u308B\u305A\u308B\uFF09\u3061\u3087\uFF01\u3061\u3087\u3063\u3068\u898B\u306A\u3044\u3067\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: angry
@@ -6133,7 +6133,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\uFF01\u898B\u306A\u3044\u3067\u3063\u3066\u3001\u4E8C\u4EBA\u3067\u3044\u308B\u3093\u3060\u304B\u3089\u3001\u305D\u308A\u3083\u7121\u7406\u3060\u308D\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6146,7 +6146,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3001\u305D\u308C\u3067\u3082\u3088\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: angry
@@ -6159,7 +6159,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\uFF01\u307E\u3041\u307E\u3041\u3002\u3058\u3083\u3042\u3055\uFF01\u4FFA\u3044\u3044\u5834\u6240\u77E5\u3063\u3066\u3093\u3060\u3042\uFF01\u8A73\u3057\u304F\u306F\u77E5\u3089\u306D\u30FC\u3093\u3060\u3051\u3069\u3088\u3001\u3053\u306E\u57CE\u306F\u6614\u306F\u795E\u6BBF\u3060\u3063\u305F\u3089\u3057\u304F\u3066\u3055\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6172,7 +6172,7 @@ MonoBehaviour:
     script_jp: "\u3048\uFF01\u30FB\u30FB\u30FB\u307E\u3055\u304B\uFF01\u305D\u3063\u304B\u3002\u9B54\u7269\u306E\u5730\u306F\u795E\u4EE3\u30A4\u30EB\u30DF\u30A2\u306E\u7D0D\u3081\u305F\u5730"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -6185,7 +6185,7 @@ MonoBehaviour:
     script_jp: "\u3053\u3053\u306F\u30A4\u30EB\u30DF\u30A2\u304C\u7D0D\u3081\u305F\u5730\u3001\u305D\u3057\u3066\u9B54\u7269\u306E\u5730\u306E\u4E2D\u5FC3\u306F\u9B54\u738B\u57CE...\u3068\u3044\u3046\u3053\u3068\u306F\u3002\u3048\uFF01\u3058\u3083\u3042\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -6198,7 +6198,7 @@ MonoBehaviour:
     script_jp: "\u304A\u304A\uFF01\u306A\u3093\u304B\u30D3\u30D3\u30C3\u3068\u304D\u3066\u308B\u307F\u305F\u3044\u3060\u306A\u3041\uFF01\u3067\u306A\u3001\u3067\u306A..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6224,20 +6224,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u591C\u3001\u5217\u8ECA\u306E\u4E2D\u3067\u30F4\u30A7\u30EB\u3068\u30AA\u30EC\u30F3\u30C9\u304C\u4F1A\u8A71\u3057\u3066\u3044\u308B\u3002\u30A4\u30FC\u30E9\u306F\u5BDD\u3066\u3044\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
+    BGM: {fileID: 8300000, guid: e21065ed7b58344c285e4c678cffd12b, type: 3}
     still: {fileID: 0}
   - script: "\u3063\u3066\u3053\u3068\u304C\u3042\u3063\u305F\u306E\uFF01\u30A4\u30FC\u30E9\u3061\u3083\u3093\u3001\u304D\u3063\u3068\u3001\u6587\u624D\u3042\u308B\u308F\u3088\u30FC\u3002"
     script_jp: "\u3063\u3066\u3053\u3068\u304C\u3042\u3063\u305F\u306E\uFF01\u30A4\u30FC\u30E9\u3061\u3083\u3093\u3001\u304D\u3063\u3068\u3001\u6587\u624D\u3042\u308B\u308F\u3088\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: smile
@@ -6250,7 +6250,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: smile
@@ -6263,7 +6263,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3049\u304A\u3049\uFF01\u305D\u308A\u3083\u3044\u3044\u3084\uFF01\u6700\u8FD1\u306F\u4FFA\u306E\u982D\u3082\u3059\u3063\u304B\u3089\u304B\u3093\u306B\u306A\u3063\u3066\u304D\u305F\u3057\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -6276,7 +6276,7 @@ MonoBehaviour:
     script_jp: "\u5143\u304B\u3089\u3059\u3063\u304B\u3089\u304B\u3093\u306E\u9593\u9055\u3044\u3067\u3057\u3087\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -6289,7 +6289,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3063\u306F\u3063\u306F\uFF01\u305D\u3046\u304B\u3082\u306A\u3042\uFF01\u30A8\u30F3\u30D7\u30C6\u30A3\u30FC\u30A8\u30F3\u30D7\u30C6\u30A3\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6302,7 +6302,7 @@ MonoBehaviour:
     script_jp: "\u304F\u3045\u30FC\u3002\u304F\u3045\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: unique
@@ -6315,7 +6315,7 @@ MonoBehaviour:
     script_jp: "\u3053\u3093\u306A\u306B\u9A12\u3044\u3067\u308B\u306E\u306B\u3001\u826F\u304F\u5BDD\u3066\u308B\u308F\u306D\u3047...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -6328,7 +6328,7 @@ MonoBehaviour:
     script_jp: "\u3046\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6341,7 +6341,7 @@ MonoBehaviour:
     script_jp: "\u305D\u308C\u3067\u3001\u30F4\u30A7\u30EB\u3055\u3093\u306F\u30A4\u30FC\u30E9\u3061\u3083\u3093\u304C\u811A\u672C\u3092\u66F8\u3044\u3066\u3044\u305F\u306E\u3092\u77E5\u3063\u3066\u3044\u305F\u306E\u304B\u3057\u3089\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -6354,7 +6354,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u77E5\u3063\u3066\u304A\u3063\u305F\u3002\u79C1\u304C\u6F14\u5287\u306E\u7DF4\u7FD2\u306B\u52E4\u3081\u3066\u3044\u308B\u9593\u3001\u3044\u305D\u3044\u305D\u3068\u4F55\u304B\u3092\u3057\u3066\u304A\u3063\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6367,7 +6367,7 @@ MonoBehaviour:
     script_jp: "\u3078\u3048\u30FC\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6380,7 +6380,7 @@ MonoBehaviour:
     script_jp: "\u591C\u306B\u306A\u308B\u3068\u3001\u6C7A\u307E\u3063\u3066\u79C1\u306E\u3068\u3053\u308D\u3078\u304D\u3066\u6628\u6669\u306E\u7D9A\u304D\u3092\u8A71\u305B\u3068\u305B\u304C\u3080\u306E\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6393,7 +6393,7 @@ MonoBehaviour:
     script_jp: "\u771F\u9762\u76EE\u306A\u306E\u306D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -6406,7 +6406,7 @@ MonoBehaviour:
     script_jp: "\u30A4\u30FC\u30E9\u3082\u3001\u5F7C\u5973\u306A\u308A\u306B\u5287\u56E3\u306E\u529B\u306B\u306A\u308A\u305F\u3044\u3001\u305D\u3046\u601D\u3063\u3066\u304A\u308B\u306E\u3060\u308D\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6419,7 +6419,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3049\uFF01\u306A\u3093\u3068\u3044\u3058\u3089\u3057\u3044\uFF01\u305D\u308C\u306A\u3089\u3001\u5EA7\u9577\u305F\u308B\u79C1\u304C\u9811\u5F35\u3063\u3066\u66F8\u3044\u305F\u811A\u672C\u3092\u6F14\u76EE\u306B\u63A1\u7528\u3057\u3066\u3042\u3052\u3088\u3046\u3058\u3083\u306A\u3044\u304B\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6432,7 +6432,7 @@ MonoBehaviour:
     script_jp: "\u3061\u3087\u3063\u3068\u3001\u6D41\u77F3\u306B\u58F0\u304C\u5927\u304D\u3044\u3002\u8D77\u3053\u3057\u3061\u3083\u3063\u305F\u3089\u53EF\u54C0\u60F3\u3067\u3057\u3087\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: angry
@@ -6445,7 +6445,7 @@ MonoBehaviour:
     script_jp: "\u304A\u3049\u3002\u305D\u3046\u3060\u3063\u305F\u30FC\u305D\u3046\u3060\u3063\u305F\u30FC\u3002\u30BD\u30FC\u30EA\u30FC\u30BD\u30FC\u30EA\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6458,7 +6458,7 @@ MonoBehaviour:
     script_jp: "\u3067\u3082\u3001\u9762\u767D\u305D\u3046\u306D\u3002\u3061\u3083\u3093\u3068\u624B\u76F4\u3057\u306F\u3059\u308C\u3070\u3044\u3044\u984C\u6750\u306A\u6C17\u304C\u3059\u308B\u3057\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -6471,7 +6471,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3055\uFF01\u30D5\u30EC\u30F3\u30C9\u3068\u4E00\u7DD2\u306B\u3001\u7D20\u6674\u3089\u3057\u3044\u4F5C\u54C1\u306B\u4ED5\u4E0A\u3052\u308B\u306A\u3093\u3066\u3001\u30B0\u30C3\u30C9\u306A\u4F53\u9A13\u3058\u3083\u306A\u3044\u304B\u3042\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6484,7 +6484,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u611F\u8B1D\u3059\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6497,7 +6497,7 @@ MonoBehaviour:
     script_jp: "\u304A\u304A\u3088\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6510,7 +6510,7 @@ MonoBehaviour:
     script_jp: "\u3057\u3066\u3001\u30AA\u30EC\u30F3\u30C9\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6523,7 +6523,7 @@ MonoBehaviour:
     script_jp: "\u307B\u3044\u307B\u3044\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6536,7 +6536,7 @@ MonoBehaviour:
     script_jp: "\u305D\u306A\u305F\u306F\u534A\u9B54\u3060\u3068\u8A00\u3063\u305F\u306A\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6549,7 +6549,7 @@ MonoBehaviour:
     script_jp: "\u3093\uFF1F\u305D\u3046\u3055\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6562,7 +6562,7 @@ MonoBehaviour:
     script_jp: "\u305D\u306A\u305F\u3001\u81EA\u5206\u306E\u9B54\u529B\u304C\u306A\u305C\u5168\u304F\u306A\u3044\u306E\u304B\u7406\u89E3\u3057\u3066\u304A\u308B\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6575,7 +6575,7 @@ MonoBehaviour:
     script_jp: "\u3093\u30FC\uFF01\u30FB\u30FB\u30FB\u3055\u3042\u306A\u3042\u3002\u30A2\u30FC\u30A4\u30C9\u30FC\u30F3\u30C8\u30CE\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6588,7 +6588,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6601,7 +6601,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3042\u306A\u305F\u306F\u30AA\u30EC\u30F3\u30C9\u304C\u5931\u3063\u305F\u8A18\u61B6\u3092\u53D6\u308A\u623B\u305B\u308B\u306E\u304B\u3057\u3089\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -6614,7 +6614,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3041\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6627,7 +6627,7 @@ MonoBehaviour:
     script_jp: "\u3084\u3001\u3084\u3063\u3071\u308A\u305D\u3046\u306A\u306E\u306D...\uFF01\u3058\u3083\u3001\u3058\u3083\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -6640,7 +6640,7 @@ MonoBehaviour:
     script_jp: "\u5F85\u3066\u3001\u30B7\u30E3\u30F3\u30C7\u30A3\u3088\u3002\u30AA\u30EC\u30F3\u30C9\u3001\u305D\u306A\u305F\u306F\u3069\u3046\u601D\u3046\u3002\u8A18\u61B6\u3092\u53D6\u308A\u623B\u3057\u305F\u3044\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6653,7 +6653,7 @@ MonoBehaviour:
     script_jp: "\u3042\u30FC...\u3042\u3093\u307E\u308A\u771F\u9762\u76EE\u306A\u306E\u5F97\u610F\u3058\u3083\u306D\u3048\u3093\u3060\u3051\u3069\u306A\u3041\u30FC...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6666,7 +6666,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -6679,7 +6679,7 @@ MonoBehaviour:
     script_jp: "\u3046\u30FC\u3093...\u8A18\u61B6\u304C\u623B\u3063\u305F\u6642\u4FFA\u306F\u3001\u4ECA\u306E\u4FFA\u306E\u307E\u307E\u3067\u3044\u3089\u308C\u308B\u306E\u304B\u306A\u3041\u3001\u3063\u3066\u601D\u3046\u308F\u3051\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6692,7 +6692,7 @@ MonoBehaviour:
     script_jp: "\u4ECA\u306F\u5287\u56E3\u306E\u307F\u3093\u306A\u3068\u65C5\u3092\u3059\u308B\u306E\u304C\u697D\u3057\u3044\uFF01\u30D9\u30EA\u30FC\u30CF\u30C3\u30D4\u30FC\u3060\u304B\u3089\u306A\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -6705,8 +6705,8 @@ MonoBehaviour:
     script_jp: "\u3060\u304B\u3089\u307F\u3093\u306A\u3068\u306E\u4ECA\u304C\u5D29\u308C\u3061\u3083\u3046\u3093\u3058\u3083\u306A\u3044\u304B\u3063\u3066...\u5FC3\u914D\u306A\u3093\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
-    name: 
+    type: talk
+    name: orend
     LR: R
     expressions: smile
     voice: {fileID: 0}
@@ -6718,7 +6718,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6731,7 +6731,7 @@ MonoBehaviour:
     script_jp: "\u3067\u3082\u3001\u4FFA\u304C\u3069\u3046\u751F\u304D\u3066\u304D\u305F\u306E\u304B\u3001\u30F4\u30A7\u30EB\u305F\u3061\u304C\u8A71\u3059\u4FFA\u304C\u672C\u5F53\u306B\u4FFA\u306A\u3089\u3002\u4F55\u304C\u3042\u3063\u305F\u306E\u304B\u77E5\u308A\u305F\u3044\u6C17\u6301\u3061\u3082\u3042\u308B\u3093\u3060\u3088\u306A\u3041...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6744,7 +6744,7 @@ MonoBehaviour:
     script_jp: "\u78BA\u304B\u306B\u305D\u3046\u306D...\u3042\u306A\u305F\u306E\u8A18\u61B6\u304C\u623B\u3063\u305F\u3089\u3001\u4ECA\u306E\u30AA\u30EC\u30F3\u30C9\u3058\u3083\u306A\u304F\u306A\u308B\u306E\u304B\u3082\u3057\u308C\u306A\u3044\u306E\u306D...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: confuse
@@ -6757,7 +6757,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u3060\u304C\u3001\u79C1\u304B\u3089\u3057\u305F\u3089\u305D\u306A\u305F\u306F\u3001\u4ECA\u3082\u6614\u3082\u79C1\u306E\u77E5\u308B\u30AA\u30EC\u30F3\u30C9\u3067\u3042\u308B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6770,7 +6770,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3063\u304B\u3042\u30FC...\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6783,7 +6783,7 @@ MonoBehaviour:
     script_jp: "\u304F\u3045\u30FC\u3002\u3094\u3047\u308B\u30FC\u3002\u304F\u3045\u30FC\u3002\u304A\u8A71\u30FC\u3002\u304F\u3045\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: era
     LR: L
     expressions: normal
@@ -6796,7 +6796,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u30A4\u30FC\u30E9\u304B\u3089\u305D\u306A\u305F\u306B\u6D41\u308C\u3088\u3046\u3068\u3057\u3066\u3044\u308B\u9B54\u7D20\u304C\u3042\u308B\u3002\u30AA\u30EC\u30F3\u30C9\u3088\u3001\u3053\u308C\u306F\u305D\u306A\u305F\u306E\u9B54\u7D20\u3060\u3002\u6C17\u3065\u3044\u3066\u304A\u3089\u306C\u306E\u3060\u308D\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6809,7 +6809,7 @@ MonoBehaviour:
     script_jp: "\u3093\uFF1F\u307E\u3041\u3001\u4FFA\u306F\u898B\u3048\u306A\u3044\u304B\u3089\u306A\u3041\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6822,7 +6822,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3067\u3042\u308D\u3046\u3002\u304A\u305D\u3089\u304F\u9577\u3089\u304F\u30A4\u30FC\u30E9\u306E\u4E2D\u306B\u3042\u308A\u3001\u3082\u3046\u5F79\u76EE\u3092\u679C\u305F\u3057\u305F\u306E\u3067\u3042\u308D\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6835,7 +6835,7 @@ MonoBehaviour:
     script_jp: "\u4FFA\u304C\u4F55\u304B\u3057\u305F\u304B\u3082\u3057\u308C\u306A\u3044\u3063\u3066\u3053\u3068\u3001\u304B\u3044\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6848,7 +6848,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3046\u3060...\u3002\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -6861,7 +6861,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u79C1\u306F..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: cry
@@ -6874,7 +6874,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3093\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6887,7 +6887,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u79C1\u306F\u3001\u3042\u306A\u305F\u306B\u3068\u3063\u3066\u79C1\u3088\u308A\u5927\u5207\u306A\u4EBA\u304C\u3044\u305F\u3068\u3057\u3066\u3082\u304B\u307E\u3044\u307E\u305B\u3093\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -6900,7 +6900,7 @@ MonoBehaviour:
     script_jp: "\u30B7\u30E3\u30F3\u30C7\u30A3..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: 
@@ -6913,7 +6913,7 @@ MonoBehaviour:
     script_jp: "\u3042\u306A\u305F\u306F\u304D\u3063\u3068\u3053\u306E\u5287\u56E3\u4EE5\u5916\u306E\u4E16\u754C\u3092\u77E5\u3089\u306A\u3044\u304B\u3089\u3002\u305D\u308C\u3063\u3066\u5207\u306A\u3044\u3053\u3068\u3060\u3068\u601D\u3046\u306E\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: cry
@@ -6926,7 +6926,7 @@ MonoBehaviour:
     script_jp: "\u3042\u306A\u305F\u306F\u6614\u306E\u3053\u3068\u3092\u8A71\u3059\u6642\u3001\u3044\u3064\u3082\u3061\u3087\u3063\u3068\u5BC2\u3057\u305D\u3046\u306A\u9854\u3092\u3059\u308B\u306E\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: cry
@@ -6939,7 +6939,7 @@ MonoBehaviour:
     script_jp: "\u3042\u306F\u306F\u3001\u305D\u308A\u3083\u3001\u8A18\u61B6\u304C\u306A\u3051\u308A\u3083\u8AB0\u3060\u3063\u3066\u305D\u3093\u306A\u9854\u3059\u308B\u3060\u308D\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -6952,7 +6952,7 @@ MonoBehaviour:
     script_jp: "\u3069\u3093\u306A\u6642\u3067\u3082\u7B11\u9854\u3067\u697D\u3057\u305D\u3046\u306B\u7B11\u3046\u3042\u306A\u305F\u3060\u304B\u3089\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: cry
@@ -6965,7 +6965,7 @@ MonoBehaviour:
     script_jp: "\u6F14\u76EE\u306E\u51FA\u6765\u304C\u60AA\u304F\u3066\u6563\u3005\u306A\u30D6\u30FC\u30A4\u30F3\u30B0\u3092\u3055\u308C\u305F\u6642\u3082\u3001\u4E00\u65E5\u4E2D\u547C\u3073\u8FBC\u307F\u3092\u3057\u3066\u3082\u304A\u5BA2\u3055\u3093\u304C\u5165\u3089\u306A\u304B\u3063\u305F\u6642\u3082\u3044\u3064\u3060\u3063\u3066\u7B11\u9854\u3060\u3063\u305F\u308F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: cry
@@ -6978,7 +6978,7 @@ MonoBehaviour:
     script_jp: "\u3042\u306A\u305F\u306E\u7B11\u9854\u306B\u3069\u308C\u3060\u3051\u52C7\u6C17\u3065\u3051\u3089\u308C\u305F\u3053\u3068\u304B\u3002\u305D\u3093\u306A\u3042\u306A\u305F\u304C\u3075\u3068\u3001\u904E\u53BB\u306E\u8A71\u3092\u3059\u308B\u3068\u304D\u3060\u3051\u306F\u3001\u3068\u3066\u3082\u8F9B\u305D\u3046\u306A\u9854\u3092\u3059\u308B\u306E\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: cry
@@ -6991,7 +6991,7 @@ MonoBehaviour:
     script_jp: "\u3046\u30FC\u3093\u3001\u305D\u3093\u306A\u9854\u3057\u3061\u307E\u3063\u3066\u305F\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -7004,7 +7004,7 @@ MonoBehaviour:
     script_jp: "\u3060\u304B\u3089\u3001\u79C1\u3088\u308A\u5927\u5207\u306A\u4EBA\u304C\u3044\u305F\u3068\u3057\u3066\u3082\u69CB\u3044\u307E\u305B\u3093\u3002\u899A\u609F\u306F\u3067\u304D\u3066\u3044\u308B\u3002\u30F4\u30A7\u30EB\u3055\u3093\u3001\u30AA\u30EC\u30F3\u30C9\u306E\u8A18\u61B6\u3092\u623B\u3059\u3053\u3068\u304C\u3067\u304D\u307E\u3059\u304B\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: cry
@@ -7017,7 +7017,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u30AA\u30EC\u30F3\u30C9\u3088\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: R
     expressions: normal
@@ -7030,7 +7030,7 @@ MonoBehaviour:
     script_jp: "\u591A\u5206...\u672C\u5F53\u306F\u601D\u3044\u51FA\u3057\u305F\u3044\u3093\u3060..\u3002\u3067\u3082\u3001\u4FFA\u3001\u6614\u306F\u5B9F\u306F\u3059\u3052\u30FC\u60AA\u3044\u3084\u3064\u3060\u3063\u305F\u3093\u3058\u3083\u306A\u3044\u304B..\u3063\u3066\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -7043,7 +7043,7 @@ MonoBehaviour:
     script_jp: "\u81EA\u5206\u304C\u3044\u3044\u5974\u3060\u306A\u3093\u3066\u3061\u3063\u3068\u3082\u601D\u3063\u305F\u3053\u3068\u306A\u304F\u3066..\u3002\u3060\u304B\u3089\u904E\u53BB\u306B\u4F55\u304B\u60AA\u3044\u3053\u3068\u3092\u3057\u3066\u305F\u3093\u3058\u3083\u306A\u3044\u304B\u3063\u3066..\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -7056,7 +7056,7 @@ MonoBehaviour:
     script_jp: "\u3060\u304B\u3089\u601D\u3044\u51FA\u3059\u306E\u304C\u3059\u3054\u304F\u6016\u3044\u3002\u305D\u308C\u304B\u3089\u3001\u4FFA\u306F\u8A18\u61B6\u304C\u306A\u3044\u304B\u3089\u3063\u3066\u7F6A\u3092\u511F\u308F\u305A\u306B\u3044\u308B\u3063\u3066\u306E\u306F\u306A\u3093\u304B\u3067\u304D\u306A\u304F\u3066\u306A..\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -7069,7 +7069,7 @@ MonoBehaviour:
     script_jp: "\u3060\u304B\u3089\u3001\u534A\u9B54\u306E\u4FFA\u3067\u3082\u3067\u304D\u3066\u3001\u307F\u3093\u306A\u3092\u7B11\u9854\u306B\u3001\u5E78\u305B\u306B\u3059\u308B\u305F\u3081\u306B\u4F55\u304B\u3084\u308A\u305F\u3044\u3063\u3066\u601D\u3063\u3066\u305F\u3093\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: smile
@@ -7082,7 +7082,7 @@ MonoBehaviour:
     script_jp: "\u305D\u3093\u306A\u6642\u306B\u3053\u306E\u6F14\u5287\u56E3\u306B\u62FE\u3063\u3066\u3082\u3089\u3063\u3066\u307B\u3093\u3063\u3068\u306B\u826F\u304B\u3063\u305F\u3068\u601D\u3063\u3066\u3093\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: 
     LR: 
     expressions: 
@@ -7095,7 +7095,7 @@ MonoBehaviour:
     script_jp: "\u30AA\u30EC\u30F3\u30C9..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: normal
@@ -7108,7 +7108,7 @@ MonoBehaviour:
     script_jp: "\u3060\u304B\u3089\u3055\u3001\u3069\u3093\u306A\u306B\u3072\u3069\u304F\u8A00\u308F\u308C\u305F\u3063\u3066\u3001\u3069\u3093\u306A\u306B\u60E8\u3081\u306B\u6271\u308F\u308C\u305F\u3063\u3066\u3001\u5168\u304F\u8F9B\u304F\u306A\u304B\u3063\u305F\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -7121,7 +7121,7 @@ MonoBehaviour:
     script_jp: "\u4FFA\u306B\u306F\u306A\u30FC\u3093\u306B\u3082\u306A\u304B\u3063\u305F\u304B\u3089\u3002...\u3067\u3082\u305A\u3063\u3068\u523A\u3055\u308B\u3093\u3060\u3002\u4FFA\u306F\u8AB0\u3067\u3001\u3069\u3053\u304B\u3089\u304D\u3066\u3001\u306A\u305C\u4ECA\u3053\u3053\u306B\u3044\u308B\u3093\u3060\u308D\u3046\u3002\u3063\u3066\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -7134,7 +7134,7 @@ MonoBehaviour:
     script_jp: "\uFF11\u304B\u3089\u77E5\u3063\u3066\u308B\u4EBA\u306F\u3044\u3044\u3055\u3002\u6C17\u3065\u3044\u305F\u6642\u306B\u306F\u4F55\u306B\u3082\u3047\u982D\u3093\u306A\u304B\u3068\u3001\u307D\u3063\u304B\u308A\u7A74\u306E\u3042\u3044\u305F\u5FC3\u3002\u96A0\u3057\u3066\u304D\u305F\u3064\u3082\u308A\u3060\u3063\u305F\u3051\u3069\u306A\u3041\u30FC\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -7147,7 +7147,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -7160,7 +7160,7 @@ MonoBehaviour:
     script_jp: "\u30F4\u30A7\u30EB...\u3042\u3001\u3061\u3087\u3063\u3068\u307E\u3063\u3066\u304F\u308C\u3002\u30B7\u30E3\u30F3\u30C7\u30A3\uFF08\u30AD\u30B9\u3092\u3059\u308B\uFF09"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -7173,7 +7173,7 @@ MonoBehaviour:
     script_jp: "\u3042\u3001\u3061\u3087\u3001\u3093..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: L
     expressions: normal
@@ -7186,7 +7186,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3046\u30FC\u3057\u3063\uFF01\u5927\u4E08\u592B\u3060\uFF01\u304B\u3080\u304B\u30FC\u3080\u3002\u30F4\u30A7\u30EB\u30A5\u30A5\u30A5\u30A5\uFF01\u4FFA\u306B\u8A18\u61B6\u3092\u3001\u304F\u308C\u304F\u308C\u3048\u3044\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -7199,12 +7199,12 @@ MonoBehaviour:
     script_jp: "\u3046\u3080\u3002\u826F\u304D\u5FC3\u304C\u3051\u3060\u3002\u5C11\u3005\u8F9B\u3044\u3068\u601D\u3046\u304C\u3001\u30AA\u30EC\u30F3\u30C9\u306F\u5927\u4E08\u592B\u3067\u3042\u308D\u3046\u3002\u884C\u304D\u5834\u3092\u5931\u3063\u305F\u9B54\u7D20\u3088\u3002\u4E3B\u4EBA\u306E\u5143\u3078\u5909\u3048\u308B\u306E\u3060\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
     voice: {fileID: 0}
-    SE: {fileID: 0}
+    SE: {fileID: 8300000, guid: c2704930bab0c41d48cb255b1abcf639, type: 3}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
@@ -7212,7 +7212,7 @@ MonoBehaviour:
     script_jp: "\u30B0\u30C3\uFF01\uFF01\u3042...\u3042\u3042\u3042"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: confuse
@@ -7225,7 +7225,7 @@ MonoBehaviour:
     script_jp: "\u30AA\u30EC\u30F3\u30C9\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: shandy
     LR: R
     expressions: confuse
@@ -7251,20 +7251,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u8A18\u61B6\u306E\u4E2D\u306B\u5165\u3063\u3066\u3044\u304F"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 669bc480cd29541e684f7c013fa1ab4e, type: 3}
+    BGM: {fileID: 8300000, guid: ee8bc578b117e435b9abb0ba36857308, type: 3}
     still: {fileID: 0}
   - script: "\u3075\u3080\u3002\u307E\u3060\u304B\u304B\u3063\u3066\u304F\u308B\u304B\u3002"
     script_jp: "\u3075\u3080\u3002\u307E\u3060\u304B\u304B\u3063\u3066\u304F\u308B\u304B\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -7277,7 +7277,7 @@ MonoBehaviour:
     script_jp: "\u3086\u308B\u3055\u306D\u3047\uFF01\u304A\u524D\u304C\u9B54\u738B\u306A\u3093\u3060\u308D\uFF01\u3086\u308B\u3055\u306D\u3047\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: angry
@@ -7290,7 +7290,7 @@ MonoBehaviour:
     script_jp: "\u3075\u3080\u3002\u597D\u304D\u306B\u3059\u308B\u304C\u826F\u3044\u3002\u305D\u306A\u305F\u304C\u98FD\u304D\u308B\u307E\u3067\u4ED8\u304D\u5408\u3063\u3066\u3084\u308D\u3046\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: volcus
     LR: L
     expressions: normal
@@ -7303,20 +7303,20 @@ MonoBehaviour:
     script_jp: "\u30FC\u30FC\u623B\u308B"
     script_en: 
     script_ch: 
-    type: 
+    type: none
     name: 
     LR: 
     expressions: 
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u3050\u3045...\u306F\u3042...\u30AC\u30CF\uFF01"
     script_jp: "\u3050\u3045...\u306F\u3042...\u30AC\u30CF\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: confuse
@@ -7334,15 +7334,15 @@ MonoBehaviour:
     LR: 
     expressions: 
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u306D\u3048\u3001\u30AA\u30EC\u30F3\u30C9\u3063\u3066\u597D\u304D\u306A\u4EBA\u3044\u308B\u306E\uFF01\uFF1F"
     script_jp: "\u306D\u3048\u3001\u30AA\u30EC\u30F3\u30C9\u3063\u3066\u597D\u304D\u306A\u4EBA\u3044\u308B\u306E\uFF01\uFF1F"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -7355,7 +7355,7 @@ MonoBehaviour:
     script_jp: "\u306A\u3042\u3093\u3067\u305D\u3093\u306A\u3053\u3068\u6C17\u306B\u306A\u308B\u306E\u304B\u306A\u3041\uFF01\u307E\u3055\u304B\u30ED\u30AF\u30B7\u30FC\uFF01\u4FFA\u306E\u3053\u3068\u304C..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: normal
@@ -7368,7 +7368,7 @@ MonoBehaviour:
     script_jp: "\u306F\u3042\uFF1F\u4F55\u8A00\u3063\u3066\u3093\u306E\u3002\u79C1\u306F\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u4E00\u7B4B\uFF01\u3042\u3041...\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3041\u3001\u306A\u3093\u3067\u3042\u306A\u305F\u306F\u305D\u3093\u306A\u306B\u535A\u8B58\u306A\u306E\u3067\u3057\u3087\u3046..."
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: normal
@@ -7394,13 +7394,13 @@ MonoBehaviour:
     script_jp: "\u30B2\u30DB\u30B2\u30DB\u3001\u3042\u3041\u3063\u3041\u3063\u3041\u3042\u3042\u3042\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: confuse
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30FC\u30FC\u904E\u53BB\u306E\u8A18\u61B6"
@@ -7420,20 +7420,20 @@ MonoBehaviour:
     script_jp: "\u30AA\u30EC\u30F3\u30C9\u3001\u3042\u306A\u305F\u306B\u3060\u3051\u4F1D\u3048\u307E\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: cry
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u306A\u3042\u306B\uFF01\u30B5\u30E9\uFF01\u4FFA\u306E\u5931\u604B\u8A18\u5FF5\u65E5\u3067\u3082\u304A\u795D\u3044\u3057\u3066\u304F\u308C\u308B\u306E\u304B\u306A\u3041\uFF01\uFF1F\u3042\u3063\u306F\u3063\u306F\uFF01"
     script_jp: "\u306A\u3042\u306B\uFF01\u30B5\u30E9\uFF01\u4FFA\u306E\u5931\u604B\u8A18\u5FF5\u65E5\u3067\u3082\u304A\u795D\u3044\u3057\u3066\u304F\u308C\u308B\u306E\u304B\u306A\u3041\uFF01\uFF1F\u3042\u3063\u306F\u3063\u306F\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: L
     expressions: normal
@@ -7446,7 +7446,7 @@ MonoBehaviour:
     script_jp: "\u30FB\u30FB\u30FB\u3044\u3048\u3002\u79C1\u306F\u3001\u6B21\u306E\u65B0\u6708\u306E\u591C\u306B\u30ED\u30AF\u30B7\u30FC\u3092\u6BBA\u3057\u307E\u3059\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: sara
     LR: R
     expressions: cry
@@ -7472,13 +7472,13 @@ MonoBehaviour:
     script_jp: "\u3042\u3042\u3042\u3042\u3042\u3063\u3041\u3063\u3041\u3041\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\uFF01\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: confuse
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30FC\u30FC\u904E\u53BB\u306E\u8A18\u61B6"
@@ -7490,15 +7490,15 @@ MonoBehaviour:
     LR: 
     expressions: 
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: a9e606571c13042b0a5ca0089afae208, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30AA\u30EC\u30F3\u30C9\uFF01\u79C1\u306E\u304A\u8179\u3092\u88C2\u3044\u3066\u3002\u3053\u306E\u5A18\u3060\u3051\u3001\u30A4\u30FC\u30E9\u3060\u3051\u3067\u3082\u5B88\u3063\u3066\u3002"
     script_jp: "\u30AA\u30EC\u30F3\u30C9\uFF01\u79C1\u306E\u304A\u8179\u3092\u88C2\u3044\u3066\u3002\u3053\u306E\u5A18\u3060\u3051\u3001\u30A4\u30FC\u30E9\u3060\u3051\u3067\u3082\u5B88\u3063\u3066\u3002"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: loxy
     LR: L
     expressions: cry
@@ -7524,12 +7524,12 @@ MonoBehaviour:
     script_jp: "\u3042\u3042\u3042\u3042\u3042\u3042\u3041\u3041\u3041\u3042\u3042\u3042\u3042\u3041\u3041\u3041\u3063\u3041\u3042\u3042\u3042\u3042\uFF01\uFF01\uFF01"
     script_en: 
     script_ch: 
-    type: 
+    type: talk
     name: orend
     LR: R
     expressions: confuse
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
