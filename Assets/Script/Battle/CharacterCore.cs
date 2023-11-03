@@ -181,6 +181,12 @@ namespace Battle
             }
             characterPanel = transform.parent.gameObject;
             var characterInfo = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}");
+
+            if (characterInfo == null)
+            {
+                Debug.LogError("データベースにキャラクターのデータがありません");
+                return;
+            }
             //maxHp取得
             maxHp = characterInfo.status[level].hp;
             Hp = maxHp;
