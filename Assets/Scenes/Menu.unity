@@ -1623,8 +1623,8 @@ RectTransform:
   m_Father: {fileID: 61252203}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.51842177, y: 1}
+  m_AnchorMin: {x: 0.000000035904346, y: 0}
+  m_AnchorMax: {x: 0.5184218, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2799,7 +2799,7 @@ PrefabInstance:
       objectReference: {fileID: 1884916773}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: releaseStageId
-      value: 101
+      value: 103
       objectReference: {fileID: 0}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: saveController
@@ -3451,7 +3451,7 @@ PrefabInstance:
       objectReference: {fileID: 1280104085}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: releaseStageId
-      value: 101
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: saveController
@@ -8348,7 +8348,7 @@ PrefabInstance:
       objectReference: {fileID: 1847927391}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: releaseStageId
-      value: 101
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: saveController
@@ -9888,7 +9888,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 211674991}
   m_HandleRect: {fileID: 211674990}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 0.00000007455559
   m_Size: 0.51842177
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16284,7 +16284,7 @@ PrefabInstance:
       objectReference: {fileID: 663671643}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: releaseStageId
-      value: 101
+      value: 104
       objectReference: {fileID: 0}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: saveController
@@ -16741,9 +16741,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.00020861626
+    y: 0
     width: 1
-    height: 0.99958277
+    height: 1
   near clip plane: 1
   far clip plane: 100
   field of view: 60
@@ -18658,7 +18658,7 @@ PrefabInstance:
       objectReference: {fileID: 1345858150}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: releaseStageId
-      value: 101
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: saveController
@@ -19221,7 +19221,7 @@ PrefabInstance:
       objectReference: {fileID: 1650255121}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: releaseStageId
-      value: 105
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 7308191848106160026, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: saveController
