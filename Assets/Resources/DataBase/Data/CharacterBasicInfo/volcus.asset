@@ -15,8 +15,8 @@ MonoBehaviour:
   key: volcus
   characterName: "\u30F4\u30A7\u30EB"
   description: "\u9B54\u738B"
-  normal: {fileID: 21300000, guid: 5548543f9f7d84b15a06795fa9e02c82, type: 3}
-  smile: {fileID: 21300000, guid: 44b523c7576554ebdb1f40eaca5fb206, type: 3}
+  normal: {fileID: 21300000, guid: 84623781795074bf29afb01d22b9d1f6, type: 3}
+  smile: {fileID: 21300000, guid: a6ba7c4f8bad84fe5a4bb3b9f51b1772, type: 3}
   angry: {fileID: 21300000, guid: 63d0981b350fb44a6a7080ab5cef780a, type: 3}
   cry: {fileID: 21300000, guid: 03bbe85659b774d3dafab21caac62c2b, type: 3}
   confuse: {fileID: 21300000, guid: b8b8238f05c604a67bed6b5690491fd4, type: 3}
