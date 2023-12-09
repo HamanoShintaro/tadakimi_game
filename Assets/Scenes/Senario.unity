@@ -153,7 +153,7 @@ RectTransform:
   m_GameObject: {fileID: 29014809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.49479166, y: 0.49479166, z: 0.49479166}
+  m_LocalScale: {x: 0.60260415, y: 0.60260415, z: 0.60260415}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 363047648}
@@ -167,7 +167,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1385.9568}
+  m_SizeDelta: {x: 1920, y: 331.80225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &29014811
 MonoBehaviour:
@@ -681,11 +681,26 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 51651e8e47a1746caaa1bc4fc22e1727, type: 3}
   - {fileID: 4900000, guid: 124a37458f9654b15b15a8bde4487f4a, type: 3}
   - {fileID: 4900000, guid: 971a521c6100742cebfaf72ce02aa9b3, type: 3}
+  - {fileID: 4900000, guid: 8e5276109134842958082f133c49a66e, type: 3}
   - {fileID: 4900000, guid: 4208b9f49ce184da5a9b841175a953ae, type: 3}
   - {fileID: 4900000, guid: 977828f69314443fd955b5461072ac9a, type: 3}
   - {fileID: 4900000, guid: a8c65e8acb07e4c7ca18252d81eb7972, type: 3}
   - {fileID: 4900000, guid: 845c8fe0d7bd440578c92a29853fe4df, type: 3}
   - {fileID: 4900000, guid: 987d6a627bb5d42f1bdcb7365f9a1480, type: 3}
+  - {fileID: 4900000, guid: 3fbcdac20b1604d6e8fe94b3d8eaad54, type: 3}
+  - {fileID: 4900000, guid: 9195f21a9a7c349ad8e41049028a0e67, type: 3}
+  - {fileID: 4900000, guid: 45a287fcd643f4435a1577475d96279a, type: 3}
+  - {fileID: 4900000, guid: ac4e60c200414409c9cb53aa8a9bf22d, type: 3}
+  - {fileID: 4900000, guid: 6f566a975350d429f98a4a402ebb7a9b, type: 3}
+  - {fileID: 4900000, guid: 526ef859779a449508f6958de7885fe6, type: 3}
+  - {fileID: 4900000, guid: 9f33ce54869564bc092ff5f2474fa0f7, type: 3}
+  - {fileID: 4900000, guid: 256aa85796ae747cf8cd022cfd95d63e, type: 3}
+  - {fileID: 4900000, guid: a8124740673c54cdb91da3089d053925, type: 3}
+  - {fileID: 4900000, guid: 869fcacc3c70442ea8d76cdefc0fab91, type: 3}
+  - {fileID: 4900000, guid: f51c47178ae8b484f92d9b7ab439614c, type: 3}
+  - {fileID: 4900000, guid: 2087fcdcedbc4443198048eee0ba560b, type: 3}
+  - {fileID: 4900000, guid: a4840c346ee0b4bc4a07e0187db31805, type: 3}
+  - {fileID: 4900000, guid: 1b3c97fdeb9a64cb4b226a3efb2562fc, type: 3}
   characterDataBase: {fileID: 11400000, guid: f419fc1c6fcee448cbcb0268c610063f, type: 2}
   senarioTalkScriptDateBase: {fileID: 11400000, guid: ba9f0a1daca924642a2db9915cda97a0, type: 2}
   startRow: 6
@@ -1988,9 +2003,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.00017502904
+    y: 0.00013643503
     width: 1
-    height: 0.99964994
+    height: 0.99972713
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
