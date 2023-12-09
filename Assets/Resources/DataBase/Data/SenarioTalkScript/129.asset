@@ -1,0 +1,524 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
+  m_Name: 129
+  m_EditorClassIdentifier: 
+  stage: "1\u7AE0"
+  title: 
+  senarioTalks:
+  - script: "\u30FC\u30FC\u305D\u3057\u3066\u3001\u591C\u304C\u660E\u3051\u3001\u6226\u4E89\u306E\u706B\u84CB\u304C\u5207\u3063\u3066\u843D\u3068\u3055\u308C\u308B\u3002"
+    script_jp: "\u30FC\u30FC\u305D\u3057\u3066\u3001\u591C\u304C\u660E\u3051\u3001\u6226\u4E89\u306E\u706B\u84CB\u304C\u5207\u3063\u3066\u843D\u3068\u3055\u308C\u308B\u3002"
+    script_en: 
+    script_ch: 
+    type: none
+    name: 
+    LR: 
+    expressions: 
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3001\u4EBA\u65CF\u306E\u6226\u8266\u304C\u898B\u3048\u307E\u3057\u305F\u3002\u5DE8\u5927\u6226\u8266\uFF12\uFF10\u96BB\u3001\u98DB\u884C\u7832\u53F0\u304C\uFF15\uFF10\u6A5F\u3082\u898B\u3048\u3066\u3044\u307E\u3059\u3002"
+    script_jp: "\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3001\u4EBA\u65CF\u306E\u6226\u8266\u304C\u898B\u3048\u307E\u3057\u305F\u3002\u5DE8\u5927\u6226\u8266\uFF12\uFF10\u96BB\u3001\u98DB\u884C\u7832\u53F0\u304C\uFF15\uFF10\u6A5F\u3082\u898B\u3048\u3066\u3044\u307E\u3059\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: sara
+    LR: R
+    expressions: angry
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u9727\u306E\u5411\u3053\u3046\u306B\u306F\u3055\u3089\u306B\u500D\u8FD1\u3044\u5175\u5668\u304C\u3042\u308B\u3068\u601D\u308F\u308C\u307E\u3059\u3002"
+    script_jp: "\u9727\u306E\u5411\u3053\u3046\u306B\u306F\u3055\u3089\u306B\u500D\u8FD1\u3044\u5175\u5668\u304C\u3042\u308B\u3068\u601D\u308F\u308C\u307E\u3059\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: sara
+    LR: R
+    expressions: angry
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3075\u3080\u3002\u30AE\u30EB\u30C7\u30A3\u3081\u3002"
+    script_jp: "\u3075\u3080\u3002\u30AE\u30EB\u30C7\u30A3\u3081\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u304A\u3049\u304A\u3049\u304A\u3049\u30FC\uFF01\u3059\u3052\u30FC\u306A\u30FC\uFF01\u3053\u3093\u306A\u3059\u3052\u30FC\u306E\u898B\u305F\u3053\u3068\u306D\u30FC\uFF01"
+    script_jp: "\u304A\u3049\u304A\u3049\u304A\u3049\u30FC\uFF01\u3059\u3052\u30FC\u306A\u30FC\uFF01\u3053\u3093\u306A\u3059\u3052\u30FC\u306E\u898B\u305F\u3053\u3068\u306D\u30FC\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: orend
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30AA\u30EC\u30F3\u30C9\u3001\u51FA\u6483\u3059\u308B\u5080\u5121\u306E\u6226\u8266\u306F\uFF11\uFF15\u96BB\u3067\u3088\u3044\u3067\u3059\u304B\uFF1F"
+    script_jp: "\u30AA\u30EC\u30F3\u30C9\u3001\u51FA\u6483\u3059\u308B\u5080\u5121\u306E\u6226\u8266\u306F\uFF11\uFF15\u96BB\u3067\u3088\u3044\u3067\u3059\u304B\uFF1F"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: sara
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u304A\u304A\u3088\uFF01"
+    script_jp: "\u304A\u304A\u3088\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: orend
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30FB\u30FB\u30FB\u5927\u4E08\u592B\u3067\u3059\u304B\uFF1F\u305D\u3053\u307E\u3067\u306E\u6570\u3092\u3042\u306A\u305F\u4E00\u4EBA\u3067\u64CD\u308C\u308B\u3093\u3067\u3059\u304B\uFF1F"
+    script_jp: "\u30FB\u30FB\u30FB\u5927\u4E08\u592B\u3067\u3059\u304B\uFF1F\u305D\u3053\u307E\u3067\u306E\u6570\u3092\u3042\u306A\u305F\u4E00\u4EBA\u3067\u64CD\u308C\u308B\u3093\u3067\u3059\u304B\uFF1F"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: sara
+    LR: L
+    expressions: confuse
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01\u3055\u3041\u306A\u30FC\uFF01\u3067\u3082\u3084\u3089\u306A\u304D\u3083\u8CA0\u3051\u3093\u3060\u308D\uFF1F"
+    script_jp: "\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01\u3055\u3041\u306A\u30FC\uFF01\u3067\u3082\u3084\u3089\u306A\u304D\u3083\u8CA0\u3051\u3093\u3060\u308D\uFF1F"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: orend
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30FB\u30FB\u30FB\u305D\u3046\u306D\u3002"
+    script_jp: "\u30FB\u30FB\u30FB\u305D\u3046\u306D\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: sara
+    LR: R
+    expressions: confuse
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u306A\u3089\u3001\u3084\u308B\u3057\u304B\u306D\u30FC\u3060\u308D\u30FC\uFF01\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01"
+    script_jp: "\u306A\u3089\u3001\u3084\u308B\u3057\u304B\u306D\u30FC\u3060\u308D\u30FC\uFF01\u306F\u3063\u306F\u3063\u306F\u30FC\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: orend
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30AA\u30EC\u30F3\u30C9\u3088\u3002"
+    script_jp: "\u30AA\u30EC\u30F3\u30C9\u3088\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u304A\u304A\u3088\u30FC\uFF1F\u306A\u3093\u3060\u30FC\uFF01\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3088\u30FC\uFF01"
+    script_jp: "\u304A\u304A\u3088\u30FC\uFF1F\u306A\u3093\u3060\u30FC\uFF01\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3088\u30FC\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: orend
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3059\u307E\u3093\u304C\u3001\u305D\u306A\u305F\u3082\u57CE\u306B\u6B8B\u3063\u3066\u3082\u3089\u3048\u306C\u304B\u3002"
+    script_jp: "\u3059\u307E\u3093\u304C\u3001\u305D\u306A\u305F\u3082\u57CE\u306B\u6B8B\u3063\u3066\u3082\u3089\u3048\u306C\u304B\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3078...\uFF1F\u304A\u3001\u304A\u3044\uFF01\u3069\u3001\u3069\u3046\u3044\u3046\u3053\u3068\u3001\u3067\u3059\u304B\uFF1F"
+    script_jp: "\u3078...\uFF1F\u304A\u3001\u304A\u3044\uFF01\u3069\u3001\u3069\u3046\u3044\u3046\u3053\u3068\u3001\u3067\u3059\u304B\uFF1F"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: orend
+    LR: R
+    expressions: confuse
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3075\u3080\u3002\u79C1\u306F\u3082\u3046\u3001\u305D\u306A\u305F\u306B\u3057\u304B\u3001\u983C\u3081\u306A\u3044\u306E\u3060\u3002"
+    script_jp: "\u3075\u3080\u3002\u79C1\u306F\u3082\u3046\u3001\u305D\u306A\u305F\u306B\u3057\u304B\u3001\u983C\u3081\u306A\u3044\u306E\u3060\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30FB\u30FB\u30FB\u304A\u3044\uFF01\uFF01\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3088\uFF01\uFF01\u305D\u308A\u3083\u306D\u3048\u3088\uFF01\u4FFA\u3060\u3063\u3066\u6226\u308F\u305B\u3066\u304F\u308C\u3088\uFF01\uFF01"
+    script_jp: "\u30FB\u30FB\u30FB\u304A\u3044\uFF01\uFF01\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3088\uFF01\uFF01\u305D\u308A\u3083\u306D\u3048\u3088\uFF01\u4FFA\u3060\u3063\u3066\u6226\u308F\u305B\u3066\u304F\u308C\u3088\uFF01\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: orend
+    LR: R
+    expressions: confuse
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30FB\u30FB\u30FB\u3002"
+    script_jp: "\u30FB\u30FB\u30FB\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: sara
+    LR: R
+    expressions: cry
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30FB\u30FB\u30FB\u3002"
+    script_jp: "\u30FB\u30FB\u30FB\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u308F\u304B\u3063\u305F\u3088...\u3002\u308F\u304B\u3063\u305F\u3002"
+    script_jp: "\u308F\u304B\u3063\u305F\u3088...\u3002\u308F\u304B\u3063\u305F\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: orend
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3059\u307E\u306A\u3044\u3002\u5E30\u3063\u305F\u3089\u3001\u305D\u306A\u305F\u306E\u9858\u3044\u3092\u597D\u304D\u306A\u3060\u3051\u805E\u304D\u5C4A\u3051\u3088\u3046\u3002"
+    script_jp: "\u3059\u307E\u306A\u3044\u3002\u5E30\u3063\u305F\u3089\u3001\u305D\u306A\u305F\u306E\u9858\u3044\u3092\u597D\u304D\u306A\u3060\u3051\u805E\u304D\u5C4A\u3051\u3088\u3046\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u9858\u3044\u304B...\u308F\u304B\u3063\u305F\u3002"
+    script_jp: "\u9858\u3044\u304B...\u308F\u304B\u3063\u305F\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: orend
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30B5\u30E9\u3088\u3002"
+    script_jp: "\u30B5\u30E9\u3088\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: smile
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u306A\u3093\u3067\u3057\u3087\u3046\u304B\u3001\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3002"
+    script_jp: "\u306A\u3093\u3067\u3057\u3087\u3046\u304B\u3001\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: sara
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u7559\u5B88\u3092\u983C\u3080\u3002\u305D\u306A\u305F\u306E\u5FE0\u7FA9\u306B\u611F\u8B1D\u3057\u3066\u304A\u308B\u3002"
+    script_jp: "\u7559\u5B88\u3092\u983C\u3080\u3002\u305D\u306A\u305F\u306E\u5FE0\u7FA9\u306B\u611F\u8B1D\u3057\u3066\u304A\u308B\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: smile
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\uFF01\uFF01.....\u3068\u3093\u3067\u3082\u3042\u308A\u307E\u305B\u3093\u3002\u304A\u6C17\u3092\u3064\u3051\u3066\u3002"
+    script_jp: "\uFF01\uFF01.....\u3068\u3093\u3067\u3082\u3042\u308A\u307E\u305B\u3093\u3002\u304A\u6C17\u3092\u3064\u3051\u3066\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: sara
+    LR: R
+    expressions: cry
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30FC\u30FC\u6226\u5730\u306B\u3066"
+    script_jp: "\u30FC\u30FC\u6226\u5730\u306B\u3066"
+    script_en: 
+    script_ch: 
+    type: none
+    name: 
+    LR: 
+    expressions: 
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u805E\u304F\u3068\u826F\u3044\uFF01\u79C1\u306B\u5FE0\u7FA9\u3092\u7ACB\u3066\u305F\u8005\u5171\u3088\u3002\u305D\u306A\u305F\u3089\u3092\u3053\u306E\u6226\u706B\u306B\u843D\u3068\u3055\u305B\u306F\u305B\u306C\u3002\u3053\u306E\u30F4\u30A9\u30EB\u30AB\u30B9\u304C\u5168\u3066\u306E\u9B54\u65CF\u306E\u967D\u5149\u3068\u306A\u308B\u306E\u3060\uFF01\uFF01"
+    script_jp: "\u805E\u304F\u3068\u826F\u3044\uFF01\u79C1\u306B\u5FE0\u7FA9\u3092\u7ACB\u3066\u305F\u8005\u5171\u3088\u3002\u305D\u306A\u305F\u3089\u3092\u3053\u306E\u6226\u706B\u306B\u843D\u3068\u3055\u305B\u306F\u305B\u306C\u3002\u3053\u306E\u30F4\u30A9\u30EB\u30AB\u30B9\u304C\u5168\u3066\u306E\u9B54\u65CF\u306E\u967D\u5149\u3068\u306A\u308B\u306E\u3060\uFF01\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: angry
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u52C7\u307E\u3057\u3044\u306A\u3042\u30F4\u30A9\u30EB\u30AB\u30B9\u3088\uFF01"
+    script_jp: "\u52C7\u307E\u3057\u3044\u306A\u3042\u30F4\u30A9\u30EB\u30AB\u30B9\u3088\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: guildy
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u30AE\u30EB\u30C7\u30A3\u304B\uFF01"
+    script_jp: "\u30AE\u30EB\u30C7\u30A3\u304B\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: angry
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u4E45\u3057\u3044\u306E\u3046\u3002\u4F55\u5E74\u3076\u308A\u3060\u304B\uFF01"
+    script_jp: "\u4E45\u3057\u3044\u306E\u3046\u3002\u4F55\u5E74\u3076\u308A\u3060\u304B\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: guildy
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3075\u3080\u3002\uFF12\u5EA6\u3068\u8CB4\u69D8\u306E\u9762\uFF08\u30C4\u30E9\uFF09\u3092\u62DD\u3080\u3064\u3082\u308A\u306F\u306A\u304B\u3063\u305F\u306E\u3060\u304C\uFF01"
+    script_jp: "\u3075\u3080\u3002\uFF12\u5EA6\u3068\u8CB4\u69D8\u306E\u9762\uFF08\u30C4\u30E9\uFF09\u3092\u62DD\u3080\u3064\u3082\u308A\u306F\u306A\u304B\u3063\u305F\u306E\u3060\u304C\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: angry
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u4F59\u306F\u5ACC\u308F\u308C\u3066\u304A\u3063\u305F\u304B\uFF01\uFF01"
+    script_jp: "\u4F59\u306F\u5ACC\u308F\u308C\u3066\u304A\u3063\u305F\u304B\uFF01\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: guildy
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u5F53\u7136\u3060\uFF01"
+    script_jp: "\u5F53\u7136\u3060\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: angry
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u308F\u3056\u308F\u3056\u8CB4\u69D8\u304C\u5730\u306B\u4F0F\u305B\u3066\u6CE3\u304D\u559A\u304F\u69D8\u3092\u898B\u306B\u304D\u3066\u3084\u3063\u305F\u3068\u3044\u3046\u306E\u306B\u3001\u3064\u308C\u306C\u65E7\u53CB\u3058\u3083\u3002"
+    script_jp: "\u308F\u3056\u308F\u3056\u8CB4\u69D8\u304C\u5730\u306B\u4F0F\u305B\u3066\u6CE3\u304D\u559A\u304F\u69D8\u3092\u898B\u306B\u304D\u3066\u3084\u3063\u305F\u3068\u3044\u3046\u306E\u306B\u3001\u3064\u308C\u306C\u65E7\u53CB\u3058\u3083\u3002"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: guildy
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u307B\u3046\u3002\u305D\u306E\u8584\u3089\u7B11\u3044\u3092\u4ECA\u306B\u5265\u304C\u3057\u3066\u304F\u308C\u308B\uFF01"
+    script_jp: "\u307B\u3046\u3002\u305D\u306E\u8584\u3089\u7B11\u3044\u3092\u4ECA\u306B\u5265\u304C\u3057\u3066\u304F\u308C\u308B\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: angry
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u304C\u3063\u306F\u3063\u306F\uFF01\u5FC3\u5F85\u3061\u306B\u3057\u3066\u3044\u308B\u308F\u3044\uFF01...\u3055\u3066\u3001\u3082\u3046\u8A00\u8449\u306F\u3044\u3089\u306C\uFF01\uFF01\uFF01\u884C\u304F\u305E\u53E1\u667A\u306A\u308B\u795E\u306E\u5B50\u3089\u3088\uFF01\uFF01"
+    script_jp: "\u304C\u3063\u306F\u3063\u306F\uFF01\u5FC3\u5F85\u3061\u306B\u3057\u3066\u3044\u308B\u308F\u3044\uFF01...\u3055\u3066\u3001\u3082\u3046\u8A00\u8449\u306F\u3044\u3089\u306C\uFF01\uFF01\uFF01\u884C\u304F\u305E\u53E1\u667A\u306A\u308B\u795E\u306E\u5B50\u3089\u3088\uFF01\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: guildy
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u7D42\u308F\u3089\u305B\u308B\u306E\u3060\uFF01\u5DF1\u306E\u624B\u3067\uFF01\u305D\u306E\u5DF1\u306E\u8DB3\u3067\u306A\uFF01\u6575\u306F\u98A8\u524D\u306E\u706F\u706B\u3067\u3042\u308B\uFF01\uFF01"
+    script_jp: "\u7D42\u308F\u3089\u305B\u308B\u306E\u3060\uFF01\u5DF1\u306E\u624B\u3067\uFF01\u305D\u306E\u5DF1\u306E\u8DB3\u3067\u306A\uFF01\u6575\u306F\u98A8\u524D\u306E\u706F\u706B\u3067\u3042\u308B\uFF01\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: guildy
+    LR: R
+    expressions: normal
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
+  - script: "\u3082\u306E\u5171\uFF01\u9B54\u738B\u306E\u6C17\u3092\u53D7\u3051\u53D6\u308B\u3068\u826F\u3044\uFF01\u3064\u3044\u3066\u304F\u308B\u306E\u3060\uFF01\u79C1\u306F\u3001\u79C1\u305F\u3061\u306F\u5E30\u3089\u306D\u3070\u306A\u3089\u306C\uFF01\uFF01\u8AB0\u4E00\u4EBA\u3068\u3057\u3066\u3001\u6B7B\u306A\u305B\u306F\u305B\u306C\uFF01\uFF01"
+    script_jp: "\u3082\u306E\u5171\uFF01\u9B54\u738B\u306E\u6C17\u3092\u53D7\u3051\u53D6\u308B\u3068\u826F\u3044\uFF01\u3064\u3044\u3066\u304F\u308B\u306E\u3060\uFF01\u79C1\u306F\u3001\u79C1\u305F\u3061\u306F\u5E30\u3089\u306D\u3070\u306A\u3089\u306C\uFF01\uFF01\u8AB0\u4E00\u4EBA\u3068\u3057\u3066\u3001\u6B7B\u306A\u305B\u306F\u305B\u306C\uFF01\uFF01"
+    script_en: 
+    script_ch: 
+    type: talk
+    name: volcus
+    LR: L
+    expressions: angry
+    voice: {fileID: 0}
+    SE: {fileID: 0}
+    bgImage: {fileID: 0}
+    BGM: {fileID: 0}
+    still: {fileID: 0}
