@@ -4,7 +4,7 @@ No,キャラクター名,日本語,英語,中国語,LR,表情,type,補足コメ�
 1,,ーー早朝、インプ族のクリシュオラが旅立つ。,,,,,none,開始BGM(自然の中でゆったりと)/背景切り替え,21,005_era's_ house
 2,silhouette_man,助けていただいて、ありがとうございました。,,,L,confuse,talk,,21,
 3,eleth,いいえ、とんでもございません。困った時はお互い様ですから。お気になさらないでくださいね。,,,R,normal,talk,,44,
-4,silhouette_man,ちゃんと挨拶もできずにすみません、とお二人に伝えてください...。今は逃亡者の身ですから。,,,L,normal,talk,,45,
+4,silhouette_man,ちゃんと挨拶もできずにすみません、とお二人に伝えてください...。今は逃亡者の身ですから。,,,L,confuse,talk,,45,
 5,eleth,はい、わかりました。,,,R,normal,talk,,10,
 6,volcus,クリシュオラよ。,,,R,smile,talk,,8,
 7,silhouette_man,・・・朝早く出ること、バレてましたか。,,,L,confuse,talk,,19,

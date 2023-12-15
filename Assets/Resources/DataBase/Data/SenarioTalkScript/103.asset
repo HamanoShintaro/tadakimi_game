@@ -25,8 +25,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: f48a22709434f4059bf8afece8a5b216, type: 3}
+    BGM: {fileID: 8300000, guid: e21065ed7b58344c285e4c678cffd12b, type: 3}
     still: {fileID: 0}
   - script: "\u59EB\u69D8\uFF01\u304A\u3084\u3081\u304F\u3060\u3055\u3044\uFF01"
     script_jp: "\u59EB\u69D8\uFF01\u304A\u3084\u3081\u304F\u3060\u3055\u3044\uFF01"
@@ -220,7 +220,7 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 9790ef2de0b504ac093f8aeed398cb80, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30FB\u30FB\u30FB\u3075\u3080...\u3002"
@@ -675,7 +675,7 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: a9e2480e7754f4c4c972858ec01bf24f, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30FB\u30FB\u30FB\u30ED\u30AF\u30B7\u30FC\u3002\u7269\u8A9E\u306E\u3088\u3046\u306B\u3001\u79C1\u3067\u306F\u306A\u304F\u3001\u3082\u3057\u541B\u304C\u3053\u306E\u9053\u3092\u6B69\u3044\u3066\u3044\u305F\u3089\u3001\u3069\u3046\u601D\u3046\u3060\u308D\u3046\u304B\u3002"

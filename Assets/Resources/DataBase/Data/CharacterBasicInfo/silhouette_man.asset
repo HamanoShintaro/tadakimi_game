@@ -19,6 +19,6 @@ MonoBehaviour:
   smile: {fileID: 21300000, guid: 1412a34b0c4084a98898c3d63c60fa1d, type: 3}
   angry: {fileID: 21300000, guid: 9a6fe95f149a74bcf94c43206003db18, type: 3}
   cry: {fileID: 21300000, guid: de461fff096464b58bf60a0eff528acb, type: 3}
-  confuse: {fileID: 0}
+  confuse: {fileID: 21300000, guid: 40ab6211a51034d8d9fa776286bca73b, type: 3}
   unique: {fileID: 21300000, guid: 8fbae68887b15414aa1051ec5d55f723, type: 3}
   shyness: {fileID: 0}
