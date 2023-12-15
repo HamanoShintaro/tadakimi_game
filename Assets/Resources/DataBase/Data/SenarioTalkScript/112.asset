@@ -25,8 +25,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 4993b864e4be44142a8d8236e2a71f54, type: 3}
+    BGM: {fileID: 8300000, guid: e21065ed7b58344c285e4c678cffd12b, type: 3}
     still: {fileID: 0}
   - script: "\u306A\u3093\u3060\u304B\u3042\u3063\u3068\u3044\u3046\u9593\u306E\u51FA\u6765\u4E8B\u3067\u3057\u305F\u306D\u3048\u3002\u5BC2\u3057\u3044\u3088\u3046\u306A\u3001\u61D0\u304B\u3057\u3044\u3088\u3046\u306A\u3002\u4E0D\u601D\u8B70\u306A\u6C17\u6301\u3061\u3067\u3059\u3002"
     script_jp: "\u306A\u3093\u3060\u304B\u3042\u3063\u3068\u3044\u3046\u9593\u306E\u51FA\u6765\u4E8B\u3067\u3057\u305F\u306D\u3048\u3002\u5BC2\u3057\u3044\u3088\u3046\u306A\u3001\u61D0\u304B\u3057\u3044\u3088\u3046\u306A\u3002\u4E0D\u601D\u8B70\u306A\u6C17\u6301\u3061\u3067\u3059\u3002"
@@ -428,7 +428,7 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8632cd7719e1f467883bb00333990253, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u3042\u3063\u305F\u3042\u3063\u305F\u3002\u61D0\u304B\u3057\u3044\u3067\u3059\u306D\u3047\u3002\u3053\u306E\u624B\u7D19\u3092\u6700\u521D\u306B\u8AAD\u3093\u3060\u6642\u306B\u306F\u5927\u6CE3\u304D\u3057\u307E\u3057\u305F\u3063\u3051\u3002"
@@ -467,7 +467,7 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: d883d65fc31904159bea09f30f3a706e, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30FB\u30FB\u30FB\u3046\u3046\u3045\u3046\u3045..."
@@ -805,7 +805,7 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8fc08fd3d25234d81bfe568b1f789892, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u89AA\u611B\u306A\u308B\u30DE\u30DE\u3078\u3002\u3078\u3044\uFF01\u30DE\u30DE\uFF01\u5143\u6C17\u306B\u3057\u3066\u308B\u30FC\uFF1F\u79C1\u306F\u8D85\u5143\u6C17\u3088\u30FC\uFF01\u305A\u3063\u3068\u5E30\u308C\u306A\u304F\u3066\u3054\u3081\u3093\u306D\uFF01"
@@ -1420,8 +1420,8 @@ MonoBehaviour:
     expressions: smile
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: d883d65fc31904159bea09f30f3a706e, type: 3}
+    BGM: {fileID: 8300000, guid: 2dd38687e471c4cfea2dafde02633f6e, type: 3}
     still: {fileID: 0}
   - script: "\u3046\u3075\u3075\u3002\u5A18\u3089\u3057\u304F\u3066\u3002"
     script_jp: "\u3046\u3075\u3075\u3002\u5A18\u3089\u3057\u304F\u3066\u3002"
@@ -1914,8 +1914,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 00347eed708a6453ea3811ba729fd64e, type: 3}
+    BGM: {fileID: 8300000, guid: e21065ed7b58344c285e4c678cffd12b, type: 3}
     still: {fileID: 0}
   - script: "\u3078\u3047\u301C\uFF01\u305D\u308C\u3067\u4FFA\u305F\u3061\u306B\u540C\u884C\u3057\u305F\u304F\u3066\u30D5\u30EC\u30FC\u30F3\u30C9\u30A5\u306E\u4FFA\u306B\u58F0\u3092\u304B\u3051\u3066\u304D\u305F\u3063\u3066\u3053\u3068\u304B\u3042\uFF01"
     script_jp: "\u3078\u3047\u301C\uFF01\u305D\u308C\u3067\u4FFA\u305F\u3061\u306B\u540C\u884C\u3057\u305F\u304F\u3066\u30D5\u30EC\u30FC\u30F3\u30C9\u30A5\u306E\u4FFA\u306B\u58F0\u3092\u304B\u3051\u3066\u304D\u305F\u3063\u3066\u3053\u3068\u304B\u3042\uFF01"
