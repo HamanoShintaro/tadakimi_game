@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
   m_Name: 116
   m_EditorClassIdentifier: 
-  stage: "1\u7AE0"
-  title: 
+  stage: "1\u7AE016\u8A71"
+  title: "\u958B\u6F14 \u5080\u5121\u306E\u9577"
   senarioTalks:
   - script: "\u30FC\u30FC\u8A18\u61B6\u306E\u4E2D\u306B\u5165\u3063\u3066\u3044\u304F"
     script_jp: "\u30FC\u30FC\u8A18\u61B6\u306E\u4E2D\u306B\u5165\u3063\u3066\u3044\u304F"
@@ -25,8 +25,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 669bc480cd29541e684f7c013fa1ab4e, type: 3}
+    BGM: {fileID: 8300000, guid: ee8bc578b117e435b9abb0ba36857308, type: 3}
     still: {fileID: 0}
   - script: "\u3075\u3080\u3002\u307E\u3060\u304B\u304B\u3063\u3066\u304F\u308B\u304B\u3002"
     script_jp: "\u3075\u3080\u3002\u307E\u3060\u304B\u304B\u3063\u3066\u304F\u308B\u304B\u3002"
@@ -76,8 +76,8 @@ MonoBehaviour:
     LR: 
     expressions: 
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u3050\u3045...\u306F\u3042...\u30AC\u30CF\uFF01"
@@ -102,8 +102,8 @@ MonoBehaviour:
     LR: 
     expressions: 
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u306D\u3048\u3001\u30AA\u30EC\u30F3\u30C9\u3063\u3066\u597D\u304D\u306A\u4EBA\u3044\u308B\u306E\uFF01\uFF1F"
@@ -154,8 +154,8 @@ MonoBehaviour:
     LR: 
     expressions: 
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30B2\u30DB\u30B2\u30DB\u3001\u3042\u3041\u3063\u3041\u3063\u3041\u3042\u3042\u3042\uFF01"
@@ -167,7 +167,7 @@ MonoBehaviour:
     LR: R
     expressions: confuse
     voice: {fileID: 0}
-    SE: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
@@ -180,8 +180,8 @@ MonoBehaviour:
     LR: 
     expressions: 
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30AA\u30EC\u30F3\u30C9\u3001\u3042\u306A\u305F\u306B\u3060\u3051\u4F1D\u3048\u307E\u3059\u3002"
@@ -232,8 +232,8 @@ MonoBehaviour:
     LR: 
     expressions: 
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u3042\u3042\u3042\u3042\u3042\u3063\u3041\u3063\u3041\u3041\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\uFF01\uFF01\uFF01"
@@ -258,8 +258,8 @@ MonoBehaviour:
     LR: 
     expressions: 
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: a9e606571c13042b0a5ca0089afae208, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u30AA\u30EC\u30F3\u30C9\uFF01\u79C1\u306E\u304A\u8179\u3092\u88C2\u3044\u3066\u3002\u3053\u306E\u5A18\u3060\u3051\u3001\u30A4\u30FC\u30E9\u3060\u3051\u3067\u3082\u5B88\u3063\u3066\u3002"
@@ -284,8 +284,8 @@ MonoBehaviour:
     LR: 
     expressions: 
     voice: {fileID: 0}
-    SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    SE: {fileID: 8300000, guid: 9c305f093553843b089d110347973ef9, type: 3}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u3042\u3042\u3042\u3042\u3042\u3042\u3041\u3041\u3041\u3042\u3042\u3042\u3042\u3041\u3041\u3041\u3063\u3041\u3042\u3042\u3042\u3042\uFF01\uFF01\uFF01"

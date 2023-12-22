@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 101
   m_EditorClassIdentifier: 
   stage: "1\u7AE01\u8A71"
-  title: "\u611B\u306E\u9A0E\u58EB\u3068\u91D1\u306E\u795E"
+  title: "\u5E8F\u5E55 \u795E\u306E\u9A0E\u58EB\u3068\u9EC4\u91D1\u306E\u795E"
   senarioTalks:
   - script: 
     script_jp: 

@@ -10,7 +10,7 @@ No,キャラクター名,日本語,英語,中国語,LR,表情,type,補足コメ�
 8,orend,おおよ！,,,R,normal,talk,,4,
 9,sara,・・・大丈夫ですか？そこまでの数をあなた一人で操れるんですか？,,,L,confuse,talk,,31,
 10,orend,はっはっはー！さぁなー！でもやらなきゃ負けんだろ？,,,R,normal,talk,,25,
-11,sara,・・・そうね。,,,R,confuse,talk,,7,
+11,sara,・・・そうね。,,,L,confuse,talk,,7,
 12,orend,なら、やるしかねーだろー！はっはっはー！,,,R,normal,talk,,20,
 13,volcus,オレンドよ。,,,L,normal,talk,※口角下がり顔,6,
 14,orend,おおよー？なんだー！ヴォルカス様よー！,,,R,normal,talk,,19,

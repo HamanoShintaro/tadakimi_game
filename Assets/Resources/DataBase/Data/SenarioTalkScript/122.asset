@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
   m_Name: 122
   m_EditorClassIdentifier: 
-  stage: "1\u7AE0"
-  title: 
+  stage: "1\u7AE022\u8A71"
+  title: "\u307F\u3001\u898B\u4E8B\u3060"
   senarioTalks:
   - script: "\u30FC\u30FC\u56DE\u60F3\u7D42\u308F\u3063\u3066\u57CE\u306E\u57F7\u52D9\u5BA4"
     script_jp: "\u30FC\u30FC\u56DE\u60F3\u7D42\u308F\u3063\u3066\u57CE\u306E\u57F7\u52D9\u5BA4"
@@ -25,8 +25,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: c752709efc7ac46039f3073561bdc742, type: 3}
+    BGM: {fileID: 8300000, guid: 53a338edc39ab476190929a51f533442, type: 3}
     still: {fileID: 0}
   - script: "\u306A\u308B\u307B\u3069\u306D\u3002\u305D\u308C\u3067\u30AA\u30EC\u30F3\u30C9\u304C\u3078\u305F\u3070\u3063\u3066\u305F\u308F\u3051\u306D\u3002"
     script_jp: "\u306A\u308B\u307B\u3069\u306D\u3002\u305D\u308C\u3067\u30AA\u30EC\u30F3\u30C9\u304C\u3078\u305F\u3070\u3063\u3066\u305F\u308F\u3051\u306D\u3002"
@@ -184,8 +184,8 @@ MonoBehaviour:
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
-  - script: "\u3078\u3047\u30FC...\u3002\u3075\u30FC\u3093\u3002\u306A\u3093\u3060\u3001\u907A\u7269\u3058\u3083\u306A\u3044\u306E\u306D\u3002(\u3076\u3064\u3076\u3064\u8A00\u3044\u306A\u304C\u3089\u3001\u90E8\u5C4B\u306E\u51FA\u53E3\u3078\u6B69\u3044\u3066\u3044\u304F)"
-    script_jp: "\u3078\u3047\u30FC...\u3002\u3075\u30FC\u3093\u3002\u306A\u3093\u3060\u3001\u907A\u7269\u3058\u3083\u306A\u3044\u306E\u306D\u3002(\u3076\u3064\u3076\u3064\u8A00\u3044\u306A\u304C\u3089\u3001\u90E8\u5C4B\u306E\u51FA\u53E3\u3078\u6B69\u3044\u3066\u3044\u304F)"
+  - script: "\u3078\u3047\u30FC...\u3002\u3075\u30FC\u3093\u3002\u306A\u3093\u3060\u3001\u907A\u7269\u3058\u3083\u306A\u3044\u306E\u306D\u3002"
+    script_jp: "\u3078\u3047\u30FC...\u3002\u3075\u30FC\u3093\u3002\u306A\u3093\u3060\u3001\u907A\u7269\u3058\u3083\u306A\u3044\u306E\u306D\u3002"
     script_en: 
     script_ch: 
     type: talk
@@ -324,8 +324,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8628a0611aaeb4c1e9e097dc4d9a6e57, type: 3}
+    BGM: {fileID: 8300000, guid: e21065ed7b58344c285e4c678cffd12b, type: 3}
     still: {fileID: 0}
   - script: "\u6F14\u5287\u5F53\u65E5\u3092\u8FCE\u3048\u3001\u3064\u3044\u306B\u958B\u6F14\u306E\u76F4\u524D\u3002\u79C1\u306F\u30AA\u30EC\u30F3\u30C9\u3068\u5171\u306B\u547C\u3073\u8FBC\u307F\u306B\u3044\u304F\u3088\u3046\u30B7\u30E3\u30F3\u30C7\u30A3\u306B\u983C\u307E\u308C\u305F\u306E\u3067\u3042\u308B\u3002"
     script_jp: "\u6F14\u5287\u5F53\u65E5\u3092\u8FCE\u3048\u3001\u3064\u3044\u306B\u958B\u6F14\u306E\u76F4\u524D\u3002\u79C1\u306F\u30AA\u30EC\u30F3\u30C9\u3068\u5171\u306B\u547C\u3073\u8FBC\u307F\u306B\u3044\u304F\u3088\u3046\u30B7\u30E3\u30F3\u30C7\u30A3\u306B\u983C\u307E\u308C\u305F\u306E\u3067\u3042\u308B\u3002"
@@ -626,8 +626,8 @@ MonoBehaviour:
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
-  - script: "\uFF08\u30DE\u30C0\u30E0\u306B\u7FA4\u304C\u3089\u308C\u3066\uFF09\u307F\u3001\u898B\u4E8B\u3060\u3002"
-    script_jp: "\uFF08\u30DE\u30C0\u30E0\u306B\u7FA4\u304C\u3089\u308C\u3066\uFF09\u307F\u3001\u898B\u4E8B\u3060\u3002"
+  - script: "\u307F\u3001\u898B\u4E8B\u3060\u3002"
+    script_jp: "\u307F\u3001\u898B\u4E8B\u3060\u3002"
     script_en: 
     script_ch: 
     type: talk

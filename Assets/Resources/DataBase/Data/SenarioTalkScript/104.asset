@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
   m_Name: 104
   m_EditorClassIdentifier: 
-  stage: "1\u7AE0"
-  title: 
+  stage: "1\u7AE04\u8A71"
+  title: "\u5974\u96B7"
   senarioTalks:
   - script: 
     script_jp: 

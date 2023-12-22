@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
   m_Name: 118
   m_EditorClassIdentifier: 
-  stage: "1\u7AE0"
-  title: 
+  stage: "1\u7AE018\u8A71"
+  title: "\u5E55\u306E\u9593"
   senarioTalks:
   - script: "\u30FC\u30FC\u4ECA\u306E\u6642\u9593\u306B\u623B\u308A\u3001\u79FB\u52D5\u8ECA\u306E\u4E2D\u3001\u5BDD\u8FBC\u3080\u30AA\u30EC\u30F3\u30C9\u3068\u5FC3\u914D\u3059\u308B\u30A4\u30FC\u30E9\u3001\u30B7\u30E3\u30F3\u30C7\u30A3\u3001\u30F4\u30A7\u30EB"
     script_jp: "\u30FC\u30FC\u4ECA\u306E\u6642\u9593\u306B\u623B\u308A\u3001\u79FB\u52D5\u8ECA\u306E\u4E2D\u3001\u5BDD\u8FBC\u3080\u30AA\u30EC\u30F3\u30C9\u3068\u5FC3\u914D\u3059\u308B\u30A4\u30FC\u30E9\u3001\u30B7\u30E3\u30F3\u30C7\u30A3\u3001\u30F4\u30A7\u30EB"
@@ -25,8 +25,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
+    BGM: {fileID: 8300000, guid: e21065ed7b58344c285e4c678cffd12b, type: 3}
     still: {fileID: 0}
   - script: "\u30AA\u30EC\u30F3\u30C9...\u3002"
     script_jp: "\u30AA\u30EC\u30F3\u30C9...\u3002"
@@ -246,8 +246,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
+    BGM: {fileID: 8300000, guid: 76b1d4ccfcbee4903b24c5e92e53c176, type: 3}
     still: {fileID: 0}
   - script: "\u3075\u3080\u3002\u30B5\u30E9\u3088\u3002"
     script_jp: "\u3075\u3080\u3002\u30B5\u30E9\u3088\u3002"
@@ -480,8 +480,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 669bc480cd29541e684f7c013fa1ab4e, type: 3}
+    BGM: {fileID: 8300000, guid: d7fef640bf8e3415fa9cc9a37edd47bc, type: 3}
     still: {fileID: 0}
   - script: "\u3042\u3041..\u3042\u3041...\u30A4\u30C8\u3082\u6B7B\u3093\u3060\u3001\u30D9\u30C3\u30C8\u30E9\u3082\u6B7B\u3093\u3060\u3001\u30B8\u30E5\u30BC\u30C3\u30C8\u3082\u6B7B\u3093\u3060...\u3042\u3041\u3001\u304A\u3081\u3047\u3089...\u3002"
     script_jp: "\u3042\u3041..\u3042\u3041...\u30A4\u30C8\u3082\u6B7B\u3093\u3060\u3001\u30D9\u30C3\u30C8\u30E9\u3082\u6B7B\u3093\u3060\u3001\u30B8\u30E5\u30BC\u30C3\u30C8\u3082\u6B7B\u3093\u3060...\u3042\u3041\u3001\u304A\u3081\u3047\u3089...\u3002"

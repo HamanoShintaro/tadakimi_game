@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
   m_Name: 111
   m_EditorClassIdentifier: 
-  stage: "1\u7AE0"
-  title: 
+  stage: "1\u7AE011\u8A71"
+  title: "\u6BCD\u306F\u5FDC\u63F4\u3057\u3066\u3044\u308B\u305E\u30FC\uFF01"
   senarioTalks:
   - script: "\u30FC\u30FC\u30F4\u30A7\u30EB\u306F\u6050\u308B\u6050\u308B\u30ED\u30AF\u30B7\u30FC\u306E\u90E8\u5C4B\u3092\u8A2A\u308C\u308B"
     script_jp: "\u30FC\u30FC\u30F4\u30A7\u30EB\u306F\u6050\u308B\u6050\u308B\u30ED\u30AF\u30B7\u30FC\u306E\u90E8\u5C4B\u3092\u8A2A\u308C\u308B"
@@ -35,7 +35,7 @@ MonoBehaviour:
     type: talk
     name: volcus
     LR: L
-    expressions: smile
+    expressions: normal
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
     type: talk
     name: volcus
     LR: L
-    expressions: smile
+    expressions: normal
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
     type: talk
     name: volcus
     LR: L
-    expressions: smile
+    expressions: normal
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
     type: talk
     name: volcus
     LR: L
-    expressions: smile
+    expressions: normal
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 0}
@@ -217,7 +217,7 @@ MonoBehaviour:
     type: talk
     name: volcus
     LR: L
-    expressions: smile
+    expressions: normal
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 0}
@@ -243,7 +243,7 @@ MonoBehaviour:
     type: talk
     name: volcus
     LR: L
-    expressions: smile
+    expressions: normal
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 0}
@@ -269,7 +269,7 @@ MonoBehaviour:
     type: talk
     name: volcus
     LR: L
-    expressions: smile
+    expressions: normal
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 0}
@@ -295,7 +295,7 @@ MonoBehaviour:
     type: talk
     name: volcus
     LR: L
-    expressions: smile
+    expressions: normal
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 0}

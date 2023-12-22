@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
   m_Name: 128
   m_EditorClassIdentifier: 
-  stage: "1\u7AE0"
-  title: 
+  stage: "1\u7AE028\u8A71"
+  title: "\u546A\u8A5B"
   senarioTalks:
   - script: "\u30FC\u30FC\u9B54\u738B\u306E\u90E8\u5C4B\u3067\u30F4\u30A7\u30EB\u3068\u30ED\u30AF\u30B7\u30FC"
     script_jp: "\u30FC\u30FC\u9B54\u738B\u306E\u90E8\u5C4B\u3067\u30F4\u30A7\u30EB\u3068\u30ED\u30AF\u30B7\u30FC"
@@ -25,8 +25,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
+    BGM: {fileID: 8300000, guid: ab411f1d3ad8240e3bb65006493173f8, type: 3}
     still: {fileID: 0}
   - script: "\u30ED\u30AF\u30B7\u30FC\u3088...\u3002"
     script_jp: "\u30ED\u30AF\u30B7\u30FC\u3088...\u3002"

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
   m_Name: 119
   m_EditorClassIdentifier: 
-  stage: "1\u7AE0"
-  title: 
+  stage: "1\u7AE019\u8A71"
+  title: "\u30A2\u30AD\u30E5\u30A8\u30EA"
   senarioTalks:
   - script: "\u30FC\u30FC\u6642\u306F\u6D41\u308C\u3066\u3001\u30B5\u30E9\u304C\u5230\u7740\u3059\u308B\u3002\u30AA\u30EC\u30F3\u30C9\u306F\u307C\u3053\u307C\u3053\u306B\u3055\u308C\u3001\u30F4\u30A9\u30EB\u30AB\u30B9\u304C\u305D\u308C\u3092\u773A\u3081\u3066\u3044\u308B\u3002"
     script_jp: "\u30FC\u30FC\u6642\u306F\u6D41\u308C\u3066\u3001\u30B5\u30E9\u304C\u5230\u7740\u3059\u308B\u3002\u30AA\u30EC\u30F3\u30C9\u306F\u307C\u3053\u307C\u3053\u306B\u3055\u308C\u3001\u30F4\u30A9\u30EB\u30AB\u30B9\u304C\u305D\u308C\u3092\u773A\u3081\u3066\u3044\u308B\u3002"
@@ -25,8 +25,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 669bc480cd29541e684f7c013fa1ab4e, type: 3}
+    BGM: {fileID: 8300000, guid: 41294c48ccca944f896ca0fc703958d4, type: 3}
     still: {fileID: 0}
   - script: "\u4F55\u304B\u3068\u601D\u3063\u3066\u3001\u5E03\u3092\u6301\u3063\u3066\u304D\u3066\u307F\u308C\u3070\u3002\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3001\u306A\u3093\u3067\u3059\u304B\u305D\u308C\u306F\u3002"
     script_jp: "\u4F55\u304B\u3068\u601D\u3063\u3066\u3001\u5E03\u3092\u6301\u3063\u3066\u304D\u3066\u307F\u308C\u3070\u3002\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3001\u306A\u3093\u3067\u3059\u304B\u305D\u308C\u306F\u3002"
@@ -249,8 +249,8 @@ MonoBehaviour:
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
-  - script: "\u79C1\u306F\u9003\u3052\u51FA\u3059\u3053\u3068\u304C\u60AA\u3068\u306F\u601D\u3044\u307E\u305B\u3093\u3002\u6642\u306B\u305D\u308C\u3092\u3059\u308B\u3079\u304D\u3068\u601D\u3044\u307E\u3059\u3002\u3067\u3059\u304C\u3001\u4ECA\u56DE\u306E\u3042\u306A\u305F\u306F\u4E2D\u9014\u534A\u7AEF\u3067\u3057\u305F\u3002\u611A\u304B\u3067\u3059\u3002"
-    script_jp: "\u79C1\u306F\u9003\u3052\u51FA\u3059\u3053\u3068\u304C\u60AA\u3068\u306F\u601D\u3044\u307E\u305B\u3093\u3002\u6642\u306B\u305D\u308C\u3092\u3059\u308B\u3079\u304D\u3068\u601D\u3044\u307E\u3059\u3002\u3067\u3059\u304C\u3001\u4ECA\u56DE\u306E\u3042\u306A\u305F\u306F\u4E2D\u9014\u534A\u7AEF\u3067\u3057\u305F\u3002\u611A\u304B\u3067\u3059\u3002"
+  - script: "\u6642\u306B\u305D\u308C\u3092\u3059\u308B\u3079\u304D\u3068\u601D\u3044\u307E\u3059\u3002\u3067\u3059\u304C\u3001\u4ECA\u56DE\u306E\u3042\u306A\u305F\u306F\u4E2D\u9014\u534A\u7AEF\u3067\u3057\u305F\u3002\u611A\u304B\u3067\u3059\u3002"
+    script_jp: "\u6642\u306B\u305D\u308C\u3092\u3059\u308B\u3079\u304D\u3068\u601D\u3044\u307E\u3059\u3002\u3067\u3059\u304C\u3001\u4ECA\u56DE\u306E\u3042\u306A\u305F\u306F\u4E2D\u9014\u534A\u7AEF\u3067\u3057\u305F\u3002\u611A\u304B\u3067\u3059\u3002"
     script_en: 
     script_ch: 
     type: talk
@@ -402,8 +402,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8a5689df2b7ef4b4985a8d897833a622, type: 3}
+    BGM: {fileID: 8300000, guid: dbac29a01e551428ebf80b47842a76f9, type: 3}
     still: {fileID: 0}
   - script: "\u30AA\u30EC\u30F3\u30C9\u3088\u3002\u305D\u306A\u305F\u306E\u9858\u3044\u306F\u805E\u304D\u5C4A\u3051\u3088\u3046\u3002"
     script_jp: "\u30AA\u30EC\u30F3\u30C9\u3088\u3002\u305D\u306A\u305F\u306E\u9858\u3044\u306F\u805E\u304D\u5C4A\u3051\u3088\u3046\u3002"
@@ -558,7 +558,7 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 41406224f2e75427ca1457d557f8a342, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u3046..."
@@ -1001,7 +1001,7 @@ MonoBehaviour:
     voice: {fileID: 0}
     SE: {fileID: 0}
     bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    BGM: {fileID: 8300000, guid: 77ab1413195b44aa68e945edd3f4ef2a, type: 3}
     still: {fileID: 0}
   - script: "\u3088\u3057\uFF01\u3067\u304D\u305F\uFF01"
     script_jp: "\u3088\u3057\uFF01\u3067\u304D\u305F\uFF01"

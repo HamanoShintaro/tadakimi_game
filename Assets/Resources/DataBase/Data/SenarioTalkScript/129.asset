@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e2e064c1581fb44be21257d8b9234a, type: 3}
   m_Name: 129
   m_EditorClassIdentifier: 
-  stage: "1\u7AE0"
-  title: 
+  stage: "1\u7AE029\u8A71"
+  title: "\u6681\u6708"
   senarioTalks:
   - script: "\u30FC\u30FC\u305D\u3057\u3066\u3001\u591C\u304C\u660E\u3051\u3001\u6226\u4E89\u306E\u706B\u84CB\u304C\u5207\u3063\u3066\u843D\u3068\u3055\u308C\u308B\u3002"
     script_jp: "\u30FC\u30FC\u305D\u3057\u3066\u3001\u591C\u304C\u660E\u3051\u3001\u6226\u4E89\u306E\u706B\u84CB\u304C\u5207\u3063\u3066\u843D\u3068\u3055\u308C\u308B\u3002"
@@ -25,8 +25,8 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
-    BGM: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: ccba222b86dfb444297fb606d7483418, type: 3}
+    BGM: {fileID: 8300000, guid: becd8c0ad46b040e8817e6202838a832, type: 3}
     still: {fileID: 0}
   - script: "\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3001\u4EBA\u65CF\u306E\u6226\u8266\u304C\u898B\u3048\u307E\u3057\u305F\u3002\u5DE8\u5927\u6226\u8266\uFF12\uFF10\u96BB\u3001\u98DB\u884C\u7832\u53F0\u304C\uFF15\uFF10\u6A5F\u3082\u898B\u3048\u3066\u3044\u307E\u3059\u3002"
     script_jp: "\u30F4\u30A9\u30EB\u30AB\u30B9\u69D8\u3001\u4EBA\u65CF\u306E\u6226\u8266\u304C\u898B\u3048\u307E\u3057\u305F\u3002\u5DE8\u5927\u6226\u8266\uFF12\uFF10\u96BB\u3001\u98DB\u884C\u7832\u53F0\u304C\uFF15\uFF10\u6A5F\u3082\u898B\u3048\u3066\u3044\u307E\u3059\u3002"
@@ -138,7 +138,7 @@ MonoBehaviour:
     script_ch: 
     type: talk
     name: sara
-    LR: R
+    LR: L
     expressions: confuse
     voice: {fileID: 0}
     SE: {fileID: 0}
@@ -363,7 +363,7 @@ MonoBehaviour:
     expressions: 
     voice: {fileID: 0}
     SE: {fileID: 0}
-    bgImage: {fileID: 0}
+    bgImage: {fileID: 21300000, guid: 8fc08fd3d25234d81bfe568b1f789892, type: 3}
     BGM: {fileID: 0}
     still: {fileID: 0}
   - script: "\u805E\u304F\u3068\u826F\u3044\uFF01\u79C1\u306B\u5FE0\u7FA9\u3092\u7ACB\u3066\u305F\u8005\u5171\u3088\u3002\u305D\u306A\u305F\u3089\u3092\u3053\u306E\u6226\u706B\u306B\u843D\u3068\u3055\u305B\u306F\u305B\u306C\u3002\u3053\u306E\u30F4\u30A9\u30EB\u30AB\u30B9\u304C\u5168\u3066\u306E\u9B54\u65CF\u306E\u967D\u5149\u3068\u306A\u308B\u306E\u3060\uFF01\uFF01"

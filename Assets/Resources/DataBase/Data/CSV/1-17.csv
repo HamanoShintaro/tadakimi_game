@@ -34,7 +34,7 @@ No,キャラクター名,日本語,英語,中国語,LR,表情,type,補足コメ�
 30,volcus,うむ。,,,L,normal,talk,※口角下がり顔,3,
 31,sara,こちらです。,,,R,normal,talk,,6,
 33,,ーーサラとヴォルカスが来賓室に着く,,,,,none,背景切り替え,17,017_office_sara
-34,sara,（ドアをノックする）失礼するわね。,,,L,normal,talk,,17,
+34,sara,失礼するわね。,,,L,normal,talk,,17,
 35,orend,・・・。,,,R,normal,talk,,4,
 36,sara,お待たせしました。ただ今魔王様に戦線離脱の件を伝えてまいりました。,,,L,normal,talk,,33,
 37,orend,・・・そうかい、で、どうだったんだい。,,,R,normal,talk,,19,
@@ -80,7 +80,7 @@ No,キャラクター名,日本語,英語,中国語,LR,表情,type,補足コメ�
 75,orend,・・・。,,,R,confuse,talk,,4,
 76,volcus,その選択、私であればとらぬ。その術、他のものにくれたらどうだ。いらぬのだろう。,,,L,smile,talk,,39,
 77,orend,・・・！・・・,,,R,confuse,talk,,7,
-78,volcus,ふむ。では、好きに生きると良い。ただ、逃げるのならば死に物狂いで逃げることだ。（立ち上がって）サラよ！,,,L,smile,talk,,51,
+78,volcus,ふむ。では、好きに生きると良い。ただ、逃げるのならば死に物狂いで逃げることだ。サラよ！,,,L,smile,talk,,51,
 79,sara,ヴォルカス様。ここに。,,,L,normal,talk,,11,
 80,volcus,この者を城の外まで、見送るのだ。,,,L,smile,talk,,16,
 81,sara,わかりました。,,,L,normal,talk,,7,
