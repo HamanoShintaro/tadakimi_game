@@ -57,6 +57,8 @@ public class BattleController : MonoBehaviour
     [SerializeField]
     private Image backGround;
 
+    private  bool isGameStopped = false;
+
     private MagicPowerController magicPowerController;
 
     /// <summary>
@@ -107,6 +109,8 @@ public class BattleController : MonoBehaviour
 
         //戦闘背景音の設定
         this.GetComponent<AudioSource>().volume = GameSettingParams.bgmVolume * PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
+
+        GameStop(Battle.Dominator.TypeLeader.EnemyLeader);
     }
 
     /// <summary>
@@ -137,62 +141,20 @@ public class BattleController : MonoBehaviour
     }
 
     /// <summary>
-    /// 戦闘を終了するメソッド
-    /// </summary>
-    /// <param name="type">味方or敵</param>
-    public void GameStop(TypeLeader type)
-    {
-        StartCoroutine(GameStopCoroutine(type));
-    }
-
-    /// <summary>
-    /// 取得金額/トータル金額/プレイ時間/ステージ情報を計算後、リザルトパネルを表示するメソッド(味方or敵のリーダーのHPが0で呼び出す)
+    /// 戦闘終了時に呼び出すメソッド
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    private IEnumerator GameStopCoroutine(TypeLeader type)
+    public void GameStop(TypeLeader type)
     {
-        if (type == TypeLeader.BuddyLeader)
-        {
-            //ゲームのプレイ時間を記録
-            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) + gameTimer);
-
-            //リザルト画面を表示
-            performancePanel.GetComponent<ResultController>().OnResultPanel(false);
-
-            DisplayMoneyUI();
-        }
-        else
-        {
-            NextStage();
-
-            //リザルト画面を表示
-            performancePanel.GetComponent<ResultController>().OnResultPanel(true);
-
-            DisplayMoneyUI();
-
-            //ゲームのプレイ時間をリセット
-            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, 0);
-        }
-
-        for (int i = waitTime; i > 0; i--)
-        {
-            foreach (Text text in texts)
-            {
-                text.text = $"{i}後にリザルトへ";
-            }
-            yield return new WaitForSeconds(1);
-        }
-
-        if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
-        {
-            //広告を表示する
-            GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
-        }
-        else
-        {
-            StartCoroutine(UpdateMoneyUI(0));
-        }
+        if (isGameStopped) return;
+        isGameStopped = true;
+        //ゲームのプレイ時間を保存
+        PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) + gameTimer);
+        //リザルト画面(勝利または敗北)を表示
+        performancePanel.GetComponent<ResultController>().OnResultPanel(type != TypeLeader.BuddyLeader);
+        StartCoroutine(AnimationMoneyUI(1));
+        NextStage();
     }
 
     /// <summary>
@@ -215,20 +177,15 @@ public class BattleController : MonoBehaviour
     /// 獲得金額とトータル金額のアニメーションをかける
     /// </summary>
     /// <param name="getMoney"></param>
-    public IEnumerator UpdateMoneyUI(int adRate = 1)
+    public IEnumerator AnimationMoneyUI(int adRate = 1)
     {
         DisplayMoneyUI(adRate);
-        foreach (Text text in texts)
+        if (!PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
         {
-            text.text = $"";
+            ShowButtons();
         }
-
-        yield return new WaitForSeconds(1.4f);
-
-        foreach(GameObject button in buttons)
-        {
-            button.SetActive(true);
-        }
+        
+        yield return new WaitForSeconds(1.0f);
 
         //取得した金額を計算して取得
         var getMoney = rate * PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) * adRate;
@@ -239,7 +196,7 @@ public class BattleController : MonoBehaviour
         //取得金額を保存
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerGetMoney, getMoney);
 
-        //所持金額+獲得金額を新しい所持金額として保存
+        //所持金額+獲得金額を所持金額を更新して、保存
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, totalMoney + getMoney);
         while (getMoney > 0)
         {
@@ -250,10 +207,24 @@ public class BattleController : MonoBehaviour
             totalMoney++;
             totalMoneyText[0].text = $"{totalMoney}";
             totalMoneyText[1].text = $"{totalMoney}";
-            if (getMoney % 10 == 0)
-            {
-                yield return new WaitForEndOfFrame();
-            }
+            yield return null; // 0.1秒の遅延を追加
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
+        if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
+        {
+            //広告を表示する
+            GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
+            ShowButtons();
+        }
+    }
+
+    private void ShowButtons()
+    {
+        foreach(GameObject button in buttons)
+        {
+            button.SetActive(true);
         }
     }
 

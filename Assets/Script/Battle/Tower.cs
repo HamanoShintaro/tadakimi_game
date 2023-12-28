@@ -40,7 +40,6 @@ public class Tower : MonoBehaviour, IDamage
         maxHp = enemyTowerInfo.maxHp;
         Hp = maxHp;
     }
-
     public void Damage(float attackPower = 0, float kb = 0)
     {
         Hp -= attackPower;
@@ -48,8 +47,6 @@ public class Tower : MonoBehaviour, IDamage
         {
             //ゲームをストップ
             battleController.GameStop(Battle.Dominator.TypeLeader.EnemyLeader);
-            //リザルト画面(勝利)を表示
-            performancePanel.GetComponent<ResultController>().OnResultPanel(true);
         }
     }
 }

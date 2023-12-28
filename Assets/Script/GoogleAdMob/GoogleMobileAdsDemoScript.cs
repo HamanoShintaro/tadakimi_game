@@ -8,9 +8,6 @@ using UnityEngine.UI;
 public class GoogleMobileAdsDemoScript : MonoBehaviour
 {
     [SerializeField]
-    private int reward = 100;
-
-    [SerializeField]
     private BattleController battleController;
 
     private RewardedAd rewardedAd;
@@ -83,7 +80,6 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
         string type = args.Type;
         double amount = args.Amount;
         Debug.Log("広告の報酬をもらう : HandleRewardedAdRewarded event received for " + amount.ToString() + " " + type);
-
-        battleController.StartCoroutine("UpdateMoneyUI", 2);
+        battleController.StartCoroutine("AnimationMoneyUI", 1);
     }
 }
