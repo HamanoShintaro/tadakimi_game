@@ -109,8 +109,6 @@ public class BattleController : MonoBehaviour
 
         //戦闘背景音の設定
         this.GetComponent<AudioSource>().volume = GameSettingParams.bgmVolume * PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
-
-        GameStop(Battle.Dominator.TypeLeader.EnemyLeader);
     }
 
     /// <summary>

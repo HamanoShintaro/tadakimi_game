@@ -1825,10 +1825,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.4439093
-    width: 1
-    height: 0.11218143
+    x: 0.48702982
+    y: 0
+    width: 0.025940338
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1932,7 +1932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0.03, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5541.6973, y: 461.72003}
+  m_AnchoredPosition: {x: 713.6831, y: 461.71997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &559349289
@@ -7748,7 +7748,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 12.605026, y: 1}
+    m_SensorSize: {x: 0.03668092, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7765,7 +7765,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735806792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3688.8613, y: 461.71997, z: -10}
+  m_LocalPosition: {x: 713.6831, y: 461.71997, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22511,9 +22511,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 996915637}
     m_Modifications:
+    - target: {fileID: 3389332811641678437, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389332811676231755, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389332812006509537, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3389332812207512097, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: longAttackDistance
       value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389332812608991568, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389332813330230477, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227964, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_Pivot.x

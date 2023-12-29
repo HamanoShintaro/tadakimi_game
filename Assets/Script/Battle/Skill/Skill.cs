@@ -42,7 +42,7 @@ namespace Battle
 
         public IEnumerator Action()
         {
-            yield return null;
+            yield return new WaitForSeconds(0.1f);
             foreach (GameObject target in enemyTargets)
             {
                 SkillActionToEnemy(target);
