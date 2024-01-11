@@ -22,6 +22,8 @@ public class CSVLoader : MonoBehaviour
 
     private void Start()
     {
+        // CSVからキャラクターデータを読み込む
+        LoadCharacterInfoDataBaseCsv();
         // CSVからシナリオテキストを読み込む
         LoadSenarioTalkScriptCsv();
     }
@@ -59,54 +61,132 @@ public class CSVLoader : MonoBehaviour
                 row.detail = values[4];
                 row.type = values[5];
 
+                int tempInt;
                 // 各キャラクターステータスの取得
                 for (int k = 0; k < 5; k++)
                 {
                     var status = row.status[k];
                     float tempFloat;
-                    int tempInt;
-
+                    
                     // データ形式が正しいか確認しつつ変換・格納
-                    if (float.TryParse(values[3 * (k + 2)], out tempFloat))
+                    if (float.TryParse(values[3 * (k + 2) + 1], out tempFloat))
                     {
                         status.attack = (int)tempFloat;
                     }
                     else
                     {
                         status.attack = 1;
-                        Debug.LogError("Invalid float value for attack: " + values[3 * (k + 2)]);
+                        Debug.LogError("攻撃力の無効な浮動小数点数値: " + values[3 * (k + 2)] + 1);
                     }
 
-                    if (int.TryParse(values[3 * (k + 2) + 1], out tempInt))
+                    if (int.TryParse(values[3 * (k + 2) + 2], out tempInt))
                     {
                         status.hp = tempInt;
                     }
                     else
                     {
                         status.hp = 1;
-                        Debug.LogError("Invalid integer value for hp: " + values[3 * (k + 2) + 1]);
+                        Debug.LogError("HPの無効な整数値: " + values[3 * (k + 2) + 2]);
                     }
 
-                    if (int.TryParse(values[3 * (k + 2) + 2], out tempInt))
+                    if (int.TryParse(values[3 * (k + 2) + 3], out tempInt))
                     {
                         status.growth = tempInt;
                     }
                     else
                     {
                         status.growth = 1;
-                        Debug.LogError("Invalid integer value for growth: " + values[3 * (k + 2) + 2]);
+                        Debug.LogError("成長の無効な整数値: " + values[3 * (k + 2) + 3]);
+                    }
+
+                    // キャラクタースキル情報の取得
+                    if (float.TryParse(values[24], out tempFloat))
+                    {
+                        status.atkKB = tempFloat;
+                    }
+                    else
+                    {
+                        status.atkKB = 1;
+                        Debug.LogError("atkKBの無効な浮動小数点数値: " + values[24]);
+                    }
+
+                    if (float.TryParse(values[25], out tempFloat))
+                    {
+                        status.defKB = tempFloat;
+                    }
+                    else
+                    {
+                        status.defKB = 1;
+                        Debug.LogError("defKBの無効な浮動小数点数値: " + values[25]);
+                    }
+
+                    if (float.TryParse(values[26], out tempFloat))
+                    {
+                        status.speed = tempFloat;
+                    }
+                    else
+                    {
+                        status.speed = 1;
+                        Debug.LogError("speedの無効な浮動小数点数値: " + values[26]);
                     }
                 }
-
+                
                 // キャラクタースキル情報の取得
-                row.skill.cost = int.Parse(values[30]);
-                row.skill.cd = int.Parse(values[31]);
-                row.skill.name = values[32];
-                row.skill.Detail = values[33];
+                if (int.TryParse(values[30], out tempInt))
+                {
+                    row.skill.cost = tempInt;
+                }
+                else
+                {
+                    Debug.LogError("スキルコストの無効な整数値: " + values[30]);
+                }
+
+                if (int.TryParse(values[31], out tempInt))
+                {
+                    row.skill.cd = tempInt;
+                }
+                else
+                {
+                    Debug.LogError("スキルCDの無効な整数値: " + values[31]);
+                }
+
+                if (int.TryParse(values[35], out tempInt))
+                {
+                    row.special.cost = tempInt;
+                }
+                else
+                {
+                    Debug.LogError("特別コストの無効な整数値: " + values[35]);
+                }
+
+                if (int.TryParse(values[36], out tempInt))
+                {
+                    row.special.cd = tempInt;
+                }
+                else
+                {
+                    Debug.LogError("特別CDの無効な整数値: " + values[36]);
+                }
 
                 // キャラクターの奥義情報の取得
-                row.special.cost = int.Parse(values[35]);
-                row.special.cd = int.Parse(values[36]);
+                if (int.TryParse(values[35], out tempInt))
+                {
+                    row.special.cost = tempInt;
+                }
+                else
+                {
+                    Debug.LogError("特別コストの無効な整数値: " + values[35]);
+                }
+
+                if (int.TryParse(values[36], out tempInt))
+                {
+                    row.special.cd = tempInt;
+                }
+                else
+                {
+                    Debug.LogError("特別CDの無効な整数値: " + values[36]);
+                }
+
                 row.special.name = values[37];
                 row.special.Detail = values[38];
 

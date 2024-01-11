@@ -311,7 +311,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611743022}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -751,15 +751,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.00029304624
+    x: 0.00017306209
     y: 0
-    width: 0.9994139
+    width: 0.9996539
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4031672
+  orthographic size: 5.4018703
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -997,7 +997,7 @@ RectTransform:
   m_GameObject: {fileID: 1073664761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.69074076, y: 0.69074076, z: 0.69074076}
+  m_LocalScale: {x: 0.6685185, y: 0.6685185, z: 0.6685185}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1535443096}
@@ -1010,7 +1010,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1920.0001, y: 1080.0001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1073664763
 MonoBehaviour:
@@ -2054,7 +2054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ff737c5e557458985d93e0ed509531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDataBaseCsvFile: []
+  characterDataBaseCsvFile:
+  - {fileID: 4900000, guid: 142dcdef7d3ac424a9430c0e96bdb67d, type: 3}
   senarioTalkScriptCsvFile:
   - {fileID: 4900000, guid: b438231c236df4661a662e96490cb4aa, type: 3}
   - {fileID: 4900000, guid: 51651e8e47a1746caaa1bc4fc22e1727, type: 3}
@@ -2082,7 +2083,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 1b3c97fdeb9a64cb4b226a3efb2562fc, type: 3}
   characterDataBase: {fileID: 11400000, guid: f419fc1c6fcee448cbcb0268c610063f, type: 2}
   senarioTalkScriptDateBase: {fileID: 11400000, guid: ba9f0a1daca924642a2db9915cda97a0, type: 2}
-  startRow: 6
+  startRow: 10
 --- !u!4 &1881895052
 Transform:
   m_ObjectHideFlags: 0
