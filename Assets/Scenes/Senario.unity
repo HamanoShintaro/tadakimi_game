@@ -153,7 +153,7 @@ RectTransform:
   m_GameObject: {fileID: 29014809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.60260415, y: 0.60260415, z: 0.60260415}
+  m_LocalScale: {x: 0.5268779, y: 0.5268779, z: 0.5268779}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 363047648}
@@ -167,7 +167,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 331.80225}
+  m_SizeDelta: {x: 1920, y: 3909.8245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &29014811
 MonoBehaviour:
@@ -2002,15 +2002,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.00013643503
-    width: 1
-    height: 0.99972713
+    x: 0.00019490719
+    y: 0
+    width: 0.9996102
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4
+  orthographic size: 5.402106
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2189,7 +2189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d764e2bb6be9c449d2bbd8ae518efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  senarioTalkScript: {fileID: 11400000, guid: 4c17fdbf30117446f8167ac997fc665e, type: 2}
+  senarioTalkScript: {fileID: 0}
   num: -1
   canvasGroupObjct: {fileID: 29014809}
   canvas: {fileID: 1470701930}
