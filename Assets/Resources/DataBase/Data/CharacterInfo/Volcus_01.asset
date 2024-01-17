@@ -21,67 +21,68 @@ MonoBehaviour:
     \u832B\u7136\u81EA\u5931\u3068\u306A\u3063\u305F\u5F7C\u306F\u3001\u4E16\u754C\u3092\u305F\u3060\u65C5\u3059\u308B\u6D41\u6D6A\u4EBA\u3068\u306A\u308B\u3002"
   type: "\u30D7\u30EC\u30A4\u30E4\u30FC"
   image:
-    fullsize: {fileID: 0}
-    backGround: {fileID: 0}
-    effect: {fileID: 0}
-    icon: {fileID: 0}
-    prefab: {fileID: 0}
-  rank: 0
+    fullsize: {fileID: 21300000, guid: 6af66ec138c154b2a95668084273ed61, type: 3}
+    backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
+    effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
+    icon: {fileID: 21300000, guid: 8654dc656acb84147bc114e238779c19, type: 3}
+    prefab: {fileID: 5095262611280852148, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
+  rank: 3
   status:
   - cost: 0
     attack: 10
     interval: 0
     hp: 100
-    speed: 0
-    atkKB: 0
-    defKB: 0
+    speed: 25
+    atkKB: 50
+    defKB: 50
     growth: 20
   - cost: 0
-    attack: 15
+    attack: 12
     interval: 0
-    hp: 150
-    speed: 0
-    atkKB: 0
-    defKB: 0
+    hp: 130
+    speed: 25
+    atkKB: 50
+    defKB: 50
     growth: 240
   - cost: 0
-    attack: 21
+    attack: 14
     interval: 0
-    hp: 210
-    speed: 0
-    atkKB: 0
-    defKB: 0
+    hp: 160
+    speed: 25
+    atkKB: 50
+    defKB: 50
     growth: 800
   - cost: 0
-    attack: 28
+    attack: 16
     interval: 0
-    hp: 340
-    speed: 0
-    atkKB: 0
-    defKB: 0
-    growth: 2000
+    hp: 190
+    speed: 25
+    atkKB: 50
+    defKB: 50
+    growth: 1000
   - cost: 0
-    attack: 34
+    attack: 20
     interval: 0
-    hp: 510
-    speed: 0
-    atkKB: 0
-    defKB: 0
+    hp: 250
+    speed: 25
+    atkKB: 50
+    defKB: 50
     growth: 0
   skill:
-    name: 15
-    cost: 2
-    cd: 250
-    Detail: "\u9B54\u7D20\u64CD\u4F5C"
+    name: "\u9B54\u5C0E\u7206\u767A"
+    cost: 100
+    cd: 45
+    Detail: "\u30F4\u30A7\u30EB\u304C\u9B54\u738B\u306E\u529B\u3092\u50C5\u304B\u306B\u89E3\u653E\u3057\u3001\u524D\u65B9\u306B3\u56DE\u9B54\u529B\u306E\u66B4\u767A\u3092\u767A\u751F\u3055\u305B\u308B\u3002
+      \u305D\u308C\u305E\u308C\u653B\u6483\u529B\u306E2.5\u500D\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\u3002"
     effect: {fileID: 0}
-    Ratio: 0
+    Ratio: 2.5
   special:
-    name: 
-    cost: 0
-    cd: 0
-    Detail: 
+    name: "\u9B54\u738B\u30F4\u30A9\u30EB\u30AB\u30B9"
+    cost: 600
+    cd: 180
+    Detail: "\u30F4\u30A7\u30EB\u304C\u9B54\u738B\u306E\u529B\u3092\u89E3\u653E\u3057\u899A\u9192\u72B6\u614B\u306B\u306A\u308B\u3002HP\u3068\u653B\u6483\u529B\u30925\u500D\u306B\u5897\u5E45\u3057\u3001\u901A\u5E38\u653B\u6483\u304C\u6CE2\u52D5\u306B\u3088\u308B\u653B\u6483\u306B\u5909\u5316\u3059\u308B\u3002"
     effect: {fileID: 0}
-    Ratio: 0
+    Ratio: 5
     still: {fileID: 0}
     BackGround: {fileID: 0}
   price: 0

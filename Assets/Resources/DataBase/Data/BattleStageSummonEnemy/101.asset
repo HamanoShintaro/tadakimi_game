@@ -19,10 +19,9 @@ MonoBehaviour:
   - 15
   - 20
   Enemies:
-  - {fileID: 5429095949005290252, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
-  - {fileID: 3377319372778853538, guid: 42f14896a152841ef8f2d420a7f9e713, type: 3}
-  - {fileID: 3377319372778853538, guid: 42f14896a152841ef8f2d420a7f9e713, type: 3}
   - {fileID: 1338976341970829827, guid: f6a1afcb6373641fbb022dd4384acf97, type: 3}
+  - {fileID: 3377319372778853538, guid: 42f14896a152841ef8f2d420a7f9e713, type: 3}
+  - {fileID: 5429095949005290252, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
   Levels: 01000000010000000100000001000000
   TowerHp: 100
   stageSprite: {fileID: 21300000, guid: cde97145a047b4536b306aba368853b5, type: 3}

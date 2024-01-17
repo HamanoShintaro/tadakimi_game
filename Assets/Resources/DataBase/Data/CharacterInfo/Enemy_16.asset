@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
-  m_Name: Eleth_01
+  m_Name: Enemy_16
   m_EditorClassIdentifier: 
   id: 
   name: 

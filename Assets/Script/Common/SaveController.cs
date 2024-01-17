@@ -45,7 +45,7 @@ public class SaveController : MonoBehaviour
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentMenuView)) PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         //セーブデータの初期設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101");
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.clearStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, "101");
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.clearStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, "100");
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerMoney)) PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, 0);
         //音量の初期設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeBGM)) PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeBGM, GameSettingParams.bgmVolume);
@@ -59,9 +59,10 @@ public class SaveController : MonoBehaviour
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
         {
             AddCharacterDate("Orend_01", 1, true);
-            AddCharacterDate("Buddy_106", 1, true);
-            AddCharacterDate("Buddy_107", 1, true);
-            AddCharacterDate("Buddy_108", 1, true);
+            AddCharacterDate("Npc_01", 1, true);
+            AddCharacterDate("Npc_02", 1, true);
+            AddCharacterDate("Npc_03", 1, true);
+            AddCharacterDate("Volcus_01", 1, true);
             Debug.Log("キャラクターデータ初期化");
         }
 
@@ -69,9 +70,9 @@ public class SaveController : MonoBehaviour
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
         {
             UpdateCharacterFormationDate("Orend_01", 0);
-            UpdateCharacterFormationDate("Buddy_106", 1);
-            UpdateCharacterFormationDate("Buddy_107", 2);
-            UpdateCharacterFormationDate("Buddy_108", 3);
+            UpdateCharacterFormationDate("Npc_01", 1);
+            UpdateCharacterFormationDate("Npc_02", 2);
+            UpdateCharacterFormationDate("Npc_03", 3);
             Debug.Log("フォーメーション初期化");
         }
 

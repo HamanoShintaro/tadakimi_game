@@ -66,17 +66,16 @@ public class CSVLoader : MonoBehaviour
                 for (int k = 0; k < 5; k++)
                 {
                     var status = row.status[k];
-                    float tempFloat;
                     
                     // データ形式が正しいか確認しつつ変換・格納
-                    if (float.TryParse(values[3 * (k + 2) + 1], out tempFloat))
+                    if (int.TryParse(values[3 * (k + 2) + 1], out tempInt))
                     {
-                        status.attack = (int)tempFloat;
+                        status.attack = tempInt;
                     }
                     else
                     {
-                        status.attack = 1;
-                        Debug.LogError("攻撃力の無効な浮動小数点数値: " + values[3 * (k + 2)] + 1);
+                        status.attack = 100;
+                        Debug.LogError("攻撃力の無効な整数値: " + values[3 * (k + 2)] + 1 + " データ型: " + values[3 * (k + 2) + 1].GetType());
                     }
 
                     if (int.TryParse(values[3 * (k + 2) + 2], out tempInt))
@@ -85,8 +84,8 @@ public class CSVLoader : MonoBehaviour
                     }
                     else
                     {
-                        status.hp = 1;
-                        Debug.LogError("HPの無効な整数値: " + values[3 * (k + 2) + 2]);
+                        status.hp = 100;
+                        Debug.LogError("HPの無効な整数値: " + values[3 * (k + 2) + 2] + " データ型: " + values[3 * (k + 2) + 2].GetType());
                     }
 
                     if (int.TryParse(values[3 * (k + 2) + 3], out tempInt))
@@ -95,39 +94,39 @@ public class CSVLoader : MonoBehaviour
                     }
                     else
                     {
-                        status.growth = 1;
-                        Debug.LogError("成長の無効な整数値: " + values[3 * (k + 2) + 3]);
+                        status.growth = 100;
+                        Debug.LogError("成長の無効な整数値: " + values[3 * (k + 2) + 3] + " データ型: " + values[3 * (k + 2) + 3].GetType());
                     }
 
                     // キャラクタースキル情報の取得
-                    if (float.TryParse(values[24], out tempFloat))
+                    if (int.TryParse(values[24], out tempInt))
                     {
-                        status.atkKB = tempFloat;
+                        status.atkKB = tempInt;
                     }
                     else
                     {
-                        status.atkKB = 1;
-                        Debug.LogError("atkKBの無効な浮動小数点数値: " + values[24]);
+                        status.atkKB = 100;
+                        Debug.LogError("atkKBの無効な整数値: " + values[24] + " データ型: " + values[24].GetType());
                     }
 
-                    if (float.TryParse(values[25], out tempFloat))
+                    if (int.TryParse(values[25], out tempInt))
                     {
-                        status.defKB = tempFloat;
+                        status.defKB = tempInt;
                     }
                     else
                     {
-                        status.defKB = 1;
-                        Debug.LogError("defKBの無効な浮動小数点数値: " + values[25]);
+                        status.defKB = 100;
+                        Debug.LogError("defKBの無効な整数値: " + values[25] + " データ型: " + values[25].GetType());
                     }
 
-                    if (float.TryParse(values[26], out tempFloat))
+                    if (int.TryParse(values[26], out tempInt))
                     {
-                        status.speed = tempFloat;
+                        status.speed = tempInt;
                     }
                     else
                     {
-                        status.speed = 1;
-                        Debug.LogError("speedの無効な浮動小数点数値: " + values[26]);
+                        status.speed = 100;
+                        Debug.LogError("speedの無効な整数値: " + values[26] + " データ型: " + values[26].GetType());
                     }
                 }
                 
@@ -138,7 +137,7 @@ public class CSVLoader : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("スキルコストの無効な整数値: " + values[30]);
+                    Debug.LogError("スキルコストの無効な整数値: " + values[30] + " データ型: " + values[30].GetType());
                 }
 
                 if (int.TryParse(values[31], out tempInt))
@@ -147,7 +146,7 @@ public class CSVLoader : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("スキルCDの無効な整数値: " + values[31]);
+                    Debug.LogError("スキルCDの無効な整数値: " + values[31] + " データ型: " + values[31].GetType());
                 }
 
                 if (int.TryParse(values[35], out tempInt))
@@ -156,7 +155,7 @@ public class CSVLoader : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("特別コストの無効な整数値: " + values[35]);
+                    Debug.LogError("特別コストの無効な整数値: " + values[35] + " データ型: " + values[35].GetType());
                 }
 
                 if (int.TryParse(values[36], out tempInt))
@@ -165,7 +164,7 @@ public class CSVLoader : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("特別CDの無効な整数値: " + values[36]);
+                    Debug.LogError("特別CDの無効な整数値: " + values[36] + " データ型: " + values[36].GetType());
                 }
 
                 // キャラクターの奥義情報の取得
@@ -175,7 +174,7 @@ public class CSVLoader : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("特別コストの無効な整数値: " + values[35]);
+                    Debug.LogError("特別コストの無効な整数値: " + values[35] + " データ型: " + values[35].GetType());
                 }
 
                 if (int.TryParse(values[36], out tempInt))
@@ -184,7 +183,7 @@ public class CSVLoader : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("特別CDの無効な整数値: " + values[36]);
+                    Debug.LogError("特別CDの無効な整数値: " + values[36] + " データ型: " + values[36].GetType());
                 }
 
                 row.special.name = values[37];
