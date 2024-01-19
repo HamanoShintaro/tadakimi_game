@@ -207,7 +207,8 @@ namespace Battle
             skillCost = characterInfo.skill.cost;
 
             //スキルクールタイム取得
-            skillCoolTime = characterInfo.skill.cd;
+            skillCoolDown = characterInfo.skill.cd;
+            Debug.Log("スキルのクールダウン時間は" + skillCoolDown);
 
             //スキルレート
             skillRatio = characterInfo.skill.Ratio;
@@ -289,8 +290,9 @@ namespace Battle
             {
                 SpecialAction();
             }
-            else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
+            else if (hasSkill && /*skillCost*/75 <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
+                Debug.Log(SkillCoolTime);
                 SkillAction();
             }
             else
@@ -319,7 +321,7 @@ namespace Battle
 
         private void SkillAction()
         {
-            magicPowerController.magicPower -= skillCost;
+            magicPowerController.magicPower -=20/*skillCost*/;
 
             var index = characterPanel.transform.childCount - 1;
             transform.SetSiblingIndex(index);
@@ -400,10 +402,12 @@ namespace Battle
             if (!canSkillCoolTime) yield break;
             canSkillCoolTime = false;
             var wait = new WaitForSeconds(1);
+            skillCoolTime = skillCoolDown;
             while (true)
             {
                 yield return wait;
                 SkillCoolTime--;
+                Debug.Log(skillCoolTime);
                 if (SkillCoolTime == 0) break;
             }
             canSkillCoolTime = true;
@@ -481,7 +485,7 @@ namespace Battle
             {
                 StartCoroutine(KnockBack());
             }
-            Debug.Log($"{characterId}はダメージを受けた");
+            //Debug.Log($"{characterId}はダメージを受けた");
         }
 
         /// <summary>
@@ -558,3 +562,4 @@ namespace Battle
         }
     }
 }
+

@@ -21,7 +21,7 @@ MonoBehaviour:
     \u660E\u308B\u304F\u3001\u4F55\u4E8B\u306B\u3082\u632B\u3051\u306A\u3044\u771F\u3063\u76F4\u3050\u306A\u304A\u8ABF\u5B50\u8005\u3002"
   type: "\u30A2\u30BF\u30C3\u30AB\u30FC"
   image:
-    fullsize: {fileID: 0}
+    fullsize: {fileID: 21300000, guid: 94dc3299545da40769032c04f72b5c89, type: 3}
     backGround: {fileID: 0}
     effect: {fileID: 0}
     icon: {fileID: 21300000, guid: 192860f2bb9ff4238ac080abb8392c8e, type: 3}
@@ -45,7 +45,7 @@ MonoBehaviour:
     defKB: 0
     growth: 240
   - cost: 0
-    attack: 16
+    attack: 17
     interval: 0
     hp: 126
     speed: 25
@@ -69,17 +69,17 @@ MonoBehaviour:
     defKB: 0
     growth: 0
   skill:
-    name: 
-    cost: 0
-    cd: 150
-    Detail: 
+    name: "\u5080\u5121\u64CD\u8853"
+    cost: 150
+    cd: 30
+    Detail: "\u81EA\u5206\u306E\u4F4D\u7F6E\u306B\u5080\u5121\u6226\u8ECA\u3092\u53EC\u559A\u3059\u308B\u3002\u5080\u5121\u6226\u8ECA\u306E\u30EC\u30D9\u30EB\u306F\u30AA\u30EC\u30F3\u30C9\u306E\u30EC\u30D9\u30EB\u3068\u540C\u7B49\u3068\u306A\u308B\u3002\u307E\u305F\u3001\u30AA\u30EC\u30F3\u30C9\u306E\u30EC\u30D9\u30EB\u304C\u6700\u5927\u306E\u5834\u5408\u3001\u53EC\u559A\u3059\u308B\u30E6\u30CB\u30C3\u30C8\u304C\u5080\u5121\u6226\u8266\u3068\u306A\u308B\u3002\u53EC\u559A\u5F8C\u3001\u81EA\u5206\u306F\u30CE\u30C3\u30AF\u30D0\u30C3\u30AF\u52B9\u679C\u3092\u53D7\u3051\u308B\u3002"
     effect: {fileID: 0}
     Ratio: 0
   special:
-    name: 60
-    cost: 0
-    cd: 600
-    Detail: "\u305D\u3093\u306A\u3093\u3058\u3083\u52DD\u3066\u306D\u3047\u305E\uFF01\u306F\u3063\u306F\u3063\u306F\uFF01"
+    name: "\u305D\u3093\u306A\u3093\u3058\u3083\u52DD\u3066\u306D\u3047\u305E\uFF01\u306F\u3063\u306F\u3063\u306F\uFF01"
+    cost: 600
+    cd: 60
+    Detail: "\u81EA\u5206\u6B63\u9762\u5E83\u7BC4\u56F2\u306E\u6575\u3092\u5473\u65B9\u30E6\u30CB\u30C3\u30C8\u306B\u5909\u5316\u3055\u305B\u308B\u3002\u3053\u306E\u30B9\u30AD\u30EB\u306F\u6575\u306E\u30DC\u30B9\u30E6\u30CB\u30C3\u30C8\u306B\u306F\u52B9\u679C\u304C\u306A\u3044\u3002"
     effect: {fileID: 0}
     Ratio: 0
     still: {fileID: 0}

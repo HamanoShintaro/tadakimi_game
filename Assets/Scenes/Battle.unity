@@ -613,7 +613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &168270004
 Transform:
   m_ObjectHideFlags: 0
@@ -1826,9 +1826,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.39875558
+    y: 0.41589805
     width: 1
-    height: 0.20248884
+    height: 0.16820388
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -7748,7 +7748,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 8.796119, y: 1}
+    m_SensorSize: {x: 10.569186, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7765,7 +7765,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735806792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2787.217, y: 461.71997, z: -10}
+  m_LocalPosition: {x: 3206.9375, y: 461.71997, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14255,7 +14255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magicPower: 0
-  maxMagicPower: 0
+  maxMagicPower: 100
   recoverMagicPower: 0
   guageObject: {fileID: 363169156}
   valueObject: {fileID: 983700515}

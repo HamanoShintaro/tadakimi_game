@@ -129,65 +129,49 @@ public class CSVLoader : MonoBehaviour
                         Debug.LogError("speedの無効な整数値: " + values[26] + " データ型: " + values[26].GetType());
                     }
                 }
+
+                row.skill.name = values[33];
+                row.skill.Detail = values[34];
                 
                 // キャラクタースキル情報の取得
-                if (int.TryParse(values[30], out tempInt))
+                if (int.TryParse(values[31], out tempInt))
                 {
                     row.skill.cost = tempInt;
                 }
                 else
                 {
-                    Debug.LogError("スキルコストの無効な整数値: " + values[30] + " データ型: " + values[30].GetType());
+                    Debug.LogError("スキルコストの無効な整数値: " + values[31] + " データ型: " + values[31].GetType());
                 }
 
-                if (int.TryParse(values[31], out tempInt))
+                if (int.TryParse(values[32], out tempInt))
                 {
                     row.skill.cd = tempInt;
                 }
                 else
                 {
-                    Debug.LogError("スキルCDの無効な整数値: " + values[31] + " データ型: " + values[31].GetType());
+                    Debug.LogError("スキルCDの無効な整数値: " + values[32] + " データ型: " + values[32].GetType());
                 }
 
-                if (int.TryParse(values[35], out tempInt))
+                row.special.name = values[38];
+                row.special.Detail = values[39];
+
+                if (int.TryParse(values[36], out tempInt))
                 {
                     row.special.cost = tempInt;
                 }
                 else
                 {
-                    Debug.LogError("特別コストの無効な整数値: " + values[35] + " データ型: " + values[35].GetType());
+                    Debug.LogError("特別コストの無効な整数値: " + values[36] + " データ型: " + values[36].GetType());
                 }
 
-                if (int.TryParse(values[36], out tempInt))
+                if (int.TryParse(values[37], out tempInt))
                 {
                     row.special.cd = tempInt;
                 }
                 else
                 {
-                    Debug.LogError("特別CDの無効な整数値: " + values[36] + " データ型: " + values[36].GetType());
+                    Debug.LogError("特別CDの無効な整数値: " + values[37] + " データ型: " + values[37].GetType());
                 }
-
-                // キャラクターの奥義情報の取得
-                if (int.TryParse(values[35], out tempInt))
-                {
-                    row.special.cost = tempInt;
-                }
-                else
-                {
-                    Debug.LogError("特別コストの無効な整数値: " + values[35] + " データ型: " + values[35].GetType());
-                }
-
-                if (int.TryParse(values[36], out tempInt))
-                {
-                    row.special.cd = tempInt;
-                }
-                else
-                {
-                    Debug.LogError("特別CDの無効な整数値: " + values[36] + " データ型: " + values[36].GetType());
-                }
-
-                row.special.name = values[37];
-                row.special.Detail = values[38];
 
                 characterDataBase.characterInfoList[index] = row;
 

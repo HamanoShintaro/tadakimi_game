@@ -46,12 +46,12 @@ namespace Battle
             foreach (GameObject target in enemyTargets)
             {
                 SkillActionToEnemy(target);
-                Debug.Log("スキルアクション(敵へ)");
+                //Debug.Log("スキルアクション(敵へ)");
             }
             foreach (GameObject target in buddyTargets)
             {
                 SkillActionforBuddy(target);
-                Debug.Log("スキルアクション(味方へ)");
+                //Debug.Log("スキルアクション(味方へ)");
             }
         }
 
