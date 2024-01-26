@@ -62,7 +62,6 @@ public class SaveController : MonoBehaviour
             AddCharacterDate("Npc_01", 1, true);
             AddCharacterDate("Npc_02", 1, true);
             AddCharacterDate("Npc_03", 1, true);
-            AddCharacterDate("Volcus_01", 1, true);
             Debug.Log("キャラクターデータ初期化");
         }
 

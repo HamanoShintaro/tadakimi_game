@@ -56,7 +56,7 @@ public class CharacterMenuController : MonoBehaviour
         characterNameObj.GetComponent<Text>().text = character.name;
         characterAiliasObj.GetComponent<Text>().text = "ーー" + character.alias;
         characterDescriptionObj.GetComponent<Text>().text = character.detail;
-        characterSkillDescriptionObj.GetComponent<Text>().text = character.skill.name + "　　消費魔力：" + character.skill.cost + "\n" + character.skill.Detail;
+        characterSkillDescriptionObj.GetComponent<Text>().text = character.skill.name + "  消費魔力：" + character.skill.cost + "\n" + character.skill.Detail;
 
         //キャラクター画像のセット
         characterBackground.GetComponent<Image>().sprite = character.image.backGround;
@@ -106,3 +106,4 @@ public class CharacterMenuController : MonoBehaviour
         }
     }
 }
+
