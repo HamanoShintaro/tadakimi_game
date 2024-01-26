@@ -290,7 +290,7 @@ namespace Battle
             {
                 SpecialAction();
             }
-            else if (hasSkill && /*skillCost*/75 <= magicPowerController.magicPower && SkillCoolTime == 0)
+            else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
                 Debug.Log(SkillCoolTime);
                 SkillAction();
@@ -321,7 +321,7 @@ namespace Battle
 
         private void SkillAction()
         {
-            magicPowerController.magicPower -=20/*skillCost*/;
+            magicPowerController.magicPower -= skillCost;
 
             var index = characterPanel.transform.childCount - 1;
             transform.SetSiblingIndex(index);
@@ -363,6 +363,7 @@ namespace Battle
             else
             {
                 animator.SetBool("Attack", false);
+                Debug.Log("攻撃");
             }
             canState = true;
         }
@@ -407,7 +408,6 @@ namespace Battle
             {
                 yield return wait;
                 SkillCoolTime--;
-                Debug.Log(skillCoolTime);
                 if (SkillCoolTime == 0) break;
             }
             canSkillCoolTime = true;
