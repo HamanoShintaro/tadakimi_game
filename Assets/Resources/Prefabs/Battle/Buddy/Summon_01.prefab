@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7424677926742320914}
   - component: {fileID: 224128901787474872}
   m_Layer: 6
-  m_Name: Npc_03
+  m_Name: Summon_01
   m_TagString: Buddy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ RectTransform:
   m_GameObject: {fileID: 2431877166153006107}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7424677926613961664}
@@ -222,7 +222,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -100.32379, y: 92.40001}
+  m_Offset: {x: -33.82474, y: 92.40001}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -233,7 +233,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 254.04752, y: 182.1}
+  m_Size: {x: 121.0494, y: 182.1}
   m_EdgeRadius: 0
 --- !u!95 &2431877166153006083
 Animator:
@@ -245,7 +245,7 @@ Animator:
   m_GameObject: {fileID: 2431877166153006107}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5456723cde84e4e5fba88b7bf8751fb0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 184d91692f81341d08a94c08ecf04971, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

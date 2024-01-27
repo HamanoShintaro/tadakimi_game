@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 5669653989772239569}
   - component: {fileID: 5669653989772239568}
   m_Layer: 7
-  m_Name: Enemy_06
+  m_Name: Enemy_23
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,9 +99,12 @@ MonoBehaviour:
   attackType: 0
   characterRole: 0
   isLeader: 0
+  longAttackDistance: 600
   level: 0
   atkPower: 0
   targets: []
+  canState: 1
+  hp: 100
 --- !u!222 &5669653989772239567
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -193,7 +196,7 @@ Animator:
   m_GameObject: {fileID: 5669653989772239561}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 072b7e8705bf7481da1fcd06a9c44eac, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2672bd81a269143f197c844f7f36ca2c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
