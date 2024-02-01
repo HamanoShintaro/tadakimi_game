@@ -621,9 +621,13 @@ MonoBehaviour:
   attackType: 0
   characterRole: 0
   isLeader: 0
+  longAttackDistance: 600
   level: 0
   atkPower: 0
   targets: []
+  canState: 1
+  attackSound: {fileID: 8300000, guid: 717d4c6d214f1e647bd34e1535268fca, type: 3}
+  hp: 100
 --- !u!114 &5095262611280852146
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -143,6 +143,7 @@ MonoBehaviour:
   atkPower: 0
   targets: []
   canState: 1
+  attackSound: {fileID: 8300000, guid: 717d4c6d214f1e647bd34e1535268fca, type: 3}
   hp: 100
 --- !u!222 &1338976341970829829
 CanvasRenderer:

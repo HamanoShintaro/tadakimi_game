@@ -80,12 +80,18 @@ namespace Battle
 
         private GameObject characterPanel;
 
+        private AudioSource audioSource;
+
+        // 攻撃音
+        [SerializeField]
+        private AudioClip attackSound;
+
         //プレイヤーキャラクターの種類
         public enum CharacterId
         {
             Volcus_01, Volcus_02, Era_01, Eleth_01, Orend_01, Sara_01, Shandy_01, Loxy_01,
             Npc_01, Npc_02, Npc_03,
-            Enemy_04, Enemy_06, Enemy_16
+            Enemy_04, Enemy_06, Enemy_16, Enemy_20
         }
 
         //キャラクターの種類=>味方or敵
@@ -238,6 +244,8 @@ namespace Battle
 
             //スキルのクールタイムを測る
             StartCoroutine(SkillCoolTimeCount());
+
+            audioSource = GetComponent<AudioSource>();
         }
         #endregion
         private void FixedUpdate()
@@ -292,7 +300,7 @@ namespace Battle
             }
             else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
-                Debug.Log(SkillCoolTime);
+                //Debug.Log(SkillCoolTime);
                 SkillAction();
             }
             else
@@ -351,6 +359,7 @@ namespace Battle
                 }
             }
             animator.SetBool("Attack", true);
+            PlayAttackSound();
         }
 
         public void EndNomalAction()
@@ -363,9 +372,17 @@ namespace Battle
             else
             {
                 animator.SetBool("Attack", false);
-                Debug.Log("攻撃");
+                //Debug.Log("攻撃");
             }
             canState = true;
+        }
+
+        /// <summary>
+        /// アタック音を鳴らすメソッド
+        /// </summary>
+        private void PlayAttackSound()
+        {
+            audioSource.PlayOneShot(attackSound);
         }
 
         /// <summary>
@@ -477,6 +494,7 @@ namespace Battle
         public void Damage(float atkPower = 0, float atkKB = 0)
         {
             Hp -= atkPower;
+            Debug.Log(characterId + "は" + atkPower + "ダメージ受けた");
             if (Hp <= 0)
             {
                 Death();

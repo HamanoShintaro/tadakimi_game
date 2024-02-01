@@ -12,6 +12,7 @@ namespace Battle
         private List<int> levels = new List<int>();
         private float time = 0.0f;
         private int itemNumber = 0;
+        private bool isGenerating = true; // 生成フラグを追加
 
         [SerializeField]
         [Header("敵キャラを生成する位置(appearTransform")]
@@ -33,7 +34,10 @@ namespace Battle
 
         private void FixedUpdate()
         {
-            GeneratorCharacter();
+            if (isGenerating) // 生成フラグをチェック
+            {
+                GeneratorCharacter();
+            }
         }
 
         /// <summary>
@@ -44,7 +48,7 @@ namespace Battle
             time += Time.deltaTime;
             try
             {
-                if (time >= times[itemNumber])
+                if (time >= times[itemNumber] && itemNumber < times.Count)
                 {
                     var characterClone = Instantiate(enemies[itemNumber], transform);
                     var pos = characterClone.transform.localPosition;
@@ -74,6 +78,10 @@ namespace Battle
                     }
                     characterClone.GetComponent<CharacterCore>().level = levels[itemNumber];
                     itemNumber++;
+                    if (itemNumber >= times.Count) // 最後の敵キャラが生成されたら
+                    {
+                        isGenerating = false; // 生成フラグをオフにする
+                    }
                 }
             }
             catch

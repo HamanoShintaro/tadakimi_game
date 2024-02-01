@@ -161,6 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1545771121956627564}
+  - component: {fileID: 4021760426937549774}
   - component: {fileID: 1545771121956627562}
   - component: {fileID: 1545771121956627563}
   - component: {fileID: 1545771121956627560}
@@ -168,7 +169,6 @@ GameObject:
   - component: {fileID: 1545771121956627567}
   - component: {fileID: 1545771121956627573}
   - component: {fileID: 6036421074941263716}
-  - component: {fileID: 4021760426937549774}
   m_Layer: 6
   m_Name: Npc_11
   m_TagString: Buddy
@@ -200,6 +200,30 @@ RectTransform:
   m_AnchoredPosition: {x: 1139, y: 486}
   m_SizeDelta: {x: 120, y: 200.0732}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &4021760426937549774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545771121956627565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542f8f24575d843208082f02847cd7b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterId: 34
+  characterType: 0
+  attackType: 0
+  characterRole: 0
+  isLeader: 0
+  longAttackDistance: 600
+  level: 0
+  atkPower: 0
+  targets: []
+  canState: 1
+  attackSound: {fileID: 0}
+  hp: 100
 --- !u!222 &1545771121956627562
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -427,29 +451,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4021760426937549774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545771121956627565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 542f8f24575d843208082f02847cd7b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterId: 34
-  characterType: 0
-  attackType: 0
-  characterRole: 0
-  isLeader: 0
-  longAttackDistance: 600
-  level: 0
-  atkPower: 0
-  targets: []
-  canState: 1
-  hp: 100
 --- !u!1 &2537311817438688055
 GameObject:
   m_ObjectHideFlags: 0

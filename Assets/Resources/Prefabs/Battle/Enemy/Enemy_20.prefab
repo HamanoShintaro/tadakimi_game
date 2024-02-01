@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542f8f24575d843208082f02847cd7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterId: 13
+  characterId: 14
   characterType: 1
   attackType: 0
   characterRole: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   atkPower: 0
   targets: []
   canState: 1
+  attackSound: {fileID: 8300000, guid: 717d4c6d214f1e647bd34e1535268fca, type: 3}
   hp: 100
 --- !u!222 &5429095949005290250
 CanvasRenderer:

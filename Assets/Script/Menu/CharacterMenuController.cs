@@ -35,6 +35,10 @@ public class CharacterMenuController : MonoBehaviour
     //現在選択しているキャラクター名
     private string currentCharacter;
 
+    // オーディオに関するオブジェクト
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip clip;
+
     private void Start()
     {
         characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
@@ -103,6 +107,7 @@ public class CharacterMenuController : MonoBehaviour
             saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level++;
             saveController.characterSave.Save();
             SetCharacter(characterId);
+            audioSource.PlayOneShot(clip);
         }
     }
 }

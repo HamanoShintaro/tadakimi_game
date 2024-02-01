@@ -43,6 +43,15 @@ namespace Battle
         private Image backgroudImage;
         private Animator animator;
 
+        [SerializeField]
+        private AudioClip summonSound;
+        private AudioSource audioSource;
+
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
         private void Start()
         {
             magicPowerController = magicPower.GetComponent<MagicPowerController>();
@@ -134,6 +143,9 @@ namespace Battle
                 pos.z = appearTransform.localPosition.z;
                 characterClone.transform.localPosition = pos;
                 characterClone.transform.SetAsFirstSibling();
+
+                //召喚音を鳴らす
+                audioSource.PlayOneShot(summonSound);
 
                 //辞書式を宣言
                 var characterDic = new Dictionary<GameObject, float>();
