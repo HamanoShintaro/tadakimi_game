@@ -28,7 +28,7 @@ MonoBehaviour:
     prefab: {fileID: 5095262611280852148, guid: 6d1c36dea0bb87641bd46165e7821508, type: 3}
   rank: 3
   status:
-  - cost: 50
+  - cost: 0
     attack: 10
     interval: 0
     hp: 100
@@ -36,7 +36,7 @@ MonoBehaviour:
     atkKB: 50
     defKB: 50
     growth: 20
-  - cost: 50
+  - cost: 0
     attack: 15
     interval: 0
     hp: 150
@@ -44,7 +44,7 @@ MonoBehaviour:
     atkKB: 50
     defKB: 50
     growth: 240
-  - cost: 50
+  - cost: 0
     attack: 21
     interval: 0
     hp: 210
@@ -52,7 +52,7 @@ MonoBehaviour:
     atkKB: 50
     defKB: 50
     growth: 800
-  - cost: 50
+  - cost: 0
     attack: 28
     interval: 0
     hp: 340
@@ -60,7 +60,7 @@ MonoBehaviour:
     atkKB: 50
     defKB: 50
     growth: 2000
-  - cost: 50
+  - cost: 0
     attack: 34
     interval: 0
     hp: 510
@@ -76,7 +76,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     Ratio: 2.5
   special:
-    name: 9999
+    name: 
     cost: 9999
     cd: 9999
     Detail: 9999

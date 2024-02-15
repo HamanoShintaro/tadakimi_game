@@ -98,6 +98,16 @@ public class CSVLoader : MonoBehaviour
                         Debug.LogError("成長の無効な整数値: " + values[3 * (k + 2) + 3] + " データ型: " + values[3 * (k + 2) + 3].GetType());
                     }
 
+                    if (int.TryParse(values[22], out tempInt))
+                    {
+                        status.cost = tempInt;
+                    }
+                    else
+                    {
+                        status.cost = 100;
+                        Debug.LogError("costの無効な整数値: " + values[22] + " データ型: " + values[22].GetType());
+                    }
+
                     // キャラクタースキル情報の取得
                     if (int.TryParse(values[24], out tempInt))
                     {

@@ -19,6 +19,7 @@ namespace Battle
             var rate = 2;
             var attack = GetStatus().attack * rate;
             target.GetComponent<IDamage>().Damage(attack);
+             Debug.Log("スキル攻撃");
         }
     }
 }

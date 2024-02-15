@@ -82,9 +82,17 @@ namespace Battle
 
         private AudioSource audioSource;
 
-        // 攻撃音
+        // 通常攻撃のダメージ音のリスト
         [SerializeField]
-        private AudioClip attackSound;
+        private List<AudioClip> normalAttackDamageSounds;
+
+        // スキル攻撃のダメージ音のリスト
+        [SerializeField]
+        private List<AudioClip> skillAttackDamageSounds;
+
+        // スペシャル攻撃のダメージ音のリスト
+        [SerializeField]
+        private List<AudioClip> specialAttackDamageSounds;
 
         //プレイヤーキャラクターの種類
         public enum CharacterId
@@ -214,7 +222,7 @@ namespace Battle
 
             //スキルクールタイム取得
             skillCoolDown = characterInfo.skill.cd;
-            Debug.Log("スキルのクールダウン時間は" + skillCoolDown);
+            //Debug.Log("スキルのクールダウン時間は" + skillCoolDown);
 
             //スキルレート
             skillRatio = characterInfo.skill.Ratio;
@@ -359,7 +367,6 @@ namespace Battle
                 }
             }
             animator.SetBool("Attack", true);
-            PlayAttackSound();
         }
 
         public void EndNomalAction()
@@ -378,22 +385,32 @@ namespace Battle
         }
 
         /// <summary>
-        /// アタック音を鳴らすメソッド
-        /// </summary>
-        private void PlayAttackSound()
-        {
-            audioSource.PlayOneShot(attackSound);
-        }
-
-        /// <summary>
         /// targetにダメージを与える
         /// </summary>
         /// <param name="type">0:通常攻撃 / 1: スキル攻撃 / 2:スペシャル攻撃</param>
         public void InflictDamage(int type)
         {
-            float ratio = 1f;
-            if (type == 1 && hasSkill) ratio = skillRatio;
-            else if (type == 2 && hasSpecial) ratio = specialRatio;
+            float ratio = 1.0f;
+
+            if (type == 0)
+            {
+                // 通常攻撃の場合の処理
+                audioSource.PlayOneShot(normalAttackDamageSounds[Random.Range(0, normalAttackDamageSounds.Count)]);
+                ratio = 1.0f;
+            }
+            else if (type == 1)
+            {
+                // スキル攻撃の場合の処理
+                // 被ダメージ音(スキル)
+                if (hasSkill) ratio = skillRatio;
+            }
+            else if (type == 2)
+            {
+                // スペシャル攻撃の場合の処理
+                // 被ダメージ音(スペシャル)
+                if (hasSpecial) ratio = specialRatio;
+            }
+            
 
             //ダメージ処理
             try
@@ -546,6 +563,7 @@ namespace Battle
                 {
                     if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
                     targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x);
+                    Debug.Log("更新");
                 }
             }
             else if (characterRole == CharacterRole.Supporter)

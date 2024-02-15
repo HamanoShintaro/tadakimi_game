@@ -104,7 +104,19 @@ MonoBehaviour:
   atkPower: 0
   targets: []
   canState: 1
-  attackSound: {fileID: 8300000, guid: 717d4c6d214f1e647bd34e1535268fca, type: 3}
+  normalAttackDamageSounds:
+  - {fileID: 8300000, guid: 416355ed031e543b0a96c2b96cd752ea, type: 3}
+  - {fileID: 8300000, guid: 590fc919735b74243bfe959f6e20bf1a, type: 3}
+  - {fileID: 8300000, guid: 9d2768e04abb94be0881fd9a2bfcffaa, type: 3}
+  - {fileID: 8300000, guid: 2adb3adfbeec141c8b460fc6771757f1, type: 3}
+  - {fileID: 8300000, guid: 16d7e5bfb93d84be4a64002475b477d9, type: 3}
+  - {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
+  - {fileID: 8300000, guid: be46402fbbb654ed6b4730c4560f33c9, type: 3}
+  - {fileID: 8300000, guid: cf762a363cd49444f9e4937fd1a6e157, type: 3}
+  - {fileID: 8300000, guid: 79848ce07a09e4fb79d537dec90d99cc, type: 3}
+  - {fileID: 8300000, guid: 92a81eb1fe0974d828f88b29d4f9e63e, type: 3}
+  skillAttackDamageSounds: []
+  specialAttackDamageSounds: []
   hp: 100
 --- !u!222 &5669653989772239567
 CanvasRenderer:
