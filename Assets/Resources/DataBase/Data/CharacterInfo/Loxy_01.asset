@@ -22,8 +22,8 @@ MonoBehaviour:
   type: "\u30A2\u30BF\u30C3\u30AB\u30FC"
   image:
     fullsize: {fileID: 21300000, guid: 12081b00d417346028602cdac385339a, type: 3}
-    backGround: {fileID: 0}
-    effect: {fileID: 0}
+    backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
+    effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
     icon: {fileID: 21300000, guid: ef34c304b81d34c75badb049e8968dda, type: 3}
     prefab: {fileID: 0}
   rank: 0

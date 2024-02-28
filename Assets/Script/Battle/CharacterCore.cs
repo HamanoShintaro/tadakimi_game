@@ -99,7 +99,7 @@ namespace Battle
         {
             Volcus_01, Volcus_02, Era_01, Eleth_01, Orend_01, Sara_01, Shandy_01, Loxy_01,
             Npc_01, Npc_02, Npc_03,
-            Enemy_04, Enemy_06, Enemy_16, Enemy_20
+            Enemy_04, Enemy05, Enemy_06, Enemy_16, Enemy_20
         }
 
         //キャラクターの種類=>味方or敵
