@@ -18,10 +18,10 @@ MonoBehaviour:
   detail: 
   type: 
   image:
-    fullsize: {fileID: 0}
-    backGround: {fileID: 0}
-    effect: {fileID: 0}
-    icon: {fileID: 0}
+    fullsize: {fileID: 21300000, guid: 26d6473070f2241b3acfa4c806615531, type: 3}
+    backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
+    effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
+    icon: {fileID: 21300000, guid: 3eb8d107953fa417b8ba667ee8258e07, type: 3}
     prefab: {fileID: 0}
   rank: 0
   status:
