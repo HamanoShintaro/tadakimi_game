@@ -22,7 +22,7 @@ MonoBehaviour:
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
     effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
     icon: {fileID: 0}
-    prefab: {fileID: 0}
+    prefab: {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
   rank: 0
   status:
   - cost: 0

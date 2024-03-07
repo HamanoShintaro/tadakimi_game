@@ -18,7 +18,7 @@ MonoBehaviour:
   detail: "\u5287\u56E3\u3092\u88CF\u65B9\u304B\u3089\u652F\u3048\u308B\u30CA\u30A4\u30B9\u30AC\u30A4\u3002\u6301\u3061\u5473\u306E\u30D1\u30EF\u30FC\u3067\u4EF2\u9593\u306E\u524D\u7DDA\u306B\u7ACB\u3063\u3066\u6226\u3046\u3002"
   type: "\u30C7\u30A3\u30D5\u30A7\u30F3\u30B9"
   image:
-    fullsize: {fileID: 0}
+    fullsize: {fileID: 21300000, guid: b9ccf17cdaffd4919a2c7b9dda1b6e82, type: 3}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
     effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
     icon: {fileID: 21300000, guid: a135272a607a44e0b9531c16b4d874a5, type: 3}
