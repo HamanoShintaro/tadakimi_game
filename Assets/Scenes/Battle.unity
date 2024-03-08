@@ -2022,9 +2022,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.30647266
+    y: 0.39476162
     width: 1
-    height: 0.3870547
+    height: 0.21047673
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2128,7 +2128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0.03, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 799.7411, y: 461.72003}
+  m_AnchoredPosition: {x: 960.0405, y: 461.72003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &559349289
@@ -7944,7 +7944,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 4.5922623, y: 1}
+    m_SensorSize: {x: 8.439245, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7961,7 +7961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735806792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -431.9198, y: 461.71997, z: -10}
+  m_LocalPosition: {x: 478.73804, y: 461.71997, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15532,6 +15532,80 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1524826618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1524826620}
+  - component: {fileID: 1524826619}
+  m_Layer: 0
+  m_Name: CSV
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1524826619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524826618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ff737c5e557458985d93e0ed509531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterDataBaseCsvFile:
+  - {fileID: 4900000, guid: 142dcdef7d3ac424a9430c0e96bdb67d, type: 3}
+  senarioTalkScriptCsvFile:
+  - {fileID: 4900000, guid: b438231c236df4661a662e96490cb4aa, type: 3}
+  - {fileID: 4900000, guid: 51651e8e47a1746caaa1bc4fc22e1727, type: 3}
+  - {fileID: 4900000, guid: 124a37458f9654b15b15a8bde4487f4a, type: 3}
+  - {fileID: 4900000, guid: 971a521c6100742cebfaf72ce02aa9b3, type: 3}
+  - {fileID: 4900000, guid: 8e5276109134842958082f133c49a66e, type: 3}
+  - {fileID: 4900000, guid: 4208b9f49ce184da5a9b841175a953ae, type: 3}
+  - {fileID: 4900000, guid: 977828f69314443fd955b5461072ac9a, type: 3}
+  - {fileID: 4900000, guid: a8c65e8acb07e4c7ca18252d81eb7972, type: 3}
+  - {fileID: 4900000, guid: 845c8fe0d7bd440578c92a29853fe4df, type: 3}
+  - {fileID: 4900000, guid: 987d6a627bb5d42f1bdcb7365f9a1480, type: 3}
+  - {fileID: 4900000, guid: 3fbcdac20b1604d6e8fe94b3d8eaad54, type: 3}
+  - {fileID: 4900000, guid: 9195f21a9a7c349ad8e41049028a0e67, type: 3}
+  - {fileID: 4900000, guid: 45a287fcd643f4435a1577475d96279a, type: 3}
+  - {fileID: 4900000, guid: ac4e60c200414409c9cb53aa8a9bf22d, type: 3}
+  - {fileID: 4900000, guid: 6f566a975350d429f98a4a402ebb7a9b, type: 3}
+  - {fileID: 4900000, guid: 526ef859779a449508f6958de7885fe6, type: 3}
+  - {fileID: 4900000, guid: 9f33ce54869564bc092ff5f2474fa0f7, type: 3}
+  - {fileID: 4900000, guid: 256aa85796ae747cf8cd022cfd95d63e, type: 3}
+  - {fileID: 4900000, guid: a8124740673c54cdb91da3089d053925, type: 3}
+  - {fileID: 4900000, guid: 869fcacc3c70442ea8d76cdefc0fab91, type: 3}
+  - {fileID: 4900000, guid: f51c47178ae8b484f92d9b7ab439614c, type: 3}
+  - {fileID: 4900000, guid: 2087fcdcedbc4443198048eee0ba560b, type: 3}
+  - {fileID: 4900000, guid: a4840c346ee0b4bc4a07e0187db31805, type: 3}
+  - {fileID: 4900000, guid: 1b3c97fdeb9a64cb4b226a3efb2562fc, type: 3}
+  characterDataBase: {fileID: 11400000, guid: f419fc1c6fcee448cbcb0268c610063f, type: 2}
+  senarioTalkScriptDateBase: {fileID: 11400000, guid: ba9f0a1daca924642a2db9915cda97a0, type: 2}
+  startRow: 10
+--- !u!4 &1524826620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524826618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1585578434
 GameObject:
   m_ObjectHideFlags: 0
@@ -16688,80 +16762,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855790700}
   m_CullTransparentMesh: 1
---- !u!1 &1934635950
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1934635952}
-  - component: {fileID: 1934635951}
-  m_Layer: 0
-  m_Name: CSV
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1934635951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934635950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ff737c5e557458985d93e0ed509531, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterDataBaseCsvFile:
-  - {fileID: 4900000, guid: 142dcdef7d3ac424a9430c0e96bdb67d, type: 3}
-  senarioTalkScriptCsvFile:
-  - {fileID: 4900000, guid: b438231c236df4661a662e96490cb4aa, type: 3}
-  - {fileID: 4900000, guid: 51651e8e47a1746caaa1bc4fc22e1727, type: 3}
-  - {fileID: 4900000, guid: 124a37458f9654b15b15a8bde4487f4a, type: 3}
-  - {fileID: 4900000, guid: 971a521c6100742cebfaf72ce02aa9b3, type: 3}
-  - {fileID: 4900000, guid: 8e5276109134842958082f133c49a66e, type: 3}
-  - {fileID: 4900000, guid: 4208b9f49ce184da5a9b841175a953ae, type: 3}
-  - {fileID: 4900000, guid: 977828f69314443fd955b5461072ac9a, type: 3}
-  - {fileID: 4900000, guid: a8c65e8acb07e4c7ca18252d81eb7972, type: 3}
-  - {fileID: 4900000, guid: 845c8fe0d7bd440578c92a29853fe4df, type: 3}
-  - {fileID: 4900000, guid: 987d6a627bb5d42f1bdcb7365f9a1480, type: 3}
-  - {fileID: 4900000, guid: 3fbcdac20b1604d6e8fe94b3d8eaad54, type: 3}
-  - {fileID: 4900000, guid: 9195f21a9a7c349ad8e41049028a0e67, type: 3}
-  - {fileID: 4900000, guid: 45a287fcd643f4435a1577475d96279a, type: 3}
-  - {fileID: 4900000, guid: ac4e60c200414409c9cb53aa8a9bf22d, type: 3}
-  - {fileID: 4900000, guid: 6f566a975350d429f98a4a402ebb7a9b, type: 3}
-  - {fileID: 4900000, guid: 526ef859779a449508f6958de7885fe6, type: 3}
-  - {fileID: 4900000, guid: 9f33ce54869564bc092ff5f2474fa0f7, type: 3}
-  - {fileID: 4900000, guid: 256aa85796ae747cf8cd022cfd95d63e, type: 3}
-  - {fileID: 4900000, guid: a8124740673c54cdb91da3089d053925, type: 3}
-  - {fileID: 4900000, guid: 869fcacc3c70442ea8d76cdefc0fab91, type: 3}
-  - {fileID: 4900000, guid: f51c47178ae8b484f92d9b7ab439614c, type: 3}
-  - {fileID: 4900000, guid: 2087fcdcedbc4443198048eee0ba560b, type: 3}
-  - {fileID: 4900000, guid: a4840c346ee0b4bc4a07e0187db31805, type: 3}
-  - {fileID: 4900000, guid: 1b3c97fdeb9a64cb4b226a3efb2562fc, type: 3}
-  characterDataBase: {fileID: 11400000, guid: f419fc1c6fcee448cbcb0268c610063f, type: 2}
-  senarioTalkScriptDateBase: {fileID: 11400000, guid: ba9f0a1daca924642a2db9915cda97a0, type: 2}
-  startRow: 10
---- !u!4 &1934635952
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934635950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1945841621
 GameObject:
   m_ObjectHideFlags: 0
