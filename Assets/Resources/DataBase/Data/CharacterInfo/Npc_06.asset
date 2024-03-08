@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
+  m_Name: Npc_06
+  m_EditorClassIdentifier: 
+  id: Npc_02
+  name: "\u5287\u56E3\u54E1\uFF1A\u30B3\u30FC\u30E9\u30B9"
+  alias: 9999
+  detail: "\u821E\u53F0\u3092\u714C\u3073\u3084\u304B\u306B\u5F69\u308B\u6B4C\u3044\u624B\u3002\u58F0\u306E\u529B\u3067\u898B\u65B9\u30AD\u30E3\u30E9\u30AF\u30BF\u30FC\u3092\u30D1\u30EF\u30FC\u30A2\u30C3\u30D7\u3002"
+  type: "\u30B5\u30DD\u30FC\u30C8"
+  image:
+    fullsize: {fileID: 21300000, guid: 81dd4b05581c1482aa6591d7230709d3, type: 3}
+    backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
+    effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
+    icon: {fileID: 21300000, guid: a135272a607a44e0b9531c16b4d874a5, type: 3}
+    prefab: {fileID: 0}
+  rank: 3
+  status:
+  - cost: 0
+    attack: 5
+    interval: 0
+    hp: 5
+    speed: 15
+    atkKB: 0
+    defKB: 0
+    growth: 4
+  - cost: 0
+    attack: 8
+    interval: 0
+    hp: 8
+    speed: 15
+    atkKB: 0
+    defKB: 0
+    growth: 48
+  - cost: 0
+    attack: 11
+    interval: 0
+    hp: 11
+    speed: 15
+    atkKB: 0
+    defKB: 0
+    growth: 160
+  - cost: 0
+    attack: 14
+    interval: 0
+    hp: 17
+    speed: 15
+    atkKB: 0
+    defKB: 0
+    growth: 200
+  - cost: 0
+    attack: 17
+    interval: 0
+    hp: 26
+    speed: 15
+    atkKB: 0
+    defKB: 0
+    growth: 0
+  skill:
+    name: "\u5287\u56E3\u54E1\u306E\u30B5\u30DD\u30FC\u30C8"
+    cost: 20
+    cd: 15
+    Detail: "\u81EA\u5206\u306E\u653B\u6483\u7BC4\u56F2\u306B\u5B58\u5728\u3059\u308B\u30E6\u30CB\u30C3\u30C8\u306EHP\u3092\u81EA\u5206\u306E\u653B\u6483\u529B\u5206\u56DE\u5FA9\u3059\u308B\u3002"
+    effect: {fileID: 0}
+    Ratio: 2.5
+  special:
+    name: 9999
+    cost: 9999
+    cd: 9999
+    Detail: 9999
+    effect: {fileID: 0}
+    Ratio: 5
+    still: {fileID: 0}
+    BackGround: {fileID: 0}
+  price: 20000

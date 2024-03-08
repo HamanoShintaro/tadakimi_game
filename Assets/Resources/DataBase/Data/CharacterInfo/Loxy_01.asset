@@ -25,10 +25,10 @@ MonoBehaviour:
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
     effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
     icon: {fileID: 21300000, guid: ef34c304b81d34c75badb049e8968dda, type: 3}
-    prefab: {fileID: 0}
+    prefab: {fileID: 2431877166153006107, guid: 91869f5370dad4ef7b8004d683e974b4, type: 3}
   rank: 0
   status:
-  - cost: 0
+  - cost: 400
     attack: 10
     interval: 0
     hp: 80
@@ -36,7 +36,7 @@ MonoBehaviour:
     atkKB: 25
     defKB: 30
     growth: 20
-  - cost: 0
+  - cost: 400
     attack: 15
     interval: 0
     hp: 120
@@ -44,7 +44,7 @@ MonoBehaviour:
     atkKB: 25
     defKB: 30
     growth: 240
-  - cost: 0
+  - cost: 400
     attack: 21
     interval: 0
     hp: 168
@@ -52,7 +52,7 @@ MonoBehaviour:
     atkKB: 25
     defKB: 30
     growth: 800
-  - cost: 0
+  - cost: 400
     attack: 28
     interval: 0
     hp: 272
@@ -60,7 +60,7 @@ MonoBehaviour:
     atkKB: 25
     defKB: 30
     growth: 2000
-  - cost: 0
+  - cost: 400
     attack: 34
     interval: 0
     hp: 408

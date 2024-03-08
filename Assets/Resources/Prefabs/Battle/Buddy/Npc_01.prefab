@@ -96,7 +96,7 @@ GameObject:
   m_Layer: 6
   m_Name: Npc_01
   m_TagString: Buddy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: e984485f1ba334d03896a83493a8ca06, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

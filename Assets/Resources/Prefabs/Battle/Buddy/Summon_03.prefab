@@ -172,7 +172,7 @@ GameObject:
   m_Layer: 6
   m_Name: Summon_03
   m_TagString: Buddy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 6f4b83757a4a74cbaadb86b3597f2580, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

@@ -10,73 +10,73 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
-  m_Name: Enemy_06
+  m_Name: Boss_04
   m_EditorClassIdentifier: 
-  id: Enemy_06
-  name: "\u6751\u4EBA\uFF1A\u8D70\u308B\u5B50\u4F9B"
+  id: 
+  name: 
   alias: 
   detail: 
-  type: "\u30A2\u30BF\u30C3\u30AB\u30FC"
+  type: 
   image:
     fullsize: {fileID: 0}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
     effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
     icon: {fileID: 0}
-    prefab: {fileID: 5669653989772239561, guid: f23afe52f3c254532988ad4ae55d692c, type: 3}
+    prefab: {fileID: 5669653989772239561, guid: 2e906bd7a45944749b5f7c3bfd4bcbc7, type: 3}
   rank: 0
   status:
   - cost: 0
-    attack: 30
+    attack: 0
     interval: 0
-    hp: 5
-    speed: 30
-    atkKB: 10
+    hp: 0
+    speed: 0
+    atkKB: 0
     defKB: 0
-    growth: 9999
+    growth: 0
   - cost: 0
-    attack: 3
+    attack: 0
     interval: 0
-    hp: 8
-    speed: 30
-    atkKB: 10
+    hp: 0
+    speed: 0
+    atkKB: 0
     defKB: 0
-    growth: 9999
+    growth: 0
   - cost: 0
-    attack: 4
+    attack: 0
     interval: 0
-    hp: 15
-    speed: 30
-    atkKB: 10
+    hp: 0
+    speed: 0
+    atkKB: 0
     defKB: 0
-    growth: 9999
+    growth: 0
   - cost: 0
-    attack: 6
+    attack: 0
     interval: 0
-    hp: 30
-    speed: 30
-    atkKB: 10
+    hp: 0
+    speed: 0
+    atkKB: 0
     defKB: 0
-    growth: 9999
+    growth: 0
   - cost: 0
-    attack: 20
+    attack: 0
     interval: 0
-    hp: 75
-    speed: 30
-    atkKB: 10
+    hp: 0
+    speed: 0
+    atkKB: 0
     defKB: 0
-    growth: 9999
+    growth: 0
   skill:
     name: 
-    cost: 9999
-    cd: 9999
-    Detail: 9999
+    cost: 0
+    cd: 0
+    Detail: 
     effect: {fileID: 0}
     Ratio: 0
   special:
-    name: 9999
-    cost: 9999
-    cd: 9999
-    Detail: 9999
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
     effect: {fileID: 0}
     Ratio: 0
     still: {fileID: 0}

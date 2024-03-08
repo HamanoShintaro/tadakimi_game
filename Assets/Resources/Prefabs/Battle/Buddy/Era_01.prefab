@@ -246,7 +246,7 @@ GameObject:
   m_Layer: 6
   m_Name: Era_01
   m_TagString: Buddy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: b449c3c91f56b42e188e8930f2a0bf47, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
