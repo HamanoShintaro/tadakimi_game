@@ -102,6 +102,7 @@ namespace Battle
             Summon_01, Summon_02, Summon_03, Summon_04,
             Enemy_01,Enemy_02,Enemy_03,Enemy_04,Enemy05,Enemy_06,Enemy_07,Enemy_08,Enemy_09,Enemy_10,Enemy_11,Enemy_12,Enemy_13,Enemy_14,Enemy_15,Enemy_16,Enemy_17,Enemy_18,Enemy_19,Enemy_20, Enemy_21, Enemy_22, Enemy_23,
             Enemy_24, Enemy_25, Enemy_26, Enemy_27, Enemy_28, Enemy_29, Enemy_30, Enemy_31, Enemy_32, Enemy_33,
+            Boss_01, Boss_02, Boss_03, Boss_04, Boss_05, Boss_06,
         }
 
         //キャラクターの種類=>味方or敵
