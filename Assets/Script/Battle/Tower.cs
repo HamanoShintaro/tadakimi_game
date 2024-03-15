@@ -31,13 +31,14 @@ public class Tower : MonoBehaviour, IDamage
     private void Start()
     {
         var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
-        var enemyTowerInfo = Resources.Load<EnemyTowerDateBase>($"DataBase/Data/EnemyTowerInfo/{currentStageId}");
+        //var enemyTowerInfo = Resources.Load<EnemyTowerDateBase>($"DataBase/Data/EnemyTowerInfo/{currentStageId}");
+        var enemyTowerInfo = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
 
         //タワーの画像を取得
-        GetComponent<Image>().sprite = enemyTowerInfo.sprite;
+        GetComponent<Image>().sprite = enemyTowerInfo.GetEnemyTower();
 
         //タワーの最大体力を取得
-        maxHp = enemyTowerInfo.maxHp;
+        maxHp = enemyTowerInfo.GetTowerHp();
         Hp = maxHp;
     }
     public void Damage(float attackPower = 0, float kb = 0)

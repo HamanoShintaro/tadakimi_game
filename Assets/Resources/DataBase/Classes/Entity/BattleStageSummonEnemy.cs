@@ -20,7 +20,7 @@ public class BattleStageSummonEnemy : ScriptableObject
 	public List<int> Levels = new List<int>();
 
 	[SerializeField]
-	public int TowerHp;
+	public float TowerHp;
 
 	[SerializeField]
 	[Header("ステージの背景画像")]
@@ -48,7 +48,7 @@ public class BattleStageSummonEnemy : ScriptableObject
 	{
 		return Levels;
 	}
-	public int GetTowerHp()
+	public float GetTowerHp()
     {
 		return TowerHp;
     }
