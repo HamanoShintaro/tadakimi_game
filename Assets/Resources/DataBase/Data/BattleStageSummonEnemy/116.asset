@@ -24,6 +24,6 @@ MonoBehaviour:
   - {fileID: 3377319372778853538, guid: 42f14896a152841ef8f2d420a7f9e713, type: 3}
   - {fileID: 1338976341970829827, guid: f6a1afcb6373641fbb022dd4384acf97, type: 3}
   Levels: 01000000010000000100000001000000
-  TowerHp: 100
+  TowerHp: 600
   stageSprite: {fileID: 21300000, guid: e42606fdbcb7544a8bfe2074bf55ea8d, type: 3}
   enemyTower: {fileID: 0}
