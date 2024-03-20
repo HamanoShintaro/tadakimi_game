@@ -751,15 +751,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.00015053153
     y: 0
-    width: 1
+    width: 0.99969894
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4
+  orthographic size: 5.4016266
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -997,7 +997,7 @@ RectTransform:
   m_GameObject: {fileID: 1073664761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7583333, y: 0.7583333, z: 0.7583333}
+  m_LocalScale: {x: 0.76851857, y: 0.76851857, z: 0.76851857}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1535443096}
@@ -1010,7 +1010,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1919.9999, y: 1079.9999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1073664763
 MonoBehaviour:
@@ -2035,6 +2035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1881895052}
   - component: {fileID: 1881895051}
+  - component: {fileID: 1881895053}
   m_Layer: 0
   m_Name: CSV
   m_TagString: Untagged
@@ -2099,6 +2100,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1881895053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881895050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17dd93aca39d49f4b9a30e84ecd2264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageDataBase: {fileID: 11400000, guid: b6ed9b06e1d61401aa1900f3c8611042, type: 2}
+  csvFiles:
+  - {fileID: 4900000, guid: 29aa3eac2d0de469aba6e271d90a22ce, type: 3}
+  - {fileID: 4900000, guid: 48947bdd3016d42be9a2fbda9cc66bbc, type: 3}
 --- !u!1 &1910529126
 GameObject:
   m_ObjectHideFlags: 0
