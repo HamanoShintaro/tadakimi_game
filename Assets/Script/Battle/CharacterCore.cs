@@ -200,7 +200,7 @@ namespace Battle
 
             if (characterInfo == null)
             {
-                Debug.LogError("データベースにキャラクターのデータがありません");
+                Debug.LogError($"{characterId} : データベースにキャラクターのデータがありません");
                 return;
             }
             //maxHp取得
@@ -382,7 +382,6 @@ namespace Battle
             else
             {
                 animator.SetBool("Attack", false);
-                //Debug.Log("攻撃");
             }
             canState = true;
         }
@@ -601,4 +600,5 @@ namespace Battle
         }
     }
 }
+
 
