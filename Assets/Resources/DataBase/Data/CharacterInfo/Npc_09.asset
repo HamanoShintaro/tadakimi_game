@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
   m_Name: Npc_09
   m_EditorClassIdentifier: 
-  id: Npc_03
-  name: "\u5287\u56E3\u54E1\uFF1A\u7167\u660E"
-  alias: 9999
-  detail: "\u6F14\u51FA\u306B\u306F\u6B20\u304B\u305B\u306A\u3044\u91CD\u8981\u306A\u5F79\u5272\u3002\u5F7C\u306E\u30BB\u30F3\u30B9\u3067\u6F14\u76EE\u304C\u3072\u3068\u5473\u3082\u3075\u305F\u5473\u3082\u5909\u308F\u308B\u3002\u9060\u8DDD\u96E2\u304B\u3089\u5149\u3092\u7167\u5C04\u3057\u3066\u653B\u6483\u3059\u308B\u3002"
-  type: "\u30A2\u30BF\u30C3\u30AB\u30FC"
+  id: Npc_09
+  name: "\u7ADC\u4EBA\u65CF\uFF1A\u65CF\u9577"
+  alias: "\u306A\u3057"
+  detail: "\u4E00\u898B\u306F\u8001\u9F62\u306E\u4F2F\u7236\u3060\u304C\u3001\u305D\u306E\u77B3\u306F\u7E26\u306B\u88C2\u3051\u3001\u9F8D\u738B\u305F\u308B\u7570\u5F62\u306E\u5149\u3092\u77B3\u306B\u5BBF\u3059\u3002"
+  type: "\u30C7\u30A3\u30D5\u30A7\u30F3\u30C0\u30FC"
   image:
     fullsize: {fileID: 21300000, guid: d935d7584b60e44ba81b2225bf42c05b, type: 3}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
@@ -25,45 +25,45 @@ MonoBehaviour:
     prefab: {fileID: 1545771121956627565, guid: d35aa7d998e29414da24a4304e354f0a, type: 3}
   rank: 3
   status:
-  - cost: 0
-    attack: 5
+  - cost: 200
+    attack: 10
     interval: 0
-    hp: 10
+    hp: 120
     speed: 15
-    atkKB: 10
-    defKB: 0
-    growth: 4
-  - cost: 0
-    attack: 8
+    atkKB: 15
+    defKB: 30
+    growth: 12
+  - cost: 200
+    attack: 15
     interval: 0
-    hp: 15
+    hp: 180
     speed: 15
-    atkKB: 10
-    defKB: 0
-    growth: 48
-  - cost: 0
-    attack: 11
+    atkKB: 15
+    defKB: 30
+    growth: 144
+  - cost: 200
+    attack: 21
     interval: 0
-    hp: 21
+    hp: 252
     speed: 15
-    atkKB: 10
-    defKB: 0
-    growth: 160
-  - cost: 0
-    attack: 14
+    atkKB: 15
+    defKB: 30
+    growth: 480
+  - cost: 200
+    attack: 28
     interval: 0
-    hp: 34
+    hp: 408
     speed: 15
-    atkKB: 10
-    defKB: 0
-    growth: 200
-  - cost: 0
-    attack: 17
+    atkKB: 15
+    defKB: 30
+    growth: 600
+  - cost: 200
+    attack: 34
     interval: 0
-    hp: 51
+    hp: 612
     speed: 15
-    atkKB: 10
-    defKB: 0
+    atkKB: 15
+    defKB: 30
     growth: 0
   skill:
     name: 9999
