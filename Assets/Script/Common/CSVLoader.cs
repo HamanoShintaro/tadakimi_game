@@ -225,7 +225,6 @@ public class CSVLoader : MonoBehaviour
                     senarioTalkScript.type = values[7];
                     senarioTalkScript.script = senarioTalkScript.script_jp;
                     senarioTalkScriptDateBase.senarioTalkScripts[i].senarioTalks[index] = senarioTalkScript;
-                    
                 }
                 catch (FormatException ex)
                 {
