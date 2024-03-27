@@ -15,3 +15,6 @@ MonoBehaviour:
   battleStageSummonEnemies:
   - {fileID: 11400000, guid: 3b801f6affffad24abeaf1032f96d572, type: 2}
   - {fileID: 11400000, guid: fbbb7085a37de4fb3aaa39fcd77176cf, type: 2}
+  battleStageSummonBuddies:
+  - {fileID: 11400000, guid: a5925c8adcb5645d797675edb2e8d679, type: 2}
+  - {fileID: 11400000, guid: 9b9893a17482d4006a55b9c313bfb859, type: 2}
