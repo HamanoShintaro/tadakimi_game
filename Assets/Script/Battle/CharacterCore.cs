@@ -225,7 +225,6 @@ namespace Battle
 
             //スキルクールタイム取得
             skillCoolDown = characterInfo.skill.cd;
-            //Debug.Log("スキルのクールダウン時間は" + skillCoolDown);
 
             //スキルレート
             skillRatio = characterInfo.skill.Ratio;
@@ -295,7 +294,7 @@ namespace Battle
         {
             if (isLeader) return;
             if (characterType.Equals(CharacterType.Buddy)) transform.position = new Vector2(transform.position.x + speed, transform.position.y);
-            else if (characterType.Equals(CharacterType.Enemy)) transform.position = new Vector2(transform.position.x - speed, transform.position.y);
+            else transform.position = new Vector2(transform.position.x - speed, transform.position.y);
         }
 
         /// <summary>
@@ -311,7 +310,6 @@ namespace Battle
             }
             else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
-                //Debug.Log(SkillCoolTime);
                 SkillAction();
             }
             else
@@ -474,11 +472,12 @@ namespace Battle
         {
             canState = false;
             animator.SetBool("KnockBack", true);
+            var wait = new WaitForSeconds(0.1f);
             for (int i = 0; i < 10; i++)
             {
-                yield return new WaitForSeconds(0.1f);
+                yield return wait;
                 if (characterType.Equals(CharacterType.Buddy)) transform.position = new Vector2(transform.position.x - 3, transform.position.y);
-                else if (characterType.Equals(CharacterType.Enemy)) transform.position = new Vector2(transform.position.x + 3, transform.position.y);
+                else transform.position = new Vector2(transform.position.x + 3, transform.position.y);
             }
         }
 
@@ -513,7 +512,6 @@ namespace Battle
         public void Damage(float atkPower = 0, float atkKB = 0)
         {
             Hp -= atkPower;
-            Debug.Log(characterId + "は" + atkPower + "ダメージ受けた");
             if (Hp <= 0)
             {
                 Death();
@@ -522,7 +520,6 @@ namespace Battle
             {
                 StartCoroutine(KnockBack());
             }
-            //Debug.Log($"{characterId}はダメージを受けた");
         }
 
         /// <summary>
@@ -565,7 +562,6 @@ namespace Battle
                 {
                     if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
                     targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x);
-                    Debug.Log("更新");
                 }
             }
             else if (characterRole == CharacterRole.Supporter)
@@ -600,5 +596,6 @@ namespace Battle
         }
     }
 }
+
 
 
