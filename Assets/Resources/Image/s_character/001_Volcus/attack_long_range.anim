@@ -645,7 +645,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.85
+  - time: 2.5166667
     functionName: EndNomalAction
     data: 
     objectReferenceParameter: {fileID: 0}

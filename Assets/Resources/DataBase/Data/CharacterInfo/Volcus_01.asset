@@ -29,7 +29,7 @@ MonoBehaviour:
   rank: 3
   status:
   - cost: 0
-    attack: 10
+    attack: 10000
     interval: 0
     hp: 100
     speed: 25
@@ -37,7 +37,7 @@ MonoBehaviour:
     defKB: 50
     growth: 20
   - cost: 0
-    attack: 15
+    attack: 15000
     interval: 0
     hp: 150
     speed: 25
@@ -76,10 +76,10 @@ MonoBehaviour:
     effect: {fileID: 0}
     Ratio: 2.5
   special:
-    name: 
+    name: "\u306A\u3057"
     cost: 9999
     cd: 9999
-    Detail: 9999
+    Detail: "\u306A\u3057"
     effect: {fileID: 0}
     Ratio: 5
     still: {fileID: 0}

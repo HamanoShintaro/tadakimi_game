@@ -93,6 +93,7 @@ namespace Battle
         // スペシャル攻撃のダメージ音のリスト
         [SerializeField]
         private List<AudioClip> specialAttackDamageSounds;
+        private Player player;
 
         //プレイヤーキャラクターの種類
         public enum CharacterId
@@ -245,27 +246,27 @@ namespace Battle
             animator = GetComponent<Animator>();
 
             //スキル名がないならhasSkill = false
-            if (characterInfo.skill.name == "" || characterInfo.skill.name == null) hasSkill = false;
+            if (characterInfo.skill.name == "9999" || characterInfo.skill.name == null) hasSkill = false;
             else hasSkill = true;
 
             //スペシャル名がないならhasSpecial = false
-            if (characterInfo.special.name == "" || characterInfo.special.name == null) hasSpecial = false;
+            if (characterInfo.special.name == "9999" || characterInfo.special.name == null) hasSpecial = false;
             else hasSpecial = true;
 
             //スキルのクールタイムを測る
             StartCoroutine(SkillCoolTimeCount());
 
             audioSource = GetComponent<AudioSource>();
+
+            player = GetComponent<Player>();
         }
         #endregion
         private void FixedUpdate()
         {
             //状態の優先順位は死亡>ノックバック>状態遷移可能かどうか>歩くorアクション
-            //ノックバック処理
-            if (!canState) return;
             if (isLeader)
             {
-                if (GetComponent<Player>().isMove)
+                if (player.isMove)
                 {
                     animator.SetBool("Walk", true);
                     return;
@@ -274,16 +275,28 @@ namespace Battle
                 {
                     animator.SetBool("Walk", false);
                 }
+                if (targets.Count == 0)
+                {
+                    // 敵がいない
+                }
+                else
+                {
+                    Action();
+                }
             }
-            //ターゲットが居ない=>歩く
-            if (targets.Count == 0)
-            {
-                Walk();
-            }
-            //ターゲットが居る=>アクション
             else
             {
-                Action();
+                if (!canState) return;
+                //ターゲットが居ない=>歩く
+                if (targets.Count == 0)
+                {
+                    Walk();
+                }
+                //ターゲットが居る=>アクション
+                else
+                {
+                    Action();
+                }
             }
         }
 
@@ -307,10 +320,12 @@ namespace Battle
             if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
             {
                 SpecialAction();
+                Debug.Log("ログ1");
             }
             else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
                 SkillAction();
+                Debug.Log("ログ2");
             }
             else
             {
@@ -496,7 +511,7 @@ namespace Battle
         {
             //死亡処理>開始
             canState = false;
-            animator.SetBool("Death", true);
+            animator.SetTrigger("Death");
         }
 
         public void EndDeath()

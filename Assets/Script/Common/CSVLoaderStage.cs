@@ -25,7 +25,31 @@ public class CSVLoaderStage : MonoBehaviour
     // スタート時にCSVを読み込む
     void Start()
     {
+        InitializeLists();
         LoadCSV();
+    }
+
+    // ステージデータベースの3つのリストを初期化するメソッド
+    void InitializeLists()
+    {
+        if (characterType == CharacterType.Enemy)
+        {
+            for (int i = 0; i < stageDataBase.battleStageSummonEnemies.Count; i++)
+            {
+                stageDataBase.battleStageSummonEnemies[i].Times.Clear();
+                stageDataBase.battleStageSummonEnemies[i].Enemies.Clear();
+                stageDataBase.battleStageSummonEnemies[i].Levels.Clear();
+            }
+        }
+        else if (characterType == CharacterType.Buddy)
+        {
+            for (int i = 0; i < stageDataBase.battleStageSummonBuddies.Count; i++)
+            {
+                stageDataBase.battleStageSummonBuddies[i].Times.Clear();
+                stageDataBase.battleStageSummonBuddies[i].Buddies.Clear();
+                stageDataBase.battleStageSummonBuddies[i].Levels.Clear();
+            }
+        }
     }
 
     // CSVを読み込むメソッド
