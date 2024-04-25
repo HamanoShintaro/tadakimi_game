@@ -19,6 +19,15 @@ public class Message : ScriptableObject
     [Multiline(5)]
     private string[] chineseMessageArray;
 
+    [SerializeField]
+    private List<AudioClip> japaneseVoiceList;
+
+    [SerializeField]
+    private List<AudioClip> englishVoiceList;
+
+    [SerializeField]
+    private List<AudioClip> chineseVoiceList;
+
     /// <summary>
     /// 番号に対応した言語のメッセージを返すメソッド(0:日本語 | 1:英語 | 2:中国語)
     /// </summary>
@@ -40,5 +49,28 @@ public class Message : ScriptableObject
                 break;
         }
         return array;
+    }
+
+    /// <summary>
+    /// 番号に対応した言語のボイスを返すメソッド(0:日本語 | 1:英語 | 2:中国語)
+    /// </summary>
+    /// <param name="index">0:日本語 | 1:英語 | 2:中国語</param>
+    /// <returns></returns>
+    public List<AudioClip> GetVoice(int index)
+    {
+        var list = japaneseVoiceList;
+        switch(index)
+        {
+            case 0:
+                list = japaneseVoiceList;
+                break;
+            case 1:
+                list = englishVoiceList;
+                break;
+            case 2:
+                list = chineseVoiceList;
+                break;
+        }
+        return list;
     }
 }

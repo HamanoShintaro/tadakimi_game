@@ -9,6 +9,7 @@ public class ChatBox : MonoBehaviour
     private Text chatBox;
 
     private string[] messageArray;
+    private List<AudioClip> voiceList;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class ChatBox : MonoBehaviour
     public void OnClickChatBox()
     {
         DisplayMessage();
+        PlayVoice();
     }
 
     /// <summary>
@@ -33,6 +35,19 @@ public class ChatBox : MonoBehaviour
         chatBox.text = messageArray[index];
     }
 
+    /// <summary>
+    ///　chatBoxのメッセージに対応するボイスを再生するメソッド
+    /// </summary>
+    public void PlayVoice()
+    {
+        if(voiceList == null || voiceList.Count == 0)
+        {
+            return;
+        }
+        var index = Random.Range(0, voiceList.Count);
+        AudioSource.PlayClipAtPoint(voiceList[index], transform.position);
+    }
+
     //TODOSettingのOnChangeLanguageで呼び出すのもあり
     /// <summary>
     /// 言語設定を更新するメソッド
@@ -40,7 +55,9 @@ public class ChatBox : MonoBehaviour
     public void UpdateMessageArray()
     {
         var currentLanguage = PlayerPrefs.GetInt(PlayerPrefabKeys.currentLanguage);
-        messageArray = Resources.Load<Message>("DataBase/Data/ChatBoxInfo/ChatBox").GetMessage(currentLanguage);
+        var message = Resources.Load<Message>("DataBase/Data/ChatBoxInfo/ChatBox");
+        messageArray = message.GetMessage(currentLanguage);
+        voiceList = message.GetVoice(currentLanguage);
         Debug.Log("言語を更新");
     }
 }

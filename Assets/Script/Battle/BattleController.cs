@@ -152,7 +152,11 @@ public class BattleController : MonoBehaviour
         //リザルト画面(勝利または敗北)を表示
         performancePanel.GetComponent<ResultController>().OnResultPanel(type != TypeLeader.BuddyLeader);
         StartCoroutine(AnimationMoneyUI(1));
-        NextStage();
+        if (type != TypeLeader.BuddyLeader)
+        {
+            // 敵のリーダー(タワー)がGameStopを起動した場合は、次のステージへ進む
+            NextStage();
+        }
     }
 
     /// <summary>
