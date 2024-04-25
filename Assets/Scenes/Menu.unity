@@ -10379,7 +10379,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 193948042}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.37919846
+  m_Size: 0.37919843
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11723,7 +11723,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 211674990}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.17350571
+  m_Size: 0.1735057
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19019,9 +19019,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.09393826
+    y: 0.09312123
     width: 1
-    height: 0.8121235
+    height: 0.81375754
   near clip plane: 1
   far clip plane: 100
   field of view: 60

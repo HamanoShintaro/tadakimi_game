@@ -752,9 +752,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.09393826
+    y: 0.09312123
     width: 1
-    height: 0.8121235
+    height: 0.81375754
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2092,7 +2092,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 8852eaee0889742d395c45e774521185, type: 3}
   characterDataBase: {fileID: 11400000, guid: f419fc1c6fcee448cbcb0268c610063f, type: 2}
   senarioTalkScriptDateBase: {fileID: 11400000, guid: ba9f0a1daca924642a2db9915cda97a0, type: 2}
-  startRow: 10
+  startRow: 0
 --- !u!4 &1881895052
 Transform:
   m_ObjectHideFlags: 0

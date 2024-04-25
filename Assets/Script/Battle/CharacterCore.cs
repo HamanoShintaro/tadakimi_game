@@ -86,13 +86,6 @@ namespace Battle
         [SerializeField]
         private List<AudioClip> normalAttackDamageSounds;
 
-        // スキル攻撃のダメージ音のリスト
-        [SerializeField]
-        private List<AudioClip> skillAttackDamageSounds;
-
-        // スペシャル攻撃のダメージ音のリスト
-        [SerializeField]
-        private List<AudioClip> specialAttackDamageSounds;
         private Player player;
 
         //プレイヤーキャラクターの種類
@@ -101,7 +94,7 @@ namespace Battle
             Volcus_01, Volcus_02, Era_01, Eleth_01, Orend_01, Sara_01, Shandy_01, Loxy_01,
             Npc_01, Npc_02, Npc_03, Npc_04, Npc_05, Npc_06, Npc_07, Npc_08, Npc_09, Npc_10, Npc_11, Npc_12, Npc_13, Npc_14,
             Summon_01, Summon_02, Summon_03, Summon_04,
-            Enemy_01,Enemy_02,Enemy_03,Enemy_04,Enemy05,Enemy_06,Enemy_07,Enemy_08,Enemy_09,Enemy_10,Enemy_11,Enemy_12,Enemy_13,Enemy_14,Enemy_15,Enemy_16,Enemy_17,Enemy_18,Enemy_19,Enemy_20, Enemy_21, Enemy_22, Enemy_23,
+            Enemy_01,Enemy_02,Enemy_03,Enemy_04,Enemy_05,Enemy_06,Enemy_07,Enemy_08,Enemy_09,Enemy_10,Enemy_11,Enemy_12,Enemy_13,Enemy_14,Enemy_15,Enemy_16,Enemy_17,Enemy_18,Enemy_19,Enemy_20, Enemy_21, Enemy_22, Enemy_23,
             Enemy_24, Enemy_25, Enemy_26, Enemy_27, Enemy_28, Enemy_29, Enemy_30, Enemy_31, Enemy_32, Enemy_33,
             Boss_01, Boss_02, Boss_03, Boss_04, Boss_05, Boss_06,
         }
@@ -246,11 +239,11 @@ namespace Battle
             animator = GetComponent<Animator>();
 
             //スキル名がないならhasSkill = false
-            if (characterInfo.skill.name == "9999" || characterInfo.skill.name == null) hasSkill = false;
+            if (characterInfo.skill.name == "9999" || characterInfo.skill.name == null || characterInfo.skill.name == "") hasSkill = false;
             else hasSkill = true;
 
             //スペシャル名がないならhasSpecial = false
-            if (characterInfo.special.name == "9999" || characterInfo.special.name == null) hasSpecial = false;
+            if (characterInfo.special.name == "9999" || characterInfo.special.name == null || characterInfo.skill.name == "") hasSpecial = false;
             else hasSpecial = true;
 
             //スキルのクールタイムを測る
@@ -295,6 +288,7 @@ namespace Battle
                 //ターゲットが居る=>アクション
                 else
                 {
+                    animator.SetBool("Walk", false);
                     Action();
                 }
             }
@@ -306,8 +300,14 @@ namespace Battle
         private void Walk()
         {
             if (isLeader) return;
+            animator.SetBool("Walk", true);
             if (characterType.Equals(CharacterType.Buddy)) transform.position = new Vector2(transform.position.x + speed, transform.position.y);
             else transform.position = new Vector2(transform.position.x - speed, transform.position.y);
+        }
+
+        private void EndWalk()
+        {
+            animator.SetBool("Walk", false);
         }
 
         /// <summary>
@@ -320,12 +320,10 @@ namespace Battle
             if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
             {
                 SpecialAction();
-                Debug.Log("ログ1");
             }
             else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
                 SkillAction();
-                Debug.Log("ログ2");
             }
             else
             {
@@ -403,29 +401,25 @@ namespace Battle
         /// targetにダメージを与える
         /// </summary>
         /// <param name="type">0:通常攻撃 / 1: スキル攻撃 / 2:スペシャル攻撃</param>
-        public void InflictDamage(int type)
+        public void InflictDamage(int type = 0)
         {
             float ratio = 1.0f;
 
             if (type == 0)
             {
                 // 通常攻撃の場合の処理
-                audioSource.PlayOneShot(normalAttackDamageSounds[Random.Range(0, normalAttackDamageSounds.Count)]);
                 ratio = 1.0f;
             }
             else if (type == 1)
             {
                 // スキル攻撃の場合の処理
-                // 被ダメージ音(スキル)
                 if (hasSkill) ratio = skillRatio;
             }
             else if (type == 2)
             {
                 // スペシャル攻撃の場合の処理
-                // 被ダメージ音(スペシャル)
                 if (hasSpecial) ratio = specialRatio;
             }
-            
 
             //ダメージ処理
             try
@@ -527,6 +521,7 @@ namespace Battle
         public void Damage(float atkPower = 0, float atkKB = 0)
         {
             Hp -= atkPower;
+            audioSource.PlayOneShot(normalAttackDamageSounds[0]);
             if (Hp <= 0)
             {
                 Death();

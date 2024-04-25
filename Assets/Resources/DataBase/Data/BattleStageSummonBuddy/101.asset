@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b09ef4e3e404819aabad954fac1be7, type: 3}
   m_Name: 101
   m_EditorClassIdentifier: 
-  Times: []
-  Buddies: []
-  Levels: 
-  TowerHp: 0
+  Times:
+  - 0
+  - 5
+  - 10
+  - 15
+  Buddies:
+  - {fileID: 2431877166153006107, guid: d6fc74bc29b1c4add914d2cde2cd73e5, type: 3}
+  - {fileID: 2431877166153006107, guid: fa54bec72a3fb422aa2561d5f2ee7638, type: 3}
+  - {fileID: 2431877166153006107, guid: ccaa0973649834f529bb43716a2a3e36, type: 3}
+  - {fileID: 2431877166153006107, guid: 695b7b74c2cb64d3996152c1fdb91ff9, type: 3}
+  Levels: 01000000010000000100000001000000

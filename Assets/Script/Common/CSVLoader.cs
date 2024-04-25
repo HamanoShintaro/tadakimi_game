@@ -18,7 +18,7 @@ public class CSVLoader : MonoBehaviour
 
     [Header("CharacterInfoDateBase : 読み込みを始める行")]
     // CSV読み込み開始行
-    public int startRow;
+    private int startRow = 0;
 
     private void Start()
     {
@@ -247,3 +247,4 @@ public class CSVLoader : MonoBehaviour
         }
     }
 }
+
