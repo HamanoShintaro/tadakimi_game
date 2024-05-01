@@ -297,8 +297,6 @@ MonoBehaviour:
   canState: 1
   normalAttackDamageSounds:
   - {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
-  skillAttackDamageSounds: []
-  specialAttackDamageSounds: []
   hp: 100
 --- !u!222 &3280586503936523254
 CanvasRenderer:
@@ -615,7 +613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef50f603426c7422fa244db3007184b0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9933c1cd7e4054a8e9bfcf2ae4a4497b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

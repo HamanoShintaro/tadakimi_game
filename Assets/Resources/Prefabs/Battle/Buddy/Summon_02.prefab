@@ -375,8 +375,6 @@ MonoBehaviour:
   canState: 1
   normalAttackDamageSounds:
   - {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
-  skillAttackDamageSounds: []
-  specialAttackDamageSounds: []
   hp: 100
 --- !u!1 &2659856034641426599
 GameObject:
@@ -708,7 +706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9ccf17cdaffd4919a2c7b9dda1b6e82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d931bd3edd9904745b7e6d95cb0be798, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
