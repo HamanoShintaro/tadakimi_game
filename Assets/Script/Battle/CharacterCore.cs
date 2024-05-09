@@ -320,14 +320,17 @@ namespace Battle
             if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
             {
                 SpecialAction();
+                Debug.Log("スペシャル発動");
             }
             else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
             {
                 SkillAction();
+                Debug.Log("スキル発動");
             }
             else
             {
                 NomalAction();
+                Debug.Log("攻撃");
             }
         }
 
@@ -395,6 +398,7 @@ namespace Battle
                 animator.SetBool("Attack", false);
             }
             canState = true;
+            Debug.Log("EndNomalAction");
         }
 
         /// <summary>

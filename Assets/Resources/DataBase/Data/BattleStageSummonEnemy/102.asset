@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: 102
   Times:
-  - 7.4
-  - 7.5
+  - 1
   Enemies:
-  - {fileID: 3377319372778853538, guid: 42f14896a152841ef8f2d420a7f9e713, type: 3}
-  - {fileID: 8406462311337947325, guid: 716f9190ea3534f90886e58be27adca9, type: 3}
-  Levels: 0100000001000000
+  - {fileID: 2274732857205748726, guid: 24a92b0ea42b24d68a8146cfe22e25a7, type: 3}
+  Levels: 01000000
   TowerHp: 100
   stageSprite: {fileID: 21300000, guid: 9a43efb8129bc479d9bc886331f6cf88, type: 3}
   enemyTower: {fileID: 21300000, guid: be0552969719e4562a7dc93324dd1a9a, type: 3}
