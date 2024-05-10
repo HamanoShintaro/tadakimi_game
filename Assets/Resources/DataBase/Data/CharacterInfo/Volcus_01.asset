@@ -29,45 +29,45 @@ MonoBehaviour:
   rank: 3
   status:
   - cost: 0
-    attack: 10000
-    interval: 0
-    hp: 100
-    speed: 25
-    atkKB: 50
-    defKB: 50
-    growth: 20
-  - cost: 0
-    attack: 15000
+    attack: 0
     interval: 0
     hp: 150
     speed: 25
-    atkKB: 50
+    atkKB: 0
     defKB: 50
     growth: 240
   - cost: 0
-    attack: 21
+    attack: 0
     interval: 0
-    hp: 210
+    hp: 150
     speed: 25
-    atkKB: 50
+    atkKB: 0
     defKB: 50
-    growth: 800
+    growth: 240
   - cost: 0
-    attack: 28
+    attack: 0
     interval: 0
-    hp: 340
+    hp: 150
     speed: 25
-    atkKB: 50
+    atkKB: 0
     defKB: 50
-    growth: 2000
+    growth: 240
   - cost: 0
-    attack: 34
+    attack: 0
     interval: 0
-    hp: 510
+    hp: 150
     speed: 25
-    atkKB: 50
+    atkKB: 0
     defKB: 50
-    growth: 0
+    growth: 240
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 150
+    speed: 25
+    atkKB: 0
+    defKB: 50
+    growth: 240
   skill:
     name: "\u9B54\u7D20\u64CD\u4F5C"
     cost: 250

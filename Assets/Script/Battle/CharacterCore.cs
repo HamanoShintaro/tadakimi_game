@@ -279,7 +279,7 @@ namespace Battle
             }
             else
             {
-                if (!canState) return;
+                if (!canState) return; //canState = false 弾かれる
                 //ターゲットが居ない=>歩く
                 if (targets.Count == 0)
                 {
@@ -383,7 +383,8 @@ namespace Battle
                     animator.SetBool("Long", true);
                 }
             }
-            animator.SetBool("Attack", true);
+            animator.SetBool($"Attack", true);
+            Debug.Log($"{characterId} : Attack");
         }
 
         public void EndNomalAction()
@@ -398,7 +399,7 @@ namespace Battle
                 animator.SetBool("Attack", false);
             }
             canState = true;
-            Debug.Log("EndNomalAction");
+            Debug.Log($"{characterId} : EndNomalAction");
         }
 
         /// <summary>
