@@ -11,14 +11,11 @@ namespace Battle
         private List<GameObject> enemies = new List<GameObject>();
         private List<int> enemyLevels = new List<int>();
         private int enemyItemNumber = 0;
-
         private List<float> buddyTimes = new List<float>();
         private List<GameObject> buddies = new List<GameObject>();
         private List<int> buddyLevels = new List<int>();
         private int buddyItemNumber = 0;
-
         private float time = 0.0f;
-       
         private bool isGenerating = true; // 生成フラグを追加
 
         [SerializeField]

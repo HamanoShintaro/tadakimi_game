@@ -41,11 +41,11 @@ namespace Battle
         private void Update()
         {
             //移動入力がある場合は背景を動かす&歩きアニメーション再生 / ない場合はアニメーションを停止
-            if (Input.GetKey(KeyCode.D)/* || (isRight && isMove)*/)
+            if (Input.GetKey(KeyCode.D) || (isRight && isMove))
             {
                 MoveRight();
             }
-            else if (Input.GetKey(KeyCode.A)/* || (!isRight && isMove)*/)
+            else if (Input.GetKey(KeyCode.A) || (!isRight && isMove))
             {
                 MoveLeft();
             }
@@ -89,13 +89,27 @@ namespace Battle
             isMove = true;
         }
 
-        public void MoveButtonDown(bool isRight)
+        /// <summary>
+        /// 右のパネルが押された時
+        /// </summary>
+        public void MoveButtonDownRight()
         {
-            if (isRight) this.isRight = true;
-            else this.isRight = false;
+            isRight = true;
             isMove = true;
         }
 
+        /// <summary>
+        /// 左のパネルが押された時
+        /// </summary>
+        public void MoveButtonDownLeft()
+        {
+            isRight = false;
+            isMove = true;
+        }
+
+        /// <summary>
+        /// パネルから指が離された時
+        /// </summary>
         public void MoveButtonUp()
         {
             isMove = false;

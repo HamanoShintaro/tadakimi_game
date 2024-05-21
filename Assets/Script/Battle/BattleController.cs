@@ -49,11 +49,11 @@ public class BattleController : MonoBehaviour
 
     [SerializeField, HideInInspector]
     private GameObject magicPower;
-    
+
     [SerializeField]
     [Header("ゲームタイマー")]
     public int gameTimer;
-    
+
     [SerializeField]
     private Image backGround;
 
@@ -186,7 +186,7 @@ public class BattleController : MonoBehaviour
         {
             ShowButtons();
         }
-        
+
         yield return new WaitForSeconds(1.0f);
 
         //取得した金額を計算して取得
@@ -217,7 +217,7 @@ public class BattleController : MonoBehaviour
         if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
         {
             //広告を表示する
-            GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
+            //GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
             ShowButtons();
         }
     }
