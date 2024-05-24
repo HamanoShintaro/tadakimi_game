@@ -115,7 +115,6 @@ public class MenuController : MonoBehaviour
             switchingFlg = true;
             PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
             SettingMenu.GetComponent<Animator>().SetBool("active", false);
-            
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.settingMenuView, false);
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.mainMenuView, true);
             yield return new WaitForSeconds(1.0f);
