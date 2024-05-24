@@ -200,24 +200,34 @@ public class BattleController : MonoBehaviour
 
         //所持金額+獲得金額を所持金額を更新して、保存
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, totalMoney + getMoney);
-        while (getMoney > 0)
+        while (getMoney >= 100)
         {
-            getMoney--;
+            getMoney -= 10;
             getMoneyText[0].text = $"{getMoney}";
             getMoneyText[1].text = $"{getMoney}";
 
-            totalMoney++;
+            totalMoney += 10;
             totalMoneyText[0].text = $"{totalMoney}";
             totalMoneyText[1].text = $"{totalMoney}";
-            yield return null; // 0.1秒の遅延を追加
+            yield return null;
         }
+        while (getMoney > 0 && getMoney < 100)
+        {
+            getMoney -= 1;
+            getMoneyText[0].text = $"{getMoney}";
+            getMoneyText[1].text = $"{getMoney}";
 
+            totalMoney += 1;
+            totalMoneyText[0].text = $"{totalMoney}";
+            totalMoneyText[1].text = $"{totalMoney}";
+            yield return null;
+        }
         yield return new WaitForSeconds(1.5f);
 
         if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
         {
             //広告を表示する
-            //GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
+            //TODO : GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
             ShowButtons();
         }
     }
