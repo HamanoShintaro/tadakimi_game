@@ -490,8 +490,8 @@ namespace Battle
             for (int i = 0; i < 10; i++)
             {
                 yield return wait;
-                if (characterType.Equals(CharacterType.Buddy)) transform.position = new Vector2(transform.position.x - 3, transform.position.y);
-                else transform.position = new Vector2(transform.position.x + 3, transform.position.y);
+                if (characterType.Equals(CharacterType.Buddy)) transform.position = new Vector2(transform.position.x - 10, transform.position.y);
+                else transform.position = new Vector2(transform.position.x + 10, transform.position.y);
             }
         }
 
