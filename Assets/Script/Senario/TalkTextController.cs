@@ -27,7 +27,6 @@ public class TalkTextController : MonoBehaviour
         talkController = GameObject.Find("TalkController").GetComponent<TalkController>();
         num = talkController.num;
         script = talkController.senarioTalkScript.GetSenarioTalks()[num].script;
-        
         LR = talkController.senarioTalkScript.GetSenarioTalks()[num].LR;
         rectBubble = BubbleObj.GetComponent<RectTransform>();
         if (LR == "L") rectBubble.rotation = Quaternion.Euler(180.0f, 180.0f, 0.0f);
@@ -40,11 +39,6 @@ public class TalkTextController : MonoBehaviour
         StartCoroutine(textApear(script));
     }
 
-    /// <summary>
-    /// ???????????????????
-    /// </summary>
-    /// <param name="script"></param>
-    /// <returns></returns>
     private IEnumerator textApear(string script)
     {
         int i = 0;
@@ -56,10 +50,6 @@ public class TalkTextController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
     private IEnumerator Floating()
     {
         RectTransform rect = this.GetComponent<RectTransform>();
@@ -80,17 +70,11 @@ public class TalkTextController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// ?????????????
-    /// </summary>
     public void toSecondTalk()
     {
         StartCoroutine(slideNext());
     }
 
-    /// <summary>
-    /// ??????????
-    /// </summary>
     public void toDeleteTalk()
     {
         StartCoroutine(deleteBubble());

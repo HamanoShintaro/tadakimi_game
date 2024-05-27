@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
+  m_Name: Boss_03
+  m_EditorClassIdentifier: 
+  id: 
+  name: 
+  alias: 
+  detail: 
+  type: 
+  image:
+    fullsize: {fileID: 0}
+    backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
+    effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
+    icon: {fileID: 0}
+    prefab: {fileID: 5669653989772239561, guid: 00d27a10c694c452eb8345c8e89ce64f, type: 3}
+  rank: 0
+  status:
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 0
+    speed: 0
+    atkKB: 0
+    defKB: 0
+    growth: 0
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 0
+    speed: 0
+    atkKB: 0
+    defKB: 0
+    growth: 0
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 0
+    speed: 0
+    atkKB: 0
+    defKB: 0
+    growth: 0
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 0
+    speed: 0
+    atkKB: 0
+    defKB: 0
+    growth: 0
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 0
+    speed: 0
+    atkKB: 0
+    defKB: 0
+    growth: 0
+  skill:
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
+    effect: {fileID: 0}
+    Ratio: 0
+  special:
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
+    effect: {fileID: 0}
+    Ratio: 0
+    still: {fileID: 0}
+    BackGround: {fileID: 0}
+  price: 0

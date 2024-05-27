@@ -14,112 +14,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Orend_01
   name: "\u30AA\u30EC\u30F3\u30C9"
-  alias: 
-  detail: 
-  type: 
+  alias: "\u8CD1\u3084\u304B\u306A\u6F14\u5287\u5EA7\u9577"
+  detail: "\u9B54\u738B\u8ECD\u8FD1\u885B\u306E\u5080\u5121\u5E2B(\u304B\u3044\u3089\u3044\u3057)\u3002\u4EBA\u3084\u7269\u306B\u53D6\u308A\u6191\u304D\u64CD\u308B\u8853\u3092\u7528\u3044\u308B\u3002
+    \u7D42\u6226\u76F4\u524D\u306B\u9B54\u738B\u306E\u57CE\u3092\u629C\u3051\u51FA\u3057\u3001\u4EBA\u306E\u8857\u306E\u4ED8\u8FD1\u3067\u5012\u308C\u3066\u3044\u305F\u3068\u3053\u308D\u3092\u3001
+    \u6F14\u5287\u56E3\u306B\u62FE\u308F\u308C\u3066\u3001\u73FE\u5728\u306F\u5F79\u8005\u3001\u5EA7\u9577\u3092\u52E4\u3081\u308B\u3002
+    \u660E\u308B\u304F\u3001\u4F55\u4E8B\u306B\u3082\u632B\u3051\u306A\u3044\u771F\u3063\u76F4\u3050\u306A\u304A\u8ABF\u5B50\u8005\u3002"
+  type: "\u30A2\u30BF\u30C3\u30AB\u30FC"
   image:
-    fullsize: {fileID: 0}
-    backGround: {fileID: 0}
-    effect: {fileID: 0}
+    fullsize: {fileID: 21300000, guid: 94dc3299545da40769032c04f72b5c89, type: 3}
+    backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
+    effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
     icon: {fileID: 21300000, guid: 192860f2bb9ff4238ac080abb8392c8e, type: 3}
-    prefab: {fileID: 0}
-  rank: 3
+    prefab: {fileID: 5095262611280852148, guid: 3d9c58dc185aa4edfa151b783b9a5fb6, type: 3}
+  rank: 0
   status:
-  - cost: 200
-    attack: 10
+  - cost: 0
+    attack: 8
     interval: 0
-    hp: 30
-    speed: 300
-    atkKB: 10
-    defKB: 50
-    growth: 200
-  - cost: 200
-    attack: 15
+    hp: 60
+    speed: 25
+    atkKB: 5
+    defKB: 0
+    growth: 20
+  - cost: 0
+    attack: 12
     interval: 0
-    hp: 150
-    speed: 300
-    atkKB: 10
-    defKB: 50
-    growth: 500
-  - cost: 200
-    attack: 20
+    hp: 90
+    speed: 25
+    atkKB: 5
+    defKB: 0
+    growth: 240
+  - cost: 0
+    attack: 17
     interval: 0
-    hp: 200
-    speed: 300
-    atkKB: 10
-    defKB: 50
+    hp: 126
+    speed: 25
+    atkKB: 5
+    defKB: 0
+    growth: 800
+  - cost: 0
+    attack: 22
+    interval: 0
+    hp: 204
+    speed: 25
+    atkKB: 5
+    defKB: 0
     growth: 2000
-  - cost: 250
-    attack: 50
+  - cost: 0
+    attack: 27
     interval: 0
-    hp: 1000
-    speed: 400
-    atkKB: 15
-    defKB: 70
-    growth: 1500
-  - cost: 250
-    attack: 55
-    interval: 0
-    hp: 1100
-    speed: 400
-    atkKB: 15
-    defKB: 70
-    growth: 2000
-  - cost: 250
-    attack: 60
-    interval: 0
-    hp: 1200
-    speed: 400
-    atkKB: 15
-    defKB: 70
-    growth: 5000
-  - cost: 350
-    attack: 150
-    interval: 0
-    hp: 3000
-    speed: 450
-    atkKB: 20
-    defKB: 70
-    growth: 3000
-  - cost: 350
-    attack: 160
-    interval: 0
-    hp: 3300
-    speed: 450
-    atkKB: 20
-    defKB: 70
-    growth: 4500
-  - cost: 350
-    attack: 170
-    interval: 0
-    hp: 3600
-    speed: 450
-    atkKB: 20
-    defKB: 70
-    growth: 15000
-  - cost: 400
-    attack: 250
-    interval: 0
-    hp: 6000
-    speed: 500
-    atkKB: 30
-    defKB: 70
+    hp: 306
+    speed: 25
+    atkKB: 5
+    defKB: 0
     growth: 0
   skill:
-    name: "\u9B54\u5C0E\u7206\u767A"
-    cost: 100
-    cd: 45
-    Detail: "\u30F4\u30A7\u30EB\u304C\u9B54\u738B\u306E\u529B\u3092\u50C5\u304B\u306B\u89E3\u653E\u3057\u3001\u524D\u65B9\u306B3\u56DE\u9B54\u529B\u306E\u66B4\u767A\u3092\u767A\u751F\u3055\u305B\u308B\u3002
-      \u305D\u308C\u305E\u308C\u653B\u6483\u529B\u306E2.5\u500D\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\u3002"
+    name: "\u5080\u5121\u64CD\u8853"
+    cost: 150
+    cd: 30
+    Detail: "\u81EA\u5206\u306E\u4F4D\u7F6E\u306B\u5080\u5121\u6226\u8ECA\u3092\u53EC\u559A\u3059\u308B\u3002\u5080\u5121\u6226\u8ECA\u306E\u30EC\u30D9\u30EB\u306F\u30AA\u30EC\u30F3\u30C9\u306E\u30EC\u30D9\u30EB\u3068\u540C\u7B49\u3068\u306A\u308B\u3002\u307E\u305F\u3001\u30AA\u30EC\u30F3\u30C9\u306E\u30EC\u30D9\u30EB\u304C\u6700\u5927\u306E\u5834\u5408\u3001\u53EC\u559A\u3059\u308B\u30E6\u30CB\u30C3\u30C8\u304C\u5080\u5121\u6226\u8266\u3068\u306A\u308B\u3002\u53EC\u559A\u5F8C\u3001\u81EA\u5206\u306F\u30CE\u30C3\u30AF\u30D0\u30C3\u30AF\u52B9\u679C\u3092\u53D7\u3051\u308B\u3002"
     effect: {fileID: 0}
-    Ratio: 2.5
+    Ratio: 0
   special:
-    name: "\u9B54\u738B\u30F4\u30A9\u30EB\u30AB\u30B9"
+    name: "\u305D\u3093\u306A\u3093\u3058\u3083\u52DD\u3066\u306D\u3047\u305E\uFF01\u306F\u3063\u306F\u3063\u306F\uFF01"
     cost: 600
-    cd: 180
-    Detail: "\u30F4\u30A7\u30EB\u304C\u9B54\u738B\u306E\u529B\u3092\u89E3\u653E\u3057\u899A\u9192\u72B6\u614B\u306B\u306A\u308B\u3002HP\u3068\u653B\u6483\u529B\u30925\u500D\u306B\u5897\u5E45\u3057\u3001\u901A\u5E38\u653B\u6483\u304C\u6CE2\u52D5\u306B\u3088\u308B\u653B\u6483\u306B\u5909\u5316\u3059\u308B\u3002"
+    cd: 60
+    Detail: "\u81EA\u5206\u6B63\u9762\u5E83\u7BC4\u56F2\u306E\u6575\u3092\u5473\u65B9\u30E6\u30CB\u30C3\u30C8\u306B\u5909\u5316\u3055\u305B\u308B\u3002\u3053\u306E\u30B9\u30AD\u30EB\u306F\u6575\u306E\u30DC\u30B9\u30E6\u30CB\u30C3\u30C8\u306B\u306F\u52B9\u679C\u304C\u306A\u3044\u3002"
     effect: {fileID: 0}
-    Ratio: 5
+    Ratio: 0
     still: {fileID: 0}
     BackGround: {fileID: 0}
-  price: 20000
+  price: 0

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterNameKeys : MonoBehaviour
+public class CharacterNameKeys
 {
-    // メインキャラクター
     public const string volcus = "volcus";
     public const string era = "era";
     public const string eleth = "eleth";

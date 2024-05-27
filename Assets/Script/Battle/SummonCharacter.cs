@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Linq;
 
 namespace Battle
 {
@@ -11,6 +12,14 @@ namespace Battle
     /// </summary>
     public class SummonCharacter : MonoBehaviour
     {
+        [SerializeField]
+        [Header("敵キャラを生成する位置(appearTransform")]
+        private int minY = -10, maxY = 10;
+
+        [Space(10)]
+        [SerializeField]
+        private Transform appearTransform;
+
         [SerializeField]
         public GameObject characterPanel;
 
@@ -33,6 +42,15 @@ namespace Battle
         private MagicPowerController magicPowerController;
         private Image backgroudImage;
         private Animator animator;
+
+        [SerializeField]
+        private AudioClip summonSound;
+        private AudioSource audioSource;
+
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         private void Start()
         {
@@ -64,12 +82,11 @@ namespace Battle
                     if (list[i].id == characterId)
                     {
                         level = list[i].level;
-                        //Debug.Log($"{list[i].id}:Lv{list[i].level}");
                     }
                 }
                 //コストを取得
                 cost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].cost;
-                
+
                 backgroudImage = backgroud.GetComponent<Image>();
                 animator = GetComponent<Animator>();
                 transform.Find("character").GetComponent<Image>().sprite = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").image.icon;
@@ -82,7 +99,6 @@ namespace Battle
             {
             }
         }
-
         private void Update()
         {
             if (status == "wait")
@@ -109,14 +125,63 @@ namespace Battle
             }
         }
 
+        /// <summary>
+        /// ボタンがクリックされたときに呼び出されるメソッド。
+        /// 魔力を使用してキャラクターを召喚し、召喚音を再生し、キャラクターの順序を再配置します。
+        /// </summary>
         public void OnClick()
         {
             if (magicPowerController.UseMagicPower(cost))
             {
-                //キャラクターを生成する
-                GameObject characterClone = Instantiate(characterPrefab);
-                characterClone.transform.SetParent(characterPanel.transform, false);
+                SummonCharacterInstance();
+                PlaySummonSound();
+                ReorderCharacters();
                 summonCoolTime = summonCoolDown;
+            }
+        }
+
+        /// <summary>
+        /// キャラクターを召喚するメソッド。
+        /// キャラクターを指定された位置にランダムに配置します。
+        /// </summary>
+        private void SummonCharacterInstance()
+        {
+            var characterClone = Instantiate(characterPrefab);
+            characterClone.transform.SetParent(characterPanel.transform, false);
+
+            var pos = characterClone.transform.localPosition;
+            var random = Random.Range(minY, maxY);
+            pos.x = appearTransform.localPosition.x;
+            pos.y = appearTransform.localPosition.y + random;
+            pos.z = appearTransform.localPosition.z;
+            characterClone.transform.localPosition = pos;
+            characterClone.transform.SetAsFirstSibling();
+        }
+
+        /// <summary>
+        /// 召喚音を再生するメソッド。
+        /// </summary>
+        private void PlaySummonSound()
+        {
+            audioSource.PlayOneShot(summonSound);
+        }
+
+        /// <summary>
+        /// キャラクターの順序を再配置するメソッド。
+        /// キャラクターのY座標に基づいて順序を決定します。
+        /// </summary>
+        private void ReorderCharacters()
+        {
+            var characterDic = new Dictionary<GameObject, float>();
+            for (int i = 0; i < characterPanel.transform.childCount - 3; i++)
+            {
+                var character = characterPanel.transform.GetChild(i).gameObject;
+                characterDic.Add(character, character.GetComponent<RectTransform>().anchoredPosition.y);
+            }
+            var sortedKeys = characterDic.OrderBy(x => x.Value).Select(x => x.Key).ToList();
+            for (int i = 0; i < sortedKeys.Count; i++)
+            {
+                sortedKeys[i].transform.SetAsFirstSibling();
             }
         }
     }

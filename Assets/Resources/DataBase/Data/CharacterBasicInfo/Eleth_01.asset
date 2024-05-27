@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8440f74f0b8ef4c916b986000d0201, type: 3}
+  m_Name: Eleth_01
+  m_EditorClassIdentifier: 
+  key: Eleth_01
+  characterName: "\u30A8\u30EA\u30B9"
+  description: "\u30A4\u30FC\u30E9\u306E\u7956\u6BCD"
+  normal: {fileID: 21300000, guid: a35a100ba5aae47c0a107474c42df681, type: 3}
+  smile: {fileID: 21300000, guid: 9abcd9025790e4c59a525c3e9d8ce7c2, type: 3}
+  angry: {fileID: 21300000, guid: a35a100ba5aae47c0a107474c42df681, type: 3}
+  cry: {fileID: 21300000, guid: 9abcd9025790e4c59a525c3e9d8ce7c2, type: 3}
+  confuse: {fileID: 21300000, guid: ebc928568009c4ac39a6a15362aadaea, type: 3}
+  unique: {fileID: 21300000, guid: 9abcd9025790e4c59a525c3e9d8ce7c2, type: 3}
+  shyness: {fileID: 0}

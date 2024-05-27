@@ -12,19 +12,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
   m_Name: Soldier_01
   m_EditorClassIdentifier: 
-  id: Soldier_01
+  id: 
   name: 
   alias: 
   detail: 
   type: 
   image:
     fullsize: {fileID: 0}
-    backGround: {fileID: 0}
-    effect: {fileID: 0}
+    backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
+    effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
     icon: {fileID: 0}
     prefab: {fileID: 0}
   rank: 0
-  status: []
+  status:
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 0
+    speed: 0
+    atkKB: 0
+    defKB: 0
+    growth: 0
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 0
+    speed: 0
+    atkKB: 0
+    defKB: 0
+    growth: 0
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 0
+    speed: 0
+    atkKB: 0
+    defKB: 0
+    growth: 0
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 0
+    speed: 0
+    atkKB: 0
+    defKB: 0
+    growth: 0
+  - cost: 0
+    attack: 0
+    interval: 0
+    hp: 0
+    speed: 0
+    atkKB: 0
+    defKB: 0
+    growth: 0
   skill:
     name: 
     cost: 0

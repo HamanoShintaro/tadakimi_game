@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterExpressionKeys : MonoBehaviour
+public class CharacterExpressionKeys
 {
     public string normal = "normal";
     public string smile = "smile";
@@ -11,5 +11,4 @@ public class CharacterExpressionKeys : MonoBehaviour
     public string confuse = "confuse";
     public string shy = "shy";
     public string unique = "unique";
-
 }

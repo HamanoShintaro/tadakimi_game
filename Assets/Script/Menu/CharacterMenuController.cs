@@ -35,6 +35,10 @@ public class CharacterMenuController : MonoBehaviour
     //現在選択しているキャラクター名
     private string currentCharacter;
 
+    // オーディオに関するオブジェクト
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip clip;
+
     private void Start()
     {
         characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
@@ -56,14 +60,14 @@ public class CharacterMenuController : MonoBehaviour
         characterNameObj.GetComponent<Text>().text = character.name;
         characterAiliasObj.GetComponent<Text>().text = "ーー" + character.alias;
         characterDescriptionObj.GetComponent<Text>().text = character.detail;
-        characterSkillDescriptionObj.GetComponent<Text>().text = character.skill.name + "　　消費魔力：" + character.skill.cost + "\n" + character.skill.Detail;
+        characterSkillDescriptionObj.GetComponent<Text>().text = character.skill.name + "  消費魔力：" + character.skill.cost + "\n" + character.skill.Detail;
 
         //キャラクター画像のセット
         characterBackground.GetComponent<Image>().sprite = character.image.backGround;
         characterFullSizeImage.GetComponent<Image>().sprite = character.image.fullsize;
         characterEffect.GetComponent<Image>().sprite = character.image.effect;
 
-        //レベルの取得
+        //レベルの取得 
         int level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level;
         int index = level - 1;
 
@@ -92,7 +96,7 @@ public class CharacterMenuController : MonoBehaviour
         int maxLevet = character.status.Count;
         if (level == maxLevet) return;
 
-        int index = level - 1;
+        int index = level;//TODO
         int cost = character.status[index].growth;
         int money = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
 
@@ -103,6 +107,8 @@ public class CharacterMenuController : MonoBehaviour
             saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level++;
             saveController.characterSave.Save();
             SetCharacter(characterId);
+            audioSource.PlayOneShot(clip);
         }
     }
 }
+

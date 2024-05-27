@@ -15,9 +15,10 @@ MonoBehaviour:
   key: sara
   characterName: "\u30B5\u30E9"
   description: "\u546A\u8853\u5E2B\u306E\u5973\u6027"
-  normal: {fileID: 21300000, guid: edd83653fb17e0445a5d2fb3325c297b, type: 3}
-  smile: {fileID: 21300000, guid: edd83653fb17e0445a5d2fb3325c297b, type: 3}
-  angry: {fileID: 21300000, guid: edd83653fb17e0445a5d2fb3325c297b, type: 3}
-  cry: {fileID: 21300000, guid: edd83653fb17e0445a5d2fb3325c297b, type: 3}
-  confuse: {fileID: 21300000, guid: edd83653fb17e0445a5d2fb3325c297b, type: 3}
-  unique: {fileID: 21300000, guid: edd83653fb17e0445a5d2fb3325c297b, type: 3}
+  normal: {fileID: 21300000, guid: 00f3b5af6a8a546179ae2b1e65f38442, type: 3}
+  smile: {fileID: 21300000, guid: 4ee0b4f8082264c1996df86b44fa9e09, type: 3}
+  angry: {fileID: 21300000, guid: 452c4214ca7ea4ff69dc5d1db6d2f9b5, type: 3}
+  cry: {fileID: 21300000, guid: 75a7bf8f446ba4fd38b5a53faa0858d9, type: 3}
+  confuse: {fileID: 21300000, guid: cc0aa769ab24b4818a30cf145c30c002, type: 3}
+  unique: {fileID: 0}
+  shyness: {fileID: 0}

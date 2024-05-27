@@ -11,7 +11,7 @@ public class CharacterInfoDataBase : ScriptableObject
     /// キャラクター情報のデータベース
     /// </summary>
 	[SerializeField]
-	private List<CharacterInfo> characterInfoList = new List<CharacterInfo>();
+	public List<CharacterInfo> characterInfoList = new List<CharacterInfo>();
 
 	/// <summary>
 	/// IDに合致するキャラクター情報を返却する

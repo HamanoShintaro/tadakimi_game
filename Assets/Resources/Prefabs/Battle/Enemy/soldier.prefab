@@ -34,6 +34,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -156,7 +157,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!95 &3120535187910808079
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -169,6 +170,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -283,8 +285,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterId: 2
   characterType: 1
+  attackType: 0
+  characterRole: 0
   isLeader: 0
-  player: {fileID: 0}
+  longAttackDistance: 600
   level: 0
+  atkPower: 0
   targets: []
-  magicPowerController: {fileID: 0}
+  canState: 1
+  normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
+  hp: 100

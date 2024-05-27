@@ -22,7 +22,7 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         currentView = PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView);
         switchingFlg = false;
-        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
+        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM) * GameSettingParams.bgmVolume;
         saveController = this.GetComponent<SaveController>();
     }
 
@@ -115,7 +115,6 @@ public class MenuController : MonoBehaviour
             switchingFlg = true;
             PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
             SettingMenu.GetComponent<Animator>().SetBool("active", false);
-            
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.settingMenuView, false);
             BaseMenu.GetComponent<Animator>().SetBool(PlayerPrefabKeys.mainMenuView, true);
             yield return new WaitForSeconds(1.0f);

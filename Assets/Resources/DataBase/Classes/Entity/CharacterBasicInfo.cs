@@ -7,34 +7,36 @@ using System;
 [CreateAssetMenu(fileName = "CharacterBasicInfo", menuName = "SettingCharacterBasicInfo")]
 public class CharacterBasicInfo : ScriptableObject
 {
-	// キー
+	// ?L?[
 	[SerializeField]
 	public string key;
-	// キャラクター名
+	// ?L?????N?^?[??
 	[SerializeField]
 	public string characterName;
-	// 紹介
+	// ????
 	[SerializeField]
 	public string description;
-	// イラスト普通
+	// ?C???X?g????
 	[SerializeField]
 	public Sprite normal;
-	// イラスト差分(笑顔)
+	// ?C???X?g????(????)
 	[SerializeField]
 	public Sprite smile;
-	// イラスト差分(怒り)
+	// ?C???X?g????(?{??)
 	[SerializeField]
 	public Sprite angry;
-	// イラスト差分(泣き)
+	// ?C???X?g????(????)
 	[SerializeField]
 	public Sprite cry;
-	// イラスト差分(困り)
+	// ?C???X?g????(????)
 	[SerializeField]
 	public Sprite confuse;
-	 // イラスト差分(照れ)
+	 // ?C???X?g????(????)
 	 [SerializeField]
 	public Sprite unique;
-	// イラスト差分(特徴)
+	[SerializeField]
+	public Sprite shyness;
+	// ?C???X?g????(????)
 
 	public string GetKey()
 	{
@@ -74,16 +76,20 @@ public class CharacterBasicInfo : ScriptableObject
 	{
 		return unique;
 	}
+	public Sprite Getshyness()
+	{
+		return shyness;
+	}
 	public Sprite GetSprite(string expressions)
     {
 		switch (expressions)
 		{
-			//条件１
+			//?????P
 			case "normal":
 				return normal;
 			case "smile":
 				return smile;
-			//条件３
+			//?????R
 			case "angry":
 				return angry;
 			case "cry":
@@ -92,7 +98,9 @@ public class CharacterBasicInfo : ScriptableObject
 				return confuse;
 			case "unique":
 				return unique;
-			//デフォルト処理
+			case "shyness":
+				return shyness;
+			//?f?t?H???g????
 			default:
 				return normal;
 		}

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
+  m_Name: Enemy_07
+  m_EditorClassIdentifier: 
+  id: Boss_03
+  name: "\u30B7\u30E3\u30F3\u30C7\u30A3\uFF1A\u30DC\u30B9"
+  alias: "\u5287\u56E3\u306E\u5973\u795E \u30B7\u30E3\u30F3\u30C7\u30A3"
+  detail: "\u306A\u3057"
+  type: "\u30B5\u30DD\u30FC\u30C8"
+  image:
+    fullsize: {fileID: 0}
+    backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
+    effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
+    icon: {fileID: 0}
+    prefab: {fileID: 3165393189828205779, guid: 1a878511e912a484d9008267db6e82b6, type: 3}
+  rank: 0
+  status:
+  - cost: 9999
+    attack: 5
+    interval: 0
+    hp: 600
+    speed: 10
+    atkKB: 0
+    defKB: 0
+    growth: 9999
+  - cost: 9999
+    attack: 8
+    interval: 0
+    hp: 900
+    speed: 10
+    atkKB: 0
+    defKB: 0
+    growth: 9999
+  - cost: 9999
+    attack: 11
+    interval: 0
+    hp: 1800
+    speed: 10
+    atkKB: 0
+    defKB: 0
+    growth: 9999
+  - cost: 9999
+    attack: 15
+    interval: 0
+    hp: 3600
+    speed: 10
+    atkKB: 0
+    defKB: 0
+    growth: 9999
+  - cost: 9999
+    attack: 50
+    interval: 0
+    hp: 9000
+    speed: 10
+    atkKB: 0
+    defKB: 0
+    growth: 9999
+  skill:
+    name: "\u30DE\u30C9\u30F3\u30CA\u306E\u58F0\u63F4"
+    cost: 0
+    cd: 5
+    Detail: "\u30B7\u30E3\u30F3\u30C7\u30A3\u306E\u653B\u6483\u7BC4\u56F2\u306B\u3044\u308B\u6575\u30E6\u30CB\u30C3\u30C8\u306EHP\u3092\u30B7\u30E3\u30F3\u30C7\u30A3\u306E\u653B\u6483\u529B\u306E5\u500D\u5206\u56DE\u5FA9\u3059\u308B\u3002"
+    effect: {fileID: 0}
+    Ratio: 0
+  special:
+    name: 9999
+    cost: 9999
+    cd: 9999
+    Detail: 9999
+    effect: {fileID: 0}
+    Ratio: 0
+    still: {fileID: 0}
+    BackGround: {fileID: 0}
+  price: 0

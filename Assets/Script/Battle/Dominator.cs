@@ -12,18 +12,29 @@ namespace Battle
         [SerializeField]
         public TypeLeader type;
 
+        //一度しか呼び出されないようにする
+        private bool isStop = false;
+        private CharacterCore characterCore;
+
         public enum TypeLeader
         {
             BuddyLeader,
             EnemyLeader
         }
 
+        private void Start()
+        {
+            characterCore = GetComponent<CharacterCore>();
+        }
+
         private void Update()
         {
-            if (GetComponent<CharacterCore>().Hp == 0)
+            if (isStop) return;
+            if (characterCore.Hp == 0)
             {
                 //ゲームをストップ
                 GameObject.Find("Canvas_Dynamic").GetComponent<BattleController>().GameStop(type);
+                isStop = true;
             }
         }
     }

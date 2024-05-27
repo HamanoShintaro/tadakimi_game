@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Google.Play.AppUpdate;
-using Google.Play.Common;
+//using Google.Play.AppUpdate;
+//using Google.Play.Common;
 using UnityEngine;
+
 
 public class AppUpdate : MonoBehaviour
 {
+    /*
 #if UNITY_ANDROID
     private void Start()
     {
@@ -83,4 +85,5 @@ public class AppUpdate : MonoBehaviour
         Debug.Log("レビューのお願い");
     }
 #endif
+*/
 }

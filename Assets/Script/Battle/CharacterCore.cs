@@ -1,538 +1,468 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-namespace Battle
+/// <summary>
+/// キャラクターのステータス管理、移動、攻撃、死亡、ノックバック、回復、被ダメージ、強化の処理を行うメソッド
+/// </summary>
+public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhance
 {
-    /// <summary>
-    /// キャラクター > (ステータス管理/歩くor攻撃or死亡orノックバックの処理/回復or被ダメージor強化の処理)をするメソッド
-    /// </summary>
-    public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhance
+    [SerializeField]
+    [Tooltip("キャラクターID")]
+    private CharacterId characterId;
+
+    [SerializeField]
+    [Tooltip("味方/敵")]
+    private CharacterType characterType = CharacterType.Buddy;
+
+    [SerializeField]
+    [Tooltip("攻撃範囲の種類")]
+    private AttackType attackType = AttackType.Single;
+
+    [SerializeField]
+    [Tooltip("役職")]
+    private CharacterRole characterRole = CharacterRole.Attacker;
+
+    [SerializeField]
+    [Tooltip("リーダー")]
+    private bool isLeader;
+
+    [SerializeField]
+    [Header("遠距離攻撃する最小の距離")]
+    [Tooltip("トリガー範囲>(遠距離攻撃)>longAttackDistance>(近距離攻撃)>limitMovePosition>(近づけない)")]
+    private float longAttackDistance = 600;
+
+    [Tooltip("現在のレベル")]
+    [HideInInspector]
+    public int level = 0;
+    private float maxHp;
+    private float defKB;
+    private float maxSpeed;
+    private float atkKB;
+    [HideInInspector]
+    public float atkPower;
+    private int skillCost;
+    private float skillCoolDown;
+    private bool hasSkill;
+    private float skillRatio;
+    private int specialCost;
+    private float specialCoolTime;
+    private bool hasSpecial;
+    private float specialRatio;
+    public List<GameObject> targets = new List<GameObject>();
+    private MagicPowerController magicPowerController;
+    private Animator animator;
+    public bool canState = true;
+    private bool canSkillCoolTime = true;
+    private bool canSpecialCoolTime = true;
+    private GameObject characterPanel;
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip normalAttackDamageSounds;
+    private Player player;
+    private RectTransform rectTransform;
+
+    public float hp = 100;
+    public float Hp
     {
-        #region 変数
-        [SerializeField]
-        [Tooltip("キャラクターID")]
-        private CharacterId characterId;
+        get { return hp; }
+        set { hp = Mathf.Clamp(value, 0, maxHp); }
+    }
 
-        [SerializeField]
-        [Tooltip("味方/敵")]
-        private CharacterType characterType = CharacterType.Buddy;
+    private float speed = 0;
+    public float Speed
+    {
+        get { return speed; }
+        set { speed = Mathf.Clamp(value, 0, maxSpeed); }
+    }
 
-        [SerializeField]
-        [Tooltip("攻撃範囲の種類")]
-        private AttackType attackType = AttackType.single;
+    private float skillCoolTime;
+    public float SkillCoolTime
+    {
+        get { return skillCoolTime; }
+        set { skillCoolTime = Mathf.Clamp(value, 0, skillCoolDown); }
+    }
 
-        [SerializeField]
-        [Tooltip("役職")]
-        private CharacterRole characterRole = CharacterRole.Attacker;
+    private void Start()
+    {
+        InitializeCharacter();
+        InitializeComponents();
+        StartCoroutine(SkillCoolTimeCount());
+    }
 
-        [SerializeField]
-        [Tooltip("リーダー")]
-        private bool isLeader;
-
-        [HideInInspector]
-        private Player player;
-
-        //ステータス
-        [Tooltip("現在のレベル")]
-        [HideInInspector]
-        public int level = 0;
-
-        private float maxHp;
-        private float defKB;
-        private float maxSpeed;
-
-        //通常攻撃
-        private float atkKB;
-        [HideInInspector]
-        public float atkPower;
-
-        //スキル
-        private int skillCost;
-        private float skillCoolDown;
-        private bool hasSkill;
-        private float skillRatio;
-
-        //奥義
-        private int specialCost;
-        private float specialCoolTime;
-        private bool hasSpecial;
-        private float specialRatio;
-
-        //検知しているターゲットのリスト
-        public List<GameObject> targets = new List<GameObject>();
-
-        //取得するコンポーネント
-        private MagicPowerController magicPowerController;
-        private Animator animator;
-
-        //ステート変更可能かどうか
-        private bool canState = true;
-
-        //スキルのクールタイムを測れるかどうか
-        private bool canSkillCoolTime = true;
-
-        //スペシャルのクールタイムを測れるかどうか
-        private bool canSpecialCoolTime = true;
-
-        //プレイヤーキャラクターの種類
-        public enum CharacterId
+    private void InitializeCharacter()
+    {
+        if (characterType == CharacterType.Buddy)
         {
-            Volcus_01, Volcus_02, Era_01, Eleth_01, Orend_01, Sara_01, Shandy_01, Loxy_01, Collobo_01, Vivien_01,
-            Soldier_01
-        }
-
-        //キャラクターの種類=>味方or敵
-        private enum CharacterType
-        {
-            Buddy,
-            Enemy
-        }
-
-        //キャラクターの役割
-        private enum CharacterRole
-        {
-            Attacker,
-            Supporter
-        }
-
-        //状態のプロパティ
-        //private State state;
-        private enum State
-        {
-            Walk,
-            Action,
-            KnockBack,
-            Death,
-            StandBy,
-            None
-        }
-
-        private enum AttackType
-        {
-            single,
-            range
-        }
-
-        //Hpプロパティ
-        private float hp = 100;
-        public float Hp
-        {
-            get { return hp; }
-            set
-            {
-                hp = value;
-                if (hp < 0) hp = 0;
-                else if (hp > maxHp) hp = maxHp;
-            }
-        }
-
-        //Speedプロパティ
-        private float speed = 0;
-        public float Speed
-        {
-            get { return speed; }
-            set
-            {
-                speed = value;
-                if (speed < 0) speed = 0;
-                else if (speed > maxSpeed) speed = maxSpeed;
-            }
-        }
-
-        //スキルのクールタイム
-        private float skillCoolTime;
-        public float SkillCoolTime
-        {
-            get { return skillCoolTime; }
-            set
-            {
-                skillCoolTime = value;
-                if (skillCoolTime < 0) skillCoolTime = 0;
-                else if (skillCoolTime > skillCoolDown) skillCoolTime = skillCoolDown;
-            }
-        }
-        #endregion
-        #region 初期設定
-        private void OnEnable()
-        {
-        }
-
-        private void Start()
-        {
-            if (characterType == CharacterType.Buddy)
-            {
-                //セーブデータを生成
-                SaveController saveController = new SaveController();
-                //セーブデータを取得
-                saveController.characterSave.Load();
-                //characterIdのセーブデータのレベルを取得
-                try
-                {
-                    level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level;
-                }
-                catch
-                {
-                    level = 1;
-                }
-            }
-            var characterInfo = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}");
-            //maxHp取得
-            maxHp = characterInfo.status[level].hp;
-            Hp = maxHp;
-
-            //maxSpeed取得
-            maxSpeed = characterInfo.status[level].speed / 300;
-            Speed = maxSpeed;
-
-            //atkPower取得
-            atkPower = characterInfo.status[level].attack;
-
-            //atkKB取得
-            atkKB = characterInfo.status[level].atkKB;
-
-            //defKB取得
-            defKB = characterInfo.status[level].defKB;
-
-            //スキルのコスト取得
-            skillCost = characterInfo.skill.cost;
-
-            //スキルクールタイム取得
-            skillCoolTime = characterInfo.skill.cd;
-
-            //スキルレート
-            skillRatio = characterInfo.skill.Ratio;
-
-            //スペシャルコスト
-            specialCost = characterInfo.skill.cost;
-
-            //スペシャルクールタイム
-            specialCoolTime = characterInfo.special.cd;
-
-            //スペシャルレート
-            specialRatio = characterInfo.special.Ratio;
-
-            //マジックコントローラー取得
-            magicPowerController = GameObject.Find("Canvas_Dynamic/[ControlPanel]/Power").GetComponent<MagicPowerController>();
-
-            //アニメーター取得
-            animator = GetComponent<Animator>();
-
-            //初めのステートを設定
-            //state = State.Walk;
-
-            //スキル名がないならhasSkill = false
-            if (characterInfo.skill.name == "" || characterInfo.skill.name == null) hasSkill = false;
-            else hasSkill = true;
-
-            //スペシャル名がないならhasSpecial = false
-            if (characterInfo.special.name == "" || characterInfo.special.name == null) hasSpecial = false;
-            else hasSpecial = true;
-
+            SaveController saveController = new SaveController();
+            saveController.characterSave.Load();
             try
             {
-                player = GameObject.Find("Player").GetComponent<Player>();
+                level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level;
             }
             catch
             {
+                level = 1;
             }
-            //スキルのクールタイムを測る
-            StartCoroutine(SkillCoolTimeCount());
         }
-        #endregion
-        private void FixedUpdate()
+
+        var characterInfo = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}");
+        if (characterInfo == null)
         {
-            //状態の優先順位は死亡>ノックバック>状態遷移可能かどうか>歩くorアクション
-            //ノックバック処理
-            //if (state == State.KnockBack) KnockBack();
-            if (!canState) return;
-            if (isLeader)
+            Debug.LogError($"{characterId} : データベースにキャラクターのデータがありません");
+            return;
+        }
+
+        maxHp = characterInfo.status[level].hp;
+        Hp = maxHp;
+        maxSpeed = characterInfo.status[level].speed / 20;
+        Speed = maxSpeed;
+        atkPower = characterInfo.status[level].attack;
+        atkKB = characterInfo.status[level].atkKB;
+        defKB = characterInfo.status[level].defKB;
+        skillCost = characterInfo.skill.cost;
+        skillCoolDown = characterInfo.skill.cd;
+        skillRatio = characterInfo.skill.Ratio;
+        specialCost = characterInfo.skill.cost;
+        specialCoolTime = characterInfo.special.cd;
+        specialRatio = characterInfo.special.Ratio;
+        hasSkill = !string.IsNullOrEmpty(characterInfo.skill.name) && characterInfo.skill.name != "9999";
+        hasSpecial = !string.IsNullOrEmpty(characterInfo.special.name) && characterInfo.special.name != "9999";
+    }
+
+    private void InitializeComponents()
+    {
+        characterPanel = transform.parent.gameObject;
+        magicPowerController = GameObject.Find("Canvas_Dynamic/[ControlPanel]/Power").GetComponent<MagicPowerController>();
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        player = GetComponent<Player>();
+        rectTransform = GetComponent<RectTransform>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (isLeader)
+        {
+            HandleLeaderActions();
+        }
+        else
+        {
+            HandleNonLeaderActions();
+        }
+    }
+
+    private void HandleLeaderActions()
+    {
+        if (player.isMove)
+        {
+            animator.SetBool("Walk", true);
+            return;
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
+        }
+
+        if (targets.Count == 0)
+        {
+
+        }
+        else
+        {
+            Action();
+        }
+    }
+
+    private void HandleNonLeaderActions()
+    {
+        if (!canState) return;
+
+        if (targets.Count == 0)
+        {
+            Walk();
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
+            Action();
+        }
+    }
+
+    private void Walk()
+    {
+        if (isLeader) return;
+        animator.SetBool("Walk", true);
+        float direction = characterType == CharacterType.Buddy ? 1 : -1;
+        transform.position = new Vector2(transform.position.x + speed * direction, transform.position.y);
+    }
+
+    private void EndWalk()
+    {
+        animator.SetBool("Walk", false);
+    }
+
+    private void Action()
+    {
+        if (!canState) return;
+        canState = false;
+
+        if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
+        {
+            SpecialAction();
+        }
+        else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
+        {
+            SkillAction();
+        }
+        else
+        {
+            NormalAction();
+        }
+    }
+
+    private void SpecialAction()
+    {
+        magicPowerController.magicPower -= specialCost;
+        SetCharacterPanelIndex();
+        animator.SetBool("Special", true);
+    }
+
+    public void EndSpecialAction()
+    {
+        animator.SetBool("Special", false);
+        StartCoroutine(SpecialCoolTimeCount());
+        canState = true;
+    }
+
+    private void SkillAction()
+    {
+        magicPowerController.magicPower -= skillCost;
+        SetCharacterPanelIndex();
+        animator.SetBool("Skill", true);
+    }
+
+    public void EndSkillAction()
+    {
+        animator.SetBool("Skill", false);
+        StartCoroutine(SkillCoolTimeCount());
+        canState = true;
+    }
+
+    private void NormalAction()
+    {
+        if (isLeader)
+        {
+            var nearTarget = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).FirstOrDefault();
+            if (nearTarget != null)
             {
-                if (player.isMove)
+                var distance = Vector2.Distance(nearTarget.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition);
+                if (distance > longAttackDistance)
                 {
-                    animator.SetBool("Walk", true);
-                    return;
+                    animator.SetBool("Long", true);
                 }
-                else
+            }
+        }
+        animator.SetBool("Attack", true);
+    }
+
+    // スペルミス
+    public void EndNomalAction()
+    {
+        if (isLeader)
+        {
+            animator.SetBool("Long", false);
+        }
+        animator.SetBool("Attack", false);
+        canState = true;
+    }
+
+    public void InflictDamage(int type = 0)
+    {
+        float ratio = type switch
+        {
+            1 when hasSkill => skillRatio,
+            2 when hasSpecial => specialRatio,
+            _ => 1.0f
+        };
+
+        if (isLeader)
+        {
+            InflictDamageAsLeader(ratio);
+        }
+        else
+        {
+            InflictDamageAsNonLeader(ratio);
+        }
+
+        ResetTargets();
+    }
+
+    private void InflictDamageAsLeader(float ratio)
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            var orderedTargets = targets.OrderBy(n => Vector2.Distance(n.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition));
+            foreach (var target in orderedTargets)
+            {
+                var distance = Vector2.Distance(target.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition);
+                if (distance < longAttackDistance)
                 {
-                    animator.SetBool("Walk", false);
-                }
-            }
-            //ターゲットが居ない=>歩く
-            if (targets.Count == 0)
-            {
-                Walk();
-            }
-            //ターゲットが居る=>アクション
-            else
-            {
-                Action();
-            }
-        }
-
-        /// <summary>
-        /// 歩くメソッド
-        /// </summary>
-        private void Walk()
-        {
-            if (isLeader) return;
-            if (characterType == CharacterType.Buddy) transform.position = new Vector2(transform.position.x + speed, transform.position.y);
-            else if (characterType == CharacterType.Enemy) transform.position = new Vector2(transform.position.x - speed, transform.position.y);
-        }
-
-        /// <summary>
-        /// 攻撃するメソッド
-        /// </summary>
-        private void Action()
-        {
-            if (!canState) return;
-            canState = false;
-            if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
-            {
-                SpecialAction();
-
-            }
-            else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
-            {
-                SkillAction();
-            }
-            else
-            {
-                NomalAction();
-            }
-        }
-
-        private void SpecialAction()
-        {
-            //奥義処理>開始
-            animator.SetBool("Special", true);
-        }
-
-        public void EndSpecialAction()
-        {
-            //奥義処理>終了
-            animator.SetBool("Special", false);
-
-            //奥義のクールタイム測る
-            StartCoroutine(SpecialCoolTimeCounto());
-
-            canState = true;
-        }
-
-        private void SkillAction()
-        {
-            //スキル処理>開始
-            animator.SetBool("Skill", true);
-        }
-
-        public void EndASkillAction()
-        {
-            //スキル処理>終了
-            animator.SetBool("Skill", false);
-
-            //スキルのクールタイムを測る
-            StartCoroutine(SkillCoolTimeCount());
-
-            canState = true;
-        }
-
-        private void NomalAction()
-        {
-            //通常攻撃の処理>開始
-            animator.SetBool("Attack", true);
-        }
-
-        public void EndNomalAction()
-        {
-            //通常攻撃の処理>終了
-            animator.SetBool("Attack", false);
-
-            canState = true;
-        }
-
-        /// <summary>
-        /// targetにダメージを与える
-        /// </summary>
-        /// <param name="type">0:通常攻撃 / 1: スキル攻撃 / 2:スペシャル攻撃</param>
-        public void InflictDamage(int type)
-        {
-            float ratio = 1f;
-            if (type == 1 && hasSkill) ratio = skillRatio;
-            else if (type == 2 && hasSpecial) ratio = specialRatio;
-
-            //ダメージ処理
-            try
-            {
-                foreach (GameObject target in targets)
-                {
-                    //攻撃力をスキルと奥義で分ける
                     target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
-                    Debug.Log("攻撃");
-                    if (attackType == AttackType.single) break;
-                }
-            }
-            catch
-            {
-            }
-            //ターゲットをリセット
-            ResetTargets();
-        }
-
-        /// <summary>
-        ///  スキルのクールタイムを測るメソッド
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerator SkillCoolTimeCount()
-        {
-            if (!canSkillCoolTime) yield break;
-            canSkillCoolTime = false;
-            while (true)
-            {
-                yield return new WaitForSeconds(1);
-                SkillCoolTime--;
-                if (SkillCoolTime == 0) break;
-            }
-            canSkillCoolTime = true;
-        }
-
-        /// <summary>
-        ///  スペシャルのクールタイムを測るメソッド
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerator SpecialCoolTimeCounto()
-        {
-            if (!canSpecialCoolTime) yield break;
-            canSpecialCoolTime = false;
-            while (true)
-            {
-                yield return new WaitForSeconds(1);
-                specialCoolTime--;
-                if (specialCoolTime == 0) break;
-            }
-            canSpecialCoolTime = true;
-        }
-
-        /// <summary>
-        /// ノックバックをするメソッド
-        /// </summary>
-        private void KnockBack()
-        {
-            //if (!canState) return;
-            canState = false;
-            animator.SetBool("KnockBack", true);
-        }
-
-        public void EndKnockBack()
-        {
-            //ノックバック処理>終了
-            animator.SetBool("KnockBack", false);
-            canState = true;
-        }
-
-        /// <summary>
-        /// 死亡するメソッド
-        /// </summary>
-        private void Death()
-        {
-            //死亡処理>開始
-            canState = false;
-            animator.SetBool("Death", true);
-        }
-
-        public void EndDeath()
-        {
-            //死亡処理>終了
-            gameObject.SetActive(false);
-        }
-
-        /// <summary>
-        /// ダメージを受けたときのメソッド(インターフェイス)
-        /// </summary>
-        /// <param name="atkPower">攻撃力</param>
-        public void Damage(float atkPower = 0, float atkKB = 0)
-        {
-            Hp -= atkPower;
-            if (Hp <= 0)
-            {
-                //死亡処理
-                Death();
-            }
-            else if ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity))
-            {
-                //state = State.KnockBack;
-                KnockBack();
-            }
-        }
-
-        /// <summary>
-        /// 回復するメソッド
-        /// </summary>
-        /// <param name="heal"></param>
-        public void Recovery(int heal)
-        {
-            Hp += heal;
-        }
-
-        /// <summary>
-        /// 一時的に強化するメソッド
-        /// </summary>
-        /// <param name="addSpeed">スピード</param>
-        /// <param name="addMaxHp">最大HP</param>
-        public IEnumerator TemporaryEnhance(float duration = 0.0f, int addSpeed = 0, int addMaxHp = 0)
-        {
-            Speed += addSpeed;
-            maxHp += addMaxHp;
-            yield return new WaitForSeconds(duration);
-            this.Speed = speed;
-            maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].hp;
-        }
-
-        /// <summary>
-        /// ターゲットリストをリセット(空に)するメソッド
-        /// </summary>
-        private void ResetTargets()
-        {
-            targets.Clear();
-        }
-
-        private void OnTriggerStay2D(Collider2D t)
-        {
-            if (t.isTrigger == true) return;
-            if (characterRole == CharacterRole.Attacker)
-            {
-                if (characterType == CharacterType.Buddy && t.CompareTag("Enemy") || characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
-                {
-                    //state = State.Action;
-                    if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
-                }
-            }
-            else if (characterRole == CharacterRole.Supporter)
-            {
-                if (characterType == CharacterType.Buddy && t.CompareTag("Buddy") || characterType == CharacterType.Enemy && t.CompareTag("Enemy"))
-                {
-                    //state = State.Action;
-                    if (!targets.Contains(t.gameObject)) targets.Add(t.gameObject);
+                    if (attackType == AttackType.Single) break;
                 }
             }
         }
-
-        private void OnTriggerExit2D(Collider2D t)
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("LongAttack"))
         {
-            if (t.isTrigger == true) return;
-            if (characterRole.Equals(CharacterRole.Attacker))
+            var orderedTargets = targets.OrderBy(n => Vector2.Distance(n.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition));
+            foreach (var target in orderedTargets)
             {
-                if (characterType == CharacterType.Buddy && t.CompareTag("Enemy") || characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
-                {
-                    if (targets.Contains(t.gameObject)) targets.Remove(t.gameObject);
-                }
-            }
-            else if (characterRole.Equals(CharacterRole.Supporter))
-            {
-                if (characterType == CharacterType.Buddy && t.CompareTag("Buddy") || characterType == CharacterType.Enemy && t.CompareTag("Enemy"))
-                {
-                    if (!targets.Contains(t.gameObject)) targets.Remove(t.gameObject);
-                }
+                target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
+                if (attackType == AttackType.Single) break;
             }
         }
+    }
+
+    private void InflictDamageAsNonLeader(float ratio)
+    {
+        foreach (var target in targets)
+        {
+            target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
+            if (attackType == AttackType.Single) break;
+        }
+    }
+
+    private IEnumerator SkillCoolTimeCount()
+    {
+        if (!canSkillCoolTime) yield break;
+        canSkillCoolTime = false;
+        var wait = new WaitForSeconds(1);
+        skillCoolTime = skillCoolDown;
+        while (skillCoolTime > 0)
+        {
+            yield return wait;
+            skillCoolTime--;
+        }
+        canSkillCoolTime = true;
+    }
+
+    private IEnumerator SpecialCoolTimeCount()
+    {
+        if (!canSpecialCoolTime) yield break;
+        canSpecialCoolTime = false;
+        var wait = new WaitForSeconds(1);
+        while (specialCoolTime > 0)
+        {
+            yield return wait;
+            specialCoolTime--;
+        }
+        canSpecialCoolTime = true;
+    }
+
+    private IEnumerator KnockBack()
+    {
+        canState = false;
+        animator.SetBool("KnockBack", true);
+        const float knockBackInterval = 0.1f;
+        const int knockBackSteps = 10;
+        const float knockBackDistance = 3;
+
+        var wait = new WaitForSeconds(knockBackInterval);
+        for (int i = 0; i < knockBackSteps; i++)
+        {
+            yield return wait;
+            float direction = characterType == CharacterType.Buddy ? -1 : 1;
+            transform.position = new Vector2(transform.position.x + knockBackDistance * direction, transform.position.y);
+        }
+    }
+
+    public void EndKnockBack()
+    {
+        animator.SetBool("KnockBack", false);
+        animator.SetBool("Attack", false);
+        canState = true;
+    }
+
+    private void Death()
+    {
+        canState = false;
+        animator.SetTrigger("Death");
+    }
+
+    public void EndDeath()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void Damage(float atkPower = 0, float atkKB = 0)
+    {
+        Hp -= atkPower;
+        audioSource.PlayOneShot(normalAttackDamageSounds);
+        if (Hp <= 0)
+        {
+            Death();
+        }
+        else if ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity))
+        {
+            StartCoroutine(KnockBack());
+        }
+    }
+
+    public void Recovery(int heal)
+    {
+        Hp += heal;
+    }
+
+    public IEnumerator TemporaryEnhance(float duration = 0.0f, int addSpeed = 0, int addMaxHp = 0)
+    {
+        Speed += addSpeed;
+        maxHp += addMaxHp;
+        yield return new WaitForSeconds(duration);
+        Speed = speed;
+        maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].hp;
+    }
+
+    private void ResetTargets()
+    {
+        targets.Clear();
+    }
+
+    private void OnTriggerStay2D(Collider2D t)
+    {
+        if (t.isTrigger) return;
+
+        bool isTarget = characterRole == CharacterRole.Attacker
+            ? (characterType == CharacterType.Buddy && t.CompareTag("Enemy")) || (characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
+            : (characterType == CharacterType.Buddy && t.CompareTag("Buddy")) || (characterType == CharacterType.Enemy && t.CompareTag("Enemy"));
+
+        if (isTarget && !targets.Contains(t.gameObject))
+        {
+            targets.Add(t.gameObject);
+            targets = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).ToList();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D t)
+    {
+        if (t.isTrigger) return;
+
+        bool isTarget = characterRole == CharacterRole.Attacker
+            ? (characterType == CharacterType.Buddy && t.CompareTag("Enemy")) || (characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
+            : (characterType == CharacterType.Buddy && t.CompareTag("Buddy")) || (characterType == CharacterType.Enemy && t.CompareTag("Enemy"));
+
+        if (isTarget && targets.Contains(t.gameObject))
+        {
+            targets.Remove(t.gameObject);
+            targets = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).ToList();
+        }
+    }
+
+    private void SetCharacterPanelIndex()
+    {
+        var index = characterPanel.transform.childCount - 1;
+        transform.SetSiblingIndex(index);
     }
 }

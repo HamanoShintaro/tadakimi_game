@@ -18,6 +18,24 @@ public class BattleController : MonoBehaviour
     private Text[] totalMoneyText;
 
     [SerializeField]
+    [Header("プレイ時間に乗算するレート")]
+    [Tooltip("獲得金額=プレイ時間 * rate")]
+    [Min(1)]
+    private int rate = 10;
+
+    [SerializeField]
+    [Header("クリア後からリザルト画面にいくまでの時間")]
+    private int waitTime;
+
+    [SerializeField]
+    [Header("ボタン")]
+    private GameObject[] buttons;
+
+    [SerializeField]
+    [Header("ガイドテキスト")]
+    private Text[] texts;
+
+    [SerializeField]
     private GameObject performancePanel;
 
     private Dictionary<int, float> recovery_magic = new Dictionary<int, float>();
@@ -34,10 +52,12 @@ public class BattleController : MonoBehaviour
 
     [SerializeField]
     [Header("ゲームタイマー")]
-    public int gameTimer = 0;
+    public int gameTimer;
 
     [SerializeField]
     private Image backGround;
+
+    private  bool isGameStopped = false;
 
     private MagicPowerController magicPowerController;
 
@@ -76,7 +96,7 @@ public class BattleController : MonoBehaviour
         UpMagicLevel();
 
         //ステージ番号を取得
-        var currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId).ToString("000");
+        var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
 
         //ステージ情報(ステージ番号)が格納されたクラスを取得
         battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
@@ -87,9 +107,8 @@ public class BattleController : MonoBehaviour
         //タイマーをスタート
         StartCoroutine(StartTimer());
 
-        //ゲームのプレイ時間をリセットする
-        var playTime = PlayerPrefs.GetInt(PlayerPrefabKeys.playTime);
-        PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, playTime + gameTimer);
+        //戦闘背景音の設定
+        this.GetComponent<AudioSource>().volume = GameSettingParams.bgmVolume * PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
     }
 
     /// <summary>
@@ -120,62 +139,105 @@ public class BattleController : MonoBehaviour
     }
 
     /// <summary>
-    /// 戦闘を終了するメソッド
-    /// </summary>
-    /// <param name="type">味方or敵</param>
-    public void GameStop(TypeLeader type)
-    {
-        StartCoroutine(GameStopCoroutine(type));
-    }
-
-    /// <summary>
-    /// 取得金額/トータル金額/プレイ時間/ステージ情報を計算後、リザルトパネルを表示するメソッド(味方or敵のリーダーのHPが0で呼び出す)
+    /// 戦闘終了時に呼び出すメソッド
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    private IEnumerator GameStopCoroutine(TypeLeader type)
+    public void GameStop(TypeLeader type)
     {
-        //広告が表示モードなら動画を提示
-        if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
+        if (isGameStopped) return;
+        isGameStopped = true;
+        //ゲームのプレイ時間を保存
+        PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) + gameTimer);
+        //リザルト画面(勝利または敗北)を表示
+        performancePanel.GetComponent<ResultController>().OnResultPanel(type != TypeLeader.BuddyLeader);
+        StartCoroutine(AnimationMoneyUI(1));
+        if (type != TypeLeader.BuddyLeader)
         {
-            GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
-        }
-        if (type == TypeLeader.BuddyLeader)
-        {
-            //ゲームのプレイ時間を記録
-            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) + gameTimer);
-
-            //リザルト画面を表示
-            performancePanel.GetComponent<ResultController>().OnResultPanel(false);
-        }
-        else
-        {
-            //ゲームのプレイ時間をリセット
-            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, 0);
-            
+            // 敵のリーダー(タワー)がGameStopを起動した場合は、次のステージへ進む
             NextStage();
-
-            //リザルト画面を表示
-            performancePanel.GetComponent<ResultController>().OnResultPanel(true);
         }
-        UpdateMoneyUI();
-        yield return new WaitForSeconds(0.5f);
     }
 
     /// <summary>
-    /// 取得金額とトータル金額を表示する
+    /// 獲得金額とトータル金額を表示する
+    /// </summary>
+    private void DisplayMoneyUI(int adRate = 1)
+    {
+        //獲得した金額
+        var getMoney = rate * PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) * adRate;
+        getMoneyText[0].text = $"{getMoney}";
+        getMoneyText[1].text = $"{getMoney}";
+
+        //所持している金額
+        var totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
+        totalMoneyText[0].text = $"{totalMoney}";
+        totalMoneyText[1].text = $"{totalMoney}";
+    }
+
+    /// <summary>
+    /// 獲得金額とトータル金額のアニメーションをかける
     /// </summary>
     /// <param name="getMoney"></param>
-    private void UpdateMoneyUI()
+    public IEnumerator AnimationMoneyUI(int adRate = 1)
     {
-        //取得した金額を計算
-        var getMoney = 1 * gameTimer; //TODO 1がマジックナンバー
+        DisplayMoneyUI(adRate);
+        if (!PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
+        {
+            ShowButtons();
+        }
 
-        //取得金額をセーブ
+        yield return new WaitForSeconds(1.0f);
+
+        //取得した金額を計算して取得
+        var getMoney = rate * PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) * adRate;
+
+        //所持している金額を取得
+        var totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
+
+        //取得金額を保存
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerGetMoney, getMoney);
 
-        //トータル金額を表示
-        StartCoroutine(OnDisplayMoney(getMoney));
+        //所持金額+獲得金額を所持金額を更新して、保存
+        PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, totalMoney + getMoney);
+        while (getMoney >= 100)
+        {
+            getMoney -= 10;
+            getMoneyText[0].text = $"{getMoney}";
+            getMoneyText[1].text = $"{getMoney}";
+
+            totalMoney += 10;
+            totalMoneyText[0].text = $"{totalMoney}";
+            totalMoneyText[1].text = $"{totalMoney}";
+            yield return null;
+        }
+        while (getMoney > 0 && getMoney < 100)
+        {
+            getMoney -= 1;
+            getMoneyText[0].text = $"{getMoney}";
+            getMoneyText[1].text = $"{getMoney}";
+
+            totalMoney += 1;
+            totalMoneyText[0].text = $"{totalMoney}";
+            totalMoneyText[1].text = $"{totalMoney}";
+            yield return null;
+        }
+        yield return new WaitForSeconds(1.5f);
+
+        if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
+        {
+            //広告を表示する
+            //TODO : GameObject.Find("GoogleAdo").GetComponent<GoogleMobileAdsDemoScript>().UserChoseToWatchAd();
+            ShowButtons();
+        }
+    }
+
+    private void ShowButtons()
+    {
+        foreach(GameObject button in buttons)
+        {
+            button.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -184,36 +246,11 @@ public class BattleController : MonoBehaviour
     private void NextStage()
     {
         //現在のステージを取得する
-        int currentStageId = PlayerPrefs.GetInt(PlayerPrefabKeys.currentStageId);
+        var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
+        var nextStageId = int.Parse(currentStageId) + 1;
         //現在のステージをクリアステージとして記録する
-        PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, currentStageId);
+        PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, currentStageId);
         //次のステージを現在のステージとして記録する
-        PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, currentStageId + 1);
-    }
-
-    /// <summary>
-    /// "合計金額に取得金額を加算するアニメーション"のメソッド
-    /// </summary>
-    /// <param name="_totalMoney"></param>
-    /// <param name="_getMoney"></param>
-    /// <returns></returns>
-    public IEnumerator OnDisplayMoney(int _getMoney)
-    {
-        //所持している金額
-        var totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
-        //獲得した金額
-        var getMoney = _getMoney;
-        //アニメーション
-        while (getMoney > 0)
-        {
-            getMoney--;
-            getMoneyText[0].text = $"{getMoney}";
-            getMoneyText[1].text = $"{getMoney}";
-
-            totalMoney++;
-            totalMoneyText[0].text = $"{totalMoney}";
-            totalMoneyText[1].text = $"{totalMoney}";
-            yield return new WaitForEndOfFrame();
-        }
+        PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, nextStageId.ToString("000"));
     }
 }

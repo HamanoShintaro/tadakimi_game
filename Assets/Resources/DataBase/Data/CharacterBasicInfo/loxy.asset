@@ -15,9 +15,10 @@ MonoBehaviour:
   key: loxy
   characterName: "\u30ED\u30AF\u30B7\u30FC"
   description: 
-  normal: {fileID: 0}
-  smile: {fileID: 0}
-  angry: {fileID: 0}
-  cry: {fileID: 0}
-  confuse: {fileID: 0}
+  normal: {fileID: 21300000, guid: 8fffd0f6fec554f2484dccedb267fbcb, type: 3}
+  smile: {fileID: 21300000, guid: 8bf7e78e2d5dd49b78ce54fd9f16a4e3, type: 3}
+  angry: {fileID: 21300000, guid: b9852f4e055c04819ae3095f93e8dc85, type: 3}
+  cry: {fileID: 21300000, guid: 749da2fad819046dab6a13efb073d328, type: 3}
+  confuse: {fileID: 21300000, guid: eb8883404d23944fc8cbf4a66fc66ff8, type: 3}
   unique: {fileID: 0}
+  shyness: {fileID: 21300000, guid: 6b4fcb3e773f04f70ab753b89dcd1b1d, type: 3}

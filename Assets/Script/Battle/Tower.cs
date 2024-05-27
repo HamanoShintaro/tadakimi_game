@@ -1,50 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+/// <summary>
+/// タワーのクラス。タワーの体力管理とダメージ処理を行う。
+/// </summary>
 public class Tower : MonoBehaviour, IDamage
 {
-    //maxHp
     [SerializeField]
     private float maxHp;
 
     [SerializeField]
+    [HideInInspector]
     private GameObject performancePanel;
 
     [SerializeField]
+    [HideInInspector]
     private BattleController battleController;
 
-    //Hpプロパティ
-    public float hp = 100;
+    public float hp; // 現在の体力
     public float Hp
     {
         get { return hp; }
-        set
-        {
-            hp = value;
-            if (hp < 0) hp = 0;
-            else if (hp > maxHp) hp = maxHp;
-        }
+        set { hp = Mathf.Clamp(value, 0, maxHp); } // 体力を0からmaxHpの範囲に制限
     }
 
+    /// <summary>
+    /// 初期化処理。タワーの画像と体力を設定する。
+    /// </summary>
     private void Start()
     {
-        //maxHp読み込み TODOデータベースにステージ情報を入れる(初期位置/maxHp/タワー画像/背景画像/横幅)
-        //maxHp = Resources.Load<PlayerInfo>($"DataBase/Data/PlayerInfo/{playerCharacterId}").MaxHp;
+        var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
+        var enemyTowerInfo = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
+
+        // タワーの画像を取得
+        GetComponent<Image>().sprite = enemyTowerInfo.GetEnemyTower();
+
+        // タワーの最大体力を取得
+        maxHp = enemyTowerInfo.GetTowerHp();
         Hp = maxHp;
-        //Damage(100);
     }
 
+    /// <summary>
+    /// ダメージ処理。タワーの体力を減少させ、体力が0以下になった場合ゲームをストップする。
+    /// </summary>
+    /// <param name="attackPower">攻撃力</param>
+    /// <param name="kb">ノックバック値（未使用）</param>
     public void Damage(float attackPower = 0, float kb = 0)
     {
-        Debug.Log("被ダメージ");
         Hp -= attackPower;
-        if (Hp == 0)
+        if (Hp <= 0)
         {
-            //ゲームをストップ
+            // ゲームをストップ
             battleController.GameStop(Battle.Dominator.TypeLeader.EnemyLeader);
-            //リザルト画面(勝利)を表示
-            performancePanel.GetComponent<ResultController>().OnResultPanel(true);
         }
     }
 }

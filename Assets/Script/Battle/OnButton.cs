@@ -31,6 +31,10 @@ public class OnButton : MonoBehaviour
         SceneManager.LoadScene("Battle");
     }
 
+    /// <summary>
+    /// 指定されたURLを開くメソッド
+    /// </summary>
+    /// <param name="url">開くURL</param>
     public void OpenURL(string url)
     {
         Application.OpenURL(url);

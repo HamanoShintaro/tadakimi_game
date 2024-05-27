@@ -22,12 +22,14 @@ public class CharacterInfo : ScriptableObject
 	public string detail;
 	// タイプ atack/defence/support
 	[SerializeField]
+	[HideInInspector]
 	public string type;
 	// 画像素材
 	[SerializeField]
 	public Image image;
 	// レア度 1:common 2:uncommon 3:rare
 	[SerializeField]
+	[HideInInspector]
 	public int rank;
 	// ステータス
 	[SerializeField]
@@ -51,6 +53,7 @@ public class CharacterInfo : ScriptableObject
 		// 攻撃力
 		public int attack;
 		// 攻撃速度
+		[HideInInspector]
 		public float interval;
 		// HP
 		public int hp;
@@ -77,6 +80,7 @@ public class CharacterInfo : ScriptableObject
 		// 説明
 		public string Detail;
 		// 召喚エフェクト
+		[HideInInspector]
 		public GameObject effect;
 		// 効果割合(エフェクトなしで発動するキャラの場合)
 		public float Ratio;
@@ -95,12 +99,15 @@ public class CharacterInfo : ScriptableObject
 		// 説明
 		public string Detail;
 		// 召喚エフェクト
+		[HideInInspector]
 		public GameObject effect;
 		// 効果割合(エフェクトなしで発動するキャラの場合)
 		public float Ratio;
 		// 演出プレハブ
+		[HideInInspector]
 		public GameObject still;
 		// 背景効果
+		[HideInInspector]
 		public Sprite BackGround;
 	}
 

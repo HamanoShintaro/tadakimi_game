@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
+  m_Name: Npc_07
+  m_EditorClassIdentifier: 
+  id: Npc_07
+  name: "\u7ADC\u4EBA\u65CF\uFF1A\u6226\u58EB"
+  alias: "\u306A\u3057"
+  detail: "\u9F8D\u4EBA\u65CF\u306E\u4EBA\u306E\u59FF\u3002\u4F53\u8868\u306E\u9C57\u306F\u5203\u7269\u306B\u3088\u308B\u65AC\u6483\u3082\u306F\u3058\u304F"
+  type: "\u30C7\u30A3\u30D5\u30A7\u30F3\u30C0\u30FC"
+  image:
+    fullsize: {fileID: 21300000, guid: c1c4e7f8ac4e54a249a93195c6390c22, type: 3}
+    backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
+    effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
+    icon: {fileID: 21300000, guid: 4991f7ce70b5c4210896452d729b6739, type: 3}
+    prefab: {fileID: 1545771121956627565, guid: c620e52f1cbcd4e5d9b5b570687ad9bf, type: 3}
+  rank: 3
+  status:
+  - cost: 80
+    attack: 5
+    interval: 0
+    hp: 60
+    speed: 30
+    atkKB: 15
+    defKB: 30
+    growth: 8
+  - cost: 80
+    attack: 8
+    interval: 0
+    hp: 90
+    speed: 30
+    atkKB: 15
+    defKB: 30
+    growth: 96
+  - cost: 80
+    attack: 11
+    interval: 0
+    hp: 126
+    speed: 30
+    atkKB: 15
+    defKB: 30
+    growth: 320
+  - cost: 80
+    attack: 14
+    interval: 0
+    hp: 204
+    speed: 30
+    atkKB: 15
+    defKB: 30
+    growth: 400
+  - cost: 80
+    attack: 17
+    interval: 0
+    hp: 306
+    speed: 30
+    atkKB: 15
+    defKB: 30
+    growth: 0
+  skill:
+    name: 9999
+    cost: 9999
+    cd: 9999
+    Detail: 9999
+    effect: {fileID: 0}
+    Ratio: 2.5
+  special:
+    name: 9999
+    cost: 9999
+    cd: 9999
+    Detail: 9999
+    effect: {fileID: 0}
+    Ratio: 5
+    still: {fileID: 0}
+    BackGround: {fileID: 0}
+  price: 20000

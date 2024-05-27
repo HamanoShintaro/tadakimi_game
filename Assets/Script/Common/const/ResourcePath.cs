@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourcePath : MonoBehaviour
+public class ResourcePath
 {
     public const string dataPath = "DataBase/Data/";
     public const string characterBasicInfoPath = dataPath + "CharacterBasicInfo/";

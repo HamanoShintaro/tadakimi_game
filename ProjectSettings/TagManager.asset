@@ -16,7 +16,7 @@ TagManager:
   - UI
   - Buddy
   - Enemy
-  - 
+  - Effect
   - 
   - 
   - 
@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Effect
+    uniqueID: 2522744889
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -45,6 +45,7 @@ public class SenarioTalkScript : ScriptableObject
 
 	public List<SenarioTalk> GetSenarioTalks()
 	{
+		//var senarioTalks = new List<SenarioTalk>();
 		//現在の言語設定を取得
 		var currentLanguage = PlayerPrefs.GetInt(PlayerPrefabKeys.currentLanguage);
 		//言語の切り替え
