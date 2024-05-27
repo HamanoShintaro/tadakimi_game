@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// データを初期化した際のデータを格納するクラス
 /// </summary>
-public class GameSettingParams : MonoBehaviour
+public class GameSettingParams
 {
     public const string initCharacter = "Volcus_001";
 

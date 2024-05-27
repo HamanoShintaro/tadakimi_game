@@ -10,7 +10,7 @@ public class BuyCharacter : MonoBehaviour
     private int releaseStageId;
 
     [SerializeField]
-    private CharacterCore.CharacterId characterId;
+    private CharacterId characterId;
 
     [SerializeField]
     private GameObject releaseButton;

@@ -16,7 +16,6 @@ public class winningPanelController : MonoBehaviour
     private int totalMoney;
     private int getMoney;
 
-    //private float apperTextTime = 0.2f;
     private float sumGoldTime = 1.5f;
 
     private bool endFlg = false;
@@ -93,20 +92,17 @@ public class winningPanelController : MonoBehaviour
 
     private IEnumerator sumGold(GameObject bag,GameObject get, int bagGold, int getGold)
     {
-        // ?e?L?X?g????????
         Text bagText = bag.GetComponent<Text>();
         bagText.text = "";
         Text getText = get.GetComponent<Text>();
         getText.text = "";
 
-        // ?????\??
         bagText.text = bagGold.ToString();
         yield return new WaitForSecondsRealtime(0.3f);
 
         getText.text = getGold.ToString();
         yield return new WaitForSecondsRealtime(0.3f);
 
-        // ???Z?\??
         while (getGold > 0)
         {
             getGold--;

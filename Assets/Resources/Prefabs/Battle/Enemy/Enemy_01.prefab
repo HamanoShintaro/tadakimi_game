@@ -66,10 +66,7 @@ MonoBehaviour:
   atkPower: 0
   targets: []
   canState: 1
-  normalAttackDamageSounds:
-  - {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
-  skillAttackDamageSounds: []
-  specialAttackDamageSounds: []
+  normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
   hp: 100
 --- !u!222 &3377319372778853540
 CanvasRenderer:

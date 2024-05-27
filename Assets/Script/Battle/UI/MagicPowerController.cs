@@ -19,13 +19,13 @@ public class MagicPowerController : MonoBehaviour
     private Image guage;
     private Text text;
 
-    void Start()
+    private void Start()
     {
         magicPower = 0.0f;
         guage = guageObject.GetComponent<Image>();
         text = valueObject.GetComponent<Text>();
     }
-    void Update()
+    private void Update()
     {
         if (Math.Floor(magicPower) != maxMagicPower)
         {
@@ -37,7 +37,22 @@ public class MagicPowerController : MonoBehaviour
         {
         }
     }
-    //使用可能=>魔力を引いてtrue / 使用不可能=>false
+
+    /// <summary>
+    /// マジックパワーを回復するメソッド
+    /// </summary>
+    public void RecoverMagicPower(float amount)
+    {
+        magicPower = Math.Min(magicPower + amount, maxMagicPower);
+        text.text = Math.Floor(magicPower).ToString();
+        guage.fillAmount = magicPower / maxMagicPower;
+    }
+
+    /// <summary>
+    /// マジックパワーを消費するメソッド
+    /// </summary>
+    /// <param name="usePower">消費するマジックパワーの量</param>
+    /// <returns>マジックパワーが十分にあればtrue、そうでなければfalse</returns>
     public bool UseMagicPower(int usePower)
     {
         if (magicPower >= usePower)

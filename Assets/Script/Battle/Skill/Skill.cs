@@ -10,7 +10,7 @@ namespace Battle
     public class Skill : MonoBehaviour
     {
         [SerializeField]
-        protected CharacterCore.CharacterId characterId;
+        protected CharacterId characterId;
 
         public List<GameObject> enemyTargets = new List<GameObject>();
         public List<GameObject> buddyTargets = new List<GameObject>();
@@ -57,7 +57,6 @@ namespace Battle
 
         protected virtual void SkillActionToEnemy(GameObject target)
         {
-            
         }
 
         protected virtual void SkillActionforBuddy(GameObject target)

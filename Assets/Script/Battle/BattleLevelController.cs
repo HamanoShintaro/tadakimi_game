@@ -13,7 +13,7 @@ public class BattleLevelController : MonoBehaviour
     private MagicPowerController magicPowerController;
     private Animator animator;
 
-    private Dictionary<int, int> level_up_cost = new Dictionary<int, int>();
+    private Dictionary<int, int> levelUpCost = new Dictionary<int, int>();
 
     private bool status;
     private bool isMax;
@@ -21,7 +21,7 @@ public class BattleLevelController : MonoBehaviour
     private Text currentLv;
     private Text cost;
 
-    void Start()
+    private void Start()
     {
         battleController = canvas.GetComponent<BattleController>();
         magicPowerController = magicPower.GetComponent<MagicPowerController>();
@@ -29,28 +29,28 @@ public class BattleLevelController : MonoBehaviour
         cost = transform.Find("cost").gameObject.GetComponent<Text>();
         animator = GetComponent<Animator>();
 
-        level_up_cost[0] = 0;
-        level_up_cost[1] = 30;
-        level_up_cost[2] = 60;
-        level_up_cost[3] = 110;
-        level_up_cost[4] = 150;
-        level_up_cost[5] = 220;
-        level_up_cost[6] = 300;
+        levelUpCost[0] = 0;
+        levelUpCost[1] = 30;
+        levelUpCost[2] = 60;
+        levelUpCost[3] = 110;
+        levelUpCost[4] = 150;
+        levelUpCost[5] = 220;
+        levelUpCost[6] = 300;
 
         currentLv.text = "1";
-        cost.text = level_up_cost[1].ToString();
+        cost.text = levelUpCost[1].ToString();
 
         status = false;
         isMax = false;
     }
 
-    void Update()
+    private void Update()
     {
         if (!isMax)
         {
             if (status)
             {
-                if (magicPowerController.magicPower < level_up_cost[battleController.magic_recovery_level])
+                if (magicPowerController.magicPower < levelUpCost[battleController.magic_recovery_level])
                 {
                     status = false;
                     this.GetComponent<EventTrigger>().enabled = false;
@@ -59,7 +59,7 @@ public class BattleLevelController : MonoBehaviour
             }
             else
             {
-                if (level_up_cost[battleController.magic_recovery_level] <= magicPowerController.magicPower)
+                if (levelUpCost[battleController.magic_recovery_level] <= magicPowerController.magicPower)
                 {
                     status = true;
                     this.GetComponent<EventTrigger>().enabled = true;
@@ -69,9 +69,15 @@ public class BattleLevelController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ユーザーがクリックしたときに呼び出されるメソッド。
+    /// 魔力を消費してレベルアップを行う。
+    /// 魔力が足りない場合は何も行わない。
+    /// 最大レベルに達した場合、コスト表示を「-」に変更する。
+    /// </summary>
     public void OnClick()
     {
-        if (magicPowerController.UseMagicPower(level_up_cost[battleController.magic_recovery_level]))
+        if (magicPowerController.UseMagicPower(levelUpCost[battleController.magic_recovery_level]))
         {
             if (battleController.magic_recovery_level == 6) isMax = true;
             status = false;
@@ -82,7 +88,7 @@ public class BattleLevelController : MonoBehaviour
 
             currentLv.text = battleController.magic_recovery_level.ToString();
             if (isMax) cost.text = "-";
-            else cost.text = level_up_cost[battleController.magic_recovery_level].ToString();
+            else cost.text = levelUpCost[battleController.magic_recovery_level].ToString();
         }
     }
 }
