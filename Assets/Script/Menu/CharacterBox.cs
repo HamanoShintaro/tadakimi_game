@@ -35,7 +35,11 @@ public class CharacterBox : MonoBehaviour
     public void OpenCharacterFormation(int selectIndex)
     {
         this.selectIndex = selectIndex;
+        HideOverlay();
+        ShowOverlay(selectIndex);
         characterFormationUI.SetActive(true);
+        SetOverlayEnabled(this.selectIndex, true);
+
         //現在のメニューを更新
         PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.characterFormationMenuView);
         UpdateCharacterUI();
@@ -47,6 +51,7 @@ public class CharacterBox : MonoBehaviour
     public void CloseCharacterFormation()
     {
         selectIndex = 1;
+        HideOverlay();
         characterFormationUI.SetActive(false);
         UpdateCharacterUI();
     }
@@ -57,17 +62,45 @@ public class CharacterBox : MonoBehaviour
     /// <param name="addId"></param>
     public void OnSelectedCharacter(string addId)
     {
-        for (int i = 0; i < saveController.characterFormation.list.Length; i++)
+        if (string.IsNullOrEmpty(addId))
         {
-            if (saveController.characterFormation.list[i] == addId)
-            {
-                return;
-            }
+            saveController.UpdateCharacterFormationDate(null, selectIndex);
         }
-        saveController.UpdateCharacterFormationDate(addId, selectIndex);
+        else
+        {
+            if (IsCharacterAlreadyInFormation(addId)) return;
+            saveController.UpdateCharacterFormationDate(addId, selectIndex);
+        }
         UpdateCharacterUI();
         CloseCharacterFormation();
         Debug.Log($"{selectIndex}番を選択して{addId}に変更する");
+    }
+
+    private bool IsCharacterAlreadyInFormation(string addId)
+    {
+        foreach (var characterId in saveController.characterFormation.list)
+        {
+            if (characterId == addId) return true;
+        }
+        return false;
+    }
+
+    private void ShowOverlay(int index)
+    {
+        SetOverlayEnabled(index, false);
+    }
+
+    private void HideOverlay()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            SetOverlayEnabled(i, false);
+        }
+    }
+
+    private void SetOverlayEnabled(int index, bool isEnabled)
+    {
+        characterButtonGroup.transform.GetChild(index).Find("Overlay").GetComponent<Image>().enabled = isEnabled;
     }
 
     /// <summary>
@@ -75,66 +108,101 @@ public class CharacterBox : MonoBehaviour
     /// </summary>
     public void UpdateCharacterUI()
     {
-        //所持キャラクター分の空のキャラクターリストを作成
-        int count;
-        try
-        {
-            count = saveController.characterSave.list.Count - characterGroup.transform.childCount;
-        }
-        catch
-        {
-            count = 0;
-        }
-        for (int i = 0; i < count; i++)
+        AdjustCharacterGroupSize();
+        UpdateCharacterList();
+        UpdateFormationList();
+    }
+
+    private void AdjustCharacterGroupSize()
+    {
+        int count = saveController.characterSave.list.Count - characterGroup.transform.childCount;
+        for (int i = 0; i < count + 1; i++)
         {
             var nullCharacterIconButtonPrefab = Resources.Load<GameObject>($"Prefabs/Menu/Character_Button").gameObject;
             var nullCharacterIconButton = Instantiate(nullCharacterIconButtonPrefab, Vector2.zero, Quaternion.identity);
-            nullCharacterIconButton.transform.parent = characterGroup.transform;
-            nullCharacterIconButton.GetComponent<RectTransform>().localScale = new Vector2(1, 1);
+            nullCharacterIconButton.transform.SetParent(characterGroup.transform);
+            nullCharacterIconButton.GetComponent<RectTransform>().localScale = Vector2.one;
         }
+    }
 
-        //キャラクターリストの更新
-        try
+    private void UpdateCharacterList()
+    {
+        var sortedCharacterList = new List<SaveController.CharacterSaveData.CharacterData>(saveController.characterSave.list);
+        sortedCharacterList.Sort((cs1, cs2) => cs1.level.CompareTo(cs2.level));
+        for (int i = 0; i < sortedCharacterList.Count; i++)
         {
-            for (int i = 0; i < saveController.characterSave.list.Count; i++)
+            var characterId = sortedCharacterList[i].id;
+            if (string.IsNullOrEmpty(characterId))
             {
-                var characterId = saveController.characterSave.list[i].id;
-                CharacterInfo characterInfo = characterInfoDataBase.GetCharacterInfoByID(characterId);
-                characterGroup.transform.GetChild(i).GetComponent<CharacterButton>().characterId = characterId;
-                characterGroup.transform.GetChild(i).GetComponent<Image>().sprite = characterInfo.image.icon;
-                //編成リストに採用されているものはグレー帯を表示、それ以外は非表示
-                for (int j = 0; j < saveController.characterFormation.list.Length; j++)
-                {
-                    if (characterId == saveController.characterFormation.list[j])
-                    {
-                        characterGroup.transform.GetChild(i).transform.Find("GrayLabel").GetComponent<Image>().enabled = true;
-                        characterGroup.transform.GetChild(i).transform.Find("Text").GetComponent<Text>().enabled = true;
-                        break;
-                    }
-                    else
-                    {
-                        characterGroup.transform.GetChild(i).transform.Find("GrayLabel").GetComponent<Image>().enabled = false;
-                        characterGroup.transform.GetChild(i).transform.Find("Text").GetComponent<Text>().enabled = false;
-                    }
-                }
+                characterButtonGroup.transform.GetChild(i).GetComponent<Image>().sprite = null;
+            }
+            CharacterInfo characterInfo = characterInfoDataBase.GetCharacterInfoByID(characterId);
+            var characterButton = characterGroup.transform.GetChild(i).GetComponent<CharacterButton>();
+            characterButton.characterId = characterId;
+            characterButton.GetComponent<Image>().sprite = characterInfo.image.icon;
+            UpdateCharacterOverlay(i, characterId);
+            UpdateFrame(characterId, characterInfo);
+        }
+    }
+
+    private void UpdateCharacterOverlay(int index, string characterId)
+    {
+        bool isInFormation = false;
+        for (int j = 0; j < saveController.characterFormation.list.Length; j++)
+        {
+            if (characterId == saveController.characterFormation.list[j])
+            {
+                isInFormation = true;
+                break;
             }
         }
-        catch
-        {
+        var grayLabel = characterGroup.transform.GetChild(index).transform.Find("GrayLabel").GetComponent<Image>();
+        var text = characterGroup.transform.GetChild(index).transform.Find("Text").GetComponent<Text>();
+        grayLabel.enabled = isInFormation;
+        text.enabled = isInFormation;
+    }
 
-        }
-
-        //編成リストの更新
+    private void UpdateFormationList()
+    {
         for (int i = 0; i < characterButtonGroup.transform.childCount; i++)
         {
-            try
+            var characterId = saveController.characterFormation.list[i];
+            CharacterInfo characterInfo = characterInfoDataBase.GetCharacterInfoByID(characterId);
+            if (characterInfo != null)
             {
-                var characterId = saveController.characterFormation.list[i];
-                CharacterInfo characterInfo = characterInfoDataBase.GetCharacterInfoByID(characterId);
-                characterButtonGroup.transform.GetChild(i).GetComponent<Image>().sprite = characterInfo.image.icon;
+                Image characterButton = characterButtonGroup.transform.GetChild(i).GetComponent<Image>();
+                characterButton.sprite = characterInfo.image.icon;
             }
-            catch
+            else
             {
+                characterButtonGroup.transform.GetChild(i).GetComponent<Image>().sprite = null;
+            }
+
+            UpdateFrame(characterId, characterInfo);
+        }
+    }
+
+    private void UpdateFrame(string characterId, CharacterInfo characterInfo)
+    {
+        var characterSave = saveController.characterSave.list.Find(cs => cs.id == characterId);
+        if (characterSave != null)
+        {
+            int level = characterSave.level;
+            int rank = characterInfo.rank;
+            const int RANK_RARE = 3;
+            const int LEVEL_MAX = 5;
+
+            if (rank == RANK_RARE && level == LEVEL_MAX)
+            {
+                // Gold :  TODO : characterButtonGroup.transfrom.GetChild(i).transform.Find("Frame").GetComponent<Image>().sprite =  金・銀・銅
+            }
+            else if (rank == RANK_RARE)
+            {
+                // Silver
+            }
+            else
+            {
+                // Copper
             }
         }
     }
