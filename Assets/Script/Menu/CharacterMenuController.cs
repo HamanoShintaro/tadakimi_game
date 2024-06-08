@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class CharacterMenuController : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class CharacterMenuController : MonoBehaviour
     public GameObject characterKnockBackDeffenceObj;
     public GameObject characterLvUpCostObj;
 
+    [SerializeField]
+    private GameObject characterView;
+
     // コントローラークラス、リソースのロード用
     public MenuController menuController;
     private CharacterInfoDataBase characterInfoDataBase;
@@ -44,6 +48,7 @@ public class CharacterMenuController : MonoBehaviour
         characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
         saveController = menuController.GetComponent<SaveController>();
         SetCharacter(saveController.characterSave.list[0].id);
+        SortCharacterButtonsByLevel();
     }
 
     /// <summary>
@@ -72,15 +77,26 @@ public class CharacterMenuController : MonoBehaviour
         int index = level - 1;
 
         //キャラクターステータスのセット
-        characterLevelObj.GetComponent<Text>().text = level.ToString();
-        characterLevelMaxObj.GetComponent<Text>().text = character.status.Count.ToString();
-        characterAttackObj.GetComponent<Text>().text = character.status[index].attack.ToString();
-        characterHpObj.GetComponent<Text>().text = character.status[index].hp.ToString();
-        characterCostObj.GetComponent<Text>().text = character.status[index].cost.ToString();
-        characterSpeedObj.GetComponent<Text>().text = character.status[index].speed.ToString();
-        characterKnockBackObj.GetComponent<Text>().text = character.status[index].atkKB.ToString();
-        characterKnockBackDeffenceObj.GetComponent<Text>().text = character.status[index].defKB.ToString();
-        characterLvUpCostObj.GetComponent<Text>().text = character.status[index].growth.ToString();
+        // インデックスが範囲内にあるか確認
+        if (index >= 0 && index < character.status.Count)
+        {
+            // キャラクターステータスのセット
+            characterLevelObj.GetComponent<Text>().text = level.ToString();
+            characterLevelMaxObj.GetComponent<Text>().text = character.status.Count.ToString();
+            characterAttackObj.GetComponent<Text>().text = character.status[index].attack.ToString();
+            characterHpObj.GetComponent<Text>().text = character.status[index].hp.ToString();
+            characterCostObj.GetComponent<Text>().text = character.status[index].cost.ToString();
+            characterSpeedObj.GetComponent<Text>().text = character.status[index].speed.ToString();
+            characterKnockBackObj.GetComponent<Text>().text = character.status[index].atkKB.ToString();
+            characterKnockBackDeffenceObj.GetComponent<Text>().text = character.status[index].defKB.ToString();
+            characterLvUpCostObj.GetComponent<Text>().text = character.status[index].growth.ToString();
+        }
+        else
+        {
+            // インデックスが範囲外の場合のエラーハンドリング
+            Debug.LogWarning("キャラクターのステータスインデックスが範囲外です。");
+        }
+        SortCharacterButtonsByLevel();
     }
 
     /// <summary>
@@ -109,6 +125,63 @@ public class CharacterMenuController : MonoBehaviour
             SetCharacter(characterId);
             audioSource.PlayOneShot(clip);
         }
+        SortCharacterButtonsByLevel();
     }
+
+   private void SortCharacterButtonsByLevel()
+   {
+        // キャラクターのビューのボタンのリストを取得
+        List<GameObject> entityCharacterList = new List<GameObject>();
+        foreach (Transform child in characterView.transform)
+        {
+            entityCharacterList.Add(child.gameObject);
+        }
+
+        // キャラクターのソートしたリストを取得
+        var sortedCharacterList = new List<SaveController.CharacterSaveData.CharacterData>(saveController.characterSave.list);
+        // レベルの高い順に並べ替え
+        sortedCharacterList.Sort((cs1, cs2) => cs2.level.CompareTo(cs1.level));
+
+        // キャラクターボタンを存在するものと存在しないもので分ける
+        List<GameObject> foundList = new List<GameObject>();
+        List<GameObject> notFoundList = new List<GameObject>();
+
+        foreach (var button in entityCharacterList)
+        {
+            var id = button.name;
+            var foundIndex = sortedCharacterList.FindIndex(data => data.id.Equals(id));
+            if (foundIndex != -1)
+            {
+                foundList.Add(button);
+            }
+            else
+            {
+                notFoundList.Add(button);
+            }
+        }
+
+        // 存在するキャラクターのビューのボタンのリストを並べ替え
+        foundList.Sort((a, b) => {
+            var aId = a.name;
+            var bId = b.name;
+            var aIndex = sortedCharacterList.FindIndex(data => data.id.Equals(aId));
+            var bIndex = sortedCharacterList.FindIndex(data => data.id.Equals(bId));
+            return aIndex.CompareTo(bIndex);
+        });
+
+        // 存在しないキャラクターのビューのボタンのリストをアルファベット順にソート
+        notFoundList.Sort((a, b) => a.name.CompareTo(b.name));
+
+        // 並べ替えた順序にビューのボタンを配置
+        int buttonIndex = 0;
+        foreach (var button in foundList)
+        {
+            button.transform.SetSiblingIndex(buttonIndex++);
+        }
+        foreach (var button in notFoundList)
+        {
+            button.transform.SetSiblingIndex(buttonIndex++);
+        }
+   }
 }
 

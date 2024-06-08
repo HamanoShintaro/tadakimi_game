@@ -116,7 +116,7 @@ public class CharacterBox : MonoBehaviour
     private void AdjustCharacterGroupSize()
     {
         int count = saveController.characterSave.list.Count - characterGroup.transform.childCount;
-        for (int i = 0; i < count + 1; i++)
+        for (int i = 0; i < count; i++)
         {
             var nullCharacterIconButtonPrefab = Resources.Load<GameObject>($"Prefabs/Menu/Character_Button").gameObject;
             var nullCharacterIconButton = Instantiate(nullCharacterIconButtonPrefab, Vector2.zero, Quaternion.identity);
@@ -128,6 +128,7 @@ public class CharacterBox : MonoBehaviour
     private void UpdateCharacterList()
     {
         var sortedCharacterList = new List<SaveController.CharacterSaveData.CharacterData>(saveController.characterSave.list);
+        sortedCharacterList.RemoveAll(character => character.id == "Volcus_01");
         sortedCharacterList.Sort((cs1, cs2) => cs1.level.CompareTo(cs2.level));
         for (int i = 0; i < sortedCharacterList.Count; i++)
         {

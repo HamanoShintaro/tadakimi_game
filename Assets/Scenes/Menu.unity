@@ -1624,7 +1624,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.1735057, y: 1}
+  m_AnchorMax: {x: 0.17350571, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4694,7 +4694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7308191848106160029, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
@@ -9334,6 +9334,7 @@ MonoBehaviour:
   characterKnockBackObj: {fileID: 1719810627}
   characterKnockBackDeffenceObj: {fileID: 367288516}
   characterLvUpCostObj: {fileID: 130165034}
+  characterView: {fileID: 357914515}
   menuController: {fileID: 1470701935}
   audioSource: {fileID: 1150466130}
   clip: {fileID: 8300000, guid: 7bd88912b1fdd45448745d8b971ed338, type: 3}
@@ -10060,7 +10061,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2050629078}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10399,7 +10400,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 193948042}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.37919846
+  m_Size: 0.3791985
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19137,9 +19138,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.15747634
+    y: 0.14280209
     width: 1
-    height: 0.6850473
+    height: 0.7143958
   near clip plane: 1
   far clip plane: 100
   field of view: 60
