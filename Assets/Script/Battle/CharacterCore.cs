@@ -63,6 +63,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private AudioClip normalAttackDamageSounds;
     private Player player;
     private RectTransform rectTransform;
+    private Rigidbody2D rb; // Rigidbody2Dコンポーネント
 
     public float hp = 100;
     public float Hp
@@ -140,6 +141,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         audioSource = GetComponent<AudioSource>();
         player = GetComponent<Player>();
         rectTransform = GetComponent<RectTransform>();
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -180,6 +183,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (!canState) return;
 
+        
+
         if (targets.Count == 0)
         {
             Walk();
@@ -187,7 +192,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         else
         {
             animator.SetBool("Walk", false);
+            Debug.Log("足を止める");
             Action();
+            Debug.Log("アクション！");
         }
     }
 
@@ -208,6 +215,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (!canState) return;
         canState = false;
+        Debug.Log("アクションしない！");
 
         if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
         {
@@ -220,6 +228,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         else
         {
             NormalAction();
+            Debug.Log("のーまる");
         }
     }
 
@@ -253,6 +262,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void NormalAction()
     {
+        
+
         if (isLeader)
         {
             var nearTarget = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).FirstOrDefault();
@@ -266,6 +277,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             }
         }
         animator.SetBool("Attack", true);
+        Debug.Log("Normal Attack Triggered");
     }
 
     // スペルミス
@@ -364,19 +376,53 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private IEnumerator KnockBack()
     {
+        /*
         canState = false;
         animator.SetBool("KnockBack", true);
         const float knockBackInterval = 0.1f;
         const int knockBackSteps = 10;
-        const float knockBackDistance = 3;
+        const float knockBackDistance = 40;
+        const float jumpHeight = 80; // ジャンプの高さ
+        float originalY = transform.position.y; // 元のY座標
 
         var wait = new WaitForSeconds(knockBackInterval);
         for (int i = 0; i < knockBackSteps; i++)
         {
             yield return wait;
             float direction = characterType == CharacterType.Buddy ? -1 : 1;
-            transform.position = new Vector2(transform.position.x + knockBackDistance * direction, transform.position.y);
+            float x = transform.position.x + knockBackDistance * direction;
+
+            // Y軸方向の変化を追加
+            float y = originalY + jumpHeight * Mathf.Sin((i / (float)knockBackSteps) * Mathf.PI);
+
+            transform.position = new Vector2(x, y);
         }
+        // ノックバック後に元の高さに戻る
+        transform.position = new Vector2(transform.position.x, originalY);
+        */
+        
+        canState = false;
+        animator.SetBool("KnockBack", true);
+        const float knockBackDuration = 0.5f;
+        const float knockBackForce = 800f;
+        //const float jumpForce = 400f;
+        const float jumpHeight = 100f; // ジャンプの高さ
+
+        float direction = characterType == CharacterType.Buddy ? -1 : 1;
+        float originalY = transform.position.y; // 元のY座標を取得
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < knockBackDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / knockBackDuration;
+            float x = transform.position.x + direction * knockBackForce * Time.deltaTime;
+            float y = originalY + jumpHeight * Mathf.Sin(t * Mathf.PI); // 山なりの軌道を実現
+            transform.position = new Vector2(x, y);
+            yield return null;
+        }
+        transform.position = new Vector2(transform.position.x, originalY);
     }
 
     public void EndKnockBack()

@@ -2009,9 +2009,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.39935386
+    y: 0.044855893
     width: 1
-    height: 0.20129225
+    height: 0.9102882
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2115,7 +2115,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0.03, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 960.0403, y: 461.72003}
+  m_AnchoredPosition: {x: -798.1492, y: 461.71997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &559349289
@@ -7895,7 +7895,6 @@ GameObject:
   - component: {fileID: 735806794}
   - component: {fileID: 735806793}
   - component: {fileID: 735806795}
-  - component: {fileID: 735806796}
   m_Layer: 0
   m_Name: CM vcam
   m_TagString: Untagged
@@ -7932,7 +7931,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 9.633955, y: 1}
+    m_SensorSize: {x: 1.8922114, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7949,7 +7948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735806792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 761.54956, y: 461.71997, z: -10}
+  m_LocalPosition: {x: -1071.0757, y: 461.71997, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7974,26 +7973,6 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 842893470}
   m_ConfineScreenEdges: 1
   m_Damping: 0
---- !u!95 &735806796
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735806792}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fdfe846eaf07c48e3bc90095ab974eb5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &754038082
 GameObject:
   m_ObjectHideFlags: 0
