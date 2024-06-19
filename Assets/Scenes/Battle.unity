@@ -2009,9 +2009,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.044855893
+    y: 0.3986954
     width: 1
-    height: 0.9102882
+    height: 0.20260921
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2115,7 +2115,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0.03, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -798.1492, y: 461.71997}
+  m_AnchoredPosition: {x: 960.04016, y: 461.72003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &559349289
@@ -7931,7 +7931,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8922114, y: 1}
+    m_SensorSize: {x: 5.4054213, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7948,7 +7948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735806792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1071.0757, y: 461.71997, z: -10}
+  m_LocalPosition: {x: -239.42871, y: 461.71997, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22729,7 +22729,7 @@ GameObject:
   - component: {fileID: 2079701644}
   - component: {fileID: 2079701643}
   m_Layer: 5
-  m_Name: Frame
+  m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23124,7 +23124,19 @@ PrefabInstance:
       propertyPath: speed
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 3389332812327735773, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3389332812608991568, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389332812863507626, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389332813062404904, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

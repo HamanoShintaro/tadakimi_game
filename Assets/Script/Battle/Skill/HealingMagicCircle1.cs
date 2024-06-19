@@ -10,7 +10,7 @@ namespace Battle
         {
             StartCoroutine(Heal());
         }
-        
+
         private IEnumerator Heal()
         {
             while (true)
