@@ -29,7 +29,6 @@ public class CharacterInfo : ScriptableObject
 	public Image image;
 	// レア度 1:common 2:uncommon 3:rare
 	[SerializeField]
-	[HideInInspector]
 	public int rank;
 	// ステータス
 	[SerializeField]

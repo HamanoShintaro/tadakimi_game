@@ -7554,6 +7554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterIcon_Button
       objectReference: {fileID: 0}
+    - target: {fileID: 8571673950551437979, guid: efb25c251774041f890524e58928529a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efb25c251774041f890524e58928529a, type: 3}
 --- !u!1 &1012423452
@@ -10399,7 +10403,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 193948043}
   m_HandleRect: {fileID: 193948042}
   m_Direction: 2
-  m_Value: 1.0000001
+  m_Value: 1
   m_Size: 0.3791985
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -19138,9 +19142,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.14280209
+    y: 0.19429347
     width: 1
-    height: 0.7143958
+    height: 0.61141306
   near clip plane: 1
   far clip plane: 100
   field of view: 60

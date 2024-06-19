@@ -142,7 +142,8 @@ public class CharacterBox : MonoBehaviour
             characterButton.characterId = characterId;
             characterButton.GetComponent<Image>().sprite = characterInfo.image.icon;
             UpdateCharacterOverlay(i, characterId);
-            UpdateFrame(characterId, characterInfo);
+            var flameImage = characterGroup.transform.GetChild(i).transform.Find("Frame").GetComponent<Image>();
+            UpdateFrame(flameImage, i, characterId, characterInfo);
         }
     }
 
@@ -178,32 +179,28 @@ public class CharacterBox : MonoBehaviour
             {
                 characterButtonGroup.transform.GetChild(i).GetComponent<Image>().sprite = null;
             }
-
-            UpdateFrame(characterId, characterInfo);
+            var flameImage = characterButtonGroup.transform.GetChild(i).transform.Find("Frame").GetComponent<Image>();
+            UpdateFrame(flameImage, i, characterId, characterInfo);
         }
     }
 
-    private void UpdateFrame(string characterId, CharacterInfo characterInfo)
+    private void UpdateFrame(Image flameImage, int index, string characterId, CharacterInfo characterInfo)
     {
-        var characterSave = saveController.characterSave.list.Find(cs => cs.id == characterId);
-        if (characterSave != null)
+        if (string.IsNullOrEmpty(characterId))
         {
-            int level = characterSave.level;
+            flameImage.sprite = Resources.Load<Sprite>($"Image/Decoration/flame/silver");
+        }
+        else
+        {
             int rank = characterInfo.rank;
             const int RANK_RARE = 3;
-            const int LEVEL_MAX = 5;
-
-            if (rank == RANK_RARE && level == LEVEL_MAX)
+            if (rank == RANK_RARE)
             {
-                // Gold :  TODO : characterButtonGroup.transfrom.GetChild(i).transform.Find("Frame").GetComponent<Image>().sprite =  金・銀・銅
-            }
-            else if (rank == RANK_RARE)
-            {
-                // Silver
+                flameImage.sprite = Resources.Load<Sprite>($"Image/Decoration/flame/gold");
             }
             else
             {
-                // Copper
+                flameImage.sprite = Resources.Load<Sprite>($"Image/Decoration/flame/silver");
             }
         }
     }
