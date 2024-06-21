@@ -23,7 +23,7 @@ MonoBehaviour:
     effect: {fileID: 21300000, guid: dd46f93c064384fb9917cf500b53e970, type: 3}
     icon: {fileID: 21300000, guid: dea0a168300224e899fad05dcf2addb8, type: 3}
     prefab: {fileID: 1545771121956627565, guid: 16dcb789e240d4137870b1914afb450a, type: 3}
-  rank: 3
+  rank: 2
   status:
   - cost: 100
     attack: 7
