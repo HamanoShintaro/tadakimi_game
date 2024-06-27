@@ -370,7 +370,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         canState = false;
         animator.SetBool("KnockBack", true);
         const float knockBackDuration = 0.5f;
-        const float knockBackForce = 800f;
+        const float knockBackForce = 400f;
         //const float jumpForce = 400f;
         const float jumpHeight = 100f; // ジャンプの高さ
 
