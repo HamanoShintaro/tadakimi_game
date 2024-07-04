@@ -29,12 +29,13 @@ public class CameraStableAspect2 : MonoBehaviour
         }
         UpdateResolution();
         UpdateCamera();
+        UpdateResolution();
+        UpdateCameraWithCheck();
     }
 
     private void Update()
     {
-        UpdateResolution();
-        UpdateCameraWithCheck();
+        
     }
 
     void UpdateResolution()
