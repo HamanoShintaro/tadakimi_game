@@ -14,7 +14,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     [SerializeField]
     [Tooltip("味方/敵")]
-    private CharacterType characterType = CharacterType.Buddy;
+    public CharacterType characterType = CharacterType.Buddy;
 
     [SerializeField]
     [Tooltip("攻撃範囲の種類")]
@@ -123,14 +123,16 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         atkPower = characterInfo.status[level].attack;
         atkKB = characterInfo.status[level].atkKB;
         defKB = characterInfo.status[level].defKB;
+
+        hasSkill = !string.IsNullOrEmpty(characterInfo.skill.name);
         skillCost = characterInfo.skill.cost;
         skillCoolDown = characterInfo.skill.cd;
         skillRatio = characterInfo.skill.Ratio;
+
+        hasSpecial = !string.IsNullOrEmpty(characterInfo.special.name);
         specialCost = characterInfo.skill.cost;
         specialCoolTime = characterInfo.special.cd;
         specialRatio = characterInfo.special.Ratio;
-        hasSkill = !string.IsNullOrEmpty(characterInfo.skill.name) && characterInfo.skill.name != "9999";
-        hasSpecial = !string.IsNullOrEmpty(characterInfo.special.name) && characterInfo.special.name != "9999";
     }
 
     private void InitializeComponents()

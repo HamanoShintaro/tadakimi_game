@@ -16,11 +16,29 @@ namespace Battle
         private GameObject necromancer2;
 
         [SerializeField]
-        private Transform summonPosition;
+        public Transform summonPosition;
+
+        private void Awake()
+        {
+            summonPosition = GameObject.Find("Canvas_Static/[CharacterPanel]/Appear_Buddy").transform;
+        }
 
         protected override void SkillActionforBuddy(GameObject target)
         {
             StartCoroutine(SummonNecromancer(target));
+        }
+
+        [ContextMenu("Skill")]
+        public void DebugSkill()
+        {
+            if (Random.value < probability)
+            {
+                Instantiate(necromancer2, summonPosition.position, Quaternion.identity, summonPosition.parent);
+            }
+            else
+            {
+                Instantiate(necromancer, summonPosition.position, Quaternion.identity, summonPosition.parent);
+            }
         }
 
         /// <summary>

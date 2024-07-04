@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4503520938222608312}
   - component: {fileID: 4503520938222608318}
   - component: {fileID: 2079606428684056602}
+  - component: {fileID: 7708536381445320895}
   - component: {fileID: 4503520938222608319}
   - component: {fileID: 4503520938222608316}
   - component: {fileID: 4503520938222608317}
@@ -113,8 +114,8 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8703692503261800546}
-  - {fileID: 8703692503062390433}
   - {fileID: 5327987457539131218}
+  - {fileID: 8703692503062390433}
   - {fileID: 9201398221857024505}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -156,6 +157,25 @@ MonoBehaviour:
   canState: 1
   normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
   hp: 100
+--- !u!114 &7708536381445320895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4503520938222608313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef358161c805d4d90993c4b03dbf110b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterId: 5
+  enemyTargets: []
+  buddyTargets: []
+  probability: 0.1
+  necromancer: {fileID: 2431877166153006107, guid: d9a809a91c26d43659aa06e3906b9e4d, type: 3}
+  necromancer2: {fileID: 2431877166153006107, guid: 5d91f0ca4ef0a4796afecdf50953aae0, type: 3}
+  summonPosition: {fileID: 0}
 --- !u!114 &4503520938222608319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +224,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &4503520938222608317
@@ -385,7 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5327987457539131218}
   m_Layer: 6
-  m_Name: AttackEffect
+  m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,7 +425,7 @@ RectTransform:
   m_Children:
   - {fileID: 784420848741931203}
   m_Father: {fileID: 4503520938222608312}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -498,7 +518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9201398221857024505}
   m_Layer: 6
-  m_Name: SPEffect
+  m_Name: SP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -536,7 +556,6 @@ GameObject:
   - component: {fileID: 8703692502572598672}
   - component: {fileID: 8703692502572598674}
   - component: {fileID: 8703692502572598675}
-  - component: {fileID: 4317044822258150511}
   m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
@@ -602,24 +621,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4317044822258150511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8703692502572598673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a8763970608400fa672ed159e2e515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterId: 4
-  enemyTargets: []
-  buddyTargets: []
-  orend: {fileID: 4503520938222608313}
-  _puppet: {fileID: 5429095949005290252, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
-  _puppetTank: {fileID: 5429095949005290252, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
 --- !u!1 &8703692503062390438
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8703692503062390433}
   m_Layer: 6
-  m_Name: SkillEffect
+  m_Name: Skill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,7 +651,7 @@ RectTransform:
   m_Children:
   - {fileID: 8703692502572598672}
   m_Father: {fileID: 4503520938222608312}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

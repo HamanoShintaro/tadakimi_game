@@ -1030,6 +1030,7 @@ MonoBehaviour:
   minLimitMovePosition: -2600
   maxLimitMovePosition: 2600
   isMove: 0
+  isRight: 0
 --- !u!114 &3389332812207512097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,6 +1053,8 @@ MonoBehaviour:
   atkPower: 0
   targets: []
   canState: 1
+  normalAttackDamageSounds: {fileID: 0}
+  hp: 100
 --- !u!222 &7619904086566227962
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1108,7 +1111,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &7619904086566227961

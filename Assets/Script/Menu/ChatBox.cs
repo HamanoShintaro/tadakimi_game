@@ -60,4 +60,24 @@ public class ChatBox : MonoBehaviour
         voiceList = message.GetVoice(currentLanguage);
         Debug.Log("言語を更新");
     }
+
+    /// <summary>
+    /// 現在の時刻を取得して、朝昼晩でログを出すメソッド
+    /// </summary>
+    public void LogTimeOfDay()
+    {
+        var currentHour = System.DateTime.Now.Hour;
+        if (currentHour >= 6 && currentHour < 12)
+        {
+            Debug.Log("おはようございます");
+        }
+        else if (currentHour >= 12 && currentHour < 18)
+        {
+            Debug.Log("こんにちは");
+        }
+        else
+        {
+            Debug.Log("こんばんは");
+        }
+    }
 }

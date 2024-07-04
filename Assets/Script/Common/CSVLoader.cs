@@ -1,23 +1,23 @@
 using UnityEngine;
 using System.IO;
 using System;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 public class CSVLoader : MonoBehaviour
 {
     [Header("読み込むCSV")]
-    // キャラクターとシナリオのCSVファイルを読み込むための配列
     public TextAsset[] characterDataBaseCsvFile, senarioTalkScriptCsvFile;
 
     [Header("反映させるCharacterInfoDataBase")]
-    // キャラクターの情報を格納するデータベース
     public CharacterInfoDataBase characterDataBase;
 
     [Header("反映させるSenarioTalkScriptDateBase")]
-    // シナリオのテキストを格納するデータベース
     public SenarioTalkScriptDateBase senarioTalkScriptDateBase;
 
     [Header("CharacterInfoDateBase : 読み込みを始める行")]
-    // CSV読み込み開始行
     private int startRow = 0;
 
     private void Start()
@@ -26,6 +26,10 @@ public class CSVLoader : MonoBehaviour
         LoadCharacterInfoDataBaseCsv();
         // CSVからシナリオテキストを読み込む
         LoadSenarioTalkScriptCsv();
+#if UNITY_EDITOR
+        // エディタの場合、プロジェクトを更新し直す
+        AssetDatabase.Refresh();
+#endif
     }
 
     public void LoadCharacterInfoDataBaseCsv()
@@ -61,126 +65,52 @@ public class CSVLoader : MonoBehaviour
                 row.detail = values[4];
                 row.type = values[5];
 
-                int tempInt;
                 // 各キャラクターステータスの取得
                 for (int k = 0; k < 5; k++)
                 {
                     var status = row.status[k];
-                    
-                    // データ形式が正しいか確認しつつ変換・格納
-                    if (int.TryParse(values[3 * (k + 2) + 1], out tempInt))
-                    {
-                        status.attack = tempInt;
-                    }
-                    else
-                    {
-                        status.attack = 100;
-                        Debug.LogError("攻撃力の無効な整数値: " + values[3 * (k + 2)] + 1 + " データ型: " + values[3 * (k + 2) + 1].GetType());
-                    }
 
-                    if (int.TryParse(values[3 * (k + 2) + 2], out tempInt))
-                    {
-                        status.hp = tempInt;
-                    }
-                    else
-                    {
-                        status.hp = 100;
-                        Debug.LogError("HPの無効な整数値: " + values[3 * (k + 2) + 2] + " データ型: " + values[3 * (k + 2) + 2].GetType());
-                    }
-
-                    if (int.TryParse(values[3 * (k + 2) + 3], out tempInt))
-                    {
-                        status.growth = tempInt;
-                    }
-                    else
-                    {
-                        status.growth = 100;
-                        Debug.LogError("成長の無効な整数値: " + values[3 * (k + 2) + 3] + " データ型: " + values[3 * (k + 2) + 3].GetType());
-                    }
-
-                    if (int.TryParse(values[22], out tempInt))
-                    {
-                        status.cost = tempInt;
-                    }
-                    else
-                    {
-                        status.cost = 100;
-                        Debug.LogError("costの無効な整数値: " + values[22] + " データ型: " + values[22].GetType());
-                    }
+                    status.attack = int.Parse(values[3 * (k + 2) + 1]);
+                    status.hp = int.Parse(values[3 * (k + 2) + 2]);
+                    status.growth = int.Parse(values[3 * (k + 2) + 3]);
+                    status.cost = int.Parse(values[22]);
 
                     // キャラクタースキル情報の取得
-                    if (int.TryParse(values[24], out tempInt))
-                    {
-                        status.atkKB = tempInt;
-                    }
-                    else
-                    {
-                        status.atkKB = 100;
-                        Debug.LogError("atkKBの無効な整数値: " + values[24] + " データ型: " + values[24].GetType());
-                    }
-
-                    if (int.TryParse(values[25], out tempInt))
-                    {
-                        status.defKB = tempInt;
-                    }
-                    else
-                    {
-                        status.defKB = 100;
-                        Debug.LogError("defKBの無効な整数値: " + values[25] + " データ型: " + values[25].GetType());
-                    }
-
-                    if (int.TryParse(values[26], out tempInt))
-                    {
-                        status.speed = tempInt;
-                    }
-                    else
-                    {
-                        status.speed = 100;
-                        Debug.LogError("speedの無効な整数値: " + values[26] + " データ型: " + values[26].GetType());
-                    }
+                    status.atkKB = int.Parse(values[24]);
+                    status.defKB = int.Parse(values[25]);
+                    status.speed = int.Parse(values[26]);
                 }
 
-                row.skill.name = values[33];
-                row.skill.Detail = values[34];
-                
-                // キャラクタースキル情報の取得
-                if (int.TryParse(values[31], out tempInt))
+                // スキルに関連する情報を取得
+                if (!string.IsNullOrEmpty(values[33]))
                 {
-                    row.skill.cost = tempInt;
+                    row.skill.name = values[33];
+                    row.skill.Detail = values[34];
+                    row.skill.cost = int.Parse(values[31]);
+                    row.skill.cd = int.Parse(values[32]);
                 }
                 else
                 {
-                    Debug.LogError("スキルコストの無効な整数値: " + values[31] + " データ型: " + values[31].GetType());
+                    row.skill.name = "";
+                    row.skill.Detail = "";
+                    row.skill.cost = 0;
+                    row.skill.cd = 0;
                 }
 
-                if (int.TryParse(values[32], out tempInt))
+                // スペシャルに関連する情報を取得
+                if (!string.IsNullOrEmpty(values[38]))
                 {
-                    row.skill.cd = tempInt;
+                    row.special.name = values[38];
+                    row.special.Detail = values[39];
+                    row.special.cost = int.Parse(values[36]);
+                    row.special.cd = int.Parse(values[37]);
                 }
                 else
                 {
-                    Debug.LogError("スキルCDの無効な整数値: " + values[32] + " データ型: " + values[32].GetType());
-                }
-
-                row.special.name = values[38];
-                row.special.Detail = values[39];
-
-                if (int.TryParse(values[36], out tempInt))
-                {
-                    row.special.cost = tempInt;
-                }
-                else
-                {
-                    Debug.LogError("特別コストの無効な整数値: " + values[36] + " データ型: " + values[36].GetType());
-                }
-
-                if (int.TryParse(values[37], out tempInt))
-                {
-                    row.special.cd = tempInt;
-                }
-                else
-                {
-                    Debug.LogError("特別CDの無効な整数値: " + values[37] + " データ型: " + values[37].GetType());
+                    row.special.name = "";
+                    row.special.Detail = "";
+                    row.special.cost = 0;
+                    row.special.cd = 0;
                 }
 
                 characterDataBase.characterInfoList[index] = row;
