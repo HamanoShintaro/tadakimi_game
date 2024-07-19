@@ -28,15 +28,18 @@ public class CameraStableAspect2 : MonoBehaviour
             refCamera = GetComponent<Camera>();
         }
         UpdateResolution();
-        UpdateCamera();
-        UpdateResolution();
         UpdateCameraWithCheck();
+
+        //UpdateCamera();
+        
     }
 
+    /*
     private void Update()
     {
         
     }
+    */
 
     void UpdateResolution()
     {
