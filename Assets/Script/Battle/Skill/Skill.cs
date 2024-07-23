@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 namespace Battle
 {
     /// <summary>
     /// スキルの継承元のクラス(インスタンスが生成されたら一度だけ実行される)
     /// </summary>
+    [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class Skill : MonoBehaviour
     {
         [SerializeField]
@@ -46,12 +47,10 @@ namespace Battle
             foreach (GameObject target in enemyTargets)
             {
                 SkillActionToEnemy(target);
-                //Debug.Log("スキルアクション(敵へ)");
             }
             foreach (GameObject target in buddyTargets)
             {
                 SkillActionforBuddy(target);
-                //Debug.Log("スキルアクション(味方へ)");
             }
         }
 
