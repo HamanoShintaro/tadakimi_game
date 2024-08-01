@@ -177,6 +177,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         }
         else
         {
+            
             Action();
         }
     }
@@ -214,6 +215,13 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         if (!canState) return;
         canState = false;
 
+        if(characterRole== CharacterRole.Supporter)
+        {
+            SupporterAction();
+            return;
+        }
+        
+
         if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
         {
             SpecialAction();
@@ -224,7 +232,25 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         }
         else
         {
+
             NormalAction();
+        }
+    }
+    private void SupporterAction()
+    {
+        Debug.Log("サポーター");
+
+        if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
+        {
+            SpecialAction();
+        }
+        else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
+        {
+            SkillAction();
+        }
+        else
+        {
+            canState = true;
         }
     }
 
