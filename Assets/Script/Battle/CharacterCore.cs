@@ -193,7 +193,13 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         else
         {
             animator.SetBool("Walk", false);
-            Action();
+
+            if (characterRole != CharacterRole.Supporter)
+            {
+                Action();
+            }
+            //サポートキャラ用のアクションに飛ぶ。
+            SupporterAction();
         }
     }
 
@@ -212,15 +218,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void Action()
     {
+        Debug.Log("アクション");
         if (!canState) return;
         canState = false;
-
-        if(characterRole== CharacterRole.Supporter)
-        {
-            SupporterAction();
-            return;
-        }
-        
 
         if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
         {
@@ -232,10 +232,10 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         }
         else
         {
-
             NormalAction();
         }
     }
+    //サポートキャラ用
     private void SupporterAction()
     {
         Debug.Log("サポーター");
@@ -248,6 +248,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         {
             SkillAction();
         }
+        
         else
         {
             canState = true;
