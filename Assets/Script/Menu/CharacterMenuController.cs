@@ -48,7 +48,11 @@ public class CharacterMenuController : MonoBehaviour
         characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
         saveController = menuController.GetComponent<SaveController>();
         SetCharacter(saveController.characterSave.list[0].id);
-        SortCharacterButtonsByLevel();
+    }
+
+    private void OnEnable() 
+    {
+        Invoke("SortCharacterButtonsByLevel", 0.1f);
     }
 
     /// <summary>
@@ -59,6 +63,11 @@ public class CharacterMenuController : MonoBehaviour
     {
         //IDに合致するキャラクター情報を返却する
         CharacterInfo character = characterInfoDataBase.GetCharacterInfoByID(characterId);
+        if (character == null)
+        {
+            Debug.LogError("Character not found: " + characterId);
+            return;
+        }
         currentCharacter = characterId;
 
         //キャラクター情報のセット
@@ -96,7 +105,6 @@ public class CharacterMenuController : MonoBehaviour
             // インデックスが範囲外の場合のエラーハンドリング
             Debug.LogWarning("キャラクターのステータスインデックスが範囲外です。");
         }
-        SortCharacterButtonsByLevel();
     }
 
     /// <summary>
@@ -106,6 +114,11 @@ public class CharacterMenuController : MonoBehaviour
     {
         var characterId = currentCharacter;
         CharacterInfo character = characterInfoDataBase.GetCharacterInfoByID(characterId);
+        if (character == null)
+        {
+            Debug.LogError("Character not found: " + characterId);
+            return;
+        }
 
         // すでに最大レベルであればレベルを上げない
         int level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level;
@@ -125,11 +138,10 @@ public class CharacterMenuController : MonoBehaviour
             SetCharacter(characterId);
             audioSource.PlayOneShot(clip);
         }
-        SortCharacterButtonsByLevel();
     }
 
-   private void SortCharacterButtonsByLevel()
-   {
+    private void SortCharacterButtonsByLevel()
+    {
         // キャラクターのビューのボタンのリストを取得
         List<GameObject> entityCharacterList = new List<GameObject>();
         foreach (Transform child in characterView.transform)
