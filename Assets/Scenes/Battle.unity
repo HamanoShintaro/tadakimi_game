@@ -2170,7 +2170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0.03, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -684.8219, y: 534.89966}
+  m_AnchoredPosition: {x: -785.9532, y: 534.89966}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519420037
@@ -2186,8 +2186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refCamera: {fileID: 519420031}
-  width: 542
-  height: 1357
+  width: 869
+  height: 2472
   pixelPerUnit: 100
 --- !u!114 &519420038
 MonoBehaviour:
@@ -15567,7 +15567,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8294492, y: 1}
+    m_SensorSize: {x: 1.4022299, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -15584,7 +15584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567052420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -684.8219, y: 534.89966, z: -10}
+  m_LocalPosition: {x: -785.9532, y: 534.89966, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

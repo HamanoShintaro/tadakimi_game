@@ -125,7 +125,7 @@ public class CharacterMenuController : MonoBehaviour
         int maxLevet = character.status.Count;
         if (level == maxLevet) return;
 
-        int index = level;//TODO
+        int index = level;
         int cost = character.status[index].growth;
         int money = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
 
@@ -195,5 +195,24 @@ public class CharacterMenuController : MonoBehaviour
             button.transform.SetSiblingIndex(buttonIndex++);
         }
    }
+
+    private void ShowOverlay(int index)
+    {
+        SetOverlayEnabled(index, false);
+    }
+
+    public void HideOverlay()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            SetOverlayEnabled(i, false);
+        }
+    }
+
+    // AllHidel >> ON
+    public void SetOverlayEnabled(int index, bool isEnabled)
+    {
+        characterView.transform.GetChild(index).Find("Overlay").GetComponent<Image>().enabled = isEnabled;
+    }
 }
 
