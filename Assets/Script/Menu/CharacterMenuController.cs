@@ -68,6 +68,10 @@ public class CharacterMenuController : MonoBehaviour
             Debug.LogError("Character not found: " + characterId);
             return;
         }
+        
+        DisableAllOverlays();
+        GetCharacterButton(characterId).transform.Find("Overlay").GetComponent<Image>().enabled = true;
+
         currentCharacter = characterId;
 
         //キャラクター情報のセット
@@ -196,23 +200,17 @@ public class CharacterMenuController : MonoBehaviour
         }
    }
 
-    private void ShowOverlay(int index)
-    {
-        SetOverlayEnabled(index, false);
-    }
+   private GameObject GetCharacterButton(string characterId)
+   {
+        return characterView.transform.Find(characterId).gameObject;
+   }
 
-    public void HideOverlay()
-    {
-        for (int i = 0; i < 4; i++)
+   private void DisableAllOverlays()
+   {
+        for (int i = 0; i < characterView.transform.childCount; i++)
         {
-            SetOverlayEnabled(i, false);
+            characterView.transform.GetChild(i).Find("Overlay").GetComponent<Image>().enabled = false;
         }
-    }
-
-    // AllHidel >> ON
-    public void SetOverlayEnabled(int index, bool isEnabled)
-    {
-        characterView.transform.GetChild(index).Find("Overlay").GetComponent<Image>().enabled = isEnabled;
-    }
+   }
 }
 
