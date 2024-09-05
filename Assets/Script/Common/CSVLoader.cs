@@ -91,11 +91,7 @@ public class CSVLoader : MonoBehaviour
 
                         try
                         {
-                            status.growth = int.Parse(values[3 * (k + 2) + 3]);
-                        }
-                        catch (ArgumentNullException ex)
-                        {
-                            status.growth = 0;
+                            status.growth = string.IsNullOrEmpty(values[3 * (k + 2) + 3]) ? 0 : int.Parse(values[3 * (k + 2) + 3]);
                         }
                         catch (Exception ex)
                         {
@@ -104,15 +100,11 @@ public class CSVLoader : MonoBehaviour
 
                         try
                         {
-                            status.cost = int.Parse(values[22]);
-                        }
-                        catch (ArgumentNullException ex)
-                        {
-                            status.growth = 0;
+                            status.cost = string.IsNullOrEmpty(values[22]) ? 0 : int.Parse(values[22]);
                         }
                         catch (Exception ex)
                         {
-                            Debug.LogError("成長値の取得に失敗しました: " + ex.Message + " 取得したデータ: " + values[22]);
+                            Debug.LogError("コストの取得に失敗しました: " + ex.Message + " 取得したデータ: " + values[22]);
                         }
 
                         try

@@ -199,7 +199,10 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
                 Action();
             }
             //サポートキャラ用のアクションに飛ぶ。
-            SupporterAction();
+            else
+            {
+                SupporterAction();
+            }
         }
     }
 
