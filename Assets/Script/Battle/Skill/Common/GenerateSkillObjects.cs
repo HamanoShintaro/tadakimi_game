@@ -20,11 +20,8 @@ public class GenerateSkillObjects : MonoBehaviour
 
     private IEnumerator GenerateSkillObjectRoutine()
     {
-        while (true)
-        {
-            Vector3 generatePosition = new Vector3(transform.position.x + generateOffset.x, transform.position.y + generateOffset.y, transform.position.z);
-            Instantiate(skillPrefab, generatePosition, transform.rotation);
-            yield return new WaitForSeconds(generateInterval);
-        }
+        yield return new WaitForSeconds(generateInterval);
+        Vector3 generatePosition = new Vector3(transform.position.x + generateOffset.x, transform.position.y + generateOffset.y, transform.position.z);
+        Instantiate(skillPrefab, generatePosition, transform.rotation);
     }
 }
