@@ -2119,6 +2119,7 @@ MonoBehaviour:
   minX: -733
   maxX: 2132
   fixedY: 534.8997
+  fixedX: 400
 --- !u!1 &559349289
 GameObject:
   m_ObjectHideFlags: 0
