@@ -49,6 +49,7 @@ namespace Battle
         private IEnumerator SummonNecromancer(GameObject target = null)
         {
             if (target.Equals(null)) yield break;
+            if (target.name.Equals("Player")) yield break;
             var characterCore = target.GetComponent<CharacterCore>();
             while(true)
             {

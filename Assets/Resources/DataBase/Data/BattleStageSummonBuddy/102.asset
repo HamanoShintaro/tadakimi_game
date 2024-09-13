@@ -12,11 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b09ef4e3e404819aabad954fac1be7, type: 3}
   m_Name: 102
   m_EditorClassIdentifier: 
-  Times:
-  - 5.1
-  - 5.2
-  - 5.3
-  - 5.4
-  - 5.5
+  Times: []
   Buddies: []
-  Levels: 0100000001000000010000000100000001000000
+  Levels: 

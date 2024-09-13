@@ -15,15 +15,11 @@ public class MenuController : MonoBehaviour
     private string currentView;
     private bool switchingFlg;
 
-    private SaveController saveController;
-
     private void Start()
     {
         PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         currentView = PlayerPrefs.GetString(PlayerPrefabKeys.currentMenuView);
         switchingFlg = false;
-        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM) * GameSettingParams.bgmVolume;
-        saveController = this.GetComponent<SaveController>();
     }
 
     // SenarioMenu

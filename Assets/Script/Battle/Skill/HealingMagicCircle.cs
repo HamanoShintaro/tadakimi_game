@@ -13,13 +13,14 @@ namespace Battle
 
         private IEnumerator Heal()
         {
+            WaitForSeconds wait = new WaitForSeconds(5);
             while (true)
             {
                 foreach (GameObject target in buddyTargets)
                 {
                     target.GetComponent<CharacterCore>().Recovery(GetStatus().attack * 5);
                 }
-                yield return new WaitForSeconds(5);
+                yield return wait;
             }
         }
 

@@ -48,7 +48,6 @@ public class ChatBox : MonoBehaviour
         AudioSource.PlayClipAtPoint(voiceList[index], transform.position);
     }
 
-    //TODOSettingのOnChangeLanguageで呼び出すのもあり
     /// <summary>
     /// 言語設定を更新するメソッド
     /// </summary>
@@ -58,7 +57,6 @@ public class ChatBox : MonoBehaviour
         var message = Resources.Load<Message>("DataBase/Data/ChatBoxInfo/ChatBox");
         messageArray = message.GetMessage(currentLanguage);
         voiceList = message.GetVoice(currentLanguage);
-        Debug.Log("言語を更新");
     }
 
     /// <summary>

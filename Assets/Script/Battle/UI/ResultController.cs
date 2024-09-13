@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class ResultController : MonoBehaviour
 {
+    [SerializeField] private GameObject winningPanel;
+    [SerializeField] private GameObject loserPanel;
+
     /// <summary>
     /// リザルトパネルを表示・非表示する
     /// </summary>
@@ -14,7 +17,7 @@ public class ResultController : MonoBehaviour
     /// <param name="isOn">表示 or 非表示</param>
     public void OnResultPanel(bool isWinner = true, bool isOn = true)
     {
-        if (isWinner) transform.Find("winningPanel").gameObject.SetActive(isOn);
-        else transform.Find("loserPanel").gameObject.SetActive(isOn);
+        if (isWinner) winningPanel.SetActive(isOn);
+        else loserPanel.SetActive(isOn);
     }
 }

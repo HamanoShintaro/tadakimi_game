@@ -21,7 +21,7 @@ public class BuyCharacter : MonoBehaviour
 
     private void Start()
     {
-        UpdateCharacterButton();
+        //UpdateCharacterButton();
     }
 
     private void OnEnable()

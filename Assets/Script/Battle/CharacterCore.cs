@@ -33,6 +33,10 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     [Tooltip("トリガー範囲>(遠距離攻撃)>longAttackDistance>(近距離攻撃)>limitMovePosition>(近づけない)")]
     private float longAttackDistance = 600;
 
+    private float minLimitMovePosition = -2700f;
+
+    private float maxLimitMovePosition = 2700f;
+
     [Tooltip("現在のレベル")]
     [HideInInspector]
     public int level = 0;
@@ -59,11 +63,15 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private GameObject characterPanel;
     private AudioSource audioSource;
 
+    private const float knockBackDuration = 0.5f;
+    private const float knockBackForce = 400f;
+    private const float jumpHeight = 100f;
+
     [SerializeField]
     private AudioClip normalAttackDamageSounds;
     private Player player;
     private RectTransform rectTransform;
-    private Rigidbody2D rb; // Rigidbody2Dコンポーネント
+    private Rigidbody2D rb;
 
     public float hp = 100;
     public float Hp
@@ -143,7 +151,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         audioSource = GetComponent<AudioSource>();
         player = GetComponent<Player>();
         rectTransform = GetComponent<RectTransform>();
-
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -164,28 +171,20 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         if (player.isMove)
         {
             animator.SetBool("Walk", true);
-            return;
         }
         else
         {
             animator.SetBool("Walk", false);
-        }
-
-        if (targets.Count == 0)
-        {
-
-        }
-        else
-        {
-            
-            Action();
+            if (targets.Count != 0)
+            {
+                Action();
+            }
         }
     }
 
     private void HandleNonLeaderActions()
     {
         if (!canState) return;
-
         if (targets.Count == 0)
         {
             Walk();
@@ -193,16 +192,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         else
         {
             animator.SetBool("Walk", false);
-
-            if (characterRole != CharacterRole.Supporter)
-            {
-                Action();
-            }
-            //サポートキャラ用のアクションに飛ぶ。
-            else
-            {
-                SupporterAction();
-            }
+            Action();
         }
     }
 
@@ -211,7 +201,17 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         if (isLeader) return;
         animator.SetBool("Walk", true);
         float direction = characterType == CharacterType.Buddy ? 1 : -1;
-        transform.position = new Vector2(transform.position.x + speed * direction, transform.position.y);
+        float newPositionX = transform.position.x + speed * direction;
+
+        if (IsOutOfBounds(newPositionX)) return;
+
+        transform.position = new Vector2(newPositionX, transform.position.y);
+    }
+
+    // 行動範囲(x)を制限
+    private bool IsOutOfBounds(float positionX)
+    {
+        return positionX < minLimitMovePosition || positionX > maxLimitMovePosition;
     }
 
     private void EndWalk()
@@ -221,10 +221,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void Action()
     {
-        Debug.Log("アクション");
         if (!canState) return;
         canState = false;
-
         if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
         {
             SpecialAction();
@@ -235,26 +233,14 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         }
         else
         {
-            NormalAction();
-        }
-    }
-    //サポートキャラ用
-    private void SupporterAction()
-    {
-        Debug.Log("サポーター");
-
-        if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
-        {
-            SpecialAction();
-        }
-        else if (hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
-        {
-            SkillAction();
-        }
-        
-        else
-        {
-            canState = true;
+            if (characterRole != CharacterRole.Supporter)
+            {
+                NormalAction();
+            }
+            else
+            {
+                canState = true;
+            }
         }
     }
 
@@ -301,9 +287,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             }
         }
         animator.SetBool("Attack", true);
-        Debug.Log("Normal Attack Triggered");
     }
-
     public void EndNomalAction()
     {
         if (isLeader)
@@ -331,7 +315,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         {
             InflictDamageAsNonLeader(ratio);
         }
-
         ResetTargets();
     }
 
@@ -401,13 +384,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         canState = false;
         animator.SetBool("KnockBack", true);
-        const float knockBackDuration = 0.5f;
-        const float knockBackForce = 400f;
-        //const float jumpForce = 400f;
-        const float jumpHeight = 100f; // ジャンプの高さ
 
         float direction = characterType == CharacterType.Buddy ? -1 : 1;
-        float originalY = transform.position.y; // 元のY座標を取得
+        float originalY = transform.position.y;
 
         float elapsedTime = 0f;
 
@@ -416,8 +395,11 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / knockBackDuration;
             float x = transform.position.x + direction * knockBackForce * Time.deltaTime;
-            float y = originalY + jumpHeight * Mathf.Sin(t * Mathf.PI); // 山なりの軌道を実現
-            transform.position = new Vector2(x, y);
+            float y = originalY + jumpHeight * Mathf.Sin(t * Mathf.PI);
+            if (!IsOutOfBounds(x))
+            {
+                transform.position = new Vector2(x, y);
+            }
             yield return null;
         }
         transform.position = new Vector2(transform.position.x, originalY);
@@ -476,12 +458,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void OnTriggerStay2D(Collider2D t)
     {
-        if (t.isTrigger) return;
-
-        bool isTarget = characterRole == CharacterRole.Attacker
-            ? (characterType == CharacterType.Buddy && t.CompareTag("Enemy")) || (characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
-            : (characterType == CharacterType.Buddy && t.CompareTag("Buddy")) || (characterType == CharacterType.Enemy && t.CompareTag("Enemy"));
-
+        if (IsLongRangeTrigger(t)) return;
+        bool isTarget = (characterType.Equals(CharacterType.Buddy) && t.CompareTag("Enemy")) || (characterType.Equals(CharacterType.Enemy) && t.CompareTag("Buddy"));
         if (isTarget && !targets.Contains(t.gameObject))
         {
             targets.Add(t.gameObject);
@@ -491,12 +469,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void OnTriggerExit2D(Collider2D t)
     {
-        if (t.isTrigger) return;
-
-        bool isTarget = characterRole == CharacterRole.Attacker
-            ? (characterType == CharacterType.Buddy && t.CompareTag("Enemy")) || (characterType == CharacterType.Enemy && t.CompareTag("Buddy"))
-            : (characterType == CharacterType.Buddy && t.CompareTag("Buddy")) || (characterType == CharacterType.Enemy && t.CompareTag("Enemy"));
-
+        if (IsLongRangeTrigger(t)) return;
+        bool isTarget = (characterType.Equals(CharacterType.Buddy) && t.CompareTag("Enemy")) || (characterType.Equals(CharacterType.Enemy) && t.CompareTag("Buddy"));
         if (isTarget && targets.Contains(t.gameObject))
         {
             targets.Remove(t.gameObject);
@@ -508,5 +482,17 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         var index = characterPanel.transform.childCount - 1;
         transform.SetSiblingIndex(index);
+    }
+
+    private bool IsLongRangeTrigger(Collider2D t)
+    {
+        BoxCollider2D[] colliders = t.gameObject.GetComponents<BoxCollider2D>();
+
+        // 2つ目のBoxCollider2D(攻撃範囲のCollider2D)が存在するか確認
+        if (colliders.Length > 1 && t == colliders[1])
+        {
+            return true;
+        }
+        return false;
     }
 }

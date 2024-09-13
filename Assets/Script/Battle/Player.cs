@@ -59,14 +59,6 @@ public class Player : MonoBehaviour
         //プレイヤーの前向きに回転
         transform.localEulerAngles = Vector3.zero;
 
-        //接敵中は前進不可
-        if (characterCore.targets.Count > 0)
-        {
-            var distance = Vector2.Distance(characterCore.targets[0].GetComponent<RectTransform>().anchoredPosition, GetComponent<RectTransform>().anchoredPosition);
-            //敵に近づける限界の距離
-            if (distance <= limitZoneDistance) return;
-        }
-
         //範囲を制限
         if (player.anchoredPosition.x > maxLimitMovePosition) return;
 

@@ -22,6 +22,7 @@ public class GenerateSkillObjects : MonoBehaviour
     {
         yield return new WaitForSeconds(generateInterval);
         Vector3 generatePosition = new Vector3(transform.position.x + generateOffset.x, transform.position.y + generateOffset.y, transform.position.z);
-        Instantiate(skillPrefab, generatePosition, transform.rotation);
+        var skillObject = Instantiate(skillPrefab, generatePosition, transform.rotation);
+        skillObject.transform.parent = GameObject.Find("Canvas_Static/[CharacterPanel]").transform;
     }
 }

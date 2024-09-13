@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 /// <summary>
 /// listにキャラクターのデータ保存されている
 /// </summary>
 public class SaveController : MonoBehaviour
 {
+    [SerializeField]
+    private AudioMixer audioMixer;
+
     [SerializeField]
     private GameObject tutorial;
 
@@ -22,15 +26,14 @@ public class SaveController : MonoBehaviour
 
     private void Start()
     {
-        //ロード
         characterSave.Load();
         characterFormation.Load();
 
-        //ロードしてデータがないor初期化ならInitUser()
         if (characterSave == null || characterSave.list.Count == 0)
         {
             InitUser();
         }
+        SetInitialValues();
     }
 
     /// <summary>
@@ -55,26 +58,19 @@ public class SaveController : MonoBehaviour
         //言語の初期設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentLanguage)) { PlayerPrefs.SetInt(PlayerPrefabKeys.currentLanguage, GameSettingParams.currentLanguage); }
 
-        //初期キャラをキャラクターデータに追加
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
-        {
-            /*
-            AddCharacterDate("キャラクター名", 1, true);
-            */
-            Debug.Log("キャラクターデータ初期化");
-        }
-
-        //初期キャラをキャラクターフォーメーション[0]に追加
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
-        {
-            /*
-            UpdateCharacterFormationDate("キャラクター名", 0);
-            */
-            Debug.Log("フォーメーション初期化");
-        }
-
         //広告表示モードを表示に設定
         PlayerPrefs.SetInt(PlayerPrefabKeys.currentAdsMode, 0);
+    }
+
+    private void SetInitialValues()
+    {
+        float bgmVolume = Mathf.Clamp(PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM, GameSettingParams.bgmVolume), 0.01f, 1f);
+        float seVolume = Mathf.Clamp(PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE, GameSettingParams.seVolume), 0.01f, 1f);
+        float cvVolume = Mathf.Clamp(PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeCV, GameSettingParams.cvVolume), 0.01f, 1f);
+
+        audioMixer.SetFloat("BGM", Mathf.Log10(bgmVolume) * 20);
+        audioMixer.SetFloat("SE", Mathf.Log10(seVolume) * 20);
+        audioMixer.SetFloat("CV", Mathf.Log10(cvVolume) * 20);
     }
 
     /// <summary>
@@ -145,7 +141,6 @@ public class SaveController : MonoBehaviour
 
         public void Load()
         {
-            //Debug.Log("保持キャラクターをロードします");
             if (PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
             {
                 string saveData = PlayerPrefs.GetString(PlayerPrefabKeys.playerCharacterData);

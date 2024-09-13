@@ -1,11 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
-// CharacterDataの最初の数行は削除する
 public class CSVLoader : MonoBehaviour
 {
     [Header("読み込むCSV")]
@@ -24,10 +20,23 @@ public class CSVLoader : MonoBehaviour
         // CSVからシナリオテキストを読み込む
         LoadSenarioTalkScriptCsv();
 #if UNITY_EDITOR
-        // エディタの場合、プロジェクトを更新し直す
-        AssetDatabase.Refresh();
+        SaveData();
+        UnityEditor.AssetDatabase.Refresh();
 #endif
     }
+
+    #if UNITY_EDITOR
+    // データを保存する関数
+    private void SaveData()
+    {
+        // CharacterInfoDataBaseを保存
+        UnityEditor.EditorUtility.SetDirty(characterDataBase);
+        // SenarioTalkScriptDateBaseを保存
+        UnityEditor.EditorUtility.SetDirty(senarioTalkScriptDateBase);
+        // プロジェクトファイルを保存
+        UnityEditor.AssetDatabase.SaveAssets();
+    }
+    #endif
 
     public void LoadCharacterInfoDataBaseCsv()
     {
@@ -216,6 +225,11 @@ public class CSVLoader : MonoBehaviour
                 // 取得したデータをオブジェクトに格納
                 SenarioTalkScript row = senarioTalkScriptDateBase.senarioTalkScripts[i];
 
+                if (index < 0 || index >= row.senarioTalks.Count || row.senarioTalks[index] == null)
+                {
+                    return;
+                }
+                
                 var senarioTalkScript = row.senarioTalks[index];
                 senarioTalkScript.name = values[1];
                 senarioTalkScript.script_jp = values[2];
