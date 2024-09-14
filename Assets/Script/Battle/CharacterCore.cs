@@ -63,9 +63,15 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private GameObject characterPanel;
     private AudioSource audioSource;
 
-    private const float knockBackDuration = 0.5f;
-    private const float knockBackForce = 400f;
-    private const float jumpHeight = 100f;
+    //ノックバックの秒数
+    private const float knockBackDuration = 2f;
+    //ノックバックの距離
+    private const float knockBackForce = 150f;
+    //ノックバックする時の高さ
+    private const float jumpHeight = 50f;
+
+    // グローバル変数として出現時のY座標を保存
+    private float originalY;
 
     [SerializeField]
     private AudioClip normalAttackDamageSounds;
@@ -99,6 +105,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         InitializeCharacter();
         InitializeComponents();
         StartCoroutine(SkillCoolTimeCount());
+
+        // キャラクターが出現した瞬間のY軸座標を保存
+        originalY = transform.position.y;
     }
 
     private void InitializeCharacter()
@@ -382,28 +391,47 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private IEnumerator KnockBack()
     {
+        // ステートを一時的に無効にする
         canState = false;
+
+        // ノックバックアニメーションを再生する
         animator.SetBool("KnockBack", true);
 
+        // キャラクターの種類に応じて、ノックバックの方向を決定する
         float direction = characterType == CharacterType.Buddy ? -1 : 1;
-        float originalY = transform.position.y;
 
+        // 経過時間を初期化
         float elapsedTime = 0f;
 
+        // ノックバックが指定された期間続くまでループする
         while (elapsedTime < knockBackDuration)
         {
+            // 経過時間を更新
             elapsedTime += Time.deltaTime;
+
+            // ノックバックの進行度（0から1までの値）を計算
             float t = elapsedTime / knockBackDuration;
+
+            // X座標に対してノックバックの力を加える
             float x = transform.position.x + direction * knockBackForce * Time.deltaTime;
+
+            // Y座標にジャンプの高さを反映（正弦波で上下移動を表現）
             float y = originalY + jumpHeight * Mathf.Sin(t * Mathf.PI);
+
+            // ノックバックが画面外に出ないように制御
             if (!IsOutOfBounds(x))
             {
-                transform.position = new Vector2(x, y);
+                transform.position = new Vector2(x, y); // キャラクターの位置を更新
             }
+
+            // 1フレーム待機して次の更新に進む
             yield return null;
         }
+
+        // ノックバックが終わった後、Y座標を元の位置に戻す
         transform.position = new Vector2(transform.position.x, originalY);
     }
+
 
     public void EndKnockBack()
     {

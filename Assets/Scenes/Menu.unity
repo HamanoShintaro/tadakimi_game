@@ -3757,7 +3757,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 663e75271942fc142b221205b3b4b305, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2ad7c7758835472cba4ef065b98e87a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -5469,7 +5469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -960, y: -553}
+  m_AnchoredPosition: {x: -960, y: -650}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &700897346
@@ -19373,14 +19373,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.11818355
+    y: 0
     width: 1
-    height: 0.7636329
+    height: 1
   near clip plane: 1
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4
+  orthographic size: 591.8
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
@@ -19420,13 +19420,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1557782007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a453413e28e1d6f4b96962059405531f, type: 3}
+  m_Script: {fileID: 11500000, guid: db9ab3dc2b0ee4ffe9787522e411b063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   refCamera: {fileID: 1557782009}
-  width: 1920
-  height: 1080
+  width: 2436
+  height: 1125
   pixelPerUnit: 100
+  fixedSize: 591.8
 --- !u!1 &1569419031
 GameObject:
   m_ObjectHideFlags: 0
