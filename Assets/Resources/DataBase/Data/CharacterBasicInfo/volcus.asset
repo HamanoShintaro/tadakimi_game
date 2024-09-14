@@ -16,7 +16,7 @@ MonoBehaviour:
   characterName: "\u30F4\u30A7\u30EB"
   description: "\u9B54\u738B"
   normal: {fileID: 21300000, guid: 84623781795074bf29afb01d22b9d1f6, type: 3}
-  smile: {fileID: 21300000, guid: fb862021fca864dcebb7675615f13606, type: 3}
+  smile: {fileID: 21300000, guid: 97d291c9983cd425c9f914f01e201633, type: 3}
   angry: {fileID: 21300000, guid: 63d0981b350fb44a6a7080ab5cef780a, type: 3}
   cry: {fileID: 21300000, guid: 03bbe85659b774d3dafab21caac62c2b, type: 3}
   confuse: {fileID: 21300000, guid: b8b8238f05c604a67bed6b5690491fd4, type: 3}

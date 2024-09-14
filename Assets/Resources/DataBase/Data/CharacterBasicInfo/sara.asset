@@ -17,8 +17,8 @@ MonoBehaviour:
   description: "\u546A\u8853\u5E2B\u306E\u5973\u6027"
   normal: {fileID: 21300000, guid: 00f3b5af6a8a546179ae2b1e65f38442, type: 3}
   smile: {fileID: 21300000, guid: 4ee0b4f8082264c1996df86b44fa9e09, type: 3}
-  angry: {fileID: 21300000, guid: 452c4214ca7ea4ff69dc5d1db6d2f9b5, type: 3}
-  cry: {fileID: 21300000, guid: 75a7bf8f446ba4fd38b5a53faa0858d9, type: 3}
-  confuse: {fileID: 21300000, guid: cc0aa769ab24b4818a30cf145c30c002, type: 3}
+  angry: {fileID: 21300000, guid: e2587a8dd946744c794a25f89e3e7aca, type: 3}
+  cry: {fileID: 21300000, guid: ccabca09612c24f11aada4bf331a3bc1, type: 3}
+  confuse: {fileID: 21300000, guid: d188c30077cde4307b4fe1cb0187fddc, type: 3}
   unique: {fileID: 0}
   shyness: {fileID: 0}
