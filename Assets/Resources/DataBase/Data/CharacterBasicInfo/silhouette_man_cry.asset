@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b8440f74f0b8ef4c916b986000d0201, type: 3}
-  m_Name: silhouette_monster
+  m_Name: silhouette_man_cry
   m_EditorClassIdentifier: 
-  key: silhouette_monster
-  characterName: silhouette_monster
+  key: silhouette_man_cry
+  characterName: "\u8001\u4EBA"
   description: 
-  normal: {fileID: 21300000, guid: 99b9d614a29954c1c951d5ec30556f41, type: 3}
-  smile: {fileID: 21300000, guid: 7654db3e35c9a4b3abffd2b0d69518be, type: 3}
+  normal: {fileID: 0}
+  smile: {fileID: 0}
   angry: {fileID: 0}
-  cry: {fileID: 21300000, guid: 77f3c389c335842d698d19f262033990, type: 3}
+  cry: {fileID: 21300000, guid: de461fff096464b58bf60a0eff528acb, type: 3}
   confuse: {fileID: 0}
-  unique: {fileID: 21300000, guid: c46cd64dd4a2043d7becbaf83e52a9db, type: 3}
+  unique: {fileID: 0}
   shyness: {fileID: 0}
