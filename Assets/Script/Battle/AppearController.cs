@@ -79,7 +79,11 @@ public class AppearController : MonoBehaviour
                 for (int i = 0; i < transform.childCount - 3; i++)
                 {
                     var character = transform.GetChild(i).gameObject;
-                    characterDic.Add(character, character.GetComponent<RectTransform>().anchoredPosition.y);
+                    var rectTransform = character.GetComponent<RectTransform>();
+                    if (rectTransform != null)
+                    {
+                        characterDic.Add(character, rectTransform.anchoredPosition.y);
+                    }
                 }
                 //辞書式をvalueの大きい順に並べ替え
                 var sortedKeys = characterDic.OrderBy(x => x.Value).Select(x => x.Key).ToList();
@@ -99,6 +103,7 @@ public class AppearController : MonoBehaviour
         catch
         {
         }
+
         try
         {
             if (time >= buddyTimes[buddyItemNumber] && buddyItemNumber < buddyTimes.Count)
@@ -120,7 +125,11 @@ public class AppearController : MonoBehaviour
                 for (int i = 0; i < transform.childCount - 3; i++)
                 {
                     var buddy = transform.GetChild(i).gameObject;
-                    buddyDic.Add(buddy, buddy.GetComponent<RectTransform>().anchoredPosition.y);
+                    var rectTransform = buddy.GetComponent<RectTransform>();
+                    if (rectTransform != null)
+                    {
+                        buddyDic.Add(buddy, rectTransform.anchoredPosition.y);
+                    }
                 }
                 //辞書式をvalueの大きい順に並べ替え
                 var sortedKeys = buddyDic.OrderBy(x => x.Value).Select(x => x.Key).ToList();

@@ -47,10 +47,13 @@ public class CharacterMenuController : MonoBehaviour
     {
         characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
         saveController = menuController.GetComponent<SaveController>();
-        SetCharacter(saveController.characterSave.list[0].id);
+        if (saveController.characterSave.list.Count > 0)
+        {
+            SetCharacter(saveController.characterSave.list[0].id);
+        }
     }
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         Invoke("SortCharacterButtonsByLevel", 0.1f);
     }

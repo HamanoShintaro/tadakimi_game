@@ -58,7 +58,7 @@ public class TalkCharacterController : MonoBehaviour
             currentCharacterName = senarioTalkScript.GetSenarioTalks()[num].name;
             nameText.text = talkController.characterBasicInfos[currentCharacterName].GetCharacterName();
         }
-        StartCoroutine(toSpeakColor());
+        StartCoroutine(ToSpeakColor());
         image.sprite = talkController.characterBasicInfos[currentCharacterName].GetSprite(senarioTalkScript.GetSenarioTalks()[num].expressions);
 
         while (canvasGroup.alpha < 1.0f)
@@ -70,7 +70,7 @@ public class TalkCharacterController : MonoBehaviour
         rect.position = orgPosition;
     }
 
-    private IEnumerator toSpeakColor()
+    private IEnumerator ToSpeakColor()
     {
         while (image.color.r < GameSettingParams.ActiveColorParam || image.color.g < GameSettingParams.ActiveColorParam || image.color.b < GameSettingParams.ActiveColorParam)
         {
@@ -90,6 +90,7 @@ public class TalkCharacterController : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
     }
+    
     public void CallActive() {
         if (activeCoroutine != null) {
             StopCoroutine(activeCoroutine);
@@ -97,6 +98,7 @@ public class TalkCharacterController : MonoBehaviour
         activeCoroutine = StartCoroutine(Active());
         return;
     }
+
     public void CallInActive()
     {
         if (inActiveCoroutine != null)

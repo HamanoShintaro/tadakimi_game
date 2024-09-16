@@ -29,7 +29,7 @@ public class SaveController : MonoBehaviour
         characterSave.Load();
         characterFormation.Load();
 
-        if (characterSave == null || characterSave.list.Count == 0)
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId))
         {
             InitUser();
         }
@@ -59,7 +59,28 @@ public class SaveController : MonoBehaviour
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentLanguage)) { PlayerPrefs.SetInt(PlayerPrefabKeys.currentLanguage, GameSettingParams.currentLanguage); }
 
         //広告表示モードを表示に設定
-        PlayerPrefs.SetInt(PlayerPrefabKeys.currentAdsMode, 0);
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentAdsMode)) PlayerPrefs.SetInt(PlayerPrefabKeys.currentAdsMode, 0);
+
+        //初期キャラをキャラクターデータに追加
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
+        {
+            /*
+            AddCharacterDate("キャラクター名", 1, true);
+            */
+            Debug.Log("キャラクターデータ初期化");
+        }
+
+        //初期キャラをキャラクターフォーメーション[0]に追加
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
+        {
+            /*
+            UpdateCharacterFormationDate("キャラクター名", 0);
+            */
+            Debug.Log("フォーメーション初期化");
+        }
+
+        // ログを表示する
+        Debug.Log("ユーザー初期化完了");
     }
 
     private void SetInitialValues()
@@ -90,6 +111,9 @@ public class SaveController : MonoBehaviour
         //characterSaveDate.listに追加するキャラクターのデータを追加
         characterSave.list.Add(characterData);
 
+        // ログを表示する
+        Debug.Log("キャラクターが追加されました: ID = " + id + ", レベル = " + level + ", 奥義の有無 = " + hasSpecial);
+
         //上書き保存をする
         characterSave.Save();
     }
@@ -102,6 +126,9 @@ public class SaveController : MonoBehaviour
     public void UpdateCharacterFormationDate(string addId, int selectIndex = 0)
     {
         characterFormation.list[selectIndex] = addId;
+
+        // ログを表示する
+        Debug.Log("キャラクターフォーメーションが更新されました: 追加ID = " + addId + ", 選択インデックス = " + selectIndex);
 
         //上書き保存する
         characterFormation.Save();

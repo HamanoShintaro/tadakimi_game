@@ -29,45 +29,45 @@ MonoBehaviour:
   rank: 3
   status:
   - cost: 0
-    attack: 0
+    attack: 10
+    interval: 0
+    hp: 100
+    speed: 25
+    atkKB: 50
+    defKB: 50
+    growth: 20
+  - cost: 0
+    attack: 15
     interval: 0
     hp: 150
     speed: 25
-    atkKB: 0
+    atkKB: 50
     defKB: 50
     growth: 240
   - cost: 0
-    attack: 0
+    attack: 21
     interval: 0
-    hp: 150
+    hp: 210
     speed: 25
-    atkKB: 0
+    atkKB: 50
     defKB: 50
-    growth: 240
+    growth: 800
   - cost: 0
-    attack: 0
+    attack: 28
     interval: 0
-    hp: 150
+    hp: 340
     speed: 25
-    atkKB: 0
+    atkKB: 50
     defKB: 50
-    growth: 240
+    growth: 2000
   - cost: 0
-    attack: 0
+    attack: 34
     interval: 0
-    hp: 150
+    hp: 510
     speed: 25
-    atkKB: 0
+    atkKB: 50
     defKB: 50
-    growth: 240
-  - cost: 0
-    attack: 0
-    interval: 0
-    hp: 150
-    speed: 25
-    atkKB: 0
-    defKB: 50
-    growth: 240
+    growth: 0
   skill:
     name: "\u9B54\u7D20\u64CD\u4F5C"
     cost: 250
@@ -76,10 +76,10 @@ MonoBehaviour:
     effect: {fileID: 0}
     Ratio: 2.5
   special:
-    name: "\u306A\u3057"
-    cost: 9999
-    cd: 9999
-    Detail: "\u306A\u3057"
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
     effect: {fileID: 0}
     Ratio: 5
     still: {fileID: 0}
