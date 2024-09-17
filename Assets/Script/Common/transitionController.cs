@@ -13,6 +13,7 @@ public class transitionController : MonoBehaviour
     void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        StartCoroutine(StartTransition(canvasGroup));
     }
 
     public IEnumerator StartTransition(CanvasGroup canvasGroup)
