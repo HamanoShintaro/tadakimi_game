@@ -85,8 +85,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2431877166153006106}
-  - component: {fileID: 224128901787474872}
   - component: {fileID: 2431877166153006108}
+  - component: {fileID: 224128901787474872}
   - component: {fileID: 2431877166153006109}
   - component: {fileID: 2431877166153006110}
   - component: {fileID: 2431877166153006111}
@@ -124,6 +124,14 @@ RectTransform:
   m_AnchoredPosition: {x: 1139, y: 486}
   m_SizeDelta: {x: 120, y: 200.0732}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!222 &2431877166153006108
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431877166153006107}
+  m_CullTransparentMesh: 1
 --- !u!114 &224128901787474872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,14 +156,6 @@ MonoBehaviour:
   canState: 1
   normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
   hp: 100
---- !u!222 &2431877166153006108
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2431877166153006107}
-  m_CullTransparentMesh: 1
 --- !u!114 &2431877166153006109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9c3e8f5504b44bb8d71f939a967e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 7424677926419268868}
+  skillPrefab: {fileID: 0}
   generateInterval: 5
   generateOffset: {x: 0, y: 0}
 --- !u!1 &7424677926613961665

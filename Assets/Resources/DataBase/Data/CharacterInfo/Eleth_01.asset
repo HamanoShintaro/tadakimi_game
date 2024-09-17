@@ -28,7 +28,7 @@ MonoBehaviour:
     prefab: {fileID: 5095262611280852148, guid: 64998c55f42424ef7b25dfa6c5324ba8, type: 3}
   rank: 3
   status:
-  - cost: 0
+  - cost: 250
     attack: 3
     interval: 0
     hp: 100
@@ -36,7 +36,7 @@ MonoBehaviour:
     atkKB: 40
     defKB: 70
     growth: 15
-  - cost: 0
+  - cost: 250
     attack: 5
     interval: 0
     hp: 150
@@ -44,7 +44,7 @@ MonoBehaviour:
     atkKB: 40
     defKB: 70
     growth: 180
-  - cost: 0
+  - cost: 250
     attack: 6
     interval: 0
     hp: 210
@@ -52,7 +52,7 @@ MonoBehaviour:
     atkKB: 40
     defKB: 70
     growth: 600
-  - cost: 0
+  - cost: 250
     attack: 8
     interval: 0
     hp: 340
@@ -60,7 +60,7 @@ MonoBehaviour:
     atkKB: 40
     defKB: 70
     growth: 1500
-  - cost: 0
+  - cost: 250
     attack: 10
     interval: 0
     hp: 510
@@ -70,16 +70,16 @@ MonoBehaviour:
     growth: 0
   skill:
     name: "\u8FD1\u3065\u304F\u3053\u3068\u306F\u8A31\u3057\u307E\u305B\u3093"
-    cost: 10
+    cost: 100
     cd: 10
     Detail: "\u81EA\u5206\u306E\u653B\u6483\u7BC4\u56F2\u306E\u6575\u306B\u5DE8\u5927\u306A\u304A\u76C6\u3092\u3076\u3064\u3051\u3001\u653B\u6483\u529B\u306E5\u500D\u306E\u30C0\u30E1\u30FC\u30B8\u3068\u3001\u78BA\u5B9A\u3067\u30CE\u30C3\u30AF\u30D0\u30C3\u30AF\u52B9\u679C\u3092\u4E0E\u3048\u308B\u3002"
     effect: {fileID: 0}
     Ratio: 0
   special:
-    name: "\u3042\u306A\u305F\u3092\u4E00\u4EBA\u306B\u306F\u3055\u305B\u307E\u305B\u3093"
-    cost: 500
-    cd: 120
-    Detail: "\u81EA\u5206\u3092\u72A0\u7272\u306B\u3057\u3066\u3067\u3082\u4EF2\u9593\u3092\u5B88\u308A\u305F\u3044\u3068\u9858\u3046\u3002\u81EA\u5206\u306E\u6700\u5927HP\u3092\u653B\u6483\u529B\u306E50\u500D\u30A2\u30C3\u30D7\u3057\u3001\u30CE\u30C3\u30AF\u30D0\u30C3\u30AF\u62B5\u6297\u3092\u6700\u5927\u5024\u306B\u3059\u308B\u3002"
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
     effect: {fileID: 0}
     Ratio: 0
     still: {fileID: 0}

@@ -22,9 +22,9 @@ namespace Battle
             buddyTargets.Clear();
         }
 
-        public void SkillAction()
+        public void SkillActionToTargets()
         {
-            StartCoroutine(Action());
+            StartCoroutine(SkillActionToTargetsCoroutine());
         }
 
         protected virtual void OnTriggerStay2D(Collider2D target)
@@ -41,7 +41,7 @@ namespace Battle
             }
         }
 
-        public IEnumerator Action()
+        protected IEnumerator SkillActionToTargetsCoroutine()
         {
             yield return null;
             yield return null;

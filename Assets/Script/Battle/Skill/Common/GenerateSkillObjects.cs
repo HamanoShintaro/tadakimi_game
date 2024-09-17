@@ -25,4 +25,9 @@ public class GenerateSkillObjects : MonoBehaviour
         var skillObject = Instantiate(skillPrefab, generatePosition, transform.rotation);
         skillObject.transform.parent = GameObject.Find("Canvas_Static/[CharacterPanel]").transform;
     }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 }

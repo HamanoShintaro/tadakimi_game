@@ -20,12 +20,28 @@ public class StatusBarController : MonoBehaviour
     public void UpdateStatusUI()
     {
         //所持金額を取得して反映
-        var totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
-        moneyText.text = totalMoney.ToString();
+        var totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney, 0);
+        if (moneyText != null)
+        {
+            moneyText.text = totalMoney.ToString();
+        }
+        else
+        {
+            Debug.LogError("moneyTextがnullです。");
+        }
 
         //章と話を取得して反映
-        var chapter = PlayerPrefs.GetString(PlayerPrefabKeys.clearStageId).Substring(0, 1);
-        var story = PlayerPrefs.GetString(PlayerPrefabKeys.clearStageId).Substring(1, 2);
+        var clearStageId = PlayerPrefs.GetString(PlayerPrefabKeys.clearStageId, "100");
+        var chapter = clearStageId.Substring(0, 1);
+        var story = clearStageId.Substring(1, 2);
+        if (clearStageText != null)
+        {
+            clearStageText.text = $"{chapter}章{story}話";
+        }
+        else
+        {
+            Debug.LogError("clearStageTextがnullです。");
+        }
         clearStageText.text = $"{chapter}章{story}話";
     }
 }

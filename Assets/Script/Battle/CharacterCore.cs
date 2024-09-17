@@ -256,7 +256,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         magicPowerController.magicPower -= specialCost;
         SetCharacterPanelIndex();
         animator.SetBool("Special", true);
-        Debug.Log($"{characterId}はスペシャルを使用した");
+        Debug.Log($"{characterId}はスペシャルのアニメーションを発動した");
     }
 
     public void EndSpecialAction()
@@ -271,7 +271,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         magicPowerController.magicPower -= skillCost;
         SetCharacterPanelIndex();
         animator.SetBool("Skill", true);
-        Debug.Log($"{characterId}はスキルを使用した");
+        Debug.Log($"{characterId}はスキルのアニメーションを発動した");
     }
 
     public void EndSkillAction()
@@ -296,7 +296,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             }
         }
         animator.SetBool("Attack", true);
-        Debug.Log($"{characterId}は通常攻撃をした");
+        Debug.Log($"{characterId}は通常攻撃のアニメーションを発動した");
     }
 
     public void EndNomalAction()

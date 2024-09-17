@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TalkController : MonoBehaviour
 {
     private string stageId;
-    public SenarioTalkScript senarioTalkScript; // TODO修正
+    public SenarioTalkScript senarioTalkScript;
     public int num;
     private GameObject currentBublle;
     private GameObject secondBubble;
@@ -119,7 +119,7 @@ public class TalkController : MonoBehaviour
             if (changeSceneFlg)
             {
                 changeSceneFlg = false;
-                StartCoroutine(canvasGroupObjct.GetComponent<transitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), "Battle"));
+                StartCoroutine(canvasGroupObjct.GetComponent<TransitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), "Battle"));
             }
         }
     }

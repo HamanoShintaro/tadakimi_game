@@ -3,37 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class titletext : MonoBehaviour
+public class TitleText : MonoBehaviour
 {
-    public float blinkingTime;
-    private float time;
+    [Header("ブリンクの時間")]
+    [SerializeField]
+    private float blinkingTime;
     private Image image;
 
-    private Color white = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-    private Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+    private readonly Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 
     void Start()
     {
         image = GetComponent<Image>();
     }
 
-    void Update()
+    private void OnEnable() 
     {
-        time = time + Time.deltaTime;
+        StartCoroutine(BlinkImage());
+    }
 
-        if (time > blinkingTime)
+    private IEnumerator BlinkImage()
+    {
+        while (true)
         {
-
-            if (image.color == white)
-            {
-                image.color = transparent;
-            }
-            else
-            {
-                image.color = white;
-            }
-            time = 0.0f;
+            image.color = (image.color == Color.white) ? transparent : Color.white;
+            yield return new WaitForSeconds(blinkingTime);
         }
+    }
 
+    private void OnDisable() 
+    {
+        StopAllCoroutines();
     }
 }

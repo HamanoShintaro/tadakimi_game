@@ -1,42 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
 
-public class CSVLoader : MonoBehaviour
+public class CSVLoaderCharacter : MonoBehaviour
 {
     [Header("読み込むCSV")]
-    public TextAsset[] characterDataBaseCsvFile, senarioTalkScriptCsvFile;
+    public TextAsset[] characterDataBaseCsvFile;
 
     [Header("反映させるCharacterInfoDataBase")]
     public CharacterInfoDataBase characterDataBase;
 
-    [Header("反映させるSenarioTalkScriptDateBase")]
-    public SenarioTalkScriptDateBase senarioTalkScriptDateBase;
+    [SerializeField]
+    private bool canLoad = true;
 
     private void Start()
     {
-        // CSVからキャラクターデータを読み込む
-        LoadCharacterInfoDataBaseCsv();
-        // CSVからシナリオテキストを読み込む
-        LoadSenarioTalkScriptCsv();
-#if UNITY_EDITOR
-        SaveData();
-        UnityEditor.AssetDatabase.Refresh();
-#endif
+        if (canLoad)
+        {
+            // CSVからキャラクターデータを読み込む
+            LoadCharacterInfoDataBaseCsv();
+        }
     }
-
-    #if UNITY_EDITOR
-    // データを保存する関数
-    private void SaveData()
-    {
-        // CharacterInfoDataBaseを保存
-        UnityEditor.EditorUtility.SetDirty(characterDataBase);
-        // SenarioTalkScriptDateBaseを保存
-        UnityEditor.EditorUtility.SetDirty(senarioTalkScriptDateBase);
-        // プロジェクトファイルを保存
-        UnityEditor.AssetDatabase.SaveAssets();
-    }
-    #endif
 
     public void LoadCharacterInfoDataBaseCsv()
     {
@@ -197,49 +183,6 @@ public class CSVLoader : MonoBehaviour
 
                 characterDataBase.characterInfoList[index] = row;
 
-                index++;
-            }
-        }
-    }
-
-    public void LoadSenarioTalkScriptCsv()
-    {
-        for (int i = 0; i < senarioTalkScriptCsvFile.Length; i++)
-        {
-            StringReader reader = new StringReader(senarioTalkScriptCsvFile[i].text);
-
-            for (int j = 0; j < 3; j++)
-            {
-                reader.ReadLine();
-            }
-
-            int index = 0;
-            while (reader.Peek() > -1)
-            {
-                // シナリオテキストの(index + 3)行目を取得
-                string line = reader.ReadLine();
-
-                // シナリオテキストの(index + 3)行目の各列をvaluesに格納
-                string[] values = line.Split(',');
-
-                // 取得したデータをオブジェクトに格納
-                SenarioTalkScript row = senarioTalkScriptDateBase.senarioTalkScripts[i];
-
-                if (index < 0 || index >= row.senarioTalks.Count || row.senarioTalks[index] == null)
-                {
-                    return;
-                }
-                
-                var senarioTalkScript = row.senarioTalks[index];
-                senarioTalkScript.name = values[1];
-                senarioTalkScript.script_jp = values[2];
-                senarioTalkScript.script_en = values[3];
-                senarioTalkScript.script_ch = values[4];
-                senarioTalkScript.LR = values[5];
-                senarioTalkScript.expressions = values[6];
-                senarioTalkScript.type = values[7];
-                senarioTalkScript.script = senarioTalkScript.script_jp;
-                senarioTalkScriptDateBase.senarioTalkScripts[i].senarioTalks[index] = senarioTalkScript;
                 index++;
             }
         }

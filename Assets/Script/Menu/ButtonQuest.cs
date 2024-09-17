@@ -4,7 +4,6 @@ using StateManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class ButtonQuest : MonoBehaviour
 {
     private bool oneTimeFlg;
@@ -26,7 +25,7 @@ public class ButtonQuest : MonoBehaviour
                 this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
                 this.GetComponent<AudioSource>().Play();
             }
-            StartCoroutine(canvasGroupObjct.GetComponent<transitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), sceneName));
+            StartCoroutine(canvasGroupObjct.GetComponent<TransitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), sceneName));
         }
     }
 }

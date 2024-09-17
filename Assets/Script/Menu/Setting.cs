@@ -70,8 +70,9 @@ public class Setting : MonoBehaviour
 
     private void SetAudioMixerValue(string parameterName, string key, float defaultValue)
     {
-        float volume = Mathf.Clamp(PlayerPrefs.GetFloat(key, defaultValue), 0.01f, 1f);
-        audioMixer.SetFloat(parameterName, Mathf.Log10(volume) * 20);
+        float volume = PlayerPrefs.GetFloat(key, defaultValue);
+        audioMixer.SetFloat(parameterName, volume);
+         Debug.Log($"{key}を{volume}に変更");
     }
 
     public void Reset()
@@ -93,28 +94,19 @@ public class Setting : MonoBehaviour
 
     private void OnBgmSliderValueChanged(float value)
     {
-        value = Mathf.Clamp(value, 0.01f, 1f);
-        float logValue = Mathf.Log10(value) * 20;
         PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeBGM, value);
-        audioMixer.SetFloat("BGM", logValue);
-        Debug.Log("BGM音量の変更: " + value);
+        SetInitialValues();
     }
 
     private void OnSeSliderValueChanged(float value)
     {
-        value = Mathf.Clamp(value, 0.01f, 1f);
-        float logValue = Mathf.Log10(value) * 20;
         PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeSE, value);
-        audioMixer.SetFloat("SE", logValue);
-        Debug.Log("SE音量の変更: " + value);
+        SetInitialValues();
     }
 
     private void OnCvSliderValueChanged(float value)
     {
-        value = Mathf.Clamp(value, 0.01f, 1f);
-        float logValue = Mathf.Log10(value) * 20;
         PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeCV, value);
-        audioMixer.SetFloat("CV", logValue);
-        Debug.Log("CV音量の変更: " + value);
+        SetInitialValues();
     }
 }

@@ -64,18 +64,14 @@ public class SaveController : MonoBehaviour
         //初期キャラをキャラクターデータに追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
         {
-            /*
-            AddCharacterDate("キャラクター名", 1, true);
-            */
+            // AddCharacterDate("キャラクター名", 1, true);
             Debug.Log("キャラクターデータ初期化");
         }
 
         //初期キャラをキャラクターフォーメーション[0]に追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
         {
-            /*
-            UpdateCharacterFormationDate("キャラクター名", 0);
-            */
+            // UpdateCharacterFormationDate("キャラクター名", 0);
             Debug.Log("フォーメーション初期化");
         }
 
@@ -89,9 +85,9 @@ public class SaveController : MonoBehaviour
         float seVolume = Mathf.Clamp(PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE, GameSettingParams.seVolume), 0.01f, 1f);
         float cvVolume = Mathf.Clamp(PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeCV, GameSettingParams.cvVolume), 0.01f, 1f);
 
-        audioMixer.SetFloat("BGM", Mathf.Log10(bgmVolume) * 20);
-        audioMixer.SetFloat("SE", Mathf.Log10(seVolume) * 20);
-        audioMixer.SetFloat("CV", Mathf.Log10(cvVolume) * 20);
+        audioMixer.SetFloat("BGM", bgmVolume);
+        audioMixer.SetFloat("SE", seVolume);
+        audioMixer.SetFloat("CV", cvVolume);
     }
 
     /// <summary>

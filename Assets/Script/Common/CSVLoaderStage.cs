@@ -15,18 +15,16 @@ public class CSVLoaderStage : MonoBehaviour
     // 敵と仲間のタイプを選ぶ
     private CharacterType characterType;
 
-    // 敵と仲間のタイプを選ぶEnum型
-    private enum CharacterType
-    {
-        Enemy,
-        Buddy
-    }
+    [SerializeField]
+    private bool canLoad = true;
 
-    // スタート時にCSVを読み込む
-    void Start()
+    private void Start()
     {
-        InitializeLists();
-        LoadCSV();
+        if (canLoad)
+        {
+            InitializeLists();
+            LoadCSV();
+        }
     }
 
     // ステージデータベースの3つのリストを初期化するメソッド
@@ -78,7 +76,6 @@ public class CSVLoaderStage : MonoBehaviour
                     BattleStageSummonEnemy row = stageDataBase.battleStageSummonEnemies[i];
                     for (int j = 0; j < values.Length / 4; j++)
                     {
-                        Debug.Log(values[j * 4 + 1]);
                         if (values[j * 4 + 1] == "敵")
                         {
                             if (float.TryParse(values[j * 4], out float tempFloat))
@@ -106,7 +103,6 @@ public class CSVLoaderStage : MonoBehaviour
                     BattleStageSummonBuddy row = stageDataBase.battleStageSummonBuddies[i];
                     for (int j = 0; j < values.Length / 4; j++)
                     {
-                        Debug.Log(values[j * 4 + 1]);
                         if (values[j * 4 + 1] == "味方")
                         {
                             if (float.TryParse(values[j * 4], out float tempFloat))

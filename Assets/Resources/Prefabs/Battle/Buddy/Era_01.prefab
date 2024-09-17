@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 367111837}
   - component: {fileID: 367111839}
   - component: {fileID: 367111838}
-  - component: {fileID: 5175520145551299484}
-  - component: {fileID: 7661008842996267769}
-  - component: {fileID: 1746720971219685615}
   m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
@@ -79,68 +76,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5175520145551299484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367111836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6f292ebe94b5420a970210945c7cfa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterId: 2
-  enemyTargets: []
-  buddyTargets: []
---- !u!61 &7661008842996267769
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367111836}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -5.671631, y: -2.583149}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 400, y: 60}
-  m_EdgeRadius: 0
---- !u!50 &1746720971219685615
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367111836}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &752206702
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +237,7 @@ GameObject:
   - component: {fileID: 5095262611280852149}
   - component: {fileID: 5095262611280852147}
   - component: {fileID: 7211816822891827991}
+  - component: {fileID: 838664713393672201}
   - component: {fileID: 5095262611280852146}
   - component: {fileID: 5095262611280852145}
   - component: {fileID: 5095262611280852144}
@@ -369,6 +305,21 @@ MonoBehaviour:
   canState: 1
   normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
   hp: 100
+--- !u!114 &838664713393672201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095262611280852148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f292ebe94b5420a970210945c7cfa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterId: 0
+  enemyTargets: []
+  buddyTargets: []
 --- !u!114 &5095262611280852146
 MonoBehaviour:
   m_ObjectHideFlags: 0
