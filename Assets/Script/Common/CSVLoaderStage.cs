@@ -83,7 +83,6 @@ public class CSVLoaderStage : MonoBehaviour
                         {
                             if (float.TryParse(values[j * 4], out float tempFloat))
                             {
-                                Debug.Log("タイム: " + tempFloat);
                                 row.Times.Add(tempFloat);
                             }
                             else
@@ -93,7 +92,6 @@ public class CSVLoaderStage : MonoBehaviour
                             row.Enemies.Add(Resources.Load<GameObject>("Prefabs/Battle/Enemy/" + values[j * 4 + 2]));
                             if (float.TryParse(values[j * 4 + 3], out tempFloat))
                             {
-                                Debug.Log("レベル: " + tempFloat);
                                 row.Levels.Add((int)tempFloat);
                             }
                             else
@@ -113,7 +111,6 @@ public class CSVLoaderStage : MonoBehaviour
                         {
                             if (float.TryParse(values[j * 4], out float tempFloat))
                             {
-                                Debug.Log("タイム: " + tempFloat);
                                 row.Times.Add(tempFloat);
                             }
                             else
@@ -123,7 +120,6 @@ public class CSVLoaderStage : MonoBehaviour
                             row.Buddies.Add(Resources.Load<GameObject>("Prefabs/Battle/Buddy/" + values[j * 4 + 2]));
                             if (float.TryParse(values[j * 4 + 3], out tempFloat))
                             {
-                                Debug.Log("レベル: " + tempFloat);
                                 row.Levels.Add((int)tempFloat);
                             }
                             else

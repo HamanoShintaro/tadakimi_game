@@ -16,15 +16,15 @@ namespace Battle
         public List<GameObject> enemyTargets = new List<GameObject>();
         public List<GameObject> buddyTargets = new List<GameObject>();
 
-        protected virtual void OnEnable()
-        {
-            StartCoroutine(Action());
-        }
-
         protected virtual void OnDisable()
         {
             enemyTargets.Clear();
             buddyTargets.Clear();
+        }
+
+        public void SkillAction()
+        {
+            StartCoroutine(Action());
         }
 
         protected virtual void OnTriggerStay2D(Collider2D target)
@@ -43,7 +43,8 @@ namespace Battle
 
         public IEnumerator Action()
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return null;
+            yield return null;
             foreach (GameObject target in enemyTargets)
             {
                 SkillActionToEnemy(target);
@@ -52,6 +53,7 @@ namespace Battle
             {
                 SkillActionforBuddy(target);
             }
+            Debug.Log("スキルアクション発動");
         }
 
         protected virtual void SkillActionToEnemy(GameObject target)

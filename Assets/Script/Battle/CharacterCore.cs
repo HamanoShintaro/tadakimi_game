@@ -106,7 +106,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         InitializeComponents();
         StartCoroutine(SkillCoolTimeCount());
 
-        // キャラクターが出現した瞬間のY軸座標を保存
         originalY = transform.position.y;
     }
 
@@ -217,7 +216,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         transform.position = new Vector2(newPositionX, transform.position.y);
     }
 
-    // 行動範囲(x)を制限
     private bool IsOutOfBounds(float positionX)
     {
         return positionX < minLimitMovePosition || positionX > maxLimitMovePosition;
@@ -258,7 +256,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         magicPowerController.magicPower -= specialCost;
         SetCharacterPanelIndex();
         animator.SetBool("Special", true);
-        Debug.Log($"{characterId} : スペシャルアクション");
+        Debug.Log($"{characterId}はスペシャルを使用した");
     }
 
     public void EndSpecialAction()
@@ -273,7 +271,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         magicPowerController.magicPower -= skillCost;
         SetCharacterPanelIndex();
         animator.SetBool("Skill", true);
-        Debug.Log($"{characterId} : スキルアクション");
+        Debug.Log($"{characterId}はスキルを使用した");
     }
 
     public void EndSkillAction()
@@ -298,8 +296,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             }
         }
         animator.SetBool("Attack", true);
-        Debug.Log($"{characterId} : ノーマルアクション");
+        Debug.Log($"{characterId}は通常攻撃をした");
     }
+
     public void EndNomalAction()
     {
         if (isLeader)
@@ -322,12 +321,10 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         if (isLeader)
         {
             InflictDamageAsLeader(ratio);
-            Debug.Log($"{characterId} : リーダーのダメージ");
         }
         else
         {
             InflictDamageAsNonLeader(ratio);
-            Debug.Log($"{characterId} : ノンリーダーのダメージ");
         }
         ResetTargets();
     }
@@ -468,6 +465,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         {
             StartCoroutine(KnockBack());
         }
+        Debug.Log($"{characterId}が{atkPower}ダメージを受けた");
     }
 
     public void Recovery(int heal)
