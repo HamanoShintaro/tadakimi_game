@@ -121,8 +121,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1139, y: 486}
-  m_SizeDelta: {x: 120, y: 200.0732}
+  m_AnchoredPosition: {x: 1139, y: 0}
+  m_SizeDelta: {x: 120, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &2431877166153006108
 CanvasRenderer:
@@ -573,7 +573,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7424677926419268867}
-  - component: {fileID: 683815182841779267}
+  - component: {fileID: 2283882287296995403}
   m_Layer: 6
   m_Name: SkillEffect
   m_TagString: Untagged
@@ -602,7 +602,7 @@ RectTransform:
   m_AnchoredPosition: {x: -30, y: 91}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &683815182841779267
+--- !u!114 &2283882287296995403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -614,8 +614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9c3e8f5504b44bb8d71f939a967e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 0}
-  generateInterval: 5
+  skillPrefab: {fileID: 4622618029601968717, guid: 18dbed6ab51e34c1695da61ad43f6078, type: 3}
+  generateInterval: 4
   generateOffset: {x: 0, y: 0}
 --- !u!1 &7424677926613961665
 GameObject:
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9ccf17cdaffd4919a2c7b9dda1b6e82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c690e283643664494b6ed48035edadaf, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

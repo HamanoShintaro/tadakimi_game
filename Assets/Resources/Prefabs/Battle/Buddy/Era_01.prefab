@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6f292ebe94b5420a970210945c7cfa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterId: 0
+  characterId: 2
   enemyTargets: []
   buddyTargets: []
 --- !u!114 &5095262611280852146

@@ -148,7 +148,7 @@ MonoBehaviour:
   characterId: 6
   characterType: 0
   attackType: 0
-  characterRole: 0
+  characterRole: 1
   isLeader: 0
   longAttackDistance: 600
   level: 0
@@ -262,7 +262,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -100.32379, y: 123.438446}
+  m_Offset: {x: -179.80133, y: 123.438446}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -273,7 +273,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 254.04752, y: 120.02313}
+  m_Size: {x: 413.00256, y: 120.02313}
   m_EdgeRadius: 0
 --- !u!95 &2431877166153006083
 Animator:
