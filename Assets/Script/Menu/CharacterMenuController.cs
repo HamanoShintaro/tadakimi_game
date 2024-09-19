@@ -100,7 +100,8 @@ public class CharacterMenuController : MonoBehaviour
         characterEffect.GetComponent<Image>().sprite = character.image.effect;
 
         //レベルの取得
-        int level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level;
+        var characterSave = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId);
+        int level = characterSave != null ? characterSave.level : 1;
         int index = level - 1;
 
         //キャラクターステータスのセット
