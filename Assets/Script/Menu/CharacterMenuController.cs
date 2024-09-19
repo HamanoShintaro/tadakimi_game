@@ -46,7 +46,18 @@ public class CharacterMenuController : MonoBehaviour
     private void Start()
     {
         characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
+        if (characterInfoDataBase == null)
+        {
+            Debug.LogError("CharacterInfoDataBaseのロードに失敗しました。");
+            return;
+        }
+        
         saveController = menuController.GetComponent<SaveController>();
+        if (saveController == null)
+        {
+            Debug.LogError("SaveControllerが見つかりませんでした。");
+            return;
+        }
         if (saveController.characterSave.list.Count > 0)
         {
             SetCharacter(saveController.characterSave.list[0].id);
@@ -68,7 +79,7 @@ public class CharacterMenuController : MonoBehaviour
         CharacterInfo character = characterInfoDataBase.GetCharacterInfoByID(characterId);
         if (character == null)
         {
-            Debug.LogError("Character not found: " + characterId);
+            Debug.LogError("キャラクターがありません" + characterId);
             return;
         }
         
@@ -123,7 +134,7 @@ public class CharacterMenuController : MonoBehaviour
         CharacterInfo character = characterInfoDataBase.GetCharacterInfoByID(characterId);
         if (character == null)
         {
-            Debug.LogError("Character not found: " + characterId);
+            Debug.LogError("キャラクターがありません" + characterId);
             return;
         }
 
@@ -158,6 +169,11 @@ public class CharacterMenuController : MonoBehaviour
 
         // キャラクターのソートしたリストを取得
         var sortedCharacterList = new List<SaveController.CharacterSaveData.CharacterData>(saveController.characterSave.list);
+        if (sortedCharacterList == null)
+        {
+            Debug.LogError("キャラクターのソートリストがnullです。");
+            return;
+        }
         // レベルの高い順に並べ替え
         sortedCharacterList.Sort((cs1, cs2) => cs2.level.CompareTo(cs1.level));
 

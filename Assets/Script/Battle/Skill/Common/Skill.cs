@@ -13,6 +13,9 @@ namespace Battle
         [SerializeField]
         protected CharacterId characterId;
 
+        [SerializeField]
+        protected AttackType attackType = AttackType.Single;
+
         public List<GameObject> enemyTargets = new List<GameObject>();
         public List<GameObject> buddyTargets = new List<GameObject>();
 
@@ -48,10 +51,12 @@ namespace Battle
             foreach (GameObject target in enemyTargets)
             {
                 SkillActionToEnemy(target);
+                if (attackType == AttackType.Single) break;
             }
             foreach (GameObject target in buddyTargets)
             {
                 SkillActionforBuddy(target);
+                if (attackType == AttackType.Single) break;
             }
             Debug.Log("スキルアクション発動");
         }
@@ -80,7 +85,13 @@ namespace Battle
             //セーブデータを取得
             saveController.characterSave.Load();
             //characterIdのセーブデータのレベルを取得
-            var level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level;
+            var characterSaveData = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString());
+            if (characterSaveData == null)
+            {
+                Debug.LogError($"Character ID {characterId} のセーブデータが見つかりませんでした。");
+                return 1;
+            }
+            var level = characterSaveData.level;
             return level;
         }
     }

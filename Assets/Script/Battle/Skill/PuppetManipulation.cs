@@ -24,11 +24,13 @@ namespace Battle
             if (GetLevel().Equals(10))
             {
                 var puppetTank = Instantiate(_puppetTank, transform.position, Quaternion.identity);
+                puppetTank.transform.parent = GameObject.Find("Canvas_Static/[CharacterPanel]").transform;
                 puppetTank.GetComponent<CharacterCore>().level = GetLevel();
             }
             else
             {
                 var puppet = Instantiate(_puppet, transform.position, Quaternion.identity);
+                puppet.transform.parent = GameObject.Find("Canvas_Static/[CharacterPanel]").transform;
                 puppet.GetComponent<CharacterCore>().level = GetLevel();
             }
             var attack = 0;

@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterId: 6
+  attackType: 1
   enemyTargets: []
   buddyTargets: []
 --- !u!114 &2431877166153006109

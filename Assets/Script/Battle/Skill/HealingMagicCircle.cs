@@ -14,14 +14,18 @@ namespace Battle
         private IEnumerator Heal()
         {
             WaitForSeconds wait = new WaitForSeconds(5);
-            while (true)
+            float elapsedTime = 0f;
+            while (elapsedTime < 30f)
             {
                 foreach (GameObject target in buddyTargets)
                 {
                     target.GetComponent<CharacterCore>().Recovery(GetStatus().attack * 5);
                 }
                 yield return wait;
+                elapsedTime += 5f;
             }
+            StopCoroutine(Heal());
+            Destroy(this.gameObject);
         }
 
         protected override void OnDisable()

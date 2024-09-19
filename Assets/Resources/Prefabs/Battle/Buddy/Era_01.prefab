@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 5095262611280852149}
   - component: {fileID: 5095262611280852147}
   - component: {fileID: 7211816822891827991}
-  - component: {fileID: 838664713393672201}
+  - component: {fileID: -3216525245425135765}
   - component: {fileID: 5095262611280852146}
   - component: {fileID: 5095262611280852145}
   - component: {fileID: 5095262611280852144}
@@ -305,7 +305,7 @@ MonoBehaviour:
   canState: 1
   normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
   hp: 100
---- !u!114 &838664713393672201
+--- !u!114 &-3216525245425135765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,10 +314,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5095262611280852148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6f292ebe94b5420a970210945c7cfa8, type: 3}
+  m_Script: {fileID: 11500000, guid: 232fef41136c4467f99a4776b7114b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterId: 2
+  attackType: 1
   enemyTargets: []
   buddyTargets: []
 --- !u!114 &5095262611280852146

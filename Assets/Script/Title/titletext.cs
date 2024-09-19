@@ -8,14 +8,9 @@ public class TitleText : MonoBehaviour
     [Header("ブリンクの時間")]
     [SerializeField]
     private float blinkingTime;
-    private Image image;
 
-    private readonly Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-
-    void Start()
-    {
-        image = GetComponent<Image>();
-    }
+    [SerializeField]
+    private CanvasGroup canvasGroup;
 
     private void OnEnable() 
     {
@@ -26,8 +21,16 @@ public class TitleText : MonoBehaviour
     {
         while (true)
         {
-            image.color = (image.color == Color.white) ? transparent : Color.white;
-            yield return new WaitForSeconds(blinkingTime);
+            for (float t = 0; t < 1; t += Time.deltaTime / blinkingTime)
+            {
+                canvasGroup.alpha = Mathf.Lerp(0, 1, t);
+                yield return null;
+            }
+            for (float t = 0; t < 1; t += Time.deltaTime / blinkingTime)
+            {
+                canvasGroup.alpha = Mathf.Lerp(1, 0, t);
+                yield return null;
+            }
         }
     }
 

@@ -4239,11 +4239,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3293914579505710742, guid: b2b93318745c4483b9d4792d4057b33c, type: 3}
       propertyPath: canLoad
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3293914579505710742, guid: b2b93318745c4483b9d4792d4057b33c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4728117415005052129, guid: b2b93318745c4483b9d4792d4057b33c, type: 3}
       propertyPath: m_RootOrder
@@ -12080,7 +12080,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 211674990}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.1735057
+  m_Size: 0.17350571
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19466,8 +19466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refCamera: {fileID: 1557782009}
-  width: 1628
-  height: 916
+  width: 1627
+  height: 915
   pixelPerUnit: 100
   fixedSize: 591.8
 --- !u!1 &1569419031

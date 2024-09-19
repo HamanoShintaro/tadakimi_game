@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 630410051}
   - component: {fileID: 630410050}
   - component: {fileID: 630410054}
+  - component: {fileID: 630410055}
   m_Layer: 0
   m_Name: Text_Title
   m_TagString: Untagged
@@ -419,7 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94b930b370c6442facd2e52bfce9b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blinkingTime: 0.01
+  blinkingTime: 1
+  canvasGroup: {fileID: 630410055}
 --- !u!114 &630410051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,6 +516,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &630410055
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630410048}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &631041744
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,8 +829,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refCamera: {fileID: 812887526}
-  width: 1417
-  height: 797
+  width: 1627
+  height: 915
   pixelPerUnit: 100
   fixedSize: 591.8
 --- !u!1 &909761724

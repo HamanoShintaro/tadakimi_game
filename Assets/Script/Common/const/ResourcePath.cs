@@ -10,5 +10,5 @@ public class ResourcePath
     public const string characterInfoPath = dataPath + "CharacterInfo/";
 
     public const string databasePath = "DataBase/DataBase/";
-    public const string CharacterInfoDataBasePath = databasePath + "CharacterInfoDataBase";
+    public const string CharacterInfoDataBasePath = databasePath + "CSVCharacterInfoDataBase";
 }
