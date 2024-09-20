@@ -7179,8 +7179,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -480, y: 250}
-  m_SizeDelta: {x: 960, y: 1000}
+  m_AnchoredPosition: {x: -584, y: 0}
+  m_SizeDelta: {x: 1168, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &640995986
 MonoBehaviour:
@@ -8077,7 +8077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!60 &842893470
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8133,7 +8133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.040283, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1.1666, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &842893473
@@ -13539,7 +13539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2633, y: -364}
+  m_AnchoredPosition: {x: 2080, y: -465}
   m_SizeDelta: {x: 900, y: 900}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!61 &1003201801
@@ -13747,7 +13747,7 @@ RectTransform:
   m_GameObject: {fileID: 1043616672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7359375, y: 0.7359375, z: 0.7359375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 842893472}
@@ -13758,8 +13758,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 706.5, y: 530}
-  m_SizeDelta: {x: 1920.0001, y: 1440.3397}
+  m_AnchoredPosition: {x: 700, y: 530}
+  m_SizeDelta: {x: 1920.0001, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1043616679
 CanvasRenderer:
@@ -13963,7 +13963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150089501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2600, y: -258, z: 0}
+  m_LocalPosition: {x: -2100, y: -258, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15142,7 +15142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423036494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2600, y: -258, z: 0}
+  m_LocalPosition: {x: 2100, y: -258, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16042,7 +16042,7 @@ RectTransform:
   m_GameObject: {fileID: 1689912204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 357969463}
@@ -16232,7 +16232,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 500}
+  m_SizeDelta: {x: 2400, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1741335577
 MonoBehaviour:
@@ -17607,8 +17607,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 480, y: 250}
-  m_SizeDelta: {x: 960, y: 1000}
+  m_AnchoredPosition: {x: 584, y: 0}
+  m_SizeDelta: {x: 1168, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011039543
 MonoBehaviour:
@@ -22804,7 +22804,7 @@ RectTransform:
   m_GameObject: {fileID: 2079701641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 357969463}
@@ -23121,6 +23121,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3389332812207512097, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: hp
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389332812207512097, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: attackSound
       value: 
       objectReference: {fileID: 8300000, guid: 717d4c6d214f1e647bd34e1535268fca, type: 3}
@@ -23184,6 +23188,18 @@ PrefabInstance:
       propertyPath: speed
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 3389332812207512102, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: limitZoneDistance
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389332812207512102, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: maxLimitMovePosition
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389332812207512102, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: minLimitMovePosition
+      value: -2500
+      objectReference: {fileID: 0}
     - target: {fileID: 3389332812207512110, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -23231,6 +23247,10 @@ PrefabInstance:
     - target: {fileID: 7619904086566227961, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_Offset.x
       value: -32.22284
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619904086566227963, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227964, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_Pivot.x
@@ -23298,7 +23318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227964, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2469
+      value: -2033
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227964, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_AnchoredPosition.y

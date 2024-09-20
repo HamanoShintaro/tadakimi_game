@@ -26,7 +26,7 @@ public class CameraFollow2D : MonoBehaviour
         if (target != null)
         {
             // 目標位置を計算（対象のX座標と固定のY座標）
-            Vector3 targetPosition = new Vector3(target.position.x+fixedX, fixedY, transform.position.z);
+            Vector3 targetPosition = new Vector3(target.position.x + fixedX, fixedY, transform.position.z);
 
             // カメラのX座標を制限する
             targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX);

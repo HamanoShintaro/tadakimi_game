@@ -13,6 +13,18 @@ public class HPSlider : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(InitializeSlider());
+    }
+
+    private IEnumerator InitializeSlider()
+    {
+        yield return null;
+        InitSliderValue();
+    }
+
+    private void InitSliderValue()
+    {
+        slider.maxValue = characterCore.Hp;
         slider.value = characterCore.Hp;
     }
 

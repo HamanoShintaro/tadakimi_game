@@ -31,11 +31,11 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     [SerializeField]
     [Header("遠距離攻撃する最小の距離")]
     [Tooltip("トリガー範囲>(遠距離攻撃)>longAttackDistance>(近距離攻撃)>limitMovePosition>(近づけない)")]
-    private float longAttackDistance = 600;
+    private float longAttackDistance;
 
-    private float minLimitMovePosition = -2700f;
+    private float minLimitMovePosition = -1400f;
 
-    private float maxLimitMovePosition = 2700f;
+    private float maxLimitMovePosition = 2800f;
 
     [Tooltip("現在のレベル")]
     [HideInInspector]
@@ -206,13 +206,13 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private void Walk()
     {
         if (isLeader) return;
-
         animator.SetBool("Walk", true);
         float direction = characterType == CharacterType.Buddy ? 1 : -1;
         float newPositionX = transform.position.x + speed * direction;
-
-        if (IsOutOfBounds(newPositionX)) return;
-
+        if (IsOutOfBounds(newPositionX))
+        {
+            return;
+        }
         transform.position = new Vector2(newPositionX, transform.position.y);
     }
 
@@ -292,11 +292,22 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
                 if (distance > longAttackDistance)
                 {
                     animator.SetBool("Long", true);
+                    animator.SetBool("Attack", false);
+                    Debug.Log($"プレイヤーは遠距離攻撃のアニメーションを発動した");
+                }
+                else
+                {
+                    animator.SetBool("Attack", true);
+                    animator.SetBool("Long", false);
+                    Debug.Log($"プレイヤーは近距離攻撃のアニメーションを発動した");
                 }
             }
         }
-        animator.SetBool("Attack", true);
-        Debug.Log($"{characterId}は通常攻撃のアニメーションを発動した");
+        else
+        {
+            animator.SetBool("Attack", true);
+            Debug.Log($"{characterId}は通常攻撃のアニメーションを発動した");
+        }
     }
 
     public void EndNomalAction()
@@ -333,8 +344,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
-            var orderedTargets = targets.OrderBy(n => Vector2.Distance(n.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition));
-            foreach (var target in orderedTargets)
+            foreach (var target in targets)
             {
                 var distance = Vector2.Distance(target.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition);
                 if (distance < longAttackDistance)
@@ -346,11 +356,19 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("LongAttack"))
         {
-            var orderedTargets = targets.OrderBy(n => Vector2.Distance(n.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition));
-            foreach (var target in orderedTargets)
+            foreach (var target in targets)
             {
                 target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
+                Debug.Log($"{characterId}は{target.name}に{atkPower * ratio}ダメージを与えた");
                 if (attackType == AttackType.Single) break;
+            }
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Skill"))
+        {
+            foreach (var target in targets)
+            {
+                target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
+                Debug.Log($"{characterId}は{target.name}に{atkPower * ratio}ダメージを与えた");
             }
         }
     }
@@ -420,11 +438,12 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             // Y座標にジャンプの高さを反映（正弦波で上下移動を表現）
             float y = originalY + jumpHeight * Mathf.Sin(t * Mathf.PI);
 
-            // ノックバックが画面外に出ないように制御
-            if (!IsOutOfBounds(x))
+            if (IsOutOfBounds(x))
             {
-                transform.position = new Vector2(x, y); // キャラクターの位置を更新
+                yield break;
             }
+
+            transform.position = new Vector2(x, y);
 
             // 1フレーム待機して次の更新に進む
             yield return null;

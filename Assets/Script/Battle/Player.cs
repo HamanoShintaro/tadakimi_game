@@ -32,10 +32,13 @@ public class Player : MonoBehaviour
     private RectTransform player;
     private CharacterCore characterCore;
 
+    private Animator animator;
+
     private void Start()
     {
         player = GetComponent<RectTransform>();
         characterCore = GetComponent<CharacterCore>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -104,5 +107,8 @@ public class Player : MonoBehaviour
     public void MoveButtonUp()
     {
         isMove = false;
+        animator.SetBool("Long", false);
+        animator.SetBool("Attack", false);
+        characterCore.canState = true;
     }
 }

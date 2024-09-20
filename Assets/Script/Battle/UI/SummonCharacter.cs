@@ -144,6 +144,12 @@ public class SummonCharacter : MonoBehaviour
     /// </summary>
     private void SummonCharacterInstance()
     {
+        if (appearTransform == null)
+        {
+            Debug.LogError("appearTransformが設定されていません。インスペクターで設定してください。");
+            return;
+        }
+
         var characterClone = Instantiate(characterPrefab);
         characterClone.transform.SetParent(characterPanel.transform, false);
 
@@ -174,7 +180,10 @@ public class SummonCharacter : MonoBehaviour
         for (int i = 0; i < characterPanel.transform.childCount - 3; i++)
         {
             var character = characterPanel.transform.GetChild(i).gameObject;
-            characterDic.Add(character, character.GetComponent<RectTransform>().anchoredPosition.y);
+            if (character.GetComponent<RectTransform>() != null)
+            {
+                characterDic.Add(character, character.GetComponent<RectTransform>().anchoredPosition.y);
+            }
         }
         var sortedKeys = characterDic.OrderBy(x => x.Value).Select(x => x.Key).ToList();
         for (int i = 0; i < sortedKeys.Count; i++)
