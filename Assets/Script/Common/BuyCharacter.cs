@@ -19,11 +19,6 @@ public class BuyCharacter : MonoBehaviour
     [HideInInspector]
     private SaveController saveController;
 
-    private void Start()
-    {
-        //UpdateCharacterButton();
-    }
-
     private void OnEnable()
     {
         UpdateCharacterButton();

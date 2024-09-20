@@ -21,7 +21,7 @@ namespace Battle
         /// <param name="target"></param>
         protected override void SkillActionToEnemy(GameObject target)
         {
-            if (GetLevel().Equals(10))
+            if (GetLevel().Equals(5))
             {
                 var puppetTank = Instantiate(_puppetTank, transform.position, Quaternion.identity);
                 puppetTank.transform.parent = GameObject.Find("Canvas_Static/[CharacterPanel]").transform;

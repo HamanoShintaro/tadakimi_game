@@ -117,11 +117,11 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             saveController.characterSave.Load();
             try
             {
-                level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level;
+                level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level - 1;
             }
             catch
             {
-                level = 1;
+                level = 0;
             }
         }
 
@@ -207,6 +207,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private void Walk()
     {
         if (isLeader) return;
+
         animator.SetBool("Walk", true);
         float direction = characterType == CharacterType.Buddy ? 1 : -1;
         float newPositionX = transform.position.x + speed * direction;
