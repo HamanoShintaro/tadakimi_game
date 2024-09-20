@@ -8,10 +8,10 @@ using UnityEngine;
 public class GameSettingParams
 {
     public const string initCharacter = "Volcus_01";
-    public const float characterVoiceVolume = 0.5f;
-    public const float cvVolume = 0.5f;
-    public const float bgmVolume = 0.5f;
-    public const float seVolume = 0.5f;
+    public const float characterVoiceVolume = -5.0f;
+    public const float cvVolume = -5.0f;
+    public const float bgmVolume = -5.0f;
+    public const float seVolume = -5.0f;
     public const float inActiveColorParam = 110/255f;
     public const float ActiveColorParam = 255/255f;
     public const float ActiveScaleParam = 1.0f;

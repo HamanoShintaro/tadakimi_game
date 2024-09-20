@@ -10,21 +10,28 @@ public class SideButtonController : MonoBehaviour
     private MenuController menuController;
 
     public string buttonType;
+
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = this.GetComponent<AudioSource>();
+    }
+
     public void OnClick()
     {
-        if (buttonType == PlayerPrefabKeys.senarioMenuView)
+        switch (buttonType)
         {
-            StartCoroutine(menuController.changeSenario());
+            case PlayerPrefabKeys.senarioMenuView:
+                StartCoroutine(menuController.changeSenario());
+                break;
+            case PlayerPrefabKeys.characterMenuView:
+                StartCoroutine(menuController.changeCharacter());
+                break;
+            case PlayerPrefabKeys.settingMenuView:
+                StartCoroutine(menuController.changeSetting());
+                break;
         }
-        else if (buttonType == PlayerPrefabKeys.characterMenuView)
-        {
-            StartCoroutine(menuController.changeCharacter());
-        }
-        else if (buttonType == PlayerPrefabKeys.settingMenuView)
-        {
-            StartCoroutine(menuController.changeSetting());
-        }
-        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
-        this.GetComponent<AudioSource>().Play();
+        audioSource.Play();
     }
 }

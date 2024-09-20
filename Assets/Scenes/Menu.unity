@@ -1508,8 +1508,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 259149050}
   m_HandleRect: {fileID: 1281092140}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: 0
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -19379,7 +19379,6 @@ GameObject:
   - component: {fileID: 1557782010}
   - component: {fileID: 1557782009}
   - component: {fileID: 1557782008}
-  - component: {fileID: 1557782011}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19453,23 +19452,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1557782011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1557782007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9ab3dc2b0ee4ffe9787522e411b063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  refCamera: {fileID: 1557782009}
-  width: 2200
-  height: 1238
-  pixelPerUnit: 100
-  fixedSize: 591.8
 --- !u!1 &1569419031
 GameObject:
   m_ObjectHideFlags: 0
@@ -20880,8 +20862,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1132262946}
   m_HandleRect: {fileID: 1352450565}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: 0
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -22014,8 +21996,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 29912220}
   m_HandleRect: {fileID: 380164846}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: 0
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

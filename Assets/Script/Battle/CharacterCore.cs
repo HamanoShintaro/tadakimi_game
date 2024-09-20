@@ -105,7 +105,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         InitializeCharacter();
         InitializeComponents();
         StartCoroutine(SkillCoolTimeCount());
-
         originalY = transform.position.y;
     }
 
@@ -434,7 +433,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         // ノックバックが終わった後、Y座標を元の位置に戻す
         transform.position = new Vector2(transform.position.x, originalY);
     }
-
 
     public void EndKnockBack()
     {

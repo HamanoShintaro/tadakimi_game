@@ -32,6 +32,7 @@ namespace Battle
 
         protected virtual void OnTriggerStay2D(Collider2D target)
         {
+            if (IsLongRangeTrigger(target)) return;
             if (target.CompareTag("Enemy"))
             {
                 if (enemyTargets.Contains(target.gameObject)) return;
@@ -46,6 +47,7 @@ namespace Battle
 
         protected virtual void OnTriggerExit2D(Collider2D target)
         {
+            if (IsLongRangeTrigger(target)) return;
             if (target.CompareTag("Enemy"))
             {
                 if (!enemyTargets.Contains(target.gameObject)) return;
@@ -56,6 +58,18 @@ namespace Battle
                 if (!buddyTargets.Contains(target.gameObject)) return;
                 buddyTargets.Remove(target.gameObject);
             }
+        }
+
+        private bool IsLongRangeTrigger(Collider2D t)
+        {
+            BoxCollider2D[] colliders = t.gameObject.GetComponents<BoxCollider2D>();
+
+            // 2つ目のBoxCollider2D(攻撃範囲のCollider2D)が存在するか確認
+            if (colliders.Length > 1 && t == colliders[1])
+            {
+                return true;
+            }
+            return false;
         }
 
         protected IEnumerator SkillActionToTargetsCoroutine()

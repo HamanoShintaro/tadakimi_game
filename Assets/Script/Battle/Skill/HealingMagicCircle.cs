@@ -8,29 +8,20 @@ namespace Battle
     {
         protected override void SkillActionforBuddy(GameObject target)
         {
-            StartCoroutine(Heal());
+            Heal();
         }
 
-        private IEnumerator Heal()
+        private void Heal()
         {
-            WaitForSeconds wait = new WaitForSeconds(5);
-            float elapsedTime = 0f;
-            while (elapsedTime < 30f)
+            foreach (GameObject target in buddyTargets)
             {
-                foreach (GameObject target in buddyTargets)
-                {
-                    target.GetComponent<CharacterCore>().Recovery(GetStatus().attack * 5);
-                }
-                yield return wait;
-                elapsedTime += 5f;
+                target.GetComponent<CharacterCore>().Recovery(GetStatus().attack * 5);
             }
-            StopCoroutine(Heal());
-            Destroy(this.gameObject);
         }
 
-        protected override void OnDisable()
+        public void Destroy()
         {
-            StopCoroutine(Heal());
+            Destroy(this.gameObject);
         }
     }
 }

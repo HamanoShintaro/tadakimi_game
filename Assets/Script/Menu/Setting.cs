@@ -30,6 +30,7 @@ public class Setting : MonoBehaviour
         English = 1,
         Chinese = 2
     }
+
     private void Start()
     {
         InitializeSliders();
@@ -44,21 +45,11 @@ public class Setting : MonoBehaviour
         SetSliderValue(cvSlider, PlayerPrefabKeys.volumeCV, GameSettingParams.cvVolume);
     }
 
-    private void SetSliderValue(Slider slider, string key, float defaultValue)
-    {
-        slider.value = PlayerPrefs.GetFloat(key, defaultValue);
-    }
-
     private void AddSliderListeners()
     {
         AddSliderListener(bgmSlider, OnBgmSliderValueChanged);
         AddSliderListener(seSlider, OnSeSliderValueChanged);
         AddSliderListener(cvSlider, OnCvSliderValueChanged);
-    }
-
-    private void AddSliderListener(Slider slider, UnityEngine.Events.UnityAction<float> callback)
-    {
-        slider.onValueChanged.AddListener(callback);
     }
 
     private void SetInitialValues()
@@ -68,11 +59,22 @@ public class Setting : MonoBehaviour
         SetAudioMixerValue("CV", PlayerPrefabKeys.volumeCV, GameSettingParams.cvVolume);
     }
 
+    private void SetSliderValue(Slider slider, string key, float defaultValue)
+    {
+        var value = Mathf.Pow(10f, PlayerPrefs.GetFloat(key, defaultValue) / 20f);
+        slider.value = value;
+    }
+
     private void SetAudioMixerValue(string parameterName, string key, float defaultValue)
     {
         float volume = PlayerPrefs.GetFloat(key, defaultValue);
         audioMixer.SetFloat(parameterName, volume);
-         Debug.Log($"{key}を{volume}に変更");
+        Debug.Log($"{key}を{volume}に変更");
+    }
+
+    private void AddSliderListener(Slider slider, UnityEngine.Events.UnityAction<float> callback)
+    {
+        slider.onValueChanged.AddListener(callback);
     }
 
     public void Reset()
@@ -84,29 +86,41 @@ public class Setting : MonoBehaviour
 
     public void OnChangeLanguage(int index)
     {
-        for (int i = 0; i < language.Length; i++) language[i].color = new Color(250/255f, 248/255f, 235/255f, 56/255f);
-        language[index].color = new Color(154/255f, 132/255f, 0);
+        UpdateLanguageColors(index);
         PlayerPrefs.SetInt(PlayerPrefabKeys.currentLanguage, index);
         chatBox.UpdateMessageArray();
         chatBox.DisplayMessage();
         Debug.Log($"言語の変更: {index}");
     }
 
+    private void UpdateLanguageColors(int index)
+    {
+        for (int i = 0; i < language.Length; i++)
+        {
+            language[i].color = new Color(250 / 255f, 248 / 255f, 235 / 255f, 56 / 255f);
+        }
+        language[index].color = new Color(154 / 255f, 132 / 255f, 0);
+    }
+
     private void OnBgmSliderValueChanged(float value)
     {
-        PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeBGM, value);
-        SetInitialValues();
+        UpdateVolume(PlayerPrefabKeys.volumeBGM, value);
     }
 
     private void OnSeSliderValueChanged(float value)
     {
-        PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeSE, value);
-        SetInitialValues();
+        UpdateVolume(PlayerPrefabKeys.volumeSE, value);
     }
 
     private void OnCvSliderValueChanged(float value)
     {
-        PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeCV, value);
+        UpdateVolume(PlayerPrefabKeys.volumeCV, value);
+    }
+
+    private void UpdateVolume(string key, float value)
+    {
+        value = (value == 0) ? -80 : Mathf.Log10(value) * 20;
+        PlayerPrefs.SetFloat(key, value);
         SetInitialValues();
     }
 }

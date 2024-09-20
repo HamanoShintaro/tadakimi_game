@@ -81,9 +81,9 @@ public class SaveController : MonoBehaviour
 
     private void SetInitialValues()
     {
-        float bgmVolume = Mathf.Clamp(PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM, GameSettingParams.bgmVolume), 0.01f, 1f);
-        float seVolume = Mathf.Clamp(PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE, GameSettingParams.seVolume), 0.01f, 1f);
-        float cvVolume = Mathf.Clamp(PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeCV, GameSettingParams.cvVolume), 0.01f, 1f);
+        float bgmVolume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM, GameSettingParams.bgmVolume);
+        float seVolume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE, GameSettingParams.seVolume);
+        float cvVolume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeCV, GameSettingParams.cvVolume);
 
         audioMixer.SetFloat("BGM", bgmVolume);
         audioMixer.SetFloat("SE", seVolume);
