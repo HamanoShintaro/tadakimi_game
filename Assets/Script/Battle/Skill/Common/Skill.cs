@@ -44,6 +44,20 @@ namespace Battle
             }
         }
 
+        protected virtual void OnTriggerExit2D(Collider2D target)
+        {
+            if (target.CompareTag("Enemy"))
+            {
+                if (!enemyTargets.Contains(target.gameObject)) return;
+                enemyTargets.Remove(target.gameObject);
+            }
+            else if (target.CompareTag("Buddy"))
+            {
+                if (!buddyTargets.Contains(target.gameObject)) return;
+                buddyTargets.Remove(target.gameObject);
+            }
+        }
+
         protected IEnumerator SkillActionToTargetsCoroutine()
         {
             yield return null;
