@@ -11,7 +11,7 @@ No,キャラクター名,日本語,英語,中国語,LR,表情,type,補足コメ�
 9,silhouette_man_unique,で、ばあさん、魔族がどこにいったか教えてくれませんかねぇ...。,,,R,unique,talk,,32,
 10,eleth,本当に私は知りません。確かに、うちで一晩休まれましたが...,,,L,confuse,talk,,30,
 11,silhouette_man_unique,いやいや、信じられないだろ。死にかけだったんだよ、昨晩は。それが1日休んだだけでころっと起きれるはずないわけよ。,,,R,unique,talk,,56,
-12,eleth,本当です。立派な旦那様が魔族をおぶっていらっしゃって、あっという間に治療されたんです。,,,L,angry,talk,,43,
+12,eleth,本当です。立派な旦那様が魔族をおぶっていらっしゃって、あっという間に治療されたんです。,,,L,confuse,talk,,43,
 13,silhouette_man_unique,嘘をつくな！ありえないんだよ！薬じゃそんなことはできない。例えばの話だが、魔法なんか使ったらなぁ、,,,R,unique,talk,,49,
 14,silhouette_man_unique,この辺りの魔素検知器が反応して警報が鳴るはずだ！昨晩はなってないんだよ！,,,R,unique,talk,,36,
 14,silhouette_man_unique,(その時サイレンが鳴り響く),,,R,unique,talk,サイレンのSE,,
