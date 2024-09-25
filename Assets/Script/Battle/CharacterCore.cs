@@ -63,7 +63,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private GameObject characterPanel;
     private AudioSource audioSource;
 
-    //ノックバックの秒数
+    //ノックバックの秒数(全体フレーム)
     private const float knockBackDuration = 0.5f;
     //ノックバックの距離
     private const float knockBackForce = 800f;
