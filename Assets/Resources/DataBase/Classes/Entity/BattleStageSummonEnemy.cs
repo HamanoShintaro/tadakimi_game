@@ -8,9 +8,6 @@ using System;
 public class BattleStageSummonEnemy : ScriptableObject
 {
 	[SerializeField]
-	public int stage;
-
-	[SerializeField]
 	public List<float> Times = new List<float>();
 
 	[SerializeField]
@@ -29,11 +26,6 @@ public class BattleStageSummonEnemy : ScriptableObject
 	[SerializeField]
 	[Header("敵タワーのオブジェクト")]
 	private Sprite enemyTower;
-
-	public int GetStage()
-	{
-		return stage;
-	}
 
 	public List<float> GetTimes()
 	{
