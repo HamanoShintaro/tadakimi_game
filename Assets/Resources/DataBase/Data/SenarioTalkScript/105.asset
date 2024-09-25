@@ -33,7 +33,7 @@ MonoBehaviour:
     script_en: 
     script_ch: 
     type: talk
-    name: silhouette_man
+    name: 
     LR: L
     expressions: confuse
     voice: {fileID: 0}
