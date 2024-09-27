@@ -198,6 +198,8 @@ public class BattleController : MonoBehaviour
         //取得金額を保存
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerGetMoney, getMoney);
 
+        yield return new WaitForSeconds(1.5f);
+
         //所持金額+獲得金額を所持金額を更新して、保存
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, totalMoney + getMoney);
         while (getMoney >= 100)

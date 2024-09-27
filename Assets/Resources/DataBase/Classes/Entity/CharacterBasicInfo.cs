@@ -84,12 +84,10 @@ public class CharacterBasicInfo : ScriptableObject
     {
 		switch (expressions)
 		{
-			//?????P
 			case "normal":
 				return normal;
 			case "smile":
 				return smile;
-			//?????R
 			case "angry":
 				return angry;
 			case "cry":
@@ -100,7 +98,6 @@ public class CharacterBasicInfo : ScriptableObject
 				return unique;
 			case "shyness":
 				return shyness;
-			//?f?t?H???g????
 			default:
 				return normal;
 		}
