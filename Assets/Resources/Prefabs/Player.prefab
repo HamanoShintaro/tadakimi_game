@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterId: 0
+  attackType: 0
   enemyTargets: []
   buddyTargets: []
 --- !u!61 &3389332811676231759
@@ -347,6 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterId: 0
+  attackType: 0
   enemyTargets: []
   buddyTargets: []
 --- !u!61 &3389332812006509541
@@ -902,6 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterId: 0
+  attackType: 0
   enemyTargets: []
   buddyTargets: []
 --- !u!61 &3389332813330230481
