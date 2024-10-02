@@ -19,11 +19,16 @@ public class Tower : MonoBehaviour, IDamage
     [HideInInspector]
     private BattleController battleController;
 
-    public float hp; // 現在の体力
+    [SerializeField]
+    private AudioClip damagedSound;
+
+    private AudioSource audioSource;
+
+    public float hp;
     public float Hp
     {
         get { return hp; }
-        set { hp = Mathf.Clamp(value, 0, maxHp); } // 体力を0からmaxHpの範囲に制限
+        set { hp = Mathf.Clamp(value, 0, maxHp); }
     }
 
     /// <summary>
@@ -40,6 +45,8 @@ public class Tower : MonoBehaviour, IDamage
         // タワーの最大体力を取得
         maxHp = enemyTowerInfo.GetTowerHp();
         Hp = maxHp;
+        
+        audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -49,6 +56,7 @@ public class Tower : MonoBehaviour, IDamage
     /// <param name="kb">ノックバック値（未使用）</param>
     public void Damage(float attackPower = 0, float kb = 0)
     {
+        audioSource.PlayOneShot(damagedSound);
         Hp -= attackPower;
         if (Hp <= 0)
         {

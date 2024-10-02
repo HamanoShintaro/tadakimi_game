@@ -360,7 +360,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             {
                 target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
                 Debug.Log($"{characterId}は{target.name}に{atkPower * ratio}ダメージを与えた");
-                if (attackType == AttackType.Single) break;
+                break;
             }
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Skill"))
@@ -438,11 +438,12 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             // Y座標にジャンプの高さを反映（正弦波で上下移動を表現）
             float y = originalY + jumpHeight * Mathf.Sin(t * Mathf.PI);
 
+            // xの値が範囲外の場合は、xの値を元の位置に戻す
             if (IsOutOfBounds(x))
             {
-                yield break;
+                x = transform.position.x;
             }
-
+            
             transform.position = new Vector2(x, y);
 
             // 1フレーム待機して次の更新に進む
