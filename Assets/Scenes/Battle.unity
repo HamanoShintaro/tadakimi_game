@@ -13540,7 +13540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2080, y: -465}
+  m_AnchoredPosition: {x: 2080, y: -391}
   m_SizeDelta: {x: 900, y: 900}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!61 &1003201801
@@ -13640,11 +13640,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a857f2a98fa14479d6151ac678b78b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 500
+  maxHp: 250
   performancePanel: {fileID: 1346576896}
   battleController: {fileID: 1507704278}
   damagedSound: {fileID: 8300000, guid: 590fc919735b74243bfe959f6e20bf1a, type: 3}
-  hp: 500
+  hp: 250
 --- !u!82 &1003201806
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16216,8 +16216,8 @@ RectTransform:
   m_GameObject: {fileID: 1735402732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1321225662}
   - {fileID: 1007433208}
@@ -16227,7 +16227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -691, y: 135}
+  m_AnchoredPosition: {x: -441, y: 135}
   m_SizeDelta: {x: -1382, y: 68.1515}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1735402734

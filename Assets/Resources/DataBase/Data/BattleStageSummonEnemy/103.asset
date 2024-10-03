@@ -12,18 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
   m_Name: 103
   m_EditorClassIdentifier: 
-  stage: 3
   Times:
+  - 1
+  - 3
+  - 4
   - 5
-  - 10
-  - 15
+  - 9
+  - 9
+  - 11
   - 20
+  - 25
   Enemies:
-  - {fileID: 5429095949005290252, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
-  - {fileID: 3377319372778853538, guid: 42f14896a152841ef8f2d420a7f9e713, type: 3}
-  - {fileID: 3377319372778853538, guid: 42f14896a152841ef8f2d420a7f9e713, type: 3}
   - {fileID: 1338976341970829827, guid: f6a1afcb6373641fbb022dd4384acf97, type: 3}
-  Levels: 01000000010000000100000001000000
-  TowerHp: 100
+  - {fileID: 4241449921041689916, guid: 22366544b347043fcaaf14734f6bd333, type: 3}
+  - {fileID: 5669653989772239561, guid: f23afe52f3c254532988ad4ae55d692c, type: 3}
+  - {fileID: 5669653989772239561, guid: f23afe52f3c254532988ad4ae55d692c, type: 3}
+  - {fileID: 4241449921041689916, guid: 22366544b347043fcaaf14734f6bd333, type: 3}
+  - {fileID: 4241449921041689916, guid: 22366544b347043fcaaf14734f6bd333, type: 3}
+  - {fileID: 3165393189828205779, guid: 1a878511e912a484d9008267db6e82b6, type: 3}
+  - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+  - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+  Levels: 010000000100000001000000010000000100000001000000010000000100000001000000
+  TowerHp: 250
   stageSprite: {fileID: 21300000, guid: 3d5e6e1b2bfa740e2a34639e06f2de37, type: 3}
   enemyTower: {fileID: 21300000, guid: be0552969719e4562a7dc93324dd1a9a, type: 3}
