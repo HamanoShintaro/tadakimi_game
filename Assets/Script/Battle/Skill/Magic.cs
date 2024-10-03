@@ -5,9 +5,6 @@ using UnityEditor;
 
 namespace Battle
 {
-#if UNITY_EDITOR
-    [CustomEditor(typeof(Skill))]
-#endif
     public class Magic : Skill
     {
         /// <summary>
@@ -16,10 +13,14 @@ namespace Battle
         /// <param name="target"></param>
         protected override void SkillActionToEnemy(GameObject target)
         {
+            Heal(target);
+        }
+
+        private void Heal(GameObject target)
+        {
             var rate = 2;
             var attack = GetStatus().attack * rate;
             target.GetComponent<IDamage>().Damage(attack);
-            Debug.Log("スキル攻撃");
         }
     }
 }
