@@ -14,7 +14,7 @@ public class TalkCharacterController : MonoBehaviour
     private Image image;
     private RectTransform rectImage;
     private TalkController talkController;
-    //private SenarioTalkScript senarioTalkScript;
+    private SenarioTalkScript senarioTalkScript;
 
     private int num = 0;
     private string currentCharacterName;
@@ -45,10 +45,8 @@ public class TalkCharacterController : MonoBehaviour
 
     public IEnumerator Active()
     {
-        SenarioTalkScript senarioTalkScript = talkController.senarioTalkScript;
+        senarioTalkScript = talkController.senarioTalkScript;
         num = talkController.num;
-
-        CharacterBasicInfo currentCharacterBasicInfo = null;
         if (senarioTalkScript.GetSenarioTalks()[num].name != currentCharacterName)
         {
             while (canvasGroup.alpha > 0.0f)
@@ -58,21 +56,28 @@ public class TalkCharacterController : MonoBehaviour
             }
             rect.position = apperPosition;
             currentCharacterName = senarioTalkScript.GetSenarioTalks()[num].name;
-            currentCharacterBasicInfo = talkController.characterBasicInfos[currentCharacterName];
-            if (currentCharacterBasicInfo != null) 
+            // 要修正
+            if (talkController.characterBasicInfos[currentCharacterName] == null)
             {
-                string characterName = currentCharacterBasicInfo.GetCharacterName();
-                nameText.text = characterName;
+                currentCharacterName = "";
             }
+            string characterName = talkController.characterBasicInfos[currentCharacterName].GetCharacterName();
+            if (string.IsNullOrEmpty(characterName))
+            {
+                characterName = "";
+            }
+            nameText.text = characterName;
+            nameText.text = talkController.characterBasicInfos[currentCharacterName].GetCharacterName();
         }
-
         StartCoroutine(ToSpeakColor());
-    
-        if (currentCharacterBasicInfo != null) 
+       
+        // 要修正
+        Sprite selectedSprite = talkController.characterBasicInfos[currentCharacterName].GetSprite(senarioTalkScript.GetSenarioTalks()[num].expressions);
+        if (selectedSprite == null)
         {
-            Sprite selectedSprite = currentCharacterBasicInfo.GetSprite(senarioTalkScript.GetSenarioTalks()[num].expressions);
-            image.sprite = selectedSprite;
+            selectedSprite = talkController.characterBasicInfos[currentCharacterName].GetNormal();
         }
+        image.sprite = selectedSprite;
 
         while (canvasGroup.alpha < 1.0f)
         {
