@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// タイトル画面のテキストの挙動に関するスクリプト
 public class TitleText : MonoBehaviour
 {
     [Header("ブリンクの時間")]
