@@ -254,7 +254,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private void SpecialAction()
     {
         magicPowerController.magicPower -= specialCost;
-        SetCharacterPanelIndex();
         animator.SetBool("Special", true);
         Debug.Log($"{characterId}はスペシャルのアニメーションを発動した");
     }
@@ -269,7 +268,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private void SkillAction()
     {
         magicPowerController.magicPower -= skillCost;
-        SetCharacterPanelIndex();
         animator.SetBool("Skill", true);
         Debug.Log($"{characterId}はスキルのアニメーションを発動した");
     }
@@ -526,12 +524,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             targets.Remove(t.gameObject);
             targets = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).ToList();
         }
-    }
-
-    private void SetCharacterPanelIndex()
-    {
-        var index = characterPanel.transform.childCount - 1;
-        transform.SetSiblingIndex(index);
     }
 
     private bool IsLongRangeTrigger(Collider2D t)
