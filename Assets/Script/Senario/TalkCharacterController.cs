@@ -71,7 +71,6 @@ public class TalkCharacterController : MonoBehaviour
         }
         StartCoroutine(ToSpeakColor());
        
-        // 要修正
         Sprite selectedSprite = talkController.characterBasicInfos[currentCharacterName].GetSprite(senarioTalkScript.GetSenarioTalks()[num].expressions);
         if (selectedSprite == null)
         {

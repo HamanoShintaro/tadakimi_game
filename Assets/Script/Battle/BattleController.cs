@@ -157,6 +157,7 @@ public class BattleController : MonoBehaviour
             // 敵のリーダー(タワー)がGameStopを起動した場合は、次のステージへ進む
             NextStage();
         }
+        Debug.Log("<color=red>ゲーム終了!</color>");
     }
 
     /// <summary>

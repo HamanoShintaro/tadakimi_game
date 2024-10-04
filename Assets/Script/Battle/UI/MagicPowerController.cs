@@ -33,9 +33,6 @@ public class MagicPowerController : MonoBehaviour
             text.text = Math.Floor(magicPower).ToString();
             guage.fillAmount = magicPower / maxMagicPower;
         }
-        else
-        {
-        }
     }
 
     /// <summary>

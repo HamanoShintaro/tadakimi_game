@@ -9,18 +9,10 @@ namespace Battle
     /// </summary>
     public class Dominator : MonoBehaviour
     {
-        [SerializeField]
         public TypeLeader type;
 
-        //一度しか呼び出されないようにする
         private bool isStop = false;
         private CharacterCore characterCore;
-
-        public enum TypeLeader
-        {
-            BuddyLeader,
-            EnemyLeader
-        }
 
         private void Start()
         {
@@ -32,7 +24,6 @@ namespace Battle
             if (isStop) return;
             if (characterCore.Hp == 0)
             {
-                //ゲームをストップ
                 GameObject.Find("Canvas_Dynamic").GetComponent<BattleController>().GameStop(type);
                 isStop = true;
             }

@@ -58,46 +58,42 @@ namespace Battle
 
             //SaveControllerを生成する
             SaveController saveController = new SaveController();
+            
             //characterFormationIndexに一致するcharacterFormationのキャラクターを取得する
             saveController.characterFormation.Load();
-            try
+            string characterId = saveController.characterFormation.list[characterFormationIndex];
+            
+            //キャラクターが空の場合はSummonのUIを非表示にする
+            if (characterId == "" || characterId == null)
             {
-                string characterId = saveController.characterFormation.list[characterFormationIndex];
-                //キャラクターが空の場合はSummonのUIを非表示にする
-                if (characterId == "" || characterId == null)
-                {
-                    this.gameObject.SetActive(false);
-                    return;
-                }
-
-                //召喚するキャラクターをリソースから取得
-                characterPrefab = Resources.Load<GameObject>($"Prefabs/Battle/Buddy/{characterId}");
-
-                //リストからcharacterIdに一致するデータのレベルを取得
-                saveController.characterSave.Load();
-                var list = saveController.characterSave.list;
-                int level = 0;
-                for (int i = 0; i < list.Count; i++)
-                {
-                    if (list[i].id == characterId)
-                    {
-                        level = list[i].level;
-                    }
-                }
-                //コストを取得
-                cost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].cost;
-
-                backgroudImage = backgroud.GetComponent<Image>();
-                animator = GetComponent<Animator>();
-                transform.Find("character").GetComponent<Image>().sprite = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").image.icon;
-                summonCoolDown = 10.0f;
-
-                summonCoolTime = 0.0f;
-                status = "wait";
+                this.gameObject.SetActive(false);
+                return;
             }
-            catch
+
+            //召喚するキャラクターをリソースから取得
+            characterPrefab = Resources.Load<GameObject>($"Prefabs/Battle/Buddy/{characterId}");
+
+            // リストからcharacterIdに一致するデータのレベルを取得
+            saveController.characterSave.Load();
+            var list = saveController.characterSave.list;
+            int index = 1;
+            for (int i = 0; i < list.Count; i++)
             {
+                if (list[i].id == characterId)
+                {
+                    index = list[i].level - 1;
+                }
             }
+            //コストを取得
+            cost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[index].cost;
+
+            backgroudImage = backgroud.GetComponent<Image>();
+            animator = GetComponent<Animator>();
+            transform.Find("character").GetComponent<Image>().sprite = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").image.icon;
+            summonCoolDown = 10.0f;
+
+            summonCoolTime = 0.0f;
+            status = "wait";
         }
         private void Update()
         {

@@ -39,10 +39,8 @@ public class Tower : MonoBehaviour, IDamage
         var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
         var enemyTowerInfo = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
 
-        // タワーの画像を取得
         GetComponent<Image>().sprite = enemyTowerInfo.GetEnemyTower();
 
-        // タワーの最大体力を取得
         maxHp = enemyTowerInfo.GetTowerHp();
         Hp = maxHp;
         
@@ -60,8 +58,7 @@ public class Tower : MonoBehaviour, IDamage
         Hp -= attackPower;
         if (Hp <= 0)
         {
-            // ゲームをストップ
-            battleController.GameStop(Battle.Dominator.TypeLeader.EnemyLeader);
+            battleController.GameStop(TypeLeader.EnemyLeader);
         }
     }
 }
