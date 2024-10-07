@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2431877166153006105}
   - component: {fileID: 2431877166153006083}
   - component: {fileID: 7424677926742320914}
+  - component: {fileID: 3543761826052643428}
   m_Layer: 6
   m_Name: Npc_02
   m_TagString: Buddy
@@ -61,7 +62,7 @@ MonoBehaviour:
   characterId: 9
   characterType: 0
   attackType: 0
-  characterRole: 0
+  characterRole: 1
   isLeader: 0
   longAttackDistance: 600
   level: 0
@@ -297,6 +298,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3543761826052643428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431877166153006107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4059c5b21e0474450ae46f07d914dd60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterId: 9
+  attackType: 1
+  enemyTargets: []
+  buddyTargets: []
 --- !u!1 &2659856034641426599
 GameObject:
   m_ObjectHideFlags: 0

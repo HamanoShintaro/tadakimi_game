@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: attack
+  m_Name: skill
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -505,14 +505,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1
-    functionName: InflictDamage
+    functionName: SkillActionToTargets
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 1
+    intParameter: 0
     messageOptions: 0
   - time: 1.5833334
-    functionName: EndNomalAction
+    functionName: EndSkillAction
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
