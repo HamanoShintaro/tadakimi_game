@@ -17,7 +17,7 @@ public class AppearController : MonoBehaviour
 
     [SerializeField]
     [Header("キャラを生成する位置(appearTransform")]
-    private int minY = -10, maxY = 10;
+    private int minY = -30, maxY = 30;
 
     [SerializeField]
     [Header("enemyAppearTransformをセットする")]

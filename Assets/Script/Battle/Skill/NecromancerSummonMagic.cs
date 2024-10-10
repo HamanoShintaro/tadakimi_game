@@ -20,7 +20,7 @@ namespace Battle
         public Transform summonPosition;
 
         [SerializeField]
-        private int minY = -10, maxY = 10;
+        private int minY = -30, maxY = 30;
 
         private void Awake()
         {

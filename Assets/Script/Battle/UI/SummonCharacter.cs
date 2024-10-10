@@ -12,7 +12,7 @@ public class SummonCharacter : MonoBehaviour
 {
     [SerializeField]
     [Header("敵キャラを生成する位置(appearTransform")]
-    private int minY = -10, maxY = 10;
+    private int minY = -30, maxY = 30;
 
     [Space(10)]
     [SerializeField]

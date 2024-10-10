@@ -76,16 +76,16 @@ namespace Battle
             // リストからcharacterIdに一致するデータのレベルを取得
             saveController.characterSave.Load();
             var list = saveController.characterSave.list;
-            int index = 1;
+            int level = 0;
             for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].id == characterId)
                 {
-                    index = list[i].level - 1;
+                    level = list[i].level;
                 }
             }
             //コストを取得
-            cost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[index].cost;
+            cost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].cost;
 
             backgroudImage = backgroud.GetComponent<Image>();
             animator = GetComponent<Animator>();

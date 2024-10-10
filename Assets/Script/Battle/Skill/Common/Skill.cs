@@ -107,19 +107,7 @@ namespace Battle
         //レベルを取得するメソッド
         protected int GetLevel()
         {
-            //セーブデータを生成
-            SaveController saveController = new SaveController();
-            //セーブデータを取得
-            saveController.characterSave.Load();
-            //characterIdのセーブデータのレベルを取得
-            var characterSaveData = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString());
-            if (characterSaveData == null)
-            {
-                Debug.LogError($"Character ID {characterId} のセーブデータが見つかりませんでした。");
-                return 1;
-            }
-            var level = characterSaveData.level;
-            return level;
+            return GetComponent<CharacterCore>().level;
         }
     }
 }

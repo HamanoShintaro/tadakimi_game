@@ -116,7 +116,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             saveController.characterSave.Load();
             try
             {
-                level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level - 1;
+                level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level;
             }
             catch
             {
