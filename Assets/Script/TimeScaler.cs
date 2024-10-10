@@ -43,7 +43,12 @@ public class TimeScaler : MonoBehaviour
         }
 
         // 時間スケールをリセットするボタン
-        if (GUI.Button(new Rect(10, 130, 200, 30), "等倍速"))
+        if (GUI.Button(new Rect(10, 130, 200, 30), "5倍速"))
+        {
+            SetTimeScale(5.0f);
+        }
+
+        if (GUI.Button(new Rect(10, 160, 200, 30), "等倍速"))
         {
             ResetTimeScale();
         }
