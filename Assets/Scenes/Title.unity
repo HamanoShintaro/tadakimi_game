@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94b930b370c6442facd2e52bfce9b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blinkingTime: 1
+  blinkingTime: 1.5
   canvasGroup: {fileID: 630410055}
 --- !u!114 &630410051
 MonoBehaviour:
@@ -829,8 +829,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refCamera: {fileID: 812887526}
-  width: 1627
-  height: 915
+  width: 2778
+  height: 1284
   pixelPerUnit: 100
   fixedSize: 591.8
 --- !u!1 &909761724
