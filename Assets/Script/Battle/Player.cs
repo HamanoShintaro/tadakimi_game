@@ -113,4 +113,13 @@ public class Player : MonoBehaviour
         animator.SetBool("Special", false);
         characterCore.canState = true;
     }
+
+    private void OnGUI()
+    {
+        // HPを強制的に100回復するボタン
+        if (GUI.Button(new Rect(10, 10, 200, 30), "HPを100回復"))
+        {
+            characterCore.hp += 100;
+        }
+    }
 }

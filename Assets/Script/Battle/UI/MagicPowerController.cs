@@ -62,4 +62,16 @@ public class MagicPowerController : MonoBehaviour
             return false;
         }
     }
+
+    private void OnGUI()
+    {
+        // Magic Powerを強制的にアップデートするボタン
+        if (GUI.Button(new Rect(10, 40, 200, 30), "最大マジックパワーを999にする"))
+        {
+            maxMagicPower = 999;
+            magicPower = 999;
+            text.text = Math.Floor(magicPower).ToString();
+            guage.fillAmount = magicPower / maxMagicPower;
+        }
+    }
 }
