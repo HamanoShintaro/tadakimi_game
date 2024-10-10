@@ -109,6 +109,8 @@ public class Player : MonoBehaviour
         isMove = false;
         animator.SetBool("Long", false);
         animator.SetBool("Attack", false);
+        animator.SetBool("Skill", false);
+        animator.SetBool("Special", false);
         characterCore.canState = true;
     }
 }

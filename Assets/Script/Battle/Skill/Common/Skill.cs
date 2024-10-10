@@ -86,7 +86,6 @@ namespace Battle
                 SkillActionforBuddy(target);
                 if (attackType == AttackType.Single) break;
             }
-            Debug.Log("スキルアクション発動");
         }
 
         protected virtual void SkillActionToEnemy(GameObject target)

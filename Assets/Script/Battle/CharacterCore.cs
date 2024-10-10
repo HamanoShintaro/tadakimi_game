@@ -291,20 +291,20 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
                 {
                     animator.SetBool("Long", true);
                     animator.SetBool("Attack", false);
-                    Debug.Log($"プレイヤーは遠距離攻撃のアニメーションを発動した");
+                    //Debug.Log($"プレイヤーは遠距離攻撃のアニメーションを発動した");
                 }
                 else
                 {
                     animator.SetBool("Attack", true);
                     animator.SetBool("Long", false);
-                    Debug.Log($"プレイヤーは近距離攻撃のアニメーションを発動した");
+                    //Debug.Log($"プレイヤーは近距離攻撃のアニメーションを発動した");
                 }
             }
         }
         else
         {
             animator.SetBool("Attack", true);
-            Debug.Log($"{characterId}は通常攻撃のアニメーションを発動した");
+            //Debug.Log($"{characterId}は通常攻撃のアニメーションを発動した");
         }
     }
 
