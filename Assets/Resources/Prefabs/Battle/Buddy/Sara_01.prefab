@@ -177,6 +177,8 @@ MonoBehaviour:
   necromancer: {fileID: 2431877166153006107, guid: d9a809a91c26d43659aa06e3906b9e4d, type: 3}
   necromancer2: {fileID: 2431877166153006107, guid: 5d91f0ca4ef0a4796afecdf50953aae0, type: 3}
   summonPosition: {fileID: 0}
+  minY: -30
+  maxY: 30
 --- !u!114 &4503520938222608319
 MonoBehaviour:
   m_ObjectHideFlags: 0
