@@ -123,6 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5669653989772239560}
   - component: {fileID: 8916198460191140783}
+  - component: {fileID: 690567849072367296}
   - component: {fileID: 5669653989772239567}
   - component: {fileID: 5669653989772239565}
   - component: {fileID: 5669653989772239566}
@@ -182,6 +183,22 @@ MonoBehaviour:
   canState: 1
   normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
   hp: 100
+--- !u!114 &690567849072367296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669653989772239561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea57f123e334f46679f52836f585d886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterId: 60
+  attackType: 1
+  enemyTargets: []
+  buddyTargets: []
 --- !u!222 &5669653989772239567
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -221,7 +238,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 58.77842, y: 73.6}
