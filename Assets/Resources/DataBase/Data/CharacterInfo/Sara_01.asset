@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Sara_01
   m_EditorClassIdentifier: 
   id: Sara_01
-  name: 
-  alias: 
-  detail: 
-  type: 
+  name: "\u30B5\u30E9"
+  alias: "\u5FE0\u8AA0\u8A93\u3046\u9B54\u738B\u79D8\u66F8"
+  detail: "\u9B54\u738B\u8ECD\u8FD1\u885B\u306E\u546A\u8853\u5E2B(\u3058\u3085\u3058\u3085\u3064\u3057)\u3002
+    \u546A\u8853\u3084\u5C4D\u8853(\u3057\u3058\u3085\u3064)\u306A\u3069\u3001\u591A\u5C90\u306B\u308F\u305F\u308B\u9B54\u8853\u3092\u6271\u3048\u308B\u3002
+    \u51E0\u5E33\u9762\u306A\u5973\u6027\u3067\u3001\u9B54\u738B\u57CE\u306E\u57F7\u52D9\u306E\u4E00\u5207\u3092\u53D6\u308A\u4ED5\u5207\u308B\u512A\u79C0\u306A\u9B54\u65CF\u3002
+    \u7D42\u6226\u306E\u76F4\u524D\u306B\u81EA\u5206\u81EA\u8EAB\u3092\u546A\u3044\u3001\u81EA\u6BBA\u3092\u3057\u305F\u3002"
+  type: "\u30A2\u30BF\u30C3\u30AB\u30FC"
   image:
     fullsize: {fileID: 21300000, guid: 0f1b5fc29b9b549749d178bbcf4950cd, type: 3}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
@@ -25,45 +28,45 @@ MonoBehaviour:
     prefab: {fileID: 4503520938222608313, guid: 479e787e911f04857adc0799dae3b11f, type: 3}
   rank: 3
   status:
-  - cost: 0
-    attack: 0
+  - cost: 400
+    attack: 16
     interval: 0
-    hp: 0
-    speed: 0
-    atkKB: 0
-    defKB: 0
-    growth: 0
-  - cost: 0
-    attack: 0
+    hp: 20
+    speed: 15
+    atkKB: 15
+    defKB: 10
+    growth: 30
+  - cost: 400
+    attack: 24
     interval: 0
-    hp: 0
-    speed: 0
-    atkKB: 0
-    defKB: 0
-    growth: 0
-  - cost: 0
-    attack: 0
+    hp: 30
+    speed: 15
+    atkKB: 15
+    defKB: 10
+    growth: 360
+  - cost: 400
+    attack: 34
     interval: 0
-    hp: 0
-    speed: 0
-    atkKB: 0
-    defKB: 0
-    growth: 0
-  - cost: 0
-    attack: 0
+    hp: 42
+    speed: 15
+    atkKB: 15
+    defKB: 10
+    growth: 1200
+  - cost: 400
+    attack: 45
     interval: 0
-    hp: 0
-    speed: 0
-    atkKB: 0
-    defKB: 0
-    growth: 0
-  - cost: 0
-    attack: 0
+    hp: 68
+    speed: 15
+    atkKB: 15
+    defKB: 10
+    growth: 3000
+  - cost: 400
+    attack: 54
     interval: 0
-    hp: 0
-    speed: 0
-    atkKB: 0
-    defKB: 0
+    hp: 102
+    speed: 15
+    atkKB: 15
+    defKB: 10
     growth: 0
   skill:
     name: 
