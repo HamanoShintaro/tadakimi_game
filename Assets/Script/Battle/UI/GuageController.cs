@@ -33,8 +33,14 @@ namespace Battle
         {
             //敵タワーのキャラクターコア コンポーネントを取得
             tower = this.transform.parent.GetComponent<Tower>();
-            maxHp = tower.Hp;
             smoke.SetActive(false);
+            StartCoroutine(Initialize());
+        }
+
+        private IEnumerator Initialize()
+        {
+            yield return null;
+            maxHp = tower.Hp;
         }
 
         private void Update()

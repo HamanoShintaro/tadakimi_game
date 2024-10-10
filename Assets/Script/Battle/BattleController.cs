@@ -148,7 +148,14 @@ public class BattleController : MonoBehaviour
         if (isGameStopped) return;
         isGameStopped = true;
         //ゲームのプレイ時間を保存
-        PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) + gameTimer);
+        if (type == TypeLeader.BuddyLeader)
+        {
+            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) + gameTimer);
+        }
+        else
+        {
+            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, gameTimer);
+        }
         //リザルト画面(勝利または敗北)を表示
         performancePanel.GetComponent<ResultController>().OnResultPanel(type != TypeLeader.BuddyLeader);
         StartCoroutine(AnimationMoneyUI(1));

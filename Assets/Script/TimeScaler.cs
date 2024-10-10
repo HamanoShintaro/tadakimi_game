@@ -52,5 +52,17 @@ public class TimeScaler : MonoBehaviour
         {
             ResetTimeScale();
         }
+
+        // メニューシーンに戻るボタン
+        if (GUI.Button(new Rect(10, 190, 200, 30), "メニューに戻る"))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+        }
+
+        // 現在のシーンをリロードするボタン
+        if (GUI.Button(new Rect(10, 220, 200, 30), "リトライ"))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        }
     }
 }
