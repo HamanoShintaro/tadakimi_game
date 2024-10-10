@@ -90,7 +90,6 @@ public class AppearController : MonoBehaviour
                 sortedKeys[i].transform.SetAsFirstSibling();
             }
             characterClone.GetComponent<CharacterCore>().level = enemyLevels[enemyItemNumber];
-            Debug.Log($"敵キャラレベル: {enemyLevels[enemyItemNumber]}");
             enemyItemNumber++;
             if (enemyItemNumber >= enemyTimes.Count)
             {
