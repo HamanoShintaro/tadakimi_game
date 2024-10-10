@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Battle;
+/// <summary>
+/// キャラクターを購入するためのボタン
+/// </summary>
 public class BuyCharacter : MonoBehaviour
 {
     [SerializeField]
@@ -28,7 +31,8 @@ public class BuyCharacter : MonoBehaviour
     public void ReleaseCharacterButton()
     {
         if (int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId)) < releaseStageId) return;
-        saveController.AddCharacterDate($"{characterId}", 1, false);
+        if (saveController.characterSave.list.Exists(characterSave => characterSave.id == characterId.ToString())) return;
+        saveController.AddCharacterDate($"{characterId}", 0, false);
         releaseButton.SetActive(false);
     }
 

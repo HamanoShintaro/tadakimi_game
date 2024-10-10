@@ -64,7 +64,7 @@ public class SaveController : MonoBehaviour
         //初期キャラをキャラクターデータに追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
         {
-            // AddCharacterDate("キャラクター名", 1, true);
+            // AddCharacterDate("キャラクター名", 0, true);
             Debug.Log("キャラクターデータ初期化");
         }
 
@@ -108,7 +108,7 @@ public class SaveController : MonoBehaviour
         characterSave.list.Add(characterData);
 
         // ログを表示する
-        Debug.Log("キャラクターが追加されました: ID = " + id + ", レベル = " + level + ", 奥義の有無 = " + hasSpecial);
+        Debug.Log("キャラクターが追加されました: ID = " + id + ", レベル = " + (level + 1) + ", 奥義の有無 = " + hasSpecial);
 
         //上書き保存をする
         characterSave.Save();

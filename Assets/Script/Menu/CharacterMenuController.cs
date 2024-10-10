@@ -101,23 +101,21 @@ public class CharacterMenuController : MonoBehaviour
 
         //レベルの取得
         var characterSave = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId);
-        int level = characterSave != null ? characterSave.level : 1;
-        int index = level - 1;
+        int level = characterSave != null ? characterSave.level : 0;
 
         //キャラクターステータスのセット
-        // インデックスが範囲内にあるか確認
-        if (index >= 0 && index < character.status.Count)
+        if (level >= 0 && level < character.status.Count)
         {
             // キャラクターステータスのセット
-            characterLevelObj.GetComponent<Text>().text = level.ToString();
-            characterLevelMaxObj.GetComponent<Text>().text = character.status.Count.ToString();
-            characterAttackObj.GetComponent<Text>().text = character.status[index].attack.ToString();
-            characterHpObj.GetComponent<Text>().text = character.status[index].hp.ToString();
-            characterCostObj.GetComponent<Text>().text = character.status[index].cost.ToString();
-            characterSpeedObj.GetComponent<Text>().text = character.status[index].speed.ToString();
-            characterKnockBackObj.GetComponent<Text>().text = character.status[index].atkKB.ToString();
-            characterKnockBackDeffenceObj.GetComponent<Text>().text = character.status[index].defKB.ToString();
-            characterLvUpCostObj.GetComponent<Text>().text = character.status[index].growth.ToString();
+            characterLevelObj.GetComponent<Text>().text = (level + 1).ToString(); // レベルを1から始めるために+1する
+            characterLevelMaxObj.GetComponent<Text>().text = character.status.Count.ToString(); // レベルの最大値を1から始めるために+1する
+            characterAttackObj.GetComponent<Text>().text = character.status[level].attack.ToString();
+            characterHpObj.GetComponent<Text>().text = character.status[level].hp.ToString();
+            characterCostObj.GetComponent<Text>().text = character.status[level].cost.ToString();
+            characterSpeedObj.GetComponent<Text>().text = character.status[level].speed.ToString();
+            characterKnockBackObj.GetComponent<Text>().text = character.status[level].atkKB.ToString();
+            characterKnockBackDeffenceObj.GetComponent<Text>().text = character.status[level].defKB.ToString();
+            characterLvUpCostObj.GetComponent<Text>().text = character.status[level].growth.ToString();
         }
         else
         {
@@ -141,7 +139,7 @@ public class CharacterMenuController : MonoBehaviour
 
         // すでに最大レベルであればレベルを上げない
         int level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level;
-        int maxLevet = character.status.Count;
+        int maxLevet = character.status.Count - 1;
         if (level == maxLevet) return;
 
         int index = level;
