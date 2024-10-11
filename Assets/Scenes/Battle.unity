@@ -17877,7 +17877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2000317756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23664,11 +23664,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3389332812207512102, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: maxLimitMovePosition
-      value: 2500
+      value: 1898.976
       objectReference: {fileID: 0}
     - target: {fileID: 3389332812207512102, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: minLimitMovePosition
-      value: -2500
+      value: -2217.698
       objectReference: {fileID: 0}
     - target: {fileID: 3389332812207512110, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_Enabled
