@@ -349,7 +349,7 @@ MonoBehaviour:
     LR: R
     expressions: normal
     voice: {fileID: 0}
-    SE: {fileID: 8300000, guid: 443e8ab66b7664fd08f3ae03d14c1a9d, type: 3}
+    SE: {fileID: 0}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
@@ -362,7 +362,7 @@ MonoBehaviour:
     LR: L
     expressions: normal
     voice: {fileID: 0}
-    SE: {fileID: 8300000, guid: 2abb082695e544bbfba6a76d43a3a192, type: 3}
+    SE: {fileID: 0}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
@@ -414,7 +414,7 @@ MonoBehaviour:
     LR: R
     expressions: normal
     voice: {fileID: 0}
-    SE: {fileID: 0}
+    SE: {fileID: 8300000, guid: 2abb082695e544bbfba6a76d43a3a192, type: 3}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
