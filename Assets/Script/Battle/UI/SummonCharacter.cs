@@ -31,9 +31,11 @@ public class SummonCharacter : MonoBehaviour
     public GameObject backgroud;
 
     private int cost;
-    private float summonCoolDown;
+    [SerializeField]
+    private float summonCoolDown = 10.0f;
 
-    private float summonCoolTime;
+    [SerializeField]
+    private float summonCoolTime = 10.0f;
     private string status;
 
     private GameObject characterPrefab;
@@ -89,8 +91,7 @@ public class SummonCharacter : MonoBehaviour
             animator = GetComponent<Animator>();
             transform.Find("character").GetComponent<Image>().sprite = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").image.icon;
             summonCoolDown = 10.0f;
-
-            summonCoolTime = 0.0f;
+            summonCoolTime = 10.0f;
             status = "wait";
         }
         catch
@@ -99,28 +100,29 @@ public class SummonCharacter : MonoBehaviour
     }
     private void Update()
     {
+        // 召喚できる状態
         if (status == "wait")
         {
-            if (summonCoolTime == 0.0f)
+            if (summonCoolTime == 0.0f && cost <= magicPowerController.magicPower)
             {
-                if (cost <= magicPowerController.magicPower)
-                {
-                    status = "summon";
-                    animator.SetBool("summon", true);
-                }
+                status = "summon";
+                animator.SetBool("summon", true);
             }
-            backgroudImage.fillAmount = (summonCoolDown - summonCoolTime) / summonCoolDown;
-            summonCoolTime = Mathf.Max(0.0f, summonCoolTime - Time.deltaTime);
         }
 
+        // 召喚できない状態
         if (status == "summon")
         {
-            if (magicPowerController.magicPower < cost || 0.0f < summonCoolTime)
+            if (0.0f < summonCoolTime || magicPowerController.magicPower < cost)
             {
                 status = "wait";
                 animator.SetBool("summon", false);
             }
         }
+        float coolDownProgress = (summonCoolDown - summonCoolTime) / summonCoolDown;
+        float costProgress = magicPowerController.magicPower >= cost ? 1.0f : magicPowerController.magicPower / cost;
+        backgroudImage.fillAmount = Mathf.Min(coolDownProgress, costProgress);
+        summonCoolTime = Mathf.Max(0.0f, summonCoolTime - Time.deltaTime);
     }
 
     /// <summary>
@@ -129,6 +131,7 @@ public class SummonCharacter : MonoBehaviour
     /// </summary>
     public void OnClick()
     {
+        if (0.0f < summonCoolTime) return;
         if (magicPowerController.UseMagicPower(cost))
         {
             SummonCharacterInstance();
