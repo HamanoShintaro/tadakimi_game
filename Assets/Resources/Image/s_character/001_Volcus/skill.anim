@@ -7039,14 +7039,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 2.75
+  - time: 3.6
     functionName: InflictDamage
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 3.2833333
+  - time: 3.8
     functionName: InflictDamage
     data: 
     objectReferenceParameter: {fileID: 0}
