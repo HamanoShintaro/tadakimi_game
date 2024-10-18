@@ -697,6 +697,8 @@ MonoBehaviour:
   characterFormationIndex: 3
   magicPower: {fileID: 1337964779}
   backgroud: {fileID: 1991994328}
+  summonCoolDown: 10
+  summonCoolTime: 10
   summonSound: {fileID: 8300000, guid: 57bfa0917c93b4540961ecd990c15e57, type: 3}
 --- !u!222 &113738026
 CanvasRenderer:
@@ -1732,6 +1734,8 @@ MonoBehaviour:
   characterFormationIndex: 1
   magicPower: {fileID: 1337964779}
   backgroud: {fileID: 2056379764}
+  summonCoolDown: 10
+  summonCoolTime: 10
   summonSound: {fileID: 8300000, guid: 57bfa0917c93b4540961ecd990c15e57, type: 3}
 --- !u!222 &382430178
 CanvasRenderer:
@@ -16231,6 +16235,8 @@ MonoBehaviour:
   characterFormationIndex: 0
   magicPower: {fileID: 1337964779}
   backgroud: {fileID: 1855790700}
+  summonCoolDown: 10
+  summonCoolTime: 10
   summonSound: {fileID: 8300000, guid: 57bfa0917c93b4540961ecd990c15e57, type: 3}
 --- !u!222 &1675491126
 CanvasRenderer:
@@ -17373,6 +17379,8 @@ MonoBehaviour:
   characterFormationIndex: 2
   magicPower: {fileID: 1337964779}
   backgroud: {fileID: 1819812763}
+  summonCoolDown: 10
+  summonCoolTime: 10
   summonSound: {fileID: 8300000, guid: 57bfa0917c93b4540961ecd990c15e57, type: 3}
 --- !u!222 &1963996919
 CanvasRenderer:
@@ -17877,7 +17885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2000317756
 RectTransform:
   m_ObjectHideFlags: 0

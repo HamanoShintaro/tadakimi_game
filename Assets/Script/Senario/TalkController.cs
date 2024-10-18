@@ -104,24 +104,24 @@ public class TalkController : MonoBehaviour
             }
 
             // BGMとSEの処理前にログを出力
-            Debug.Log($"[BGM] トーク番号 {num} に移行します。");
+            //Debug.Log($"[BGM] トーク番号 {num} に移行します。");
 
             voiceSource.Stop();
             if (senarioTalkScript.GetSenarioTalks()[num].voice)
             {
                 voiceSource.PlayOneShot(senarioTalkScript.GetSenarioTalks()[num].voice);
-                Debug.Log($"[Voice] トーク番号 {num} のボイスを再生します。");
+                //Debug.Log($"[Voice] トーク番号 {num} のボイスを再生します。");
             }
             if (senarioTalkScript.GetSenarioTalks()[num].BGM)
             {
-                Debug.Log($"[BGM] トーク番号 {num} のBGMを変更します。BGMクリップ名: {senarioTalkScript.GetSenarioTalks()[num].BGM.name}");
+                //Debug.Log($"[BGM] トーク番号 {num} のBGMを変更します。BGMクリップ名: {senarioTalkScript.GetSenarioTalks()[num].BGM.name}");
                 StartCoroutine(ChangeBGM(senarioTalkScript.GetSenarioTalks()[num].BGM));
             }
             if (senarioTalkScript.GetSenarioTalks()[num].SE)
             {
                 seSource.Stop();
                 voiceSource.PlayOneShot(senarioTalkScript.GetSenarioTalks()[num].SE);
-                Debug.Log($"[SE] トーク番号 {num} のSEを再生します。SEクリップ名: {senarioTalkScript.GetSenarioTalks()[num].SE.name}");
+                //Debug.Log($"[SE] トーク番号 {num} のSEを再生します。SEクリップ名: {senarioTalkScript.GetSenarioTalks()[num].SE.name}");
             }
             if (senarioTalkScript.GetSenarioTalks()[num].bgImage)
             {
@@ -134,8 +134,8 @@ public class TalkController : MonoBehaviour
             if (changeSceneFlg)
             {
                 changeSceneFlg = false;
-                Debug.Log("[Scene] トークが終了しました。'Battle'シーンに遷移します。");
-                StartCoroutine(canvasGroupObjct.GetComponent<TransitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), "Battle"));
+                //Debug.Log("[Scene] トークが終了しました。'Battle'シーンに遷移します。");
+                StartCoroutine(canvasGroupObjct.GetComponent<TransitionController>().ChangeScene(canvasGroupObjct.GetComponent<CanvasGroup>(), "Battle", 1.0f));
             }
         }
     }
@@ -153,11 +153,11 @@ public class TalkController : MonoBehaviour
 
     private IEnumerator ChangeBGMCoroutine(AudioClip bgm)
     {
-        Debug.Log($"[ChangeBGM] 新しいBGMを設定します。BGMクリップ名: {bgm.name}");
-        Debug.Log($"[ChangeBGM] bgmVolumeの値: {bgmVolume}");
+        //Debug.Log($"[ChangeBGM] 新しいBGMを設定します。BGMクリップ名: {bgm.name}");
+        //Debug.Log($"[ChangeBGM] bgmVolumeの値: {bgmVolume}");
 
         // フェードアウト処理
-        Debug.Log("[ChangeBGM] フェードアウト開始");
+        //Debug.Log("[ChangeBGM] フェードアウト開始");
         float fadeDuration = 1.0f; // フェードアウトにかける時間（秒）
         float currentTime = 0f;
         float startVolume = bgmSource.volume;
@@ -171,15 +171,15 @@ public class TalkController : MonoBehaviour
         }
         bgmSource.volume = 0f;
         bgmSource.Stop();
-        Debug.Log("[ChangeBGM] フェードアウト完了。BGMを停止しました。");
+        //Debug.Log("[ChangeBGM] フェードアウト完了。BGMを停止しました。");
 
         // 新しいBGMの設定と再生
         bgmSource.clip = bgm;
         bgmSource.Play();
-        Debug.Log($"[ChangeBGM] 新しいBGMを再生開始: {bgm.name}");
+        //Debug.Log($"[ChangeBGM] 新しいBGMを再生開始: {bgm.name}");
 
         // フェードイン処理
-        Debug.Log("[ChangeBGM] フェードイン開始");
+        //Debug.Log("[ChangeBGM] フェードイン開始");
         currentTime = 0f;
         startVolume = 0f;
 
@@ -187,11 +187,11 @@ public class TalkController : MonoBehaviour
         {
             bgmSource.volume = Mathf.Lerp(startVolume, bgmVolume, currentTime / fadeDuration);
             currentTime += Time.deltaTime;
-            Debug.Log($"[ChangeBGM] フェードイン中: 現在の音量 = {bgmSource.volume}");
+            //Debug.Log($"[ChangeBGM] フェードイン中: 現在の音量 = {bgmSource.volume}");
             yield return null;
         }
         bgmSource.volume = bgmVolume;
-        Debug.Log("[ChangeBGM] フェードイン完了。BGMの音量が設定されました。");
+        //Debug.Log("[ChangeBGM] フェードイン完了。BGMの音量が設定されました。");
 
         bgmCoroutine = null; // コルーチンの終了を通知
     }

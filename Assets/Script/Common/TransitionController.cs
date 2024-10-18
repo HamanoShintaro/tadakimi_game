@@ -34,8 +34,12 @@ public class TransitionController : MonoBehaviour
         canvasGroup.interactable = true;
     }
 
-    public IEnumerator ChangeScene(CanvasGroup canvasGroup, string sceneName)
+    public IEnumerator ChangeScene(CanvasGroup canvasGroup, string sceneName, float delayTime = 0.0f)
     {
+        if (delayTime > 0.0f)
+        {
+            yield return new WaitForSeconds(delayTime);
+        }
         while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha = canvasGroup.alpha - transitionSpeed;
