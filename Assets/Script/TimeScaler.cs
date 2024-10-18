@@ -30,37 +30,38 @@ public class TimeScaler : MonoBehaviour
 
     private void OnGUI()
     {
-        // 2倍速に設定するボタン
-        if (GUI.Button(new Rect(10, 70, 200, 30), "2倍速"))
+        // 1/2倍速に設定するボタン
+        if (GUI.Button(new Rect(10,  80, 200, 30), "1/2倍速"))
         {
-            SetTimeScale(2.0f);
+            SetTimeScale(0.5f);
         }
 
-        // 3倍速に設定するボタン
-        if (GUI.Button(new Rect(10, 100, 200, 30), "3倍速"))
+        // 1/60倍速に設定するボタン
+        if (GUI.Button(new Rect(10, 120, 200, 30), "1/60倍速"))
         {
-            SetTimeScale(3.0f);
+            SetTimeScale(0.016666666666666666f);
         }
 
-        // 時間スケールをリセットするボタン
-        if (GUI.Button(new Rect(10, 130, 200, 30), "5倍速"))
+        // 5倍速に設定するボタン
+        if (GUI.Button(new Rect(10, 160, 200, 30), "5倍速"))
         {
             SetTimeScale(5.0f);
         }
 
-        if (GUI.Button(new Rect(10, 160, 200, 30), "等倍速"))
+        // 等倍速に設定するボタン
+        if (GUI.Button(new Rect(10, 200, 200, 30), "等倍速"))
         {
             ResetTimeScale();
         }
 
         // メニューシーンに戻るボタン
-        if (GUI.Button(new Rect(10, 190, 200, 30), "メニューに戻る"))
+        if (GUI.Button(new Rect(10, 240, 200, 30), "メニューに戻る"))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
         }
 
         // 現在のシーンをリロードするボタン
-        if (GUI.Button(new Rect(10, 220, 200, 30), "リトライ"))
+        if (GUI.Button(new Rect(10, 280, 200, 30), "リトライ"))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
