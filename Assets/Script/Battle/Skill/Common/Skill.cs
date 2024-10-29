@@ -28,6 +28,7 @@ namespace Battle
         public void SkillActionToTargets()
         {
             StartCoroutine(SkillActionToTargetsCoroutine());
+            Debug.Log("<color=red>スキル発動</color>");
         }
 
         protected virtual void OnTriggerStay2D(Collider2D target)
@@ -86,6 +87,7 @@ namespace Battle
                 SkillActionforBuddy(target);
                 if (attackType == AttackType.Single) break;
             }
+            Debug.Log("<color=red>スキルコルーチン終了</color>");
         }
 
         protected virtual void SkillActionToEnemy(GameObject target)
