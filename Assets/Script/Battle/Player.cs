@@ -41,9 +41,28 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private bool wasKnockBackActive = false; // KnockBackの状態を追跡
+
     private void Update()
     {
-        //移動入力がある場合は背景を動かす&歩きアニメーション再生 / ない場合はアニメーションを停止
+        bool isKnockBack = animator.GetBool("KnockBack");
+
+        // KnockBackがtrueならRoot Motionを無効にし、falseなら有効にする
+        if (isKnockBack && !wasKnockBackActive)
+        {
+            animator.applyRootMotion = false;
+            wasKnockBackActive = true;
+        }
+        else if (!isKnockBack && wasKnockBackActive)
+        {
+            animator.applyRootMotion = true;
+            wasKnockBackActive = false;
+        }
+
+        // KnockBackがtrueの場合、移動を停止
+        if (isKnockBack) return;
+
+        // 移動入力がある場合は背景を動かす&歩きアニメーション再生 / ない場合はアニメーションを停止
         if (isRight && isMove)
         {
             MoveRight();
@@ -57,28 +76,30 @@ public class Player : MonoBehaviour
             isMove = false;
         }
     }
+
+
     private void MoveRight()
     {
-        //プレイヤーの前向きに回転
+        // プレイヤーの前向きに回転
         transform.localEulerAngles = Vector3.zero;
 
-        //範囲を制限
+        // 範囲を制限
         if (player.anchoredPosition.x > maxLimitMovePosition) return;
 
-        //前進
+        // 前進
         transform.localPosition = new Vector3(transform.localPosition.x + speed * Time.deltaTime, -315, 0);
         isMove = true;
     }
 
     private void MoveLeft()
     {
-        //プレイヤーの後向きに回転
+        // プレイヤーの後向きに回転
         transform.localEulerAngles = new Vector3(0, 180, 0);
 
-        //範囲を制限
+        // 範囲を制限
         if (player.anchoredPosition.x < minLimitMovePosition) return;
 
-        //後進
+        // 後進
         transform.localPosition = new Vector3(transform.localPosition.x - speed * Time.deltaTime, -315, 0);
         isMove = true;
     }
@@ -88,6 +109,7 @@ public class Player : MonoBehaviour
     /// </summary>
     public void MoveButtonDownRight()
     {
+        
         isRight = true;
         isMove = true;
     }
@@ -97,6 +119,7 @@ public class Player : MonoBehaviour
     /// </summary>
     public void MoveButtonDownLeft()
     {
+        
         isRight = false;
         isMove = true;
     }
