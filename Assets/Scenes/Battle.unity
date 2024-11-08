@@ -23714,6 +23714,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 122919ee469cc4a459a3ab78217ebdc9, type: 2}
+    - target: {fileID: 7619904086566227941, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227960, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_SleepingMode
       value: 0
