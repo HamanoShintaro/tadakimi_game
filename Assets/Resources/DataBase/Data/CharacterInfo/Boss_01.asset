@@ -36,10 +36,10 @@ MonoBehaviour:
   - cost: 0
     attack: 0
     interval: 0
-    hp: 0
+    hp: 8900000
     speed: 0
     atkKB: 0
-    defKB: 0
+    defKB: 7899
     growth: 0
   - cost: 0
     attack: 0
