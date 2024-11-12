@@ -5,9 +5,9 @@ using UnityEngine;
 namespace Battle
 {
     /// <summary>
-    /// ほれ、しっかりと守らんか！
+    /// その命、次は大事にしてくださいね
     /// </summary>
-    public class GuardWell : Skill
+    public class CherishYourLifeNextTime : Skill
     {
         /// <summary>
         /// 通常の40倍の攻撃力を与える

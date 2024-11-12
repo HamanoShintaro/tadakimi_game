@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 4503520938222608312}
   - component: {fileID: 4503520938222608318}
   - component: {fileID: 2079606428684056602}
+  - component: {fileID: -1045654084301284849}
   - component: {fileID: 4503520938222608319}
   - component: {fileID: 4503520938222608316}
   - component: {fileID: 4503520938222608317}
@@ -232,6 +233,22 @@ MonoBehaviour:
   canState: 1
   normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
   hp: 100
+--- !u!114 &-1045654084301284849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4503520938222608313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48539410297014c87ba5fb53388c4be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterId: 64
+  attackType: 0
+  enemyTargets: []
+  buddyTargets: []
 --- !u!114 &4503520938222608319
 MonoBehaviour:
   m_ObjectHideFlags: 0

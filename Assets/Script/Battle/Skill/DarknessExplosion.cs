@@ -16,5 +16,16 @@ namespace Battle
             var attack = GetStatus().attack * rate;
             target.GetComponent<IDamage>().Damage(attack);
         }
+
+        /// <summary>
+        /// 5倍攻撃力
+        /// </summary>
+        /// <param name="target"></param>
+        protected override void SkillActionforBuddy(GameObject target)
+        {
+            var rate = 5;
+            var attack = GetStatus().attack * rate;
+            target.GetComponent<IDamage>().Damage(attack);
+        }
     }
 }

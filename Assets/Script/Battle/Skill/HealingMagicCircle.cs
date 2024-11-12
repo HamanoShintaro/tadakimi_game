@@ -8,12 +8,25 @@ namespace Battle
     {
         protected override void SkillActionforBuddy(GameObject target)
         {
-            Heal();
+            HealforBuddy();
         }
 
-        private void Heal()
+        private void HealforBuddy()
         {
             foreach (GameObject target in buddyTargets)
+            {
+                target.GetComponent<CharacterCore>().Recovery(GetStatus().attack * 5);
+            }
+        }
+
+        protected override void SkillActionToEnemy(GameObject target)
+        {
+            HealToEnemy();
+        }
+
+        private void HealToEnemy()
+        {
+            foreach (GameObject target in enemyTargets)
             {
                 target.GetComponent<CharacterCore>().Recovery(GetStatus().attack * 5);
             }
