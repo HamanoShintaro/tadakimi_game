@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: 4622618029601968717, guid: 18dbed6ab51e34c1695da61ad43f6078, type: 3}
   generateInterval: 4
-  generateOffset: {x: 0, y: 3}
+  generateOffset: {x: -70, y: 180}
 --- !u!114 &2431877166153006109
 MonoBehaviour:
   m_ObjectHideFlags: 0

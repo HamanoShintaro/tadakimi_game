@@ -627,8 +627,8 @@ MonoBehaviour:
   enemyTargets: []
   buddyTargets: []
   orend: {fileID: 5095262611280852148}
-  _puppet: {fileID: 1545771121956627565, guid: bd731b25603024b5497028d2b2ec8fb8, type: 3}
-  _puppetTank: {fileID: 1545771121956627565, guid: 1edd5ebedcbdd4ad99bc98cc9c5f431d, type: 3}
+  _puppet: {fileID: 1545771121956627565, guid: 085bf4a3bfaf448a1a798c082e6fde61, type: 3}
+  _puppetTank: {fileID: 1545771121956627565, guid: 823e27161f1b3483c9464a64eaf33bac, type: 3}
   minY: -30
   maxY: 30
 --- !u!114 &5095262611280852146
