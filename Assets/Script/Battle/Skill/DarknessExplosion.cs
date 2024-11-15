@@ -13,8 +13,8 @@ namespace Battle
         protected override void SkillActionToEnemy(GameObject target)
         {
             var rate = 5;
-            var attack = GetStatus().attack * rate;
-            target.GetComponent<IDamage>().Damage(attack);
+            int heal = Mathf.FloorToInt(GetComponent<CharacterCore>().atkPower * rate);
+            target.GetComponent<CharacterCore>().Recovery(heal);
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace Battle
         {
             var rate = 5;
             var attack = GetStatus().attack * rate;
-            target.GetComponent<IDamage>().Damage(attack);
+            target.GetComponent<CharacterCore>().atkPower = attack;
         }
     }
 }

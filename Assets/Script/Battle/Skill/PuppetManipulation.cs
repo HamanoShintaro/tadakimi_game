@@ -89,11 +89,6 @@ namespace Battle
             summonedPuppet.transform.parent = GameObject.Find("Canvas_Static/[CharacterPanel]").transform;
             summonedPuppet.GetComponent<CharacterCore>().level = GetLevel();
 
-            // パペットの向きを変える
-            var localScale = summonedPuppet.GetComponent<CharacterCore>().transform.localScale;
-            localScale = Vector3.Scale(localScale, new Vector3(-1, 1, 1));
-            summonedPuppet.GetComponent<CharacterCore>().transform.localScale = localScale;
-
             // 生成位置を決定
             var pos = summonedPuppet.transform.localPosition;
             var random = Random.Range(minY, maxY);
@@ -128,6 +123,4 @@ namespace Battle
             orend.GetComponent<IDamage>().Damage(attack, atkKB);
         }
     }
-
-    
 }

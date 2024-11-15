@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2431877166153006106}
   - component: {fileID: 2431877166153006108}
   - component: {fileID: 224128901787474872}
-  - component: {fileID: 798953326015713654}
+  - component: {fileID: 7982522842937579994}
   - component: {fileID: 2431877166153006109}
   - component: {fileID: 2431877166153006110}
   - component: {fileID: 2431877166153006111}
@@ -157,7 +157,7 @@ MonoBehaviour:
   canState: 1
   normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
   hp: 100
---- !u!114 &798953326015713654
+--- !u!114 &7982522842937579994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2431877166153006107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b430f3a2a23d41109b67041e052ab53, type: 3}
+  m_Script: {fileID: 11500000, guid: e08e92f189bad430a9a10cbdcb87436d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterId: 61
@@ -286,7 +286,7 @@ Animator:
   m_GameObject: {fileID: 2431877166153006107}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f3c4aeafa2d774c228aa404309d353af, type: 2}
+  m_Controller: {fileID: 9100000, guid: dea3335784d834ff197e7a54ca498d3b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

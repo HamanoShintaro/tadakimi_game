@@ -7,7 +7,7 @@ namespace Battle
     public class SweetVoice : Skill
     {
         /// <summary>
-        /// 攻撃力3倍
+        /// 味方の攻撃力を3倍
         /// </summary>
         /// <param name="target"></param>
         protected override void SkillActionforBuddy(GameObject target)
