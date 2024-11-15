@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Battle
 {
     /// <summary>
-    /// その命、次は大事にしてくださいね
+    /// Boss_06(Sara) : その命、次は大事にしてくださいね
     /// </summary>
     public class CherishYourLifeNextTime : Skill
     {
@@ -13,7 +13,7 @@ namespace Battle
         /// 通常の40倍の攻撃力を与える
         /// </summary>
         /// <param name="target"></param>
-        protected override void SkillActionToEnemy(GameObject target)
+        protected override void SkillActionforBuddy(GameObject target)
         {
             var rate = 40;
             var attack = GetComponent<CharacterCore>().atkPower * rate;

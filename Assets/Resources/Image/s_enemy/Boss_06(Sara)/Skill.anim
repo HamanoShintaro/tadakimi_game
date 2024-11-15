@@ -2698,7 +2698,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 4.75
-    functionName: SkillActionToEnemy
+    functionName: SkillActionforBuddy
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -11847,42 +11847,42 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: SkillActionforBuddy
+    functionName: SkillActionToEnemy
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 5
-    functionName: SkillActionforBuddy
+    functionName: SkillActionToEnemy
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 10
-    functionName: SkillActionforBuddy
+    functionName: SkillActionToEnemy
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 14.983334
-    functionName: SkillActionforBuddy
+    functionName: SkillActionToEnemy
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 19.983334
-    functionName: SkillActionforBuddy
+    functionName: SkillActionToEnemy
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 24.966667
-    functionName: SkillActionforBuddy
+    functionName: SkillActionToEnemy
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
