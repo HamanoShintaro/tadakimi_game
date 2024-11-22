@@ -15,7 +15,7 @@ namespace Battle
         {
             foreach (GameObject buddyTarget in buddyTargets)
             {
-                buddyTarget.GetComponent<CharacterCore>().Recovery(atkPower * 5);
+                buddyTarget.GetComponent<CharacterCore>().Recovery(atkPower * 2);
                 Debug.Log("<color=green>ヒーリングマジックサークル</color>");
             }
         }
@@ -24,7 +24,7 @@ namespace Battle
         {
             foreach (GameObject enemyTarget in enemyTargets)
             {
-                enemyTarget.GetComponent<CharacterCore>().Recovery(atkPower * 5);
+                enemyTarget.GetComponent<CharacterCore>().Recovery(atkPower * 10);
                 Debug.Log("<color=red>ヒーリングマジックサークル</color>");
             }
         }
