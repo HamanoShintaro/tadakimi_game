@@ -18,10 +18,12 @@ namespace Battle
         }
 
         protected override void SkillActionToEnemy(GameObject target)
-        {   
+        {
             foreach (GameObject enemyTarget in enemyTargets)
             {
-                enemyTarget.GetComponent<CharacterCore>().atkPower *= rate;
+                var attack = GetStatus().attack;
+                enemyTarget.GetComponent<CharacterCore>().Recovery(attack * 5);
+                Debug.Log("<color=red>ヒーリングマジックサークル</color>");
             }
         }
     }

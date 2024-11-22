@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterId: 61
-  attackType: 0
+  attackType: 1
   enemyTargets: []
   buddyTargets: []
   rate: 5
