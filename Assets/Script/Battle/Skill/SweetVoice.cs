@@ -6,13 +6,23 @@ namespace Battle
 {
     public class SweetVoice : Skill
     {
-        /// <summary>
-        /// 味方の攻撃力を3倍
-        /// </summary>
-        /// <param name="target"></param>
+        [SerializeField]
+        private int rate = 3;
+
         protected override void SkillActionforBuddy(GameObject target)
         {
-            target.GetComponent<CharacterCore>().atkPower *= 3;
+            foreach (GameObject buddyTarget in buddyTargets)
+            {
+                buddyTarget.GetComponent<CharacterCore>().atkPower *= rate;
+            }
+        }
+
+        protected override void SkillActionToEnemy(GameObject target)
+        {   
+            foreach (GameObject enemyTarget in enemyTargets)
+            {
+                enemyTarget.GetComponent<CharacterCore>().atkPower *= rate;
+            }
         }
     }
 }
