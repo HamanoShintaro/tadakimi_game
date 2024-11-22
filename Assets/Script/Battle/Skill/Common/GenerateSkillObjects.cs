@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Battle;
 
 public class GenerateSkillObjects : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class GenerateSkillObjects : MonoBehaviour
         Vector3 generatePosition = new Vector3(transform.position.x + generateOffset.x, transform.position.y + generateOffset.y, transform.position.z);
         var skillObject = Instantiate(skillPrefab, generatePosition, transform.rotation);
         skillObject.transform.parent = GameObject.Find("Canvas_Static/[BackPanel]").transform;
-        Debug.Log("GenerateSkillObject");
+        skillObject.GetComponent<HealingMagicCircle>().atkPower = (int)GetComponent<CharacterCore>().atkPower;
     }
 
     private void OnDisable()

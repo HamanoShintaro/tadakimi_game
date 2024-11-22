@@ -4,31 +4,28 @@ using UnityEngine;
 
 namespace Battle
 {
+    /// <summary>
+    /// Shandy : ヒーリングマジックサークル
+    /// </summary>
     public class HealingMagicCircle : Skill
     {
+        public int atkPower;
+
         protected override void SkillActionforBuddy(GameObject target)
         {
-            HealforBuddy();
-        }
-
-        private void HealforBuddy()
-        {
-            foreach (GameObject target in buddyTargets)
+            foreach (GameObject buddyTarget in buddyTargets)
             {
-                target.GetComponent<CharacterCore>().Recovery(GetStatus().attack * 5);
+                buddyTarget.GetComponent<CharacterCore>().Recovery(atkPower * 5);
+                Debug.Log("<color=green>ヒーリングマジックサークル</color>");
             }
         }
 
         protected override void SkillActionToEnemy(GameObject target)
         {
-            HealToEnemy();
-        }
-
-        private void HealToEnemy()
-        {
-            foreach (GameObject target in enemyTargets)
+            foreach (GameObject enemyTarget in enemyTargets)
             {
-                target.GetComponent<CharacterCore>().Recovery(GetStatus().attack * 5);
+                enemyTarget.GetComponent<CharacterCore>().Recovery(atkPower * 5);
+                Debug.Log("<color=red>ヒーリングマジックサークル</color>");
             }
         }
 
