@@ -11,6 +11,9 @@ public class ChatBox : MonoBehaviour
     private string[] messageArray;
     private List<AudioClip> voiceList;
 
+    [SerializeField]
+    private DialogueSelector dialogueSelector;
+
     private void Start()
     {
         UpdateMessageArray();
@@ -31,8 +34,9 @@ public class ChatBox : MonoBehaviour
     /// </summary>
     public void DisplayMessage()
     {
-        var index = Random.Range(0, messageArray.Length);
-        chatBox.text = messageArray[index];
+        //var index = Random.Range(0, messageArray.Length);
+        //chatBox.text = messageArray[index];
+        chatBox.text = dialogueSelector.GetRandomDialogue();
     }
 
     /// <summary>
