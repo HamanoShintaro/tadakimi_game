@@ -385,11 +385,11 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         if (!canSkillCoolTime) yield break;
         canSkillCoolTime = false;
         var wait = new WaitForSeconds(1);
-        skillCoolTime = skillCoolDown;
-        while (skillCoolTime > 0)
+        SkillCoolTime = skillCoolDown;
+        while (SkillCoolTime > 0)
         {
             yield return wait;
-            skillCoolTime--;
+            SkillCoolTime--;
         }
         canSkillCoolTime = true;
     }
