@@ -69,6 +69,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private const float knockBackForce = 800f;
     //ノックバックする時の高さ
     private const float jumpHeight = 50f;
+    // ノックバック中かどうかを追跡
+    private bool isKnockBack = false; 
 
     // グローバル変数として出現時のY座標を保存
     private float originalY;
@@ -409,6 +411,10 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private IEnumerator KnockBack()
     {
+        // すでにノックバック中なら処理を無効化
+        if (isKnockBack) yield break;
+        // ノックバック状態を開始
+        isKnockBack = true; 
         // ステートを一時的に無効にする
         canState = false;
 
@@ -447,7 +453,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             // 1フレーム待機して次の更新に進む
             yield return null;
         }
-
+        // ノックバックが終了したことを示す
+        isKnockBack = false; // ノックバック状態を解除
         // ノックバックが終わった後、Y座標を元の位置に戻す
         transform.position = new Vector2(transform.position.x, originalY);
     }
@@ -478,9 +485,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         {
             Death();
         }
-        else if ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity))
+        else if (!isKnockBack && ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity)))
         {
-            StartCoroutine(KnockBack());
+            StartCoroutine(KnockBack()); // ノックバック処理を呼び出す
         }
         Debug.Log($"{characterId}が{atkPower}ダメージを受けた");
     }
