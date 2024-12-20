@@ -872,7 +872,7 @@ PrefabInstance:
     - target: {fileID: 7326069304025067314, guid: b2b93318745c4483b9d4792d4057b33c, type: 3}
       propertyPath: characterDataBaseCsvFile.Array.data[0]
       value: 
-      objectReference: {fileID: 4900000, guid: 97b667e20f3c2453ca366cb6db677b71, type: 3}
+      objectReference: {fileID: 4900000, guid: 9081f9d8276b747d1b3d1b08d4b9bb9e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2b93318745c4483b9d4792d4057b33c, type: 3}
 --- !u!1 &644949664
