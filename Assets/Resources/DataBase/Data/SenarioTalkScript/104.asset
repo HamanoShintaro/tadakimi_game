@@ -583,7 +583,7 @@ MonoBehaviour:
     LR: R
     expressions: normal
     voice: {fileID: 0}
-    SE: {fileID: 8300000, guid: cf4cf38b489074d2f99f58453dbd2ae7, type: 3}
+    SE: {fileID: 0}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
