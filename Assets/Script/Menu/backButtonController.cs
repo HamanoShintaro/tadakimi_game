@@ -9,9 +9,12 @@ public class backButtonController : MonoBehaviour
     public GameObject Canvas;
     private MenuController menuController;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         menuController = Canvas.GetComponent<MenuController>();
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     public void OnClick()
@@ -29,7 +32,6 @@ public class backButtonController : MonoBehaviour
             StartCoroutine(menuController.backMenuFromSetting());
         }
         CharacterBox.CloseCharacterFormation();
-        this.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeSE);
-        this.GetComponent<AudioSource>().Play();
+        audioSource.Play();
     }
 }
