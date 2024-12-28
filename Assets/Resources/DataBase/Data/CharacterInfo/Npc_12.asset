@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Npc_12
   m_EditorClassIdentifier: 
   id: Npc_12
-  name: "\u6DEB\u9B54\u65CF\uFF1A\u9B54\u9053\u58EB"
-  alias: "\u306A\u3057"
-  detail: "\u4EBA\u3092\u6DEB\u3089\u306A\u5922\u3078\u3068\u8A98\u3046\u5973\u6027\u578B\u306E\u9B54\u7269\u3002\u9B54\u65CF\u306E\u4E2D\u3067\u3082\u9AD8\u3044\u9B54\u6CD5\u9069\u6027\u3092\u6301\u3061\u3001\u6226\u7DDA\u306E\u7DAD\u6301\u3092\u62C5\u3063\u3066\u3044\u308B\u3002"
-  type: "\u30B5\u30DD\u30FC\u30C8"
+  name: "\u60AA\u9B54\u65CF\uFF1A\u65CF\u9577"
+  alias: 
+  detail: "\u5DE8\u5927\u306A\u5263\u3092\u632F\u308B\u30C7\u30FC\u30E2\u30F3\u306E\u89AA\u7389\u3002\u8089\u4F53\u306E\u5F37\u3055\u3092\u8FFD\u3044\u6C42\u3081\u305F\u9B54\u65CF\u306E\u59FF\u3067\u3042\u308A\u3001\u305D\u306E\u5C48\u5F37\u306A\u4F53\u306F\u898B\u308B\u3082\u306E\u306B\u754F\u6016\u3092\u4E0E\u3048\u308B\u3002"
+  type: "\u30C7\u30A3\u30D5\u30A7\u30F3\u30C0\u30FC"
   image:
     fullsize: {fileID: 21300000, guid: 138250b09eb324030993573935a358f2, type: 3}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
@@ -25,58 +25,58 @@ MonoBehaviour:
     prefab: {fileID: 1545771121956627565, guid: 16dcb789e240d4137870b1914afb450a, type: 3}
   rank: 2
   status:
-  - cost: 100
-    attack: 7
-    interval: 0
-    hp: 20
-    speed: 15
-    atkKB: 0
-    defKB: 0
-    growth: 6
-  - cost: 100
-    attack: 11
-    interval: 0
-    hp: 30
-    speed: 15
-    atkKB: 0
-    defKB: 0
-    growth: 72
-  - cost: 100
-    attack: 15
-    interval: 0
-    hp: 42
-    speed: 15
-    atkKB: 0
-    defKB: 0
-    growth: 240
-  - cost: 100
+  - cost: 180
     attack: 20
     interval: 0
-    hp: 68
-    speed: 15
-    atkKB: 0
-    defKB: 0
-    growth: 300
-  - cost: 100
-    attack: 24
+    hp: 170
+    speed: 40
+    atkKB: 40
+    defKB: 15
+    growth: 150
+  - cost: 180
+    attack: 22
     interval: 0
-    hp: 102
-    speed: 15
-    atkKB: 0
-    defKB: 0
+    hp: 289
+    speed: 40
+    atkKB: 40
+    defKB: 15
+    growth: 300
+  - cost: 180
+    attack: 26
+    interval: 0
+    hp: 374
+    speed: 40
+    atkKB: 40
+    defKB: 15
+    growth: 750
+  - cost: 180
+    attack: 32
+    interval: 0
+    hp: 850
+    speed: 40
+    atkKB: 40
+    defKB: 15
+    growth: 1200
+  - cost: 180
+    attack: 60
+    interval: 0
+    hp: 1360
+    speed: 40
+    atkKB: 40
+    defKB: 15
     growth: 0
   skill:
-    name: 9999
-    cost: 9999
-    cd: 9999
-    Detail: 9999
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
     effect: {fileID: 0}
     Ratio: 2.5
   special:
-    name: 9999
-    cost: 9999
-    cd: 9999
-    Detail: 9999
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
     effect: {fileID: 0}
     Ratio: 5
     still: {fileID: 0}
