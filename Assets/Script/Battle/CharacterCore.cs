@@ -37,6 +37,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private float maxLimitMovePosition = 2800f;
 
+    //イーラに攻撃力を上げさせられたかどうか。
+    public bool hasDoubleAttackPower = false;
+
     [Tooltip("現在のレベル")]
     [HideInInspector]
     public int level = 0;
