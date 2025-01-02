@@ -49,7 +49,11 @@ public class CharacterInfo : ScriptableObject
 	{
 		// 召喚コスト
 		public int cost;
+
+		// 召喚クールタイム
+		public int summoncd;
 		// 攻撃力
+
 		public int attack;
 		// 攻撃速度
 		[HideInInspector]

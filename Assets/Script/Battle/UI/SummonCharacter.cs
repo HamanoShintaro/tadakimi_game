@@ -11,7 +11,7 @@ using System.Linq;
 public class SummonCharacter : MonoBehaviour
 {
     [SerializeField]
-    [Header("敵キャラを生成する位置(appearTransform")]
+    [Header("敵キャラを生成する位置(appearTransform)")]
     private int minY = -30, maxY = 30;
 
     [Space(10)]
@@ -32,11 +32,9 @@ public class SummonCharacter : MonoBehaviour
 
     private int cost;
 
-    [SerializeField]
-    private const float MAX_SUMMON_COOL_TIME = 1.0f;
+    private float summonCoolTime;
+    private float maxSummonCoolTime;
 
-    [SerializeField]
-    private float summonCoolTime = 10.0f;
     private string status;
 
     private GameObject characterPrefab;
@@ -57,53 +55,52 @@ public class SummonCharacter : MonoBehaviour
     {
         magicPowerController = magicPower.GetComponent<MagicPowerController>();
 
-        //SaveControllerを生成する
+        // SaveControllerを生成する
         SaveController saveController = new SaveController();
-        //characterFormationIndexに一致するcharacterFormationのキャラクターを取得する
+        // characterFormationIndexに一致するcharacterFormationのキャラクターを取得する
         saveController.characterFormation.Load();
         try
         {
             string characterId = saveController.characterFormation.list[characterFormationIndex];
-            //キャラクターが空の場合はSummonのUIを非表示にする
-            if (characterId == "" || characterId == null)
+            // キャラクターが空の場合はSummonのUIを非表示にする
+            if (string.IsNullOrEmpty(characterId))
             {
                 this.gameObject.SetActive(false);
                 return;
             }
 
-            //召喚するキャラクターをリソースから取得
+            // 召喚するキャラクターをリソースから取得
             characterPrefab = Resources.Load<GameObject>($"Prefabs/Battle/Buddy/{characterId}");
 
-            //リストからcharacterIdに一致するデータのレベルを取得
+            // リストからcharacterIdに一致するデータのレベルを取得
             saveController.characterSave.Load();
             var list = saveController.characterSave.list;
-            int level = 0;
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i].id == characterId)
-                {
-                    level = list[i].level;
-                }
-            }
-            //コストを取得
-            cost = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].cost;
+            int level = list.FirstOrDefault(x => x.id == characterId)?.level ?? 0;
+
+            // コストとクールタイムを取得
+            var characterInfo = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}");
+            cost = characterInfo.status[level].cost;
+            maxSummonCoolTime = characterInfo.status[level].summoncd;
+            summonCoolTime = 0.0f; // 初期値はカウントしない
 
             backgroudImage = backgroud.GetComponent<Image>();
             animator = GetComponent<Animator>();
-            transform.Find("character").GetComponent<Image>().sprite = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").image.icon;
-            summonCoolTime = 10.0f;
+            transform.Find("character").GetComponent<Image>().sprite = characterInfo.image.icon;
+
             status = "wait";
         }
         catch
         {
+            Debug.LogError("キャラクター情報のロードに失敗しました。");
         }
     }
+
     private void Update()
     {
         // 召喚できる状態
         if (status == "wait")
         {
-            if (/*summonCoolTime == 0.0f &&*/ cost <= magicPowerController.magicPower)
+            if (summonCoolTime <= 0.0f && cost <= magicPowerController.magicPower)
             {
                 status = "summon";
                 animator.SetBool("summon", true);
@@ -113,18 +110,21 @@ public class SummonCharacter : MonoBehaviour
         // 召喚できない状態
         if (status == "summon")
         {
-            if (/*0.0f < summonCoolTime ||*/ magicPowerController.magicPower < cost)
+            if (summonCoolTime > 0.0f || magicPowerController.magicPower < cost)
             {
                 status = "wait";
                 animator.SetBool("summon", false);
             }
         }
-        
-        float coolDownProgress = (MAX_SUMMON_COOL_TIME - summonCoolTime) / MAX_SUMMON_COOL_TIME;
-        //float costProgress = magicPowerController.magicPower >= cost ? 1.0f : magicPowerController.magicPower / cost;
-        //backgroudImage.fillAmount = costProgress;
-        backgroudImage.fillAmount = coolDownProgress;
-        summonCoolTime = Mathf.Max(0.0f, summonCoolTime - Time.deltaTime);
+
+        // クールタイムの進行をUIに反映
+        float coolDownProgress = (maxSummonCoolTime - summonCoolTime) / maxSummonCoolTime;
+        backgroudImage.fillAmount = Mathf.Clamp01(coolDownProgress);
+
+        if (summonCoolTime > 0.0f)
+        {
+            summonCoolTime = Mathf.Max(0.0f, summonCoolTime - Time.deltaTime);
+        }
     }
 
     /// <summary>
@@ -133,13 +133,13 @@ public class SummonCharacter : MonoBehaviour
     /// </summary>
     public void OnClick()
     {
-        if (0.0f < summonCoolTime) return;
+        if (summonCoolTime > 0.0f) return;
         if (magicPowerController.UseMagicPower(cost))
         {
             SummonCharacterInstance();
             PlaySummonSound();
             ReorderCharacters();
-            summonCoolTime = MAX_SUMMON_COOL_TIME;
+            summonCoolTime = maxSummonCoolTime; // 最初の召喚時からカウント開始
         }
     }
 

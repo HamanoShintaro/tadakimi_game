@@ -101,6 +101,14 @@ public class CSVLoaderCharacter : MonoBehaviour
                         {
                             Debug.LogError("コストの取得に失敗しました: " + ex.Message + " 取得したデータ: " + values[22]);
                         }
+                        try
+                        {
+                            status.summoncd = string.IsNullOrEmpty(values[23]) ? 0 : int.Parse(values[23]);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.LogError("召喚クールダウンの取得に失敗しました: " + ex.Message + " 取得したデータ: " + values[23]);
+                        }
 
                         try
                         {
