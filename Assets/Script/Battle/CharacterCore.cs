@@ -386,6 +386,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (!canSkillCoolTime) yield break;
         canSkillCoolTime = false;
+        Debug.Log("SkillCoolTimeCount開始");
         var wait = new WaitForSeconds(1);
         SkillCoolTime = skillCoolDown;
         while (SkillCoolTime > 0)
@@ -393,8 +394,10 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             yield return wait;
             SkillCoolTime--;
         }
+        Debug.Log("SkillCoolTime終了");
         canSkillCoolTime = true;
     }
+
 
     private IEnumerator SpecialCoolTimeCount()
     {

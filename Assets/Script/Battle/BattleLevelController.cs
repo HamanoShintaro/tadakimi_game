@@ -21,6 +21,10 @@ public class BattleLevelController : MonoBehaviour
     private Text currentLv;
     private Text cost;
 
+    [SerializeField]
+    private AudioClip LvSound;
+    private AudioSource audioSource;
+
     private void Start()
     {
         battleController = canvas.GetComponent<BattleController>();
@@ -28,6 +32,7 @@ public class BattleLevelController : MonoBehaviour
         currentLv = transform.Find("currentLv").gameObject.GetComponent<Text>();
         cost = transform.Find("cost").gameObject.GetComponent<Text>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         levelUpCost[0] = 0;
         levelUpCost[1] = 30;
@@ -84,11 +89,20 @@ public class BattleLevelController : MonoBehaviour
             this.GetComponent<EventTrigger>().enabled = false;
             animator.SetBool("isValid", false);
 
+            PlayLvSound();
+
             battleController.UpMagicLevel();
 
             currentLv.text = battleController.magic_recovery_level.ToString();
             if (isMax) cost.text = "-";
             else cost.text = levelUpCost[battleController.magic_recovery_level].ToString();
         }
+    }
+    /// <summary>
+    /// 召喚音を再生するメソッド。
+    /// </summary>
+    private void PlayLvSound()
+    {
+        audioSource.PlayOneShot(LvSound);
     }
 }
