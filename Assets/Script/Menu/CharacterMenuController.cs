@@ -92,7 +92,18 @@ public class CharacterMenuController : MonoBehaviour
         characterNameObj.GetComponent<Text>().text = character.name;
         characterAiliasObj.GetComponent<Text>().text = "ーー" + character.alias;
         characterDescriptionObj.GetComponent<Text>().text = character.detail;
-        characterSkillDescriptionObj.GetComponent<Text>().text = character.skill.name + "  消費魔力：" + character.skill.cost + "\n" + character.skill.Detail;
+
+        // キャラクタースキル名が空でない場合にスキルを表示
+        if (!string.IsNullOrEmpty(character.skill.name))
+        {
+            characterSkillDescriptionObj.GetComponent<Text>().text =
+                character.skill.name + "  消費魔力：" + character.skill.cost + "\n" + character.skill.Detail;
+        }
+        else
+        {
+            characterSkillDescriptionObj.GetComponent<Text>().text = string.Empty; // 空白に設定
+        }
+
 
         //キャラクター画像のセット
         characterBackground.GetComponent<Image>().sprite = character.image.backGround;
