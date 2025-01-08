@@ -8,11 +8,14 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class OnButton : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip clip;
     /// <summary>
     /// メニューシーンに切り替えるメソッドf
     /// </summary>
     public void OnChangeMainMenu()
     {
+        audioSource.PlayOneShot(clip);
         SceneManager.LoadScene("Menu");
     }
     /// <summary>
@@ -20,6 +23,7 @@ public class OnButton : MonoBehaviour
     /// </summary>
     public void OnChangeSenario()
     {
+        audioSource.PlayOneShot(clip);
         SceneManager.LoadScene("Senario");
     }
 
@@ -28,6 +32,7 @@ public class OnButton : MonoBehaviour
     /// </summary>
     public void OnChangeBattle()
     {
+        audioSource.PlayOneShot(clip);
         SceneManager.LoadScene("Battle");
     }
 
@@ -37,6 +42,7 @@ public class OnButton : MonoBehaviour
     /// <param name="url">開くURL</param>
     public void OpenURL(string url)
     {
+        audioSource.PlayOneShot(clip);
         Application.OpenURL(url);
     }
 }

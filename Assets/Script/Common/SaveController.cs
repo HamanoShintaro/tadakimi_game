@@ -64,14 +64,20 @@ public class SaveController : MonoBehaviour
         //初期キャラをキャラクターデータに追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
         {
-            // AddCharacterDate("キャラクター名", 0, true);
+            AddCharacterDate("Npc_04", 0, true);
+            AddCharacterDate("Npc_05", 0, true);
+            AddCharacterDate("Npc_07", 0, true);
+            AddCharacterDate("Era_01", 0, true);
             Debug.Log("キャラクターデータ初期化");
         }
 
         //初期キャラをキャラクターフォーメーション[0]に追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
         {
-            // UpdateCharacterFormationDate("キャラクター名", 0);
+            UpdateCharacterFormationDate("Npc_04", 0);
+            UpdateCharacterFormationDate("Npc_05", 1);
+            UpdateCharacterFormationDate("Npc_07", 2);
+            UpdateCharacterFormationDate("Era_01", 3);
             Debug.Log("フォーメーション初期化");
         }
 

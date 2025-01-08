@@ -41,7 +41,9 @@ public class CharacterMenuController : MonoBehaviour
 
     // オーディオに関するオブジェクト
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioClip levelUpClip;
+
+    [SerializeField] private AudioClip selectClip;
 
     private void Start()
     {
@@ -58,9 +60,21 @@ public class CharacterMenuController : MonoBehaviour
             Debug.LogError("SaveControllerが見つかりませんでした。");
             return;
         }
-        if (saveController.characterSave.list.Count > 0)
+        if (saveController.characterSave.list.Count > 0 && saveController.characterSave.list[0] != null)
         {
             SetCharacter(saveController.characterSave.list[0].id);
+        }
+        if (saveController.characterSave.list.Count > 1 && saveController.characterSave.list[1] != null)
+        {
+            SetCharacter(saveController.characterSave.list[1].id);
+        }
+        if (saveController.characterSave.list.Count > 2 && saveController.characterSave.list[2] != null)
+        {
+            SetCharacter(saveController.characterSave.list[2].id);
+        }
+        if (saveController.characterSave.list.Count > 3 && saveController.characterSave.list[3] != null)
+        {
+            SetCharacter(saveController.characterSave.list[3].id);
         }
     }
 
@@ -101,7 +115,7 @@ public class CharacterMenuController : MonoBehaviour
         }
         else
         {
-            characterSkillDescriptionObj.GetComponent<Text>().text = string.Empty; // 空白に設定
+            characterSkillDescriptionObj.GetComponent<Text>().text = string.Empty;
         }
 
 
@@ -126,13 +140,21 @@ public class CharacterMenuController : MonoBehaviour
             characterSpeedObj.GetComponent<Text>().text = character.status[level].speed.ToString();
             characterKnockBackObj.GetComponent<Text>().text = character.status[level].atkKB.ToString();
             characterKnockBackDeffenceObj.GetComponent<Text>().text = character.status[level].defKB.ToString();
-            characterLvUpCostObj.GetComponent<Text>().text = character.status[level].growth.ToString();
+            characterLvUpCostObj.GetComponent<Text>().text = (character.status[level].growth != 0 ? character.status[level].growth.ToString() : "Max");
         }
         else
         {
             // インデックスが範囲外の場合のエラーハンドリング
             Debug.LogWarning("キャラクターのステータスインデックスが範囲外です。");
         }
+    }
+
+    /// <summary>
+    /// キャラクターを選択した際のサウンド処理
+    /// </summary>
+    public void SelectCharacter()
+    {
+        audioSource.PlayOneShot(selectClip);
     }
 
     /// <summary>
@@ -164,7 +186,7 @@ public class CharacterMenuController : MonoBehaviour
             saveController.characterSave.list.Find(characterSave => characterSave.id == characterId).level++;
             saveController.characterSave.Save();
             SetCharacter(characterId);
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(levelUpClip);
         }
     }
 
