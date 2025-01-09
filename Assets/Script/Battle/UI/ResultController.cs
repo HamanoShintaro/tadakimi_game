@@ -65,8 +65,7 @@ public class ResultController : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         audioSource.PlayOneShot(characterVoice);
 
-        yield return StartCoroutine(TextApear(main));
-        yield return new WaitForSecondsRealtime(1.0f);
+        StartCoroutine(TextApear(main));
 
         yield return StartCoroutine(Floating(gold));
         yield return new WaitForSecondsRealtime(0.5f);

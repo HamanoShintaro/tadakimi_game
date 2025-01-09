@@ -24,6 +24,12 @@ public class BattleController : MonoBehaviour
     private int rate = 10;
 
     [SerializeField]
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip animationSound;
+
+    [SerializeField]
     [Header("クリア後からリザルト画面にいくまでの時間")]
     private int waitTime;
 
@@ -210,6 +216,10 @@ public class BattleController : MonoBehaviour
 
         //所持金額+獲得金額を所持金額を更新して、保存
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, totalMoney + getMoney);
+
+        // アニメーション効果音を再生
+        audioSource.PlayOneShot(animationSound);
+
         while (getMoney >= 100)
         {
             getMoney -= 10;
