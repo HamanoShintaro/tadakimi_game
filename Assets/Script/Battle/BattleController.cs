@@ -212,37 +212,56 @@ public class BattleController : MonoBehaviour
         //取得金額を保存
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerGetMoney, getMoney);
 
-        yield return new WaitForSeconds(1.5f);
+        //yield return new WaitForSeconds(1.5f);
 
         //所持金額+獲得金額を所持金額を更新して、保存
-        PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, totalMoney + getMoney);
+        //PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, totalMoney + getMoney);
+
+        yield return new WaitForSeconds(1.5f);
+
+        // アニメーションの設定
+        float animationDuration = 1f; // アニメーションの所要時間
+        int animationSteps = 30; // アニメーションのステップ数
+        float stepDuration = animationDuration / animationSteps; // ステップごとの時間
+        int increment = Mathf.CeilToInt((float)getMoney / animationSteps); // ステップごとの増加量
 
         // アニメーション効果音を再生
         audioSource.PlayOneShot(animationSound);
 
-        while (getMoney >= 100)
+        for (int i = 0; i < animationSteps; i++)
         {
-            getMoney -= 10;
+            if (getMoney <= 0) break;
+
+            int stepValue = Mathf.Min(increment, getMoney);
+            getMoney -= stepValue;
+            totalMoney += stepValue;
+
             getMoneyText[0].text = $"{getMoney}";
             getMoneyText[1].text = $"{getMoney}";
 
-            totalMoney += 10;
             totalMoneyText[0].text = $"{totalMoney}";
             totalMoneyText[1].text = $"{totalMoney}";
-            yield return null;
+
+            yield return new WaitForSeconds(stepDuration);
         }
-        while (getMoney > 0 && getMoney < 100)
+
+        // 残りの金額があれば最後に調整
+        if (getMoney > 0)
         {
-            getMoney -= 1;
+            totalMoney += getMoney;
+            getMoney = 0;
+
             getMoneyText[0].text = $"{getMoney}";
             getMoneyText[1].text = $"{getMoney}";
 
-            totalMoney += 1;
             totalMoneyText[0].text = $"{totalMoney}";
             totalMoneyText[1].text = $"{totalMoney}";
-            yield return null;
         }
+
+        PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, totalMoney);
+
         yield return new WaitForSeconds(1.5f);
+
 
         if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
         {
