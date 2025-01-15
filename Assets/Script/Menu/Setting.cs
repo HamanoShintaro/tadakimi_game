@@ -81,6 +81,9 @@ public class Setting : MonoBehaviour
     {
         PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, 101);
         PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, 101);
+        
+        //PlayerPrefs.DeleteAll();
+        //saveManager.InitUser();
         Debug.Log("リセットが呼び出されました");
     }
 

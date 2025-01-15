@@ -66,6 +66,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private GameObject characterPanel;
     private AudioSource audioSource;
 
+    private List<GameObject> confirmedTargets;
+
     //ノックバックの秒数(全体フレーム)
     private const float knockBackDuration = 0.5f;
     //ノックバックの距離
@@ -235,6 +237,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (!canState) return;
         canState = false;
+        
+        confirmedTargets = new List<GameObject>(targets);
+
         if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
         {
             SpecialAction();
@@ -347,7 +352,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
-            foreach (var target in targets)
+            foreach (var target in confirmedTargets)
             {
                 var distance = Vector2.Distance(target.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition);
                 if (distance < longAttackDistance)
@@ -359,7 +364,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("LongAttack"))
         {
-            foreach (var target in targets)
+            foreach (var target in confirmedTargets)
             {
                 target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
                 Debug.Log($"{characterId}は{target.name}に{atkPower * ratio}ダメージを与えた");
@@ -368,7 +373,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Skill"))
         {
-            foreach (var target in targets)
+            foreach (var target in confirmedTargets)
             {
                 target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
                 Debug.Log($"{characterId}は{target.name}に{atkPower * ratio}ダメージを与えた");
@@ -378,7 +383,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void InflictDamageAsNonLeader(float ratio)
     {
-        foreach (var target in targets)
+        foreach (var target in confirmedTargets)
         {
             target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
             if (attackType == AttackType.Single) break;
@@ -400,7 +405,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         Debug.Log("SkillCoolTime終了");
         canSkillCoolTime = true;
     }
-
 
     private IEnumerator SpecialCoolTimeCount()
     {
@@ -516,27 +520,38 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         targets.Clear();
     }
-
     private void OnTriggerStay2D(Collider2D t)
     {
-        if (IsLongRangeTrigger(t)) return;
-        bool isTarget = (characterType.Equals(CharacterType.Buddy) && t.CompareTag("Enemy")) || (characterType.Equals(CharacterType.Enemy) && t.CompareTag("Buddy"));
-        if (isTarget && !targets.Contains(t.gameObject))
+        if (IsLongRangeTrigger(t) || !IsValidTarget(t)) return;
+        
+        if (!targets.Contains(t.gameObject))
         {
             targets.Add(t.gameObject);
-            targets = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).ToList();
+            SortTargetsByDistance();
         }
     }
 
-    private void OnTriggerExit2D(Collider2D t)
+    private void OnTriggerExit2D(Collider2D t) 
     {
-        if (IsLongRangeTrigger(t)) return;
-        bool isTarget = (characterType.Equals(CharacterType.Buddy) && t.CompareTag("Enemy")) || (characterType.Equals(CharacterType.Enemy) && t.CompareTag("Buddy"));
-        if (isTarget && targets.Contains(t.gameObject))
+        if (IsLongRangeTrigger(t) || !IsValidTarget(t)) return;
+
+        if (targets.Contains(t.gameObject))
         {
             targets.Remove(t.gameObject);
-            targets = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).ToList();
+            SortTargetsByDistance(); 
         }
+    }
+
+    private bool IsValidTarget(Collider2D t)
+    {
+        return (characterType == CharacterType.Buddy && t.CompareTag("Enemy")) || 
+                (characterType == CharacterType.Enemy && t.CompareTag("Buddy"));
+    }
+
+    private void SortTargetsByDistance()
+    {
+        var myPos = GetComponent<RectTransform>().anchoredPosition.x;
+        targets = targets.OrderBy(n => Mathf.Abs(n.GetComponent<RectTransform>().anchoredPosition.x - myPos)).ToList();
     }
 
     private bool IsLongRangeTrigger(Collider2D t)
