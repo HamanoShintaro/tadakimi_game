@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class GameSettingParams
 {
-    public const string initCharacter = "Volcus_01";
+    public static readonly string[] initCharacter = { "Npc_04", "Npc_05", "Npc_07", "Era_01" };
     public const float characterVoiceVolume = -5.0f;
     public const float cvVolume = -5.0f;
     public const float bgmVolume = -5.0f;

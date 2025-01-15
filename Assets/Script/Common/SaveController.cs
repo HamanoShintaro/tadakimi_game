@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using System;
 
 /// <summary>
 /// listにキャラクターのデータ保存されている
@@ -24,30 +25,31 @@ public class SaveController : MonoBehaviour
     /// </summary>
     public CharacterFormation characterFormation = new CharacterFormation();
 
+    // 初期化完了時のイベント
+    public event Action OnInitialized;
+
     private void Start()
     {
         characterSave.Load();
         characterFormation.Load();
 
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId))
-        {
-            InitUser();
-        }
+        SetupUserData();
         SetInitialValues();
     }
 
     /// <summary>
     /// データの初期化するメソッド
     /// </summary>
-    private void InitUser()
+    public void SetupUserData()
     {
-        //チュートリアルを表示
-        tutorial.SetActive(true);
-
         //menu表示のための設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentMenuView)) PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         //セーブデータの初期設定
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101");
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId)) 
+        {
+            PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101");
+            OnInitialized?.Invoke();
+        }
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.clearStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, "100");
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerMoney)) PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, 0);
         //音量の初期設定
@@ -64,27 +66,27 @@ public class SaveController : MonoBehaviour
         //初期キャラをキャラクターデータに追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
         {
-            AddCharacterDate("Npc_04", 0, true);
-            AddCharacterDate("Npc_05", 0, true);
-            AddCharacterDate("Npc_07", 0, true);
-            AddCharacterDate("Era_01", 0, true);
+            foreach (string characterId in GameSettingParams.initCharacter)
+            {
+                AddCharacterDate(characterId, 0, true);
+            }
             Debug.Log("キャラクターデータ初期化");
         }
 
         //初期キャラをキャラクターフォーメーション[0]に追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterFormation))
         {
-            UpdateCharacterFormationDate("Npc_04", 0);
-            UpdateCharacterFormationDate("Npc_05", 1);
-            UpdateCharacterFormationDate("Npc_07", 2);
-            UpdateCharacterFormationDate("Era_01", 3);
+            for (int i = 0; i < GameSettingParams.initCharacter.Length; i++)
+            {
+                UpdateCharacterFormationDate(GameSettingParams.initCharacter[i], i);
+            }
             Debug.Log("フォーメーション初期化");
         }
 
         // ログを表示する
-        Debug.Log("ユーザー初期化完了");
+        Debug.Log("ユーザー設定完了");
+        
     }
-
     private void SetInitialValues()
     {
         float bgmVolume = PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM, GameSettingParams.bgmVolume);
@@ -95,6 +97,33 @@ public class SaveController : MonoBehaviour
         audioMixer.SetFloat("SE", seVolume);
         audioMixer.SetFloat("CV", cvVolume);
     }
+
+    /// <summary>
+    /// ユーザーデータを削除するメソッド
+    /// </summary>
+    public void DeleteUserData()
+    {
+        // キャラクターデータをクリア
+        characterSave.list.Clear();
+        characterSave.Save();
+
+        // フォーメーションデータをクリア 
+        for (int i = 0; i < characterFormation.list.Length; i++)
+        {
+            characterFormation.list[i] = "";
+        }
+        characterFormation.Save();
+
+        // PlayerPrefsをクリア
+        PlayerPrefs.DeleteAll();
+
+        // ログを表示
+        Debug.Log("ユーザーデータが削除されました");
+
+        SetupUserData();
+        SetInitialValues();
+    }
+
 
     /// <summary>
     /// 保持キャラクターのリストにキャラクターを追加する

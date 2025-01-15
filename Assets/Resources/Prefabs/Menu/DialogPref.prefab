@@ -149,8 +149,6 @@ GameObject:
   - component: {fileID: 7422961481842859035}
   - component: {fileID: 7422961481842859032}
   - component: {fileID: 7422961481842859034}
-  - component: {fileID: 7422961481842859036}
-  - component: {fileID: 7422961481842859037}
   m_Layer: 5
   m_Name: NoButton
   m_TagString: Untagged
@@ -236,7 +234,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -261,7 +259,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7422961482838945393}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OkCancelDialog, Assembly-CSharp
         m_MethodName: OnCancel
         m_Mode: 1
@@ -273,98 +271,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7422961481842859036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7422961481842859030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7422961481842859037}
-          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
-          m_MethodName: pointerEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7422961481842859037}
-          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
-          m_MethodName: pointerExit
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7422961481842859037}
-          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
-          m_MethodName: pointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7422961481842859037}
-          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
-          m_MethodName: pointerUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &7422961481842859037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7422961481842859030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85972a0bda2df439e842cda6909d17ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj1: {fileID: 0}
-  obj2: {fileID: 0}
-  obj3: {fileID: 0}
 --- !u!1 &7422961481899406202
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,8 +511,6 @@ GameObject:
   - component: {fileID: 7422961482570105001}
   - component: {fileID: 7422961482570104998}
   - component: {fileID: 7422961482570105000}
-  - component: {fileID: 7422961482570105002}
-  - component: {fileID: 7422961482570105003}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -692,7 +596,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -717,7 +621,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7422961482838945393}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OkCancelDialog, Assembly-CSharp
         m_MethodName: OnOk
         m_Mode: 1
@@ -729,98 +633,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7422961482570105002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7422961482570104996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85972a0bda2df439e842cda6909d17ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj1: {fileID: 0}
-  obj2: {fileID: 0}
-  obj3: {fileID: 0}
---- !u!114 &7422961482570105003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7422961482570104996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7422961482570105002}
-          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
-          m_MethodName: pointerEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7422961482570105002}
-          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
-          m_MethodName: pointerExit
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7422961482570105002}
-          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
-          m_MethodName: pointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7422961482570105002}
-          m_TargetAssemblyTypeName: ButtonActionController, Assembly-CSharp
-          m_MethodName: pointerUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &7422961482838945355
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +646,7 @@ GameObject:
   - component: {fileID: 7422961482838945359}
   - component: {fileID: 7422961482838945356}
   - component: {fileID: 7422961482838945357}
-  - component: {fileID: 7422961482838945393}
+  - component: {fileID: 3853831914984763017}
   m_Layer: 5
   m_Name: DialogPref
   m_TagString: Untagged
@@ -851,7 +663,7 @@ RectTransform:
   m_GameObject: {fileID: 7422961482838945355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.45885417, y: 0.45885417, z: 0.45885417}
+  m_LocalScale: {x: 0.7135417, y: 0.7135417, z: 0.7135417}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7422961481899406205}
@@ -862,7 +674,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1919.9999, y: 1080}
+  m_SizeDelta: {x: 1920, y: 1290.7445}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7422961482838945358
 CanvasRenderer:
@@ -919,7 +731,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7422961482838945393
+--- !u!114 &3853831914984763017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -928,10 +740,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7422961482838945355}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 643ae367fd86e449fb80b3277fc4ceaa, type: 3}
+  m_Script: {fileID: 11500000, guid: 24042c1ba5dac4beb8418a1d3dd91f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textObj: {fileID: 7422961482872640155}
+  dialogPanel: {fileID: 7422961482838945355}
+  dialogContent: {fileID: 7422961481616920508}
+  yesButton: {fileID: 7422961482570105000}
+  noButton: {fileID: 7422961481842859034}
 --- !u!1 &7422961482872640155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +934,6 @@ GameObject:
   - component: {fileID: 7422961483407869356}
   - component: {fileID: 7422961483407869358}
   - component: {fileID: 7422961483407869359}
-  - component: {fileID: 7422961483407869393}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1186,32 +1000,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7422961483407869393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7422961483407869357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7422961482838945393}
-          m_TargetAssemblyTypeName: OkCancelDialog, Assembly-CSharp
-          m_MethodName: OnCancel
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2

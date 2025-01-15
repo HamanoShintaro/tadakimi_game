@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class Setting : MonoBehaviour
 {
@@ -24,11 +25,26 @@ public class Setting : MonoBehaviour
     [SerializeField]
     private Slider cvSlider;
 
+    [SerializeField]
+    private SaveController saveController;
+
+    [SerializeField]
+    private Dialog resetConfirmationDialog;
+
+    [SerializeField]
+    private Button resetButton;
+
     public enum Language
     {
         Japanese = 0,
         English = 1,
         Chinese = 2
+    }
+
+    private void Awake()
+    {
+        resetButton.onClick.AddListener(OnResetButton);
+        resetConfirmationDialog.OnDialogResult += OnResetConfirmationResult;
     }
 
     private void Start()
@@ -77,14 +93,19 @@ public class Setting : MonoBehaviour
         slider.onValueChanged.AddListener(callback);
     }
 
-    public void Reset()
+    public void OnResetButton()
     {
-        PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, 101);
-        PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, 101);
-        
-        //PlayerPrefs.DeleteAll();
-        //saveManager.InitUser();
-        Debug.Log("リセットが呼び出されました");
+        resetConfirmationDialog.ShowDialog();
+    }
+
+    public void OnResetConfirmationResult(bool result)
+    {
+        if (result)
+        {
+            saveController.DeleteUserData();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Debug.Log("リセットが呼び出されました");
+        }
     }
 
     public void OnChangeLanguage(int index)
