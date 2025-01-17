@@ -77,7 +77,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     // ノックバック中かどうかを追跡
     private bool isKnockBack = false; 
 
-    // グローバル変数として出現時のY座標を保存
     private float originalY;
 
     [SerializeField]
@@ -345,7 +344,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         {
             InflictDamageAsNonLeader(ratio);
         }
-        ResetTargets();
+        //ResetTargets();
     }
 
     private void InflictDamageAsLeader(float ratio)
@@ -379,6 +378,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
                 Debug.Log($"{characterId}は{target.name}に{atkPower * ratio}ダメージを与えた");
             }
         }
+        confirmedTargets.Clear();
     }
 
     private void InflictDamageAsNonLeader(float ratio)
@@ -388,6 +388,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
             if (attackType == AttackType.Single) break;
         }
+        confirmedTargets.Clear();
     }
 
     private IEnumerator SkillCoolTimeCount()

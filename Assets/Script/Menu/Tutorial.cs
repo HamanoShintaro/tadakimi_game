@@ -12,16 +12,17 @@ public class Tutorial : MonoBehaviour
     [SerializeField]
     private SaveController saveController;
 
-    private void Awake()
-    {
-        saveController.OnInitialized += () => gameObject.SetActive(true);
-    }
-
     private void Start()
     {
         if (dialog != null)
         {
             dialog.OnDialogResult += OnDialogResult;
+        }
+
+        if (PlayerPrefs.GetInt(PlayerPrefabKeys.tutorialDisplayed, 0) == 0)
+        {
+            dialog.ShowDialog();
+            PlayerPrefs.SetInt(PlayerPrefabKeys.tutorialDisplayed, 1);
         }
     }
 

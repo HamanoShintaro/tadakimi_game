@@ -102,9 +102,8 @@ public class Setting : MonoBehaviour
     {
         if (result)
         {
-            saveController.DeleteUserData();
+            saveController.DeleteScenarioData();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            Debug.Log("リセットが呼び出されました");
         }
     }
 

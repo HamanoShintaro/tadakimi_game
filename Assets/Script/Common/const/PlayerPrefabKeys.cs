@@ -101,4 +101,9 @@ public class PlayerPrefabKeys
     /// 広告のモード(0:表示 | 1:非表示)
     /// </summary>
     public const string currentAdsMode = "currentAdsMode";
+
+    /// <summary>
+    /// チュートリアルをすでに表示したかどうか
+    /// </summary>
+    public const string tutorialDisplayed = "tutorial_displayed";
 }

@@ -45,11 +45,7 @@ public class SaveController : MonoBehaviour
         //menu表示のための設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentMenuView)) PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         //セーブデータの初期設定
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId)) 
-        {
-            PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101");
-            OnInitialized?.Invoke();
-        }
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101");
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.clearStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, "100");
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerMoney)) PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, 0);
         //音量の初期設定
@@ -63,6 +59,12 @@ public class SaveController : MonoBehaviour
         //広告表示モードを表示に設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentAdsMode)) PlayerPrefs.SetInt(PlayerPrefabKeys.currentAdsMode, 0);
 
+        //チュートリアルをすでに表示したかどうかの初期設定
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.tutorialDisplayed)) 
+        { 
+            PlayerPrefs.SetInt(PlayerPrefabKeys.tutorialDisplayed, 0);
+        }
+        
         //初期キャラをキャラクターデータに追加
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerCharacterData))
         {
@@ -99,29 +101,16 @@ public class SaveController : MonoBehaviour
     }
 
     /// <summary>
-    /// ユーザーデータを削除するメソッド
+    /// シナリオデータのみを削除する
     /// </summary>
-    public void DeleteUserData()
+    public void DeleteScenarioData()
     {
-        // キャラクターデータをクリア
-        characterSave.list.Clear();
-        characterSave.Save();
-
-        // フォーメーションデータをクリア 
-        for (int i = 0; i < characterFormation.list.Length; i++)
-        {
-            characterFormation.list[i] = "";
-        }
-        characterFormation.Save();
-
-        // PlayerPrefsをクリア
-        PlayerPrefs.DeleteAll();
+        // PlayerPrefsのステージデータを削除
+        PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, 0);
+        PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, 0);
 
         // ログを表示
-        Debug.Log("ユーザーデータが削除されました");
-
-        SetupUserData();
-        SetInitialValues();
+        Debug.Log("ステージデータが削除されました");
     }
 
 

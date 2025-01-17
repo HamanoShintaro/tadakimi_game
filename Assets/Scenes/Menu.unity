@@ -4153,6 +4153,52 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5527407430219470535, guid: 65bcfb5c286b549aea38f87ad2cf95bc, type: 3}
   m_PrefabInstance: {fileID: 611173851}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &508063352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 508063354}
+  - component: {fileID: 508063353}
+  m_Layer: 0
+  m_Name: Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &508063353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508063352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfec6c66d33f44829d448b2a5fbba32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialog: {fileID: 9410846}
+  saveController: {fileID: 1470701937}
+--- !u!4 &508063354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508063352}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &526770795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5902,20 +5948,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7422961482838945354, guid: 21e3ea876a91e4763b80adecd9fa9d81, type: 3}
   m_PrefabInstance: {fileID: 9410845}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &764895452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764895445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dfec6c66d33f44829d448b2a5fbba32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 9410846}
-  saveController: {fileID: 1470701937}
 --- !u!1 &783460604
 GameObject:
   m_ObjectHideFlags: 0
