@@ -42,6 +42,9 @@ public class BattleController : MonoBehaviour
     private Text[] texts;
 
     [SerializeField]
+    private Button doubleSpeedButton;
+
+    [SerializeField]
     private GameObject performancePanel;
 
     private Dictionary<int, float> recovery_magic = new Dictionary<int, float>();
@@ -115,6 +118,9 @@ public class BattleController : MonoBehaviour
 
         //戦闘背景音の設定
         this.GetComponent<AudioSource>().volume = GameSettingParams.bgmVolume * PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
+
+        // 2倍速ボタンのリスナーを登録
+        doubleSpeedButton.onClick.AddListener(ToggleTimeScale);
     }
 
     /// <summary>
@@ -291,5 +297,27 @@ public class BattleController : MonoBehaviour
         PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, currentStageId);
         //次のステージを現在のステージとして記録する
         PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, nextStageId.ToString("000"));
+    }
+
+    /// <summary>
+    /// 2倍速ボタンが押された時の処理
+    /// </summary>
+    public void ToggleTimeScale()
+    {
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 2;
+            Debug.Log("Time scale set to 2");
+        }
+        else
+        {
+            Time.timeScale = 1;
+            Debug.Log("Time scale set to 1");
+        }
+    }
+
+    private void OnDestroy() 
+    {
+        Time.timeScale = 1;
     }
 }
