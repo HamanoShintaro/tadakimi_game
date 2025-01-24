@@ -496,9 +496,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         {
             Death();
         }
-        else if (!isKnockBack && ((atkKB - defKB) * Random.value > 1 || atkKB.Equals(Mathf.Infinity)))
+        else if (!isKnockBack && ((70 + atkKB - defKB) / 50 * Random.value > 1 || atkKB.Equals(Mathf.Infinity)))
         {
-            StartCoroutine(KnockBack()); // ノックバック処理を呼び出す
+            StartCoroutine(KnockBack());
         }
         Debug.Log($"{characterId}が{atkPower}ダメージを受けた");
     }
