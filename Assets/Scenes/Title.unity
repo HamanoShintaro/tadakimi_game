@@ -829,8 +829,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refCamera: {fileID: 812887526}
-  width: 2778
-  height: 1284
+  width: 1569
+  height: 960
   pixelPerUnit: 100
   fixedSize: 591.8
 --- !u!1 &909761724
@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed2d304524890442933b589e04ed63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpeed: 0.004
+  transitionSpeed: 1
 --- !u!95 &1073664767
 Animator:
   serializedVersion: 4

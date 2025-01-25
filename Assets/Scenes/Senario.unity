@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed2d304524890442933b589e04ed63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpeed: 0.005
+  transitionSpeed: 1
 --- !u!225 &29014814
 CanvasGroup:
   m_ObjectHideFlags: 0
