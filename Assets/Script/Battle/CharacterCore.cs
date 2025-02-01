@@ -276,7 +276,10 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void SkillAction()
     {
-        magicPowerController.magicPower -= skillCost;
+        if (characterId.ToString() != "Sara_01")
+        {
+            magicPowerController.magicPower -= skillCost;
+        }
         animator.SetBool("Skill", true);
         Debug.Log($"{characterId}はスキルのアニメーションを発動した");
     }
@@ -344,7 +347,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         {
             InflictDamageAsNonLeader(ratio);
         }
-        //ResetTargets();
     }
 
     private void InflictDamageAsLeader(float ratio)

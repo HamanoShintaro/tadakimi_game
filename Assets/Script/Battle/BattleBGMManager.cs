@@ -27,10 +27,12 @@ public class BattleBGMManager : MonoBehaviour
         if (listIndex >= 0 && listIndex < audioClips.Count)
         {
             // AudioClipが設定されているなら再生
-            if (audioClips[listIndex] != null)
+            if (audioClips[listIndex -1] != null)
             {
-                audioSource.clip = audioClips[listIndex];
+
+                audioSource.clip = audioClips[listIndex - 1];
                 audioSource.Play();
+                Debug.Log($"{currentStage}番目の{audioClips[listIndex - 1].name}再生");
             }
             else
             {

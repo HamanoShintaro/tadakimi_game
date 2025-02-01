@@ -42,7 +42,6 @@ public class CharacterMenuController : MonoBehaviour
     // オーディオに関するオブジェクト
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip levelUpClip;
-
     [SerializeField] private AudioClip selectClip;
 
     private void Start()
@@ -60,6 +59,7 @@ public class CharacterMenuController : MonoBehaviour
             Debug.LogError("SaveControllerが見つかりませんでした。");
             return;
         }
+        /*
         if (saveController.characterSave.list.Count > 0 && saveController.characterSave.list[0] != null)
         {
             SetCharacter(saveController.characterSave.list[0].id);
@@ -76,6 +76,7 @@ public class CharacterMenuController : MonoBehaviour
         {
             SetCharacter(saveController.characterSave.list[3].id);
         }
+        */
     }
 
     private void OnEnable()
@@ -264,4 +265,3 @@ public class CharacterMenuController : MonoBehaviour
         }
    }
 }
-

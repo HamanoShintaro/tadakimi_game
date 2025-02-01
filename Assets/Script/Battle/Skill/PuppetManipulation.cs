@@ -68,7 +68,7 @@ namespace Battle
 
             var attack = 0;
             var atkKB = Mathf.Infinity;
-            orend.GetComponent<IDamage>().Damage(attack, atkKB);
+            //orend.GetComponent<IDamage>().Damage(attack, atkKB);
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace Battle
 
             var attack = 0;
             var atkKB = Mathf.Infinity;
-            orend.GetComponent<IDamage>().Damage(attack, atkKB);
+            //orend.GetComponent<IDamage>().Damage(attack, atkKB);
         }
     }
 }
