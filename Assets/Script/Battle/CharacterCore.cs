@@ -33,9 +33,12 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     [Tooltip("トリガー範囲>(遠距離攻撃)>longAttackDistance>(近距離攻撃)>limitMovePosition>(近づけない)")]
     private float longAttackDistance;
 
-    private float minLimitMovePosition = -1400f;
-
-    private float maxLimitMovePosition = 2800f;
+    [SerializeField]
+    [Header("キャラクターのX座標の移動範囲を制限する左の壁の位置")]
+    public float minLimitMovePosition = -1400f;
+    [SerializeField]
+    [Header("キャラクターのX座標の移動範囲を制限する左の壁の位置")]
+    public float maxLimitMovePosition = 2800f;
 
     //イーラに攻撃力を上げさせられたかどうか。
     public bool hasDoubleAttackPower = false;
@@ -77,7 +80,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     // ノックバック中かどうかを追跡
     private bool isKnockBack = false; 
 
-    private float originalY;
+    public float originalY;
 
     [SerializeField]
     private AudioClip normalAttackDamageSounds;
@@ -222,7 +225,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         transform.position = new Vector2(newPositionX, transform.position.y);
     }
 
-    private bool IsOutOfBounds(float positionX)
+    public bool IsOutOfBounds(float positionX)
     {
         return positionX < minLimitMovePosition || positionX > maxLimitMovePosition;
     }

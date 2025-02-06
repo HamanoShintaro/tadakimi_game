@@ -19,6 +19,31 @@ namespace Battle
         [SerializeField]
         private int minY = -30, maxY = 30;
 
+        //ノックバックの秒数(全体フレーム)
+        private const float knockBackDuration = 0.5f;
+        //ノックバックの距離
+        private const float knockBackForce = 800f;
+        //ノックバックする時の高さ
+        private const float jumpHeight = 50f;
+
+        private CharacterCore characterCore; // CharacterCoreをフィールドとして持つ
+
+        void Start()
+        {
+            characterCore = GetComponent<CharacterCore>(); // GetComponentで取得
+        }
+        // CharacterCore の characterType を取得する
+        public CharacterType GetCharacterType()
+        {
+            return characterCore.characterType;
+        }
+
+        // CharacterCore の originalY を取得する
+        public float GetOriginalY()
+        {
+            return characterCore.originalY;
+        }
+
         /// <summary>
         /// 傀儡戦車を召喚+自身がノックバック
         /// </summary>
@@ -69,6 +94,10 @@ namespace Battle
             var attack = 0;
             var atkKB = Mathf.Infinity;
             //orend.GetComponent<IDamage>().Damage(attack, atkKB);
+
+            // **オレンドのノックバックを開始**
+            StartCoroutine(OrendKnockBack());
+
         }
 
         /// <summary>
@@ -121,6 +150,58 @@ namespace Battle
             var attack = 0;
             var atkKB = Mathf.Infinity;
             //orend.GetComponent<IDamage>().Damage(attack, atkKB);
+
+            // **オレンドのノックバックを開始**
+            StartCoroutine(OrendKnockBack());
+
+        }
+
+        private IEnumerator OrendKnockBack()
+        {
+            if (orend == null)
+            {
+                Debug.LogError("Orendがnullのため、ノックバック処理を実行できません");
+                yield break; // ここで処理を中断
+            }
+
+            CharacterCore orendCore = orend.GetComponent<CharacterCore>();
+            if (orendCore == null)
+            {
+                Debug.LogError("OrendにCharacterCoreがアタッチされていません");
+                yield break; // ここで処理を中断
+            }
+
+            // キャラクターの種類に応じて、ノックバックの方向を決定する
+            float direction = orendCore.characterType == CharacterType.Buddy ? -1 : 1;
+
+            // ノックバック開始時の位置を取得
+            float startY = orendCore.originalY; // CharacterCore から originalY を取得
+            float elapsedTime = 0f;
+
+            while (elapsedTime < knockBackDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                float t = elapsedTime / knockBackDuration;
+
+                // X座標の移動
+                float newX = orend.transform.position.x + direction * knockBackForce * Time.deltaTime;
+
+                // Y座標の移動 (正弦波でジャンプの高さを表現)
+                float newY = startY + jumpHeight * Mathf.Sin(t * Mathf.PI);
+
+                // xが範囲外なら元の位置に戻す
+                if (orendCore.IsOutOfBounds(newX))
+                {
+                    newX = orend.transform.position.x;
+                }
+
+                orend.transform.position = new Vector2(newX, newY);
+
+                yield return null;
+            }
+
+            // ノックバックが終了したら、Y座標を元の位置に戻す
+            orend.transform.position = new Vector2(orend.transform.position.x, startY);
         }
     }
 }
