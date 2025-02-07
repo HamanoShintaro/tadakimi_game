@@ -20,19 +20,18 @@ public class BattleBGMManager : MonoBehaviour
         int currentStage = int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId));
 
         // ステージ番号の下二桁をインデックスとして利用
-        // 例) 101なら 101 % 100 = 1, 102なら 2
-        int listIndex = currentStage % 100;
+        int listIndex = currentStage % 100 - 1;
 
         // リストの範囲内かチェック
         if (listIndex >= 0 && listIndex < audioClips.Count)
         {
             // AudioClipが設定されているなら再生
-            if (audioClips[listIndex -1] != null)
+            if (audioClips[listIndex] != null)
             {
 
-                audioSource.clip = audioClips[listIndex - 1];
+                audioSource.clip = audioClips[listIndex];
                 audioSource.Play();
-                Debug.Log($"{currentStage}番目の{audioClips[listIndex - 1].name}再生");
+                Debug.Log($"{currentStage}番目の{audioClips[listIndex].name}再生");
             }
             else
             {

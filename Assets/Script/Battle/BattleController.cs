@@ -45,6 +45,9 @@ public class BattleController : MonoBehaviour
     private Button doubleSpeedButton;
 
     [SerializeField]
+    private Text doubleSpeedText;
+
+    [SerializeField]
     private GameObject performancePanel;
 
     private Dictionary<int, float> recovery_magic = new Dictionary<int, float>();
@@ -304,11 +307,14 @@ public class BattleController : MonoBehaviour
         if (Time.timeScale == 1)
         {
             Time.timeScale = 2;
+            doubleSpeedText.text = "| |";
             Debug.Log("Time scale set to 2");
         }
         else
         {
             Time.timeScale = 1;
+            doubleSpeedText.text = "2倍速";
+            StopAllCoroutines();
             Debug.Log("Time scale set to 1");
         }
     }
