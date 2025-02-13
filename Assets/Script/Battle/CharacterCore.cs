@@ -496,7 +496,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     public void Damage(float atkPower = 0, float atkKB = 0)
     {
         Hp -= atkPower;
-        audioSource.PlayOneShot(normalAttackDamageSounds);
+        SEManager.Instance.PlaySE(normalAttackDamageSounds);
         if (Hp <= 0)
         {
             Death();
