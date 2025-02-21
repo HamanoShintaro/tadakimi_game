@@ -9,10 +9,10 @@ using System.Collections.Generic;
 public class BattleBGMManager : MonoBehaviour
 {
     [SerializeField]
-    private List<AudioClip> audioClips;
+    private AudioSource audioSource;
 
     [SerializeField]
-    private AudioSource audioSource;
+    private StageDataBase stageDataBase;
 
     private void Start()
     {
@@ -23,15 +23,14 @@ public class BattleBGMManager : MonoBehaviour
         int listIndex = currentStage % 100 - 1;
 
         // リストの範囲内かチェック
-        if (listIndex >= 0 && listIndex < audioClips.Count)
+        if (listIndex >= 0 && listIndex < stageDataBase.summonData.Count)
         {
             // AudioClipが設定されているなら再生
-            if (audioClips[listIndex] != null)
+            if (stageDataBase.summonData[listIndex].GetStageBGM() != null)
             {
-
-                audioSource.clip = audioClips[listIndex];
+                audioSource.clip = stageDataBase.summonData[listIndex].GetStageBGM();
                 audioSource.Play();
-                Debug.Log($"{currentStage}番目の{audioClips[listIndex].name}再生");
+                Debug.Log($"{currentStage}番目の{stageDataBase.summonData[listIndex].GetStageBGM().name}再生");
             }
             else
             {

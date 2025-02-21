@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
+  m_Name: 101
+  m_EditorClassIdentifier: 
+  EnemyData:
+    Times:
+    - 1
+    - 4
+    - 8
+    Characters:
+    - {fileID: 3377319372778853538, guid: 42f14896a152841ef8f2d420a7f9e713, type: 3}
+    - {fileID: 3377319372778853538, guid: 42f14896a152841ef8f2d420a7f9e713, type: 3}
+    - {fileID: 3377319372778853538, guid: 42f14896a152841ef8f2d420a7f9e713, type: 3}
+    Levels: 000000000000000000000000
+  BuddyData:
+    Times: []
+    Characters: []
+    Levels: 
+  TowerHp: 100
+  victoryReward: 150
+  defeatReward: 150
+  stageSprite: {fileID: 21300000, guid: cde97145a047b4536b306aba368853b5, type: 3}
+  enemyTower: {fileID: 21300000, guid: be0552969719e4562a7dc93324dd1a9a, type: 3}
+  stageBGM: {fileID: 8300000, guid: bc04694957831493195dcd94e535fd80, type: 3}
+  unlockCharacter: {fileID: 11400000, guid: bd1404aef4d354d6d80248629ab5a838, type: 2}

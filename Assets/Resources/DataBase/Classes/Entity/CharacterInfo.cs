@@ -43,6 +43,10 @@ public class CharacterInfo : ScriptableObject
 	[SerializeField]
 	public int price;
 
+	// 属性
+	[SerializeField]
+	public string attribute;
+
 	// ステータス情報
 	[System.SerializableAttribute]
 	public class Status

@@ -33,16 +33,15 @@ public class AppearController : MonoBehaviour
         var stageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
         Debug.Log($"現在のステージID: {stageId}");
 
-        var battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{stageId}");
-        enemyTimes = battleStageSummonEnemy.GetTimes();
-        enemies = battleStageSummonEnemy.GetEnemies();
-        enemyLevels = battleStageSummonEnemy.GetLevels();
+        var battleStageData = Resources.Load<BattleStageData>($"DataBase/Data/BattleStageData/{stageId}");
+        enemyTimes = battleStageData.GetEnemyTimes();
+        enemies = battleStageData.GetEnemies();
+        enemyLevels = battleStageData.GetEnemyLevels();
         Debug.Log("敵キャラの情報をロード");
 
-        var battleStageSummonBuddy = Resources.Load<BattleStageSummonBuddy>($"DataBase/Data/BattleStageSummonBuddy/{stageId}");
-        buddyTimes = battleStageSummonBuddy.GetTimes();
-        buddies = battleStageSummonBuddy.GetBuddies();
-        buddyLevels = battleStageSummonBuddy.GetLevels();
+        buddyTimes = battleStageData.GetBuddyTimes();
+        buddies = battleStageData.GetBuddies();
+        buddyLevels = battleStageData.GetBuddyLevels();
         Debug.Log("味方キャラの情報をロード");
     }
 

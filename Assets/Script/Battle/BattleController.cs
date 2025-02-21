@@ -50,6 +50,10 @@ public class BattleController : MonoBehaviour
     [SerializeField]
     private GameObject performancePanel;
 
+    [SerializeField]
+    [Header("新キャラクター解放テキスト")]
+    private Text unlockCharacterText;
+
     private Dictionary<int, float> recovery_magic = new Dictionary<int, float>();
     private Dictionary<int, int> max_magic = new Dictionary<int, int>();
 
@@ -82,7 +86,7 @@ public class BattleController : MonoBehaviour
     /// <summary>
     /// ステージ情報が格納されたクラス
     /// </summary>
-    private BattleStageSummonEnemy battleStageSummonEnemy;
+    private BattleStageData battleStageData;
 
     void Start()
     {
@@ -90,6 +94,7 @@ public class BattleController : MonoBehaviour
         InitializeStageSettings();
         InitializeAudioSettings();
         doubleSpeedButton.onClick.AddListener(ToggleTimeScale);
+        unlockCharacterText.gameObject.SetActive(false);
     }
 
     private void InitializeMagicSystem()
@@ -130,8 +135,8 @@ public class BattleController : MonoBehaviour
     private void InitializeStageSettings()
     {
         var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
-        battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
-        backGround.sprite = battleStageSummonEnemy.GetBackGround();
+        battleStageData = Resources.Load<BattleStageData>($"DataBase/Data/BattleStageData/{currentStageId}");
+        backGround.sprite = battleStageData.GetBackGround();
         StartCoroutine(StartTimer());
     }
 
@@ -180,6 +185,13 @@ public class BattleController : MonoBehaviour
         int reward = CalculateReward(isVictory);
         StartCoroutine(AnimationMoneyUI(reward));
 
+        var unlockCharacter = battleStageData.GetUnlockCharacter();
+        if (unlockCharacter != null)
+        {
+            unlockCharacterText.text = $"＼新キャラクター「{unlockCharacter.name}」が解放されました！／";
+            unlockCharacterText.gameObject.SetActive(true);
+        }
+
         if (isVictory)
         {
             NextStage();
@@ -204,11 +216,12 @@ public class BattleController : MonoBehaviour
     {
         if (isVictory)
         {
-            return battleStageSummonEnemy.GetVictoryReward();
+            return battleStageData.GetVictoryReward();
         }
         else
         {
-            return (PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) / 120) * battleStageSummonEnemy.GetDefeatReward();
+            float playTimeInMinutes = PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) / 120f;
+            return Mathf.RoundToInt(playTimeInMinutes * battleStageData.GetDefeatReward());
         }
     }
 

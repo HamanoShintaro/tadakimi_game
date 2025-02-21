@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
+  m_Name: 126
+  m_EditorClassIdentifier: 
+  EnemyData:
+    Times:
+    - 10
+    - 18
+    - 23
+    - 24
+    - 27
+    - 30
+    - 33
+    - 36
+    - 39
+    - 42
+    - 45
+    - 48
+    - 51
+    - 54
+    - 57
+    - 60
+    - 63
+    - 66
+    - 69
+    Characters:
+    - {fileID: 5669653989772239561, guid: 6de9057c984bc4b27b146dceeefaaab5, type: 3}
+    - {fileID: 5669653989772239561, guid: 6de9057c984bc4b27b146dceeefaaab5, type: 3}
+    - {fileID: 4503520938222608313, guid: c74aafed40231489a828f2b8520605de, type: 3}
+    - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+    - {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
+    - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+    - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+    - {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
+    - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+    - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+    - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+    - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+    - {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
+    - {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
+    - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+    - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+    - {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
+    - {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
+    - {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+    Levels: 02000000020000000100000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000
+  BuddyData:
+    Times:
+    - 1
+    - 2
+    - 3
+    Characters:
+    - {fileID: 1545771121956627565, guid: 48d35b98f249d48ce93185277ce81e51, type: 3}
+    - {fileID: 1545771121956627565, guid: 16dcb789e240d4137870b1914afb450a, type: 3}
+    - {fileID: 2599859326184550953, guid: b4116ad06444b4f6e8cbe0c8c661b609, type: 3}
+    Levels: 030000000300000003000000
+  TowerHp: 2000
+  victoryReward: 1350
+  defeatReward: 750
+  stageSprite: {fileID: 21300000, guid: 09601a5c0b42b4944a2366fa65746a72, type: 3}
+  enemyTower: {fileID: 21300000, guid: be0552969719e4562a7dc93324dd1a9a, type: 3}
+  stageBGM: {fileID: 8300000, guid: 771802f56c3294f8e90e936895301fa6, type: 3}
+  unlockCharacter: {fileID: 0}

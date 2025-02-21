@@ -56,6 +56,7 @@ public class ResultController : MonoBehaviour
             InitializeWinUIElements();
             // 演出コルーチン開始
             StartCoroutine(ControlWinPanel());
+            
         }
         else 
         {

@@ -37,7 +37,7 @@ public class Tower : MonoBehaviour, IDamage
     private void Start()
     {
         var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
-        var enemyTowerInfo = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
+        var enemyTowerInfo = Resources.Load<BattleStageData>($"DataBase/Data/BattleStageData/{currentStageId}");
 
         GetComponent<Image>().sprite = enemyTowerInfo.GetEnemyTower();
 

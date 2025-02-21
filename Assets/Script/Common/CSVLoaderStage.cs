@@ -11,9 +11,6 @@ public class CSVLoaderStage : MonoBehaviour
     // 読み込むCSVファイルのリスト
     public List<TextAsset> csvFiles;
 
-    [SerializeField]
-    // 敵と仲間のタイプを選ぶ
-    private CharacterType characterType;
 
     [SerializeField]
     private bool canLoad = true;
@@ -30,23 +27,14 @@ public class CSVLoaderStage : MonoBehaviour
     // ステージデータベースの3つのリストを初期化するメソッド
     void InitializeLists()
     {
-        if (characterType == CharacterType.Enemy)
+        for (int i = 0; i < stageDataBase.summonData.Count; i++)
         {
-            for (int i = 0; i < stageDataBase.battleStageSummonEnemies.Count; i++)
-            {
-                stageDataBase.battleStageSummonEnemies[i].Times.Clear();
-                stageDataBase.battleStageSummonEnemies[i].Enemies.Clear();
-                stageDataBase.battleStageSummonEnemies[i].Levels.Clear();
-            }
-        }
-        else if (characterType == CharacterType.Buddy)
-        {
-            for (int i = 0; i < stageDataBase.battleStageSummonBuddies.Count; i++)
-            {
-                stageDataBase.battleStageSummonBuddies[i].Times.Clear();
-                stageDataBase.battleStageSummonBuddies[i].Buddies.Clear();
-                stageDataBase.battleStageSummonBuddies[i].Levels.Clear();
-            }
+            stageDataBase.summonData[i].EnemyData.Times.Clear();
+            stageDataBase.summonData[i].EnemyData.Characters.Clear();
+            stageDataBase.summonData[i].EnemyData.Levels.Clear();
+            stageDataBase.summonData[i].BuddyData.Times.Clear();
+            stageDataBase.summonData[i].BuddyData.Characters.Clear();
+            stageDataBase.summonData[i].BuddyData.Levels.Clear();
         }
     }
 
@@ -71,57 +59,51 @@ public class CSVLoaderStage : MonoBehaviour
                 string[] values = line.Split(',');
 
                 // ステージデータベースの対応する行を取得
-                if (characterType == CharacterType.Enemy)
+                var enemyRow = stageDataBase.summonData[i];
+                for (int j = 0; j < values.Length / 4; j++)
                 {
-                    BattleStageSummonEnemy row = stageDataBase.battleStageSummonEnemies[i];
-                    for (int j = 0; j < values.Length / 4; j++)
+                    if (values[j * 4 + 1] == "敵")
                     {
-                        if (values[j * 4 + 1] == "敵")
+                        if (float.TryParse(values[j * 4], out float tempFloat))
                         {
-                            if (float.TryParse(values[j * 4], out float tempFloat))
-                            {
-                                row.Times.Add(tempFloat);
-                            }
-                            else
-                            {
-                                Debug.LogError("無効な浮動小数点値: " + values[j * 4] + " データ型: " + values[j * 4].GetType());
-                            }
-                            row.Enemies.Add(Resources.Load<GameObject>("Prefabs/Battle/Enemy/" + values[j * 4 + 2]));
-                            if (float.TryParse(values[j * 4 + 3], out tempFloat))
-                            {
-                                row.Levels.Add((int)tempFloat);
-                            }
-                            else
-                            {
-                                Debug.LogError("無効な浮動小数点値: " + values[j * 4 + 2] + " データ型: " + values[j * 4 + 2].GetType());
-                            }
+                            enemyRow.EnemyData.Times.Add(tempFloat);
+                        }
+                        else
+                        {
+                            Debug.LogError("無効な浮動小数点値: " + values[j * 4] + " データ型: " + values[j * 4].GetType());
+                        }
+                        enemyRow.EnemyData.Characters.Add(Resources.Load<GameObject>("Prefabs/Battle/Enemy/" + values[j * 4 + 2]));
+                        if (float.TryParse(values[j * 4 + 3], out tempFloat))
+                        {
+                            enemyRow.EnemyData.Levels.Add((int)tempFloat);
+                        }
+                        else
+                        {
+                            Debug.LogError("無効な浮動小数点値: " + values[j * 4 + 2] + " データ型: " + values[j * 4 + 2].GetType());
                         }
                     }
                 }
-                else
+                var buddyRow = stageDataBase.summonData[i];
+                for (int j = 0; j < values.Length / 4; j++)
                 {
-                    BattleStageSummonBuddy row = stageDataBase.battleStageSummonBuddies[i];
-                    for (int j = 0; j < values.Length / 4; j++)
+                    if (values[j * 4 + 1] == "味方")
                     {
-                        if (values[j * 4 + 1] == "味方")
+                        if (float.TryParse(values[j * 4], out float tempFloat))
                         {
-                            if (float.TryParse(values[j * 4], out float tempFloat))
-                            {
-                                row.Times.Add(tempFloat);
-                            }
-                            else
-                            {
-                                Debug.LogError("無効な浮動小数点値: " + values[j * 4] + " データ型: " + values[j * 4].GetType());
-                            }
-                            row.Buddies.Add(Resources.Load<GameObject>("Prefabs/Battle/Buddy/" + values[j * 4 + 2]));
-                            if (float.TryParse(values[j * 4 + 3], out tempFloat))
-                            {
-                                row.Levels.Add((int)tempFloat);
-                            }
-                            else
-                            {
-                                Debug.LogError("無効な浮動小数点値: " + values[j * 4 + 2] + " データ型: " + values[j * 4 + 2].GetType());
-                            }
+                            buddyRow.BuddyData.Times.Add(tempFloat);
+                        }
+                        else
+                        {
+                            Debug.LogError("無効な浮動小数点値: " + values[j * 4] + " データ型: " + values[j * 4].GetType());
+                        }
+                        buddyRow.BuddyData.Characters.Add(Resources.Load<GameObject>("Prefabs/Battle/Buddy/" + values[j * 4 + 2]));
+                        if (float.TryParse(values[j * 4 + 3], out tempFloat))
+                        {
+                            buddyRow.BuddyData.Levels.Add((int)tempFloat);
+                        }
+                        else
+                        {
+                            Debug.LogError("無効な浮動小数点値: " + values[j * 4 + 2] + " データ型: " + values[j * 4 + 2].GetType());
                         }
                     }
                 }

@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
+  m_Name: 117
+  m_EditorClassIdentifier: 
+  EnemyData:
+    Times:
+    - 1
+    - 2
+    - 3
+    - 10
+    - 10.3
+    - 10.6
+    - 10.9
+    - 11.2
+    - 11.5
+    - 11.8
+    - 12.1
+    - 12.4
+    - 12.7
+    - 22
+    - 23.1
+    - 23.4
+    - 23.7
+    - 24
+    - 24.3
+    - 24.6
+    - 24.9
+    - 25.2
+    - 25.5
+    - 25.8
+    - 26.1
+    - 26.4
+    - 26.7
+    - 27
+    - 27.3
+    - 30
+    - 30.5
+    - 31
+    - 31.5
+    - 32
+    - 40
+    - 40.3
+    - 40.6
+    - 40.9
+    - 41.2
+    - 41.5
+    - 50
+    - 50.3
+    - 50.6
+    Characters:
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 2274732857205748726, guid: 4e3da70d4c0bf44eebae04b49f63a8a0, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 2274732857205748726, guid: 4e3da70d4c0bf44eebae04b49f63a8a0, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 2274732857205748726, guid: 4e3da70d4c0bf44eebae04b49f63a8a0, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 5095262611280852148, guid: 2a81fd5b1dfca4f048717620d0e101e7, type: 3}
+    - {fileID: 2274732857205748726, guid: 4e3da70d4c0bf44eebae04b49f63a8a0, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 2274732857205748726, guid: 4e3da70d4c0bf44eebae04b49f63a8a0, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 5429095949005290252, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 2274732857205748726, guid: 4e3da70d4c0bf44eebae04b49f63a8a0, type: 3}
+    - {fileID: 5429095949005290252, guid: 201ad5abe665d40ec8ad168faf4c885d, type: 3}
+    - {fileID: 2274732857205748726, guid: 4e3da70d4c0bf44eebae04b49f63a8a0, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 3536548381807152751, guid: 979061bae60e244389d2d3bdcc2a6e72, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 2274732857205748726, guid: b903a580acb4e4d0e9faae8764eebfb4, type: 3}
+    - {fileID: 2274732857205748726, guid: 4e3da70d4c0bf44eebae04b49f63a8a0, type: 3}
+    - {fileID: 2274732857205748726, guid: 4e3da70d4c0bf44eebae04b49f63a8a0, type: 3}
+    - {fileID: 2274732857205748726, guid: 4e3da70d4c0bf44eebae04b49f63a8a0, type: 3}
+    Levels: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  BuddyData:
+    Times: []
+    Characters: []
+    Levels: 
+  TowerHp: 1200
+  victoryReward: 900
+  defeatReward: 500
+  stageSprite: {fileID: 21300000, guid: b3e86b574b0ee4002814403cc1cff94d, type: 3}
+  enemyTower: {fileID: 21300000, guid: be0552969719e4562a7dc93324dd1a9a, type: 3}
+  stageBGM: {fileID: 8300000, guid: b14bfc873f85c4f72b29678c5318a3bb, type: 3}
+  unlockCharacter: {fileID: 0}
