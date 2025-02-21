@@ -69,7 +69,13 @@ public class BattleController : MonoBehaviour
     [SerializeField]
     private Image backGround;
 
-    private  bool isGameStopped = false;
+    [SerializeField]
+    private Sprite play;
+
+    [SerializeField]
+    private Sprite doubleSpeed;
+
+    private bool isGameStopped = false;
 
     private MagicPowerController magicPowerController;
 
@@ -80,12 +86,27 @@ public class BattleController : MonoBehaviour
 
     void Start()
     {
-        magic_level = 1;
+        InitializeMagicSystem();
+        InitializeStageSettings();
+        InitializeAudioSettings();
+        doubleSpeedButton.onClick.AddListener(ToggleTimeScale);
+    }
 
+    private void InitializeMagicSystem()
+    {
+        magic_level = 1;
         magic_recovery_level = 0;
         magic_recovery_adjust = 1 + magic_level * 0.2f;
 
-        //レベルごとの回復量
+        InitializeMagicRecoveryValues();
+        InitializeMagicMaxValues();
+
+        magicPowerController = magicPower.GetComponent<MagicPowerController>();
+        UpMagicLevel();
+    }
+
+    private void InitializeMagicRecoveryValues()
+    {
         recovery_magic[1] = 5.0f * magic_recovery_adjust;
         recovery_magic[2] = 7.0f * magic_recovery_adjust;
         recovery_magic[3] = 10.0f * magic_recovery_adjust;
@@ -93,8 +114,10 @@ public class BattleController : MonoBehaviour
         recovery_magic[5] = 22.5f * magic_recovery_adjust;
         recovery_magic[6] = 30.0f * magic_recovery_adjust;
         recovery_magic[7] = 40.0f * magic_recovery_adjust;
+    }
 
-        //レベルごとの最大値
+    private void InitializeMagicMaxValues()
+    {
         max_magic[1] = 50 + (magic_level - 1) * 5;
         max_magic[2] = 100 + (magic_level - 1) * 10;
         max_magic[3] = 150 + (magic_level - 1) * 15;
@@ -102,34 +125,24 @@ public class BattleController : MonoBehaviour
         max_magic[5] = 300 + (magic_level - 1) * 30;
         max_magic[6] = 400 + (magic_level - 1) * 40;
         max_magic[7] = 500 + (magic_level - 1) * 50;
+    }
 
-        magicPowerController = magicPower.GetComponent<MagicPowerController>();
-
-        UpMagicLevel();
-
-        //ステージ番号を取得
+    private void InitializeStageSettings()
+    {
         var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
-
-        //ステージ情報(ステージ番号)が格納されたクラスを取得
         battleStageSummonEnemy = Resources.Load<BattleStageSummonEnemy>($"DataBase/Data/BattleStageSummonEnemy/{currentStageId}");
-
-        //背景画像を設定
         backGround.sprite = battleStageSummonEnemy.GetBackGround();
-
-        //タイマーをスタート
         StartCoroutine(StartTimer());
+    }
 
-        //戦闘背景音の設定
+    private void InitializeAudioSettings()
+    {
         this.GetComponent<AudioSource>().volume = GameSettingParams.bgmVolume * PlayerPrefs.GetFloat(PlayerPrefabKeys.volumeBGM);
-
-        // 2倍速ボタンのリスナーを登録
-        doubleSpeedButton.onClick.AddListener(ToggleTimeScale);
     }
 
     /// <summary>
     /// 戦闘時間を測るメソッド
     /// </summary>
-    /// <returns></returns>
     private IEnumerator StartTimer()
     {
         var wait = new WaitForSeconds(1f);
@@ -145,26 +158,38 @@ public class BattleController : MonoBehaviour
     /// </summary>
     public void UpMagicLevel()
     {
-        //レベルを上げる
         magic_recovery_level++;
-        //マジックパワーコントローラーの上限を引き上げる
         magicPowerController.maxMagicPower = max_magic[magic_recovery_level];
-        //マジックパワーコントローラーの回復量を引き上げる
         magicPowerController.recoverMagicPower = recovery_magic[magic_recovery_level];
     }
 
     /// <summary>
     /// 戦闘終了時に呼び出すメソッド
     /// </summary>
-    /// <param name="type"></param>
-    /// <returns></returns>
     public void GameStop(TypeLeader type)
     {
         if (isGameStopped) return;
         isGameStopped = true;
 
         Time.timeScale = 1.0f;
-        //ゲームのプレイ時間を保存
+        SavePlayTime(type);
+        
+        bool isVictory = type != TypeLeader.BuddyLeader;
+        performancePanel.GetComponent<ResultController>().OnResultPanel(isVictory);
+        
+        int reward = CalculateReward(isVictory);
+        StartCoroutine(AnimationMoneyUI(reward));
+
+        if (isVictory)
+        {
+            NextStage();
+        }
+        
+        Debug.Log("<color=red>ゲーム終了!</color>");
+    }
+
+    private void SavePlayTime(TypeLeader type)
+    {
         if (type == TypeLeader.BuddyLeader)
         {
             PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) + gameTimer);
@@ -173,40 +198,44 @@ public class BattleController : MonoBehaviour
         {
             PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, gameTimer);
         }
-        //リザルト画面(勝利または敗北)を表示
-        performancePanel.GetComponent<ResultController>().OnResultPanel(type != TypeLeader.BuddyLeader);
-        StartCoroutine(AnimationMoneyUI(1));
-        if (type != TypeLeader.BuddyLeader)
+    }
+
+    private int CalculateReward(bool isVictory)
+    {
+        if (isVictory)
         {
-            // 敵のリーダー(タワー)がGameStopを起動した場合は、次のステージへ進む
-            NextStage();
+            return battleStageSummonEnemy.GetVictoryReward();
         }
-        Debug.Log("<color=red>ゲーム終了!</color>");
+        else
+        {
+            return (PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) / 120) * battleStageSummonEnemy.GetDefeatReward();
+        }
     }
 
     /// <summary>
     /// 獲得金額とトータル金額を表示する
     /// </summary>
-    private void DisplayMoneyUI(int adRate = 1)
+    private void DisplayMoneyUI(int reward)
     {
-        //獲得した金額
-        var getMoney = rate * PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) * adRate;
-        getMoneyText[0].text = $"{getMoney}";
-        getMoneyText[1].text = $"{getMoney}";
+        foreach (var text in getMoneyText)
+        {
+            text.text = reward.ToString();
+        }
 
-        //所持している金額
         var totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
-        totalMoneyText[0].text = $"{totalMoney}";
-        totalMoneyText[1].text = $"{totalMoney}";
+        foreach (var text in totalMoneyText)
+        {
+            text.text = totalMoney.ToString();
+        }
     }
 
     /// <summary>
     /// 獲得金額とトータル金額のアニメーションをかける
     /// </summary>
-    /// <param name="getMoney"></param>
-    public IEnumerator AnimationMoneyUI(int adRate = 1)
+    public IEnumerator AnimationMoneyUI(int reward)
     {
-        DisplayMoneyUI(adRate);
+        DisplayMoneyUI(reward);
+        
         if (!PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
         {
             ShowButtons();
@@ -214,58 +243,11 @@ public class BattleController : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
-        // 獲得金額の計算
-        var getMoney = rate * PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) * adRate;
-
-        // 現在の所持金を取得
         var totalMoney = PlayerPrefs.GetInt(PlayerPrefabKeys.playerMoney);
-
-        // **内部的な金額情報は即時反映**
-        totalMoney += getMoney;
+        totalMoney += reward;
         PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, totalMoney);
 
-        // **アニメーション用に別の変数でカウントアップ処理を行う**
-        int displayedTotalMoney = totalMoney - getMoney;
-        int displayedGetMoney = getMoney;
-
-        yield return new WaitForSeconds(1.5f);
-
-        // アニメーションの設定
-        float animationDuration = 1f;
-        int animationSteps = 30;
-        float stepDuration = animationDuration / animationSteps;
-        int increment = Mathf.CeilToInt((float)getMoney / animationSteps);
-
-        // アニメーション効果音を再生
-        audioSource.PlayOneShot(animationSound);
-
-        for (int i = 0; i < animationSteps; i++)
-        {
-            if (displayedGetMoney <= 0) break;
-
-            int stepValue = Mathf.Min(increment, displayedGetMoney);
-            displayedGetMoney -= stepValue;
-            displayedTotalMoney += stepValue;
-
-            // **UIの更新 (アニメーション)**
-            getMoneyText[0].text = $"{displayedGetMoney}";
-            getMoneyText[1].text = $"{displayedGetMoney}";
-
-            totalMoneyText[0].text = $"{displayedTotalMoney}";
-            totalMoneyText[1].text = $"{displayedTotalMoney}";
-
-            yield return new WaitForSeconds(stepDuration);
-        }
-
-        // 残りの金額を最終的に反映
-        displayedGetMoney = 0;
-        getMoneyText[0].text = $"{displayedGetMoney}";
-        getMoneyText[1].text = $"{displayedGetMoney}";
-
-        totalMoneyText[0].text = $"{totalMoney}";
-        totalMoneyText[1].text = $"{totalMoney}";
-
-        yield return new WaitForSeconds(1.5f);
+        yield return StartCoroutine(AnimateMoneyCount(reward, totalMoney));
 
         if (PlayerPrefs.GetInt(PlayerPrefabKeys.currentAdsMode).Equals(0))
         {
@@ -273,6 +255,46 @@ public class BattleController : MonoBehaviour
         }
     }
 
+    private IEnumerator AnimateMoneyCount(int reward, int totalMoney)
+    {
+        int displayedTotalMoney = totalMoney - reward;
+        int displayedReward = reward;
+
+        yield return new WaitForSeconds(1.5f);
+
+        float animationDuration = 1f;
+        int animationSteps = 30;
+        float stepDuration = animationDuration / animationSteps;
+        int increment = Mathf.CeilToInt((float)reward / animationSteps);
+
+        audioSource.PlayOneShot(animationSound);
+
+        for (int i = 0; i < animationSteps && displayedReward > 0; i++)
+        {
+            int stepValue = Mathf.Min(increment, displayedReward);
+            displayedReward -= stepValue;
+            displayedTotalMoney += stepValue;
+
+            UpdateMoneyTexts(displayedReward, displayedTotalMoney);
+
+            yield return new WaitForSeconds(stepDuration);
+        }
+
+        UpdateMoneyTexts(0, totalMoney);
+    }
+
+    private void UpdateMoneyTexts(int displayedReward, int displayedTotalMoney)
+    {
+        foreach (var text in getMoneyText)
+        {
+            text.text = displayedReward.ToString();
+        }
+
+        foreach (var text in totalMoneyText)
+        {
+            text.text = displayedTotalMoney.ToString();
+        }
+    }
 
     private void ShowButtons()
     {
@@ -287,12 +309,9 @@ public class BattleController : MonoBehaviour
     /// </summary>
     private void NextStage()
     {
-        //現在のステージを取得する
         var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
         var nextStageId = int.Parse(currentStageId) + 1;
-        //現在のステージをクリアステージとして記録する
         PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, currentStageId);
-        //次のステージを現在のステージとして記録する
         PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, nextStageId.ToString("000"));
     }
 
@@ -304,13 +323,13 @@ public class BattleController : MonoBehaviour
         if (Time.timeScale == 1)
         {
             Time.timeScale = 2;
-            doubleSpeedText.text = "| |";
+            doubleSpeedText.text = "▶︎";
             Debug.Log("Time scale set to 2");
         }
         else
         {
             Time.timeScale = 1;
-            doubleSpeedText.text = "2倍速";
+            doubleSpeedText.text = "▶︎▶︎";
             StopAllCoroutines();
             Debug.Log("Time scale set to 1");
         }

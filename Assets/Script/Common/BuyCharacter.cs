@@ -16,24 +16,20 @@ public class BuyCharacter : MonoBehaviour
     private CharacterId characterId;
 
     [SerializeField]
-    private GameObject releaseButton;
-
-    [SerializeField]
     [HideInInspector]
     private SaveController saveController;
 
     private void OnEnable()
     {
+        TryReleaseCharacter();
         UpdateCharacterButton();
-        ReleaseCharacterButton();
     }
 
-    public void ReleaseCharacterButton()
+    public void TryReleaseCharacter()
     {
         if (int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId)) < releaseStageId) return;
         if (saveController.characterSave.list.Exists(characterSave => characterSave.id == characterId.ToString())) return;
         saveController.AddCharacterDate($"{characterId}", 0, false);
-        releaseButton.SetActive(false);
     }
 
     /// <summary>
@@ -51,11 +47,9 @@ public class BuyCharacter : MonoBehaviour
             try
             {
                 var level = saveController.characterSave.list.Find(characterSave => characterSave.id == characterId.ToString()).level;
-                releaseButton.SetActive(false);
             }
             catch
             {
-                releaseButton.SetActive(true);
             }
         }
         else
@@ -63,7 +57,6 @@ public class BuyCharacter : MonoBehaviour
             GetComponent<Button>().enabled = false;
             transform.Find("Image").GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f);
             transform.Find("GrayLabel").gameObject.SetActive(true);
-            releaseButton.SetActive(false);
         }
     }
 }

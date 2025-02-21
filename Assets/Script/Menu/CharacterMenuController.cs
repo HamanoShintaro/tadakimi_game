@@ -59,24 +59,6 @@ public class CharacterMenuController : MonoBehaviour
             Debug.LogError("SaveControllerが見つかりませんでした。");
             return;
         }
-        /*
-        if (saveController.characterSave.list.Count > 0 && saveController.characterSave.list[0] != null)
-        {
-            SetCharacter(saveController.characterSave.list[0].id);
-        }
-        if (saveController.characterSave.list.Count > 1 && saveController.characterSave.list[1] != null)
-        {
-            SetCharacter(saveController.characterSave.list[1].id);
-        }
-        if (saveController.characterSave.list.Count > 2 && saveController.characterSave.list[2] != null)
-        {
-            SetCharacter(saveController.characterSave.list[2].id);
-        }
-        if (saveController.characterSave.list.Count > 3 && saveController.characterSave.list[3] != null)
-        {
-            SetCharacter(saveController.characterSave.list[3].id);
-        }
-        */
     }
 
     private void OnEnable()
@@ -250,18 +232,18 @@ public class CharacterMenuController : MonoBehaviour
         {
             button.transform.SetSiblingIndex(buttonIndex++);
         }
-   }
+    }
 
-   private GameObject GetCharacterButton(string characterId)
-   {
+    private GameObject GetCharacterButton(string characterId)
+    {
         return characterView.transform.Find(characterId).gameObject;
-   }
+    }
 
-   private void DisableAllOverlays()
-   {
+    private void DisableAllOverlays()
+    {
         for (int i = 0; i < characterView.transform.childCount; i++)
         {
             characterView.transform.GetChild(i).Find("Overlay").GetComponent<Image>().enabled = false;
         }
-   }
+    }
 }

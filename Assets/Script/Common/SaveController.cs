@@ -106,8 +106,8 @@ public class SaveController : MonoBehaviour
     public void DeleteScenarioData()
     {
         // PlayerPrefsのステージデータを削除
-        PlayerPrefs.SetInt(PlayerPrefabKeys.clearStageId, 100);
-        PlayerPrefs.SetInt(PlayerPrefabKeys.currentStageId, 101);
+        PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, "100");
+        PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101");
 
         // ログを表示
         Debug.Log("ステージデータが削除されました");

@@ -20,6 +20,14 @@ public class BattleStageSummonEnemy : ScriptableObject
 	public float TowerHp;
 
 	[SerializeField]
+	[Header("勝利報酬")]
+	private int victoryReward;
+
+	[SerializeField] 
+	[Header("敗北報酬")]
+	private int defeatReward;
+
+	[SerializeField]
 	[Header("ステージの背景画像")]
 	private Sprite stageSprite;
 
@@ -54,4 +62,14 @@ public class BattleStageSummonEnemy : ScriptableObject
     {
 		return enemyTower;
     }
+
+	public int GetVictoryReward()
+	{
+		return victoryReward;
+	}
+
+	public int GetDefeatReward()
+	{
+		return defeatReward;
+	}
 }
