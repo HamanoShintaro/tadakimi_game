@@ -255,9 +255,13 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         {
             yield return null;
 
-            // HP 0 になったキャラを探す (プレイヤー以外 & まだリストに入っていない)
+            // HP 0 になったキャラを探す (プレイヤー & 召喚キャラ Summon_01, Summon_02 を除外)
             var newDeadCharacters = FindObjectsOfType<CharacterCore>()
-                .Where(c => c.characterId.ToString() != "Player" && c.Hp == 0 && !deadCharacters.Contains(c))
+                .Where(c => c.Hp == 0 &&
+                            c.characterId.ToString() != "Player" &&
+                            c.characterId.ToString() != "Summon_01" &&
+                            c.characterId.ToString() != "Summon_02" &&
+                            !deadCharacters.Contains(c))
                 .ToList();
 
             foreach (var deadCharacter in newDeadCharacters)
@@ -269,7 +273,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
                 {
                     SaraSkillAction(deadCharacter); // 死亡キャラのレベルを渡してスキル発動
                 }
-                //古いリストを削除
+                // 古いリストを削除
                 RemoveOldestDeadCharacter();
             }
         }
