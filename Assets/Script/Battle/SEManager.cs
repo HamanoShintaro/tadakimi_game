@@ -19,7 +19,7 @@ public class SEManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // シーンをまたいでも保持
+            //DontDestroyOnLoad(gameObject); // シーンをまたいでも保持
             InitializeAudioSources();
         }
         else
