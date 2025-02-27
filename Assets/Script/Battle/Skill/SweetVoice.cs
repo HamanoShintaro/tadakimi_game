@@ -6,14 +6,12 @@ namespace Battle
 {
     public class SweetVoice : Skill
     {
-        [SerializeField]
-        private int rate = 3;
-
         protected override void SkillActionforBuddy(GameObject target)
         {
+            var atkPower = GetComponent<CharacterCore>().atkPower;
             foreach (GameObject buddyTarget in buddyTargets)
             {
-                buddyTarget.GetComponent<CharacterCore>().atkPower *= rate;
+                buddyTarget.GetComponent<CharacterCore>().atkPower += atkPower;
             }
         }
 
@@ -23,7 +21,6 @@ namespace Battle
             {
                 var attack = GetStatus().attack;
                 enemyTarget.GetComponent<CharacterCore>().Recovery(attack * 5);
-                Debug.Log("<color=red>ヒーリングマジックサークル</color>");
             }
         }
     }

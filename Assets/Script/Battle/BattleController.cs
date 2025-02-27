@@ -177,7 +177,6 @@ public class BattleController : MonoBehaviour
         isGameStopped = true;
 
         Time.timeScale = 1.0f;
-        SavePlayTime(type);
         
         bool isVictory = type != TypeLeader.BuddyLeader;
         performancePanel.GetComponent<ResultController>().OnResultPanel(isVictory);
@@ -188,7 +187,7 @@ public class BattleController : MonoBehaviour
         var unlockCharacter = battleStageData.GetUnlockCharacter();
         if (unlockCharacter != null)
         {
-            unlockCharacterText.text = $"＼新キャラクター「{unlockCharacter.name}」が解放されました！／";
+            unlockCharacterText.text = $"＼新キャラクターが解放されました！／";
             unlockCharacterText.gameObject.SetActive(true);
         }
 
@@ -200,18 +199,6 @@ public class BattleController : MonoBehaviour
         Debug.Log("<color=red>ゲーム終了!</color>");
     }
 
-    private void SavePlayTime(TypeLeader type)
-    {
-        if (type == TypeLeader.BuddyLeader)
-        {
-            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) + gameTimer);
-        }
-        else
-        {
-            PlayerPrefs.SetInt(PlayerPrefabKeys.playTime, gameTimer);
-        }
-    }
-
     private int CalculateReward(bool isVictory)
     {
         if (isVictory)
@@ -220,8 +207,9 @@ public class BattleController : MonoBehaviour
         }
         else
         {
-            float playTimeInMinutes = PlayerPrefs.GetInt(PlayerPrefabKeys.playTime) / 120f;
-            return Mathf.RoundToInt(playTimeInMinutes * battleStageData.GetDefeatReward());
+            float playTimeInMinutes = gameTimer / 120f;
+            int reward = Mathf.RoundToInt(playTimeInMinutes * battleStageData.GetDefeatReward());
+            return Mathf.Min(reward, battleStageData.GetDefeatReward());
         }
     }
 
