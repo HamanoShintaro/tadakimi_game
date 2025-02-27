@@ -57,13 +57,9 @@ MonoBehaviour:
   BuddyData:
     Times:
     - 1
-    - 2
-    - 3
     Characters:
-    - {fileID: 1545771121956627565, guid: 48d35b98f249d48ce93185277ce81e51, type: 3}
-    - {fileID: 1545771121956627565, guid: 16dcb789e240d4137870b1914afb450a, type: 3}
-    - {fileID: 2599859326184550953, guid: b4116ad06444b4f6e8cbe0c8c661b609, type: 3}
-    Levels: 030000000300000003000000
+    - {fileID: 4503520938222608313, guid: 479e787e911f04857adc0799dae3b11f, type: 3}
+    Levels: 03000000
   TowerHp: 2000
   victoryReward: 1350
   defeatReward: 750

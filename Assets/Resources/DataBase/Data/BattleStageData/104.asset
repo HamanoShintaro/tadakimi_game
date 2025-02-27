@@ -74,4 +74,4 @@ MonoBehaviour:
   stageSprite: {fileID: 21300000, guid: c800d362f91b147689435a30fd8b29c9, type: 3}
   enemyTower: {fileID: 21300000, guid: be0552969719e4562a7dc93324dd1a9a, type: 3}
   stageBGM: {fileID: 8300000, guid: bc04694957831493195dcd94e535fd80, type: 3}
-  unlockCharacter: {fileID: 0}
+  unlockCharacter: {fileID: 11400000, guid: 61fe7765927f3438fb39c49ae249d337, type: 2}
