@@ -27,7 +27,7 @@ public class BuyCharacter : MonoBehaviour
 
     public void TryReleaseCharacter()
     {
-        if (int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId)) < releaseStageId) return;
+        if (int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.maxStageId)) < releaseStageId) return;
         if (saveController.characterSave.list.Exists(characterSave => characterSave.id == characterId.ToString())) return;
         saveController.AddCharacterDate($"{characterId}", 0, false);
     }
@@ -38,7 +38,7 @@ public class BuyCharacter : MonoBehaviour
     public void UpdateCharacterButton()
     {
         //解放されているキャラクターはカラー表示にする
-        if (int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId)) >= releaseStageId)
+        if (int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.maxStageId)) >= releaseStageId)
         {
             GetComponent<Button>().enabled = true;
             transform.Find("Image").GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f);

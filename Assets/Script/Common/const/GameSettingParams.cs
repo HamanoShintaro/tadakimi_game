@@ -17,4 +17,8 @@ public class GameSettingParams
     public const float ActiveScaleParam = 1.0f;
     public const float inActiveScaleParam = 0.95f;
     public const int currentLanguage = 0;
+    public const string initialStageId = "101";
+    public const string initialClearStageId = "100";
+    public const string initialMaxStageId = "100";
+    public const int initialPlayerMoney = 0;
 }

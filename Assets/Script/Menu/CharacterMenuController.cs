@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using System.Threading.Tasks;
 
 public class CharacterMenuController : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class CharacterMenuController : MonoBehaviour
 
     private void Start()
     {
+        /*
         characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
         if (characterInfoDataBase == null)
         {
@@ -59,11 +61,37 @@ public class CharacterMenuController : MonoBehaviour
             Debug.LogError("SaveControllerが見つかりませんでした。");
             return;
         }
+        
+        SortCharacterButtonsByLevel();
+        SetCharacter(entityCharacterList[0].name);
+        */
+        _ = LoadCharacterData();
     }
 
     private void OnEnable()
     {
-        Invoke("SortCharacterButtonsByLevel", 0.1f);
+        //Invoke("SortCharacterButtonsByLevel", 0.1f);
+    }
+
+    private async Task LoadCharacterData()
+    {
+        characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
+        if (characterInfoDataBase == null)
+        {
+            Debug.LogError("CharacterInfoDataBaseのロードに失敗しました。");
+            return;
+        }
+        
+        saveController = menuController.GetComponent<SaveController>();
+        if (saveController == null)
+        {
+            Debug.LogError("SaveControllerが見つかりませんでした。");
+            return;
+        }
+        await Task.Yield();
+        SortCharacterButtonsByLevel();
+        await Task.Yield();
+        SetCharacter(characterView.transform.GetChild(0).name);
     }
 
     /// <summary>

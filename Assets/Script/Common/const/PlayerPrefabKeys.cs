@@ -18,6 +18,11 @@ public class PlayerPrefabKeys
     public const string clearStageId = "p_clear_stage_id";
 
     /// <summary>
+    /// 最大ステージID
+    /// </summary>
+    public const string maxStageId = "p_max_stage_id";
+
+    /// <summary>
     /// プレイヤーの所持金
     /// </summary>
     public const string playerMoney = "p_money";

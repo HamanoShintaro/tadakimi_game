@@ -45,8 +45,9 @@ public class SaveController : MonoBehaviour
         //menu表示のための設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentMenuView)) PlayerPrefs.SetString(PlayerPrefabKeys.currentMenuView, PlayerPrefabKeys.mainMenuView);
         //セーブデータの初期設定
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101");
-        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.clearStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, "100");
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.currentStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, GameSettingParams.initialStageId);
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.clearStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, GameSettingParams.initialClearStageId);
+        if (!PlayerPrefs.HasKey(PlayerPrefabKeys.maxStageId)) PlayerPrefs.SetString(PlayerPrefabKeys.maxStageId, GameSettingParams.initialMaxStageId);
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.playerMoney)) PlayerPrefs.SetInt(PlayerPrefabKeys.playerMoney, 0);
         //音量の初期設定
         if (!PlayerPrefs.HasKey(PlayerPrefabKeys.volumeBGM)) PlayerPrefs.SetFloat(PlayerPrefabKeys.volumeBGM, GameSettingParams.bgmVolume);
@@ -106,8 +107,8 @@ public class SaveController : MonoBehaviour
     public void DeleteScenarioData()
     {
         // PlayerPrefsのステージデータを削除
-        PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, "100");
-        PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, "101");
+        PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, GameSettingParams.initialClearStageId);
+        PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, GameSettingParams.initialStageId);
 
         // ログを表示
         Debug.Log("ステージデータが削除されました");

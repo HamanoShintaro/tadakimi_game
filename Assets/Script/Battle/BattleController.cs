@@ -207,7 +207,8 @@ public class BattleController : MonoBehaviour
         }
         else
         {
-            float playTimeInMinutes = gameTimer / 120f;
+            const float playTimeRate = 120f;
+            float playTimeInMinutes = gameTimer / playTimeRate;
             int reward = Mathf.RoundToInt(playTimeInMinutes * battleStageData.GetDefeatReward());
             return Mathf.Min(reward, battleStageData.GetDefeatReward());
         }
@@ -310,9 +311,10 @@ public class BattleController : MonoBehaviour
     /// </summary>
     private void NextStage()
     {
-        var currentStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
-        var nextStageId = int.Parse(currentStageId) + 1;
-        PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, currentStageId);
+        string clearStageId = PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId);
+        int nextStageId = int.Parse(clearStageId) + 1;
+        PlayerPrefs.SetString(PlayerPrefabKeys.clearStageId, clearStageId);
+        PlayerPrefs.SetString(PlayerPrefabKeys.maxStageId, clearStageId);
         PlayerPrefs.SetString(PlayerPrefabKeys.currentStageId, nextStageId.ToString("000"));
     }
 
