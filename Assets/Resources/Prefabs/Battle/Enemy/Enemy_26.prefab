@@ -297,6 +297,7 @@ MonoBehaviour:
   atkPower: 0
   targets: []
   canState: 1
+  deadCharacters: []
   originalY: 0
   normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
   hp: 100
@@ -339,10 +340,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 55.507954, y: 44.241497}
+  m_Offset: {x: 51.856537, y: 44.241497}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -353,7 +354,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 80.23873, y: 106.50797}
+  m_Size: {x: 87.541565, y: 106.50797}
   m_EdgeRadius: 0
 --- !u!61 &3280586503936523255
 BoxCollider2D:

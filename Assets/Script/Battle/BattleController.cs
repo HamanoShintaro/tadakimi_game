@@ -184,11 +184,17 @@ public class BattleController : MonoBehaviour
         int reward = CalculateReward(isVictory);
         StartCoroutine(AnimationMoneyUI(reward));
 
-        var unlockCharacter = battleStageData.GetUnlockCharacter();
-        if (unlockCharacter != null)
+        var maxStageId = int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.maxStageId));
+        var currentStageId = int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.currentStageId));
+        
+        if (maxStageId < currentStageId)
         {
-            unlockCharacterText.text = $"＼新キャラクターが解放されました！／";
-            unlockCharacterText.gameObject.SetActive(true);
+            var unlockCharacter = battleStageData.GetUnlockCharacter();
+            if (unlockCharacter != null)
+            {
+                unlockCharacterText.text = "＼新キャラクターが解放されました！／";
+                unlockCharacterText.gameObject.SetActive(true);
+            }
         }
 
         if (isVictory)
