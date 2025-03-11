@@ -45,7 +45,7 @@ public class CharacterInfo : ScriptableObject
 
 	// 属性
 	[SerializeField]
-	public string attribute;
+	public Sprite attribute;
 
 	// ステータス情報
 	[System.SerializableAttribute]

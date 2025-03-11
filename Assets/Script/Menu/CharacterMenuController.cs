@@ -11,6 +11,7 @@ public class CharacterMenuController : MonoBehaviour
     public GameObject characterNameObj;
     public GameObject characterAiliasObj;
     public GameObject characterDescriptionObj;
+    public GameObject characterAttributeObj;
     public GameObject characterSkillDescriptionObj;
 
     // キャラクター画像に関するオブジェクト
@@ -47,32 +48,8 @@ public class CharacterMenuController : MonoBehaviour
 
     private void Start()
     {
-        /*
-        characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
-        if (characterInfoDataBase == null)
-        {
-            Debug.LogError("CharacterInfoDataBaseのロードに失敗しました。");
-            return;
-        }
-        
-        saveController = menuController.GetComponent<SaveController>();
-        if (saveController == null)
-        {
-            Debug.LogError("SaveControllerが見つかりませんでした。");
-            return;
-        }
-        
-        SortCharacterButtonsByLevel();
-        SetCharacter(entityCharacterList[0].name);
-        */
         _ = LoadCharacterData();
     }
-
-    private void OnEnable()
-    {
-        //Invoke("SortCharacterButtonsByLevel", 0.1f);
-    }
-
     private async Task LoadCharacterData()
     {
         characterInfoDataBase = Resources.Load<CharacterInfoDataBase>(ResourcePath.CharacterInfoDataBasePath);
@@ -117,6 +94,7 @@ public class CharacterMenuController : MonoBehaviour
         characterNameObj.GetComponent<Text>().text = character.name;
         characterAiliasObj.GetComponent<Text>().text = "ーー" + character.alias;
         characterDescriptionObj.GetComponent<Text>().text = character.detail;
+        characterAttributeObj.GetComponent<Image>().sprite = character.attribute;
 
         // キャラクタースキル名が空でない場合にスキルを表示
         if (!string.IsNullOrEmpty(character.skill.name))

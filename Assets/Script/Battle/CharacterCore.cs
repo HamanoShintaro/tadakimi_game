@@ -362,7 +362,23 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (isLeader)
         {
-            var nearTarget = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).FirstOrDefault();
+            //var nearTarget = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).FirstOrDefault();
+            var nearTarget = targets.OrderBy(n => {
+                RectTransform rt = n.GetComponent<RectTransform>();
+                float frontX;
+                // xスケールが正の場合、前方は右側の端
+                if (rt.localScale.x >= 0)
+                {
+                    frontX = rt.anchoredPosition.x + rt.rect.width / 2 * 0.75f;
+                }
+                // xスケールが負の場合、前方は左側の端
+                else
+                {
+                    frontX = rt.anchoredPosition.x - rt.rect.width / 2 * 0.75f;
+                }
+                return frontX;
+            }).FirstOrDefault();
+            
             if (nearTarget != null)
             {
                 var distance = Vector2.Distance(nearTarget.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition);

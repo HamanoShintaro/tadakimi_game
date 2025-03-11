@@ -37,6 +37,7 @@ namespace Battle
             // **プレハブをインスタンス化**
             GameObject summonedNecromancer = Instantiate(baseNecromancer, summonPosition.position, Quaternion.identity);
             summonedNecromancer.transform.parent = summonPosition.parent;
+            summonedNecromancer.GetComponent<CharacterCore>().level = GetComponent<CharacterCore>().level;
 
             // **召喚された necromancer の CharacterCore に死亡キャラのレベルをセット**
             CharacterCore necromancerCore = summonedNecromancer.GetComponent<CharacterCore>();

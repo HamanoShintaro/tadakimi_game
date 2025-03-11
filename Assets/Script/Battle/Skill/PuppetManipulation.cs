@@ -54,10 +54,12 @@ namespace Battle
             if (GetLevel().Equals(4))
             {
                 summonedPuppet = Instantiate(_puppetTank, transform.position, Quaternion.identity);
+                _puppetTank.GetComponent<CharacterCore>().level = GetLevel();
             }
             else
             {
                 summonedPuppet = Instantiate(_puppet, transform.position, Quaternion.identity);
+                _puppet.GetComponent<CharacterCore>().level = GetLevel();
             }
             summonedPuppet.transform.parent = GameObject.Find("Canvas_Static/[CharacterPanel]").transform;
             summonedPuppet.GetComponent<CharacterCore>().level = GetLevel();
@@ -110,10 +112,12 @@ namespace Battle
             if (GetLevel().Equals(4))
             {
                 summonedPuppet = Instantiate(_puppetTank, transform.position, Quaternion.identity);
+                _puppetTank.GetComponent<CharacterCore>().level = GetLevel();
             }
             else
             {
                 summonedPuppet = Instantiate(_puppet, transform.position, Quaternion.identity);
+                _puppet.GetComponent<CharacterCore>().level = GetLevel();
             }
             summonedPuppet.transform.parent = GameObject.Find("Canvas_Static/[CharacterPanel]").transform;
             summonedPuppet.GetComponent<CharacterCore>().level = GetLevel();
