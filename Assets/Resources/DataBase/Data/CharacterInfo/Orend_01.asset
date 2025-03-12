@@ -29,6 +29,7 @@ MonoBehaviour:
   rank: 3
   status:
   - cost: 0
+    summoncd: 0
     attack: 8
     interval: 0
     hp: 60
@@ -37,6 +38,7 @@ MonoBehaviour:
     defKB: 0
     growth: 20
   - cost: 0
+    summoncd: 0
     attack: 12
     interval: 0
     hp: 90
@@ -45,6 +47,7 @@ MonoBehaviour:
     defKB: 0
     growth: 240
   - cost: 0
+    summoncd: 0
     attack: 17
     interval: 0
     hp: 126
@@ -53,6 +56,7 @@ MonoBehaviour:
     defKB: 0
     growth: 800
   - cost: 0
+    summoncd: 0
     attack: 22
     interval: 0
     hp: 204
@@ -61,6 +65,7 @@ MonoBehaviour:
     defKB: 0
     growth: 2000
   - cost: 0
+    summoncd: 0
     attack: 27
     interval: 0
     hp: 306
@@ -85,3 +90,4 @@ MonoBehaviour:
     still: {fileID: 0}
     BackGround: {fileID: 0}
   price: 0
+  attribute: {fileID: 21300000, guid: 5654e9aca37704ea3acea38c7e29cde5, type: 3}

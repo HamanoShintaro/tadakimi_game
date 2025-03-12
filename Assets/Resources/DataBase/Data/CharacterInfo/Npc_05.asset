@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Npc_05
   m_EditorClassIdentifier: 
   id: Npc_05
-  name: "\u5287\u56E3\u54E1\uFF1A\u30B3\u30FC\u30E9\u30B9"
-  alias: 9999
-  detail: "\u821E\u53F0\u3092\u714C\u3073\u3084\u304B\u306B\u5F69\u308B\u6B4C\u3044\u624B\u3002\u58F0\u306E\u529B\u3067\u898B\u65B9\u30AD\u30E3\u30E9\u30AF\u30BF\u30FC\u3092\u30D1\u30EF\u30FC\u30A2\u30C3\u30D7\u3002"
-  type: "\u30B5\u30DD\u30FC\u30C8"
+  name: "\u30A4\u30F3\u30D7\u65CF\uFF1A\u5F13\u5175"
+  alias: 
+  detail: "\u5C0F\u578B\u9B54\u65CF\u306E\u5F13\u5175\u3002\u9AD8\u3044\u8996\u529B\u3068\u904B\u52D5\u80FD\u529B\u3067\u6575\u3092\u9060\u8DDD\u96E2\u304B\u3089\u5C04\u6483\u3059\u308B\u3002"
+  type: "\u30A2\u30BF\u30C3\u30AB\u30FC"
   image:
     fullsize: {fileID: 21300000, guid: d13d254889ed64064a9ead0c70d78d16, type: 3}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
@@ -25,60 +25,66 @@ MonoBehaviour:
     prefab: {fileID: 2599859326184550953, guid: 7486ef334b997457a90d1b1723cb297c, type: 3}
   rank: 2
   status:
-  - cost: 0
-    attack: 5
+  - cost: 30
+    summoncd: 6
+    attack: 4
     interval: 0
-    hp: 5
+    hp: 15
     speed: 15
-    atkKB: 0
+    atkKB: 10
     defKB: 0
-    growth: 4
-  - cost: 0
-    attack: 8
-    interval: 0
-    hp: 8
-    speed: 15
-    atkKB: 0
-    defKB: 0
-    growth: 48
-  - cost: 0
-    attack: 11
-    interval: 0
-    hp: 11
-    speed: 15
-    atkKB: 0
-    defKB: 0
-    growth: 160
-  - cost: 0
-    attack: 14
+    growth: 40
+  - cost: 30
+    summoncd: 6
+    attack: 7
     interval: 0
     hp: 17
     speed: 15
-    atkKB: 0
+    atkKB: 10
+    defKB: 0
+    growth: 80
+  - cost: 30
+    summoncd: 6
+    attack: 10
+    interval: 0
+    hp: 30
+    speed: 15
+    atkKB: 10
     defKB: 0
     growth: 200
-  - cost: 0
-    attack: 17
+  - cost: 30
+    summoncd: 6
+    attack: 16
     interval: 0
-    hp: 26
+    hp: 60
     speed: 15
-    atkKB: 0
+    atkKB: 10
+    defKB: 0
+    growth: 320
+  - cost: 30
+    summoncd: 6
+    attack: 24
+    interval: 0
+    hp: 75
+    speed: 15
+    atkKB: 10
     defKB: 0
     growth: 0
   skill:
-    name: "\u5287\u56E3\u54E1\u306E\u30B5\u30DD\u30FC\u30C8"
-    cost: 20
-    cd: 15
-    Detail: "\u81EA\u5206\u306E\u653B\u6483\u7BC4\u56F2\u306B\u5B58\u5728\u3059\u308B\u30E6\u30CB\u30C3\u30C8\u306EHP\u3092\u81EA\u5206\u306E\u653B\u6483\u529B\u5206\u56DE\u5FA9\u3059\u308B\u3002"
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
     effect: {fileID: 0}
     Ratio: 2.5
   special:
-    name: 9999
-    cost: 9999
-    cd: 9999
-    Detail: 9999
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
     effect: {fileID: 0}
     Ratio: 5
     still: {fileID: 0}
     BackGround: {fileID: 0}
   price: 20000
+  attribute: {fileID: 21300000, guid: 5654e9aca37704ea3acea38c7e29cde5, type: 3}

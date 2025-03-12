@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d4b334f1a184399be94e311c4c3079, type: 3}
   m_Name: Enemy_01
   m_EditorClassIdentifier: 
-  id: 
-  name: 
+  id: Enemy_01
+  name: "\u8CB4\u65CF\u5175\uFF1A\u5263"
   alias: 
   detail: 
-  type: 
+  type: "\u30A2\u30BF\u30C3\u30AB\u30FC"
   image:
     fullsize: {fileID: 0}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
@@ -26,44 +26,49 @@ MonoBehaviour:
   rank: 0
   status:
   - cost: 0
-    attack: 0
+    summoncd: 0
+    attack: 6
     interval: 0
-    hp: 0
-    speed: 0
-    atkKB: 0
-    defKB: 0
+    hp: 300
+    speed: 25
+    atkKB: 20
+    defKB: 20
     growth: 0
   - cost: 0
-    attack: 0
+    summoncd: 0
+    attack: 12
     interval: 0
-    hp: 0
-    speed: 0
-    atkKB: 0
-    defKB: 0
+    hp: 90
+    speed: 25
+    atkKB: 20
+    defKB: 20
     growth: 0
   - cost: 0
-    attack: 0
+    summoncd: 0
+    attack: 24
     interval: 0
-    hp: 0
-    speed: 0
-    atkKB: 0
-    defKB: 0
+    hp: 180
+    speed: 25
+    atkKB: 20
+    defKB: 20
     growth: 0
   - cost: 0
-    attack: 0
+    summoncd: 0
+    attack: 36
     interval: 0
-    hp: 0
-    speed: 0
-    atkKB: 0
-    defKB: 0
+    hp: 240
+    speed: 25
+    atkKB: 20
+    defKB: 20
     growth: 0
   - cost: 0
-    attack: 0
+    summoncd: 0
+    attack: 60
     interval: 0
-    hp: 0
-    speed: 0
-    atkKB: 0
-    defKB: 0
+    hp: 300
+    speed: 25
+    atkKB: 20
+    defKB: 20
     growth: 0
   skill:
     name: 
@@ -82,3 +87,4 @@ MonoBehaviour:
     still: {fileID: 0}
     BackGround: {fileID: 0}
   price: 0
+  attribute: 

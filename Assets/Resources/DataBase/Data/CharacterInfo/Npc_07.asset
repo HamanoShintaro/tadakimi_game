@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Npc_07
   m_EditorClassIdentifier: 
   id: Npc_07
-  name: "\u7ADC\u4EBA\u65CF\uFF1A\u6226\u58EB"
-  alias: "\u306A\u3057"
-  detail: "\u9F8D\u4EBA\u65CF\u306E\u4EBA\u306E\u59FF\u3002\u4F53\u8868\u306E\u9C57\u306F\u5203\u7269\u306B\u3088\u308B\u65AC\u6483\u3082\u306F\u3058\u304F"
-  type: "\u30C7\u30A3\u30D5\u30A7\u30F3\u30C0\u30FC"
+  name: "\u30A4\u30F3\u30D7\u65CF\uFF1A\u5927\u76FE"
+  alias: 
+  detail: "\u5C0F\u578B\u9B54\u65CF\u306E\u5927\u76FE\u6226\u58EB\u3002\u81EA\u5206\u306E\u4F53\u683C\u3068\u540C\u3058\u307B\u3069\u306E\u76FE\u3092\u6301\u3061\u3001\u6575\u306B\u5411\u304B\u3063\u3066\u9032\u3093\u3067\u3044\u304F\u3002"
+  type: "\u30C7\u30A3\u30D5\u30A7\u30F3\u30B9"
   image:
     fullsize: {fileID: 21300000, guid: c1c4e7f8ac4e54a249a93195c6390c22, type: 3}
     backGround: {fileID: 21300000, guid: fde2cb057ff07475b922e456079b19eb, type: 3}
@@ -25,60 +25,66 @@ MonoBehaviour:
     prefab: {fileID: 1545771121956627565, guid: c620e52f1cbcd4e5d9b5b570687ad9bf, type: 3}
   rank: 2
   status:
-  - cost: 80
-    attack: 5
+  - cost: 40
+    summoncd: 6
+    attack: 1
     interval: 0
-    hp: 60
-    speed: 30
-    atkKB: 15
-    defKB: 30
-    growth: 8
-  - cost: 80
-    attack: 8
+    hp: 50
+    speed: 15
+    atkKB: 20
+    defKB: 50
+    growth: 60
+  - cost: 40
+    summoncd: 6
+    attack: 1
     interval: 0
-    hp: 90
-    speed: 30
-    atkKB: 15
-    defKB: 30
-    growth: 96
-  - cost: 80
-    attack: 11
+    hp: 85
+    speed: 15
+    atkKB: 20
+    defKB: 50
+    growth: 120
+  - cost: 40
+    summoncd: 6
+    attack: 1
     interval: 0
-    hp: 126
-    speed: 30
-    atkKB: 15
-    defKB: 30
-    growth: 320
-  - cost: 80
-    attack: 14
+    hp: 110
+    speed: 15
+    atkKB: 20
+    defKB: 50
+    growth: 300
+  - cost: 40
+    summoncd: 6
+    attack: 2
     interval: 0
-    hp: 204
-    speed: 30
-    atkKB: 15
-    defKB: 30
-    growth: 400
-  - cost: 80
-    attack: 17
+    hp: 250
+    speed: 15
+    atkKB: 20
+    defKB: 50
+    growth: 480
+  - cost: 40
+    summoncd: 6
+    attack: 3
     interval: 0
-    hp: 306
-    speed: 30
-    atkKB: 15
-    defKB: 30
+    hp: 400
+    speed: 15
+    atkKB: 20
+    defKB: 50
     growth: 0
   skill:
-    name: 9999
-    cost: 9999
-    cd: 9999
-    Detail: 9999
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
     effect: {fileID: 0}
     Ratio: 2.5
   special:
-    name: 9999
-    cost: 9999
-    cd: 9999
-    Detail: 9999
+    name: 
+    cost: 0
+    cd: 0
+    Detail: 
     effect: {fileID: 0}
     Ratio: 5
     still: {fileID: 0}
     BackGround: {fileID: 0}
   price: 20000
+  attribute: {fileID: 21300000, guid: da6a796120b424e8b8f359ea085a579d, type: 3}
