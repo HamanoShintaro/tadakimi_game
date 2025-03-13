@@ -15,19 +15,9 @@ MonoBehaviour:
   EnemyData:
     Times:
     - 4.5
-    - 5
-    - 5.5
-    - 6
-    - 6.5
-    - 7
     Characters:
-    - {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
-    - {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
-    - {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
-    - {fileID: 5429095949005290252, guid: d53f3b3402fa24dd6aee1601727c3869, type: 3}
-    - {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
-    - {fileID: 3280586503936523248, guid: 596bb8fef0cfe4b0c9b2f826997ef175, type: 3}
-    Levels: 000000000000000000000000000000000000000000000000
+    - {fileID: 5669653989772239561, guid: 6de9057c984bc4b27b146dceeefaaab5, type: 3}
+    Levels: 00000000
   BuddyData:
     Times:
     - 1

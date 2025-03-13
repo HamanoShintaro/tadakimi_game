@@ -15,29 +15,19 @@ MonoBehaviour:
   EnemyData:
     Times:
     - 1
-    - 4
-    - 10
-    - 11
-    - 20
-    - 21
-    - 24
     Characters:
     - {fileID: 1338976341970829827, guid: f6a1afcb6373641fbb022dd4384acf97, type: 3}
-    - {fileID: 4241449921041689916, guid: 22366544b347043fcaaf14734f6bd333, type: 3}
-    - {fileID: 5669653989772239561, guid: f23afe52f3c254532988ad4ae55d692c, type: 3}
-    - {fileID: 5669653989772239561, guid: f23afe52f3c254532988ad4ae55d692c, type: 3}
-    - {fileID: 4241449921041689916, guid: 22366544b347043fcaaf14734f6bd333, type: 3}
-    - {fileID: 4241449921041689916, guid: 22366544b347043fcaaf14734f6bd333, type: 3}
-    - {fileID: 3165393189828205779, guid: 1a878511e912a484d9008267db6e82b6, type: 3}
-    Levels: 00000000000000000000000000000000000000000000000000000000
+    Levels: 00000000
   BuddyData:
-    Times: []
-    Characters: []
-    Levels: 
+    Times:
+    - 0
+    Characters:
+    - {fileID: 5095262611280852148, guid: 3d9c58dc185aa4edfa151b783b9a5fb6, type: 3}
+    Levels: 00000000
   TowerHp: 100
   victoryReward: 167
   defeatReward: 167
   stageSprite: {fileID: 21300000, guid: 9a43efb8129bc479d9bc886331f6cf88, type: 3}
   enemyTower: {fileID: 21300000, guid: be0552969719e4562a7dc93324dd1a9a, type: 3}
   stageBGM: {fileID: 8300000, guid: bc04694957831493195dcd94e535fd80, type: 3}
-  unlockCharacter: {fileID: 0}
+  unlockCharacter: {fileID: 11400000, guid: 65871b05eff2d4c51865f83e4edfb651, type: 2}
