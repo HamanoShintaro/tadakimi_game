@@ -15,5 +15,4 @@ public class OnButton_Menu : OnButton,IPointerClickHandler, IPointerDownHandler
     {
         // 処理必要なし（ただし関数の記載は必要）
     }
-
 }

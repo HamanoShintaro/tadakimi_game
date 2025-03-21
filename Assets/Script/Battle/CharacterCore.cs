@@ -49,6 +49,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     [HideInInspector]
     public int level = 0;
 
+    private CharacterInfo characterInfo;
+
     private float maxHp;
     private float defKB;
     private float maxSpeed;
@@ -73,9 +75,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private AudioSource audioSource;
 
     private List<GameObject> confirmedTargets;
-
-    //サラが監視する用。
-    public List<CharacterCore> deadCharacters = new List<CharacterCore>(); // HP 0 のキャラを記録
 
     //ノックバックの秒数(全体フレーム)
     private const float knockBackDuration = 0.5f;
@@ -121,12 +120,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         InitializeComponents();
         StartCoroutine(SkillCoolTimeCount());
         originalY = transform.position.y;
-
-        // Sara_01 の場合、HP監視を開始
-        if (characterId.ToString() == "Sara_01")
-        {
-            StartCoroutine(WatchCharacterHP());
-        }
     }
 
     private void InitializeCharacter()
@@ -145,13 +138,18 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             }
         }
 
-        var characterInfo = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}");
+        characterInfo = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}");
         if (characterInfo == null)
         {
             Debug.LogError($"{characterId} : データベースにキャラクターのデータがありません");
             return;
         }
 
+        SetCharacterInfo(level);
+    }
+
+    public void SetCharacterInfo(int level)
+    {
         maxHp = characterInfo.status[level].hp;
         Hp = maxHp;
         maxSpeed = characterInfo.status[level].speed / 20;
@@ -246,38 +244,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         animator.SetBool("Walk", false);
     }
-    /// <summary>
-    /// シーン内のプレイヤー以外のキャラクターのHPを常に監視し、HPが0になったらSaraSkillActionを発動
-    /// </summary>
-    private IEnumerator WatchCharacterHP()
-    {
-        while (true)
-        {
-            yield return null;
-
-            // HP 0 になったキャラを探す (プレイヤー & 召喚キャラ Summon_01, Summon_02 を除外)
-            var newDeadCharacters = FindObjectsOfType<CharacterCore>()
-                .Where(c => c.Hp == 0 &&
-                            c.characterId.ToString() != "Player" &&
-                            c.characterId.ToString() != "Summon_01" &&
-                            c.characterId.ToString() != "Summon_02" &&
-                            !deadCharacters.Contains(c))
-                .ToList();
-
-            foreach (var deadCharacter in newDeadCharacters)
-            {
-                deadCharacters.Add(deadCharacter); // リストに追加
-                Debug.Log($"サラは {deadCharacter.characterId} の死を検知し、スキルを発動！レベル {deadCharacter.level}");
-
-                if (skillCost <= magicPowerController.magicPower)
-                {
-                    SaraSkillAction(deadCharacter); // 死亡キャラのレベルを渡してスキル発動
-                }
-                // 古いリストを削除
-                RemoveOldestDeadCharacter();
-            }
-        }
-    }
 
     private void Action()
     {
@@ -327,28 +293,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         magicPowerController.magicPower -= skillCost;
         animator.SetBool("Skill", true);
         Debug.Log($"{characterId}はスキルのアニメーションを発動した");
-    }
-
-    private void SaraSkillAction(CharacterCore deadCharacter)
-    {
-        magicPowerController.magicPower -= skillCost;
-        Debug.Log($"{characterId} はスキルのアニメーションを発動し、レベル {deadCharacter.level} の死霊兵を召喚");
-
-        var necromancerSkill = FindObjectOfType<NecromancerSummonMagic>();
-        if (necromancerSkill != null)
-        {
-            necromancerSkill.SummonNecromancer(deadCharacter.level); // 死亡キャラのレベルを渡して召喚
-        }
-    }
-    //リストの削除
-    private void RemoveOldestDeadCharacter()
-    {
-        if (deadCharacters.Count > 10)
-        {
-            CharacterCore oldestCharacter = deadCharacters[0]; // 一番古いキャラ (リストの先頭)
-            deadCharacters.RemoveAt(0); // リストから削除
-            Debug.Log($"[削除] {oldestCharacter.characterId} を死亡キャラリストから削除しました。（リストのサイズ: {deadCharacters.Count}）");
-        }
     }
 
     public void EndSkillAction()
@@ -650,5 +594,13 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             return true;
         }
         return false;
+    }
+
+    /// <summary>
+    /// キャラクターIDを取得するプロパティ
+    /// </summary>
+    public CharacterId GetCharacterId()
+    {
+        return characterId;
     }
 }

@@ -33,6 +33,10 @@ public class OnButton : MonoBehaviour
     /// </summary>
     public void OnChangeBattle()
     {
+        // クリアステージIDが131以上の場合は処理を中断
+        int clearStageId = int.Parse(PlayerPrefs.GetString(PlayerPrefabKeys.clearStageId));
+        const int maxStageId = 131; // TODO: シナリオの最大ステージIDを定数で管理する
+        if(clearStageId >= maxStageId) return;
         audioSource.PlayOneShot(clip);
         SceneManager.LoadScene("Battle");
     }
@@ -47,5 +51,3 @@ public class OnButton : MonoBehaviour
         Application.OpenURL(url);
     }
 }
-
-
