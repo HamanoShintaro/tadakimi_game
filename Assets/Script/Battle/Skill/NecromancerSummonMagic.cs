@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-
 namespace Battle
 {
     public class NecromancerSummonMagic : MonoBehaviour
@@ -35,11 +34,19 @@ namespace Battle
         /// </summary>
         public void SummonNecromancer(int level)
         {
-            // 確率に応じて召喚する死霊兵を決定
+            StartCoroutine(SummonNecromancerCoroutine(level));
+        }
+
+        private IEnumerator SummonNecromancerCoroutine(int level)
+        {
+             // 確率に応じて召喚する死霊兵を決定
             GameObject baseNecromancer = (Random.Range(0f, 100f) < probabilityNecromancer) ? necromancer : necromancer2;
 
             // **プレハブをインスタンス化**
             GameObject summonedNecromancer = Instantiate(baseNecromancer, summonPosition.position, Quaternion.identity);
+
+            yield return null;
+            
             summonedNecromancer.transform.parent = summonPosition.parent;
 
             // **召喚された necromancer の CharacterCore に死亡キャラのレベルをセット**

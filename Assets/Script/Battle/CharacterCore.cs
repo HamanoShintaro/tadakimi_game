@@ -138,18 +138,18 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             }
         }
 
+        SetCharacterInfo(level);
+    }
+
+    // TODO : LevelUpまたはUpdateLevelなどに変更して、レベルごとアップデートする
+    public void SetCharacterInfo(int level)
+    {
         characterInfo = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}");
         if (characterInfo == null)
         {
             Debug.LogError($"{characterId} : データベースにキャラクターのデータがありません");
             return;
         }
-
-        SetCharacterInfo(level);
-    }
-
-    public void SetCharacterInfo(int level)
-    {
         maxHp = characterInfo.status[level].hp;
         Hp = maxHp;
         maxSpeed = characterInfo.status[level].speed / 20;
@@ -157,16 +157,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         atkPower = characterInfo.status[level].attack;
         atkKB = characterInfo.status[level].atkKB;
         defKB = characterInfo.status[level].defKB;
-
-        hasSkill = !string.IsNullOrEmpty(characterInfo.skill.name);
-        skillCost = characterInfo.skill.cost;
-        skillCoolDown = characterInfo.skill.cd;
-        skillRatio = characterInfo.skill.Ratio;
-
-        hasSpecial = !string.IsNullOrEmpty(characterInfo.special.name);
-        specialCost = characterInfo.skill.cost;
-        specialCoolTime = characterInfo.special.cd;
-        specialRatio = characterInfo.special.Ratio;
     }
 
     private void InitializeComponents()
