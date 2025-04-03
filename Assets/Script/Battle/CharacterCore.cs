@@ -186,14 +186,34 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void InitializeComponents()
     {
-        characterPanel = transform.parent.gameObject;
-        magicPowerController = GameObject.Find("Canvas_Dynamic/[ControlPanel]/Power").GetComponent<MagicPowerController>();
+        if (transform.parent != null)
+        {
+            characterPanel = transform.parent.gameObject;
+        }
+
+        var powerObj = GameObject.Find("Canvas_Dynamic/[ControlPanel]/Power");
+        if (powerObj != null)
+        {
+            magicPowerController = powerObj.GetComponent<MagicPowerController>();
+        }
+        else
+        {
+            magicPowerController = null;
+            Debug.LogWarning($"{characterId}: 魔力UIが見つかりません。召喚キャラなら問題ありません。");
+        }
+
         animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogWarning($"{characterId}: Animatorがアタッチされていません");
+        }
+
         audioSource = GetComponent<AudioSource>();
-        player = GetComponent<Player>();
+        player = GetComponent<Player>(); // 召喚キャラにはいない可能性あり
         rectTransform = GetComponent<RectTransform>();
         rb = GetComponent<Rigidbody2D>();
     }
+
 
     private void FixedUpdate()
     {

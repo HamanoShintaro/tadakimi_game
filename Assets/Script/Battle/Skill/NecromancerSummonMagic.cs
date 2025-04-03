@@ -20,18 +20,28 @@ namespace Battle
         private int minY = -30, maxY = 30;
 
         [SerializeField, Range(0, 100)]
-        private float probabilityNecromancer = 90f; // インスペクターで変更可能 (デフォルト90%)
+        private float probabilityNecromancer = 90f;
 
-        public List<CharacterCore> deadCharacters = new List<CharacterCore>(); // HP 0 のキャラを記録
+        public List<CharacterCore> deadCharacters = new List<CharacterCore>();
 
         private void Awake()
         {
-            summonPosition = GameObject.Find("Canvas_Static/[CharacterPanel]/Appear_Buddy").transform;
+            if (summonPosition == null)
+            {
+                summonPosition = GameObject.Find("Canvas_Static/[CharacterPanel]/Appear_Buddy")?.transform;
+            }
         }
-        
-        /// <summary>
-        /// 死亡キャラのレベルに応じて、対応する死霊兵を1体召喚する
-        /// </summary>
+
+        private void Start()
+        {
+            var core = GetComponent<CharacterCore>();
+            if (core != null && core.GetCharacterId().ToString() == "Sara_01")
+            {
+                StartCoroutine(WatchCharacterHP());
+                Debug.Log("<color=green>Sara_01: 死亡キャラ監視開始</color>");
+            }
+        }
+
         public void SummonNecromancer(int level)
         {
             StartCoroutine(SummonNecromancerCoroutine(level));
@@ -39,64 +49,55 @@ namespace Battle
 
         private IEnumerator SummonNecromancerCoroutine(int level)
         {
-             // 確率に応じて召喚する死霊兵を決定
             GameObject baseNecromancer = (Random.Range(0f, 100f) < probabilityNecromancer) ? necromancer : necromancer2;
-
-            // **プレハブをインスタンス化**
-            GameObject summonedNecromancer = Instantiate(baseNecromancer, summonPosition.position, Quaternion.identity);
-
+            GameObject summoned = Instantiate(baseNecromancer, summonPosition.position, Quaternion.identity);
             yield return null;
-            
-            summonedNecromancer.transform.parent = summonPosition.parent;
 
-            // **召喚された necromancer の CharacterCore に死亡キャラのレベルをセット**
-            CharacterCore necromancerCore = summonedNecromancer.GetComponent<CharacterCore>();
-            if (necromancerCore != null)
+            // 親を設定（Canvas内）
+            Transform panel = GameObject.Find("Canvas_Static/[CharacterPanel]")?.transform;
+            if (panel != null)
             {
-                necromancerCore.level = level;
-                necromancerCore.SetCharacterInfo(level);
-                Debug.Log($"<color=red>レベル {level} の死霊兵 ({summonedNecromancer.name}) を召喚しました！</color>");
+                summoned.transform.SetParent(panel, false);
             }
-            // 召喚位置を決定
-            var pos = summonedNecromancer.transform.localPosition;
-            var random = Random.Range(minY, maxY);
+
+            // レベル設定（CharacterCoreが存在する場合）
+            CharacterCore core = summoned.GetComponent<CharacterCore>();
+            if (core != null)
+            {
+                core.level = level;
+                core.SetCharacterInfo(level);
+                Debug.Log($"<color=red>レベル {level} の死霊兵 ({summoned.name}) を召喚しました！</color>");
+            }
+
+            // ランダムな生成位置調整
+            var pos = summoned.transform.localPosition;
             pos.x = summonPosition.localPosition.x;
-            pos.y = summonPosition.localPosition.y + random;
+            pos.y = summonPosition.localPosition.y + Random.Range(minY, maxY);
             pos.z = summonPosition.localPosition.z;
-            summonedNecromancer.transform.localPosition = pos;
-            summonedNecromancer.transform.SetAsFirstSibling();
+            summoned.transform.localPosition = pos;
+
+            // 表示順制御（最前面）
+            summoned.transform.SetAsFirstSibling();
         }
-        
-        /// <summary>
-        /// シーン内のプレイヤー以外のキャラクターのHPを常に監視し、HPが0になったらSaraSkillActionを発動
-        /// </summary>
+
         private IEnumerator WatchCharacterHP()
         {
             while (true)
             {
                 yield return null;
 
-                // HP 0 になったキャラを探す (プレイヤー & 召喚キャラ Summon_01, Summon_02 を除外)
                 var newDeadCharacters = FindObjectsOfType<CharacterCore>()
                     .Where(c => c.Hp == 0 &&
                                 c.GetCharacterId().ToString() != "Player" &&
                                 c.GetCharacterId().ToString() != "Summon_01" &&
                                 c.GetCharacterId().ToString() != "Summon_02" &&
-                                !deadCharacters.Contains(c)) //ここで既にリストにあるキャラは除外
+                                !deadCharacters.Contains(c))
                     .ToList();
 
-                foreach (var deadCharacter in newDeadCharacters)
+                foreach (var dead in newDeadCharacters)
                 {
-                    deadCharacters.Add(deadCharacter); // リストに追加
-                    
-                    /*
-                    if (skillCost <= magicPowerController.magicPower)
-                    {
-                        SaraSkillAction(deadCharacter); // 死亡キャラのレベルを渡してスキル発動
-                    }
-                    */
-                    SaraSkillAction(deadCharacter); // 死亡キャラのレベルを渡してスキル発動
-                    // 古いリストを削除
+                    deadCharacters.Add(dead);
+                    SaraSkillAction(dead);
                     RemoveOldestDeadCharacter();
                 }
             }
@@ -104,17 +105,14 @@ namespace Battle
 
         private void SaraSkillAction(CharacterCore deadCharacter)
         {
-            //magicPowerController.magicPower -= skillCost;
-
-            SummonNecromancer(deadCharacter.level); // 死亡キャラのレベルを渡して召喚
+            SummonNecromancer(deadCharacter.level);
         }
-        //リストの削除
+
         private void RemoveOldestDeadCharacter()
         {
             if (deadCharacters.Count > 10)
             {
-                CharacterCore oldestCharacter = deadCharacters[0]; // 一番古いキャラ (リストの先頭)
-                deadCharacters.RemoveAt(0); // リストから削除
+                deadCharacters.RemoveAt(0);
             }
         }
     }
