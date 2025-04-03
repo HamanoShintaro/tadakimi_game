@@ -83,7 +83,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     //ノックバックする時の高さ
     private const float jumpHeight = 50f;
     // ノックバック中かどうかを追跡
-    private bool isKnockBack = false; 
+    private bool isKnockBack = false;
 
     public float originalY;
 
@@ -150,13 +150,38 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             Debug.LogError($"{characterId} : データベースにキャラクターのデータがありません");
             return;
         }
+
+        // ステータス設定
         maxHp = characterInfo.status[level].hp;
         Hp = maxHp;
+
         maxSpeed = characterInfo.status[level].speed / 20;
         Speed = maxSpeed;
+
         atkPower = characterInfo.status[level].attack;
         atkKB = characterInfo.status[level].atkKB;
         defKB = characterInfo.status[level].defKB;
+
+        // スキル設定
+        hasSkill = characterInfo.skill != null && !string.IsNullOrEmpty(characterInfo.skill.name);
+        if (hasSkill)
+        {
+            skillCost = characterInfo.skill.cost;
+            skillCoolDown = characterInfo.skill.cd;
+            skillRatio = characterInfo.skill.Ratio;
+        }
+
+        // 奥義（スペシャル）設定
+        hasSpecial = characterInfo.special != null && !string.IsNullOrEmpty(characterInfo.special.name);
+        if (hasSpecial)
+        {
+            specialCost = characterInfo.special.cost;
+            specialCoolTime = characterInfo.special.cd;
+            specialRatio = characterInfo.special.Ratio;
+        }
+
+        // デバッグログで確認
+        Debug.Log($"[SetCharacterInfo] {characterId} レベル: {level} | HP: {Hp} | Atk: {atkPower} | hasSkill: {hasSkill} | skillCost: {skillCost} | skillCD: {skillCoolDown} | hasSpecial: {hasSpecial}");
     }
 
     private void InitializeComponents()
