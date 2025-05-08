@@ -154,7 +154,7 @@ MonoBehaviour:
     LR: L
     expressions: confuse
     voice: {fileID: 0}
-    SE: {fileID: 8300000, guid: 4144775a2ebb7485a927c11ac6ba50aa, type: 3}
+    SE: {fileID: 0}
     bgImage: {fileID: 0}
     BGM: {fileID: 0}
     still: {fileID: 0}
