@@ -93,6 +93,10 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private RectTransform rectTransform;
     private Rigidbody2D rb;
 
+    //ヴォルカスの攻撃判定のための変数。
+    [SerializeField, Tooltip("自キャラと敵の“進行方向の端”どうしの距離")]
+    private float frontEdgeDistance;
+
     public float hp = 100;
     public float Hp
     {
@@ -339,40 +343,55 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void NormalAction()
     {
-        if (isLeader)
+        Debug.Log(frontEdgeDistance);
+        if (!isLeader) return;
+
+        var colliders = GetComponents<BoxCollider2D>();
+        if (colliders.Length < 2) return;
+
+        BoxCollider2D attackCollider = colliders[1]; // 攻撃用コライダーを明確に指定
+
+        var nearTarget = targets.FirstOrDefault(target =>
         {
-            //var nearTarget = targets.OrderBy(n => n.GetComponent<RectTransform>().anchoredPosition.x).FirstOrDefault();
-            var nearTarget = targets.OrderBy(n => {
-                RectTransform rt = n.GetComponent<RectTransform>();
-                float frontX;
-                // xスケールが正の場合、前方は右側の端
-                if (rt.localScale.x >= 0)
-                {
-                    frontX = rt.anchoredPosition.x + rt.rect.width / 2 * 0.75f;
-                }
-                // xスケールが負の場合、前方は左側の端
-                else
-                {
-                    frontX = rt.anchoredPosition.x - rt.rect.width / 2 * 0.75f;
-                }
-                return frontX;
-            }).FirstOrDefault();
-            
-            if (nearTarget != null)
+            var targetCols = target.GetComponents<BoxCollider2D>();
+            return targetCols.Length >= 2 && attackCollider.bounds.Intersects(targetCols[1].bounds);
+        });
+
+        if (nearTarget != null)
+        {
+            var targetCols = nearTarget.GetComponents<BoxCollider2D>();
+            BoxCollider2D enemyCollider = targetCols[0]; // 敵の当たり判定
+
+            float selfEdge, enemyEdge;
+
+            float yRot = transform.rotation.eulerAngles.y;
+            if (Mathf.Approximately(yRot, 0f)) // 右向き
             {
-                var distance = Vector2.Distance(nearTarget.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition);
-                if (distance > longAttackDistance)
-                {
-                    animator.SetBool("Long", true);
-                    animator.SetBool("Attack", false);
-                    //Debug.Log($"プレイヤーは遠距離攻撃のアニメーションを発動した");
-                }
-                else
-                {
-                    animator.SetBool("Attack", true);
-                    animator.SetBool("Long", false);
-                    //Debug.Log($"プレイヤーは近距離攻撃のアニメーションを発動した");
-                }
+                selfEdge = attackCollider.bounds.min.x;
+                enemyEdge = enemyCollider.bounds.min.x;
+            }
+            else if (Mathf.Approximately(yRot, 180f))
+            {
+                selfEdge = attackCollider.bounds.max.x;
+                enemyEdge = -enemyCollider.bounds.max.x;
+            }
+            else
+            {
+                Debug.LogWarning("Y回転が想定外です: " + yRot);
+                return;
+            }
+
+            frontEdgeDistance = enemyEdge - selfEdge;
+
+            if (frontEdgeDistance > longAttackDistance)
+            {
+                animator.SetBool("Attack", false);
+                animator.SetBool("Long", true);
+            }
+            else
+            {
+                animator.SetBool("Attack", true);
+                animator.SetBool("Long", false);
             }
         }
         else
@@ -380,6 +399,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             animator.SetBool("Attack", true);
             //Debug.Log($"{characterId}は通常攻撃のアニメーションを発動した");
         }
+
     }
 
     public void EndNomalAction()
