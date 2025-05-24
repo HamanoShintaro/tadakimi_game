@@ -12,74 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
   m_Name: 122
   m_EditorClassIdentifier: 
-  EnemyData:
-    Times:
-    - 1
-    - 5
-    - 15
-    - 30
-    - 31
-    - 32
-    - 33
-    - 34
-    - 35
-    - 36
-    - 37
-    - 38
-    - 39
-    - 40
-    - 41
-    - 42
-    - 43
-    - 44
-    - 45
-    - 60
-    - 63
-    - 66
-    - 69
-    - 72
-    Characters:
-    - {fileID: 3165393189828205779, guid: 8ccb031f5bbbf40f79661c04e1bf45bc, type: 3}
-    - {fileID: 3165393189828205779, guid: 8ccb031f5bbbf40f79661c04e1bf45bc, type: 3}
-    - {fileID: 3165393189828205779, guid: 8ccb031f5bbbf40f79661c04e1bf45bc, type: 3}
-    - {fileID: 3165393189828205779, guid: 1a878511e912a484d9008267db6e82b6, type: 3}
-    - {fileID: 1338976341970829827, guid: 5fca18ffc47554a6e9b4912b2654d179, type: 3}
-    - {fileID: 4241449921041689916, guid: 4c06a824f7af8461dbd940f7bee6a8ab, type: 3}
-    - {fileID: 5669653989772239561, guid: bbd2359bb0c6f499382a198af62a4f31, type: 3}
-    - {fileID: 3165393189828205779, guid: 6ab056b194468426188c9e7715ba65e1, type: 3}
-    - {fileID: 3165393189828205779, guid: 8ccb031f5bbbf40f79661c04e1bf45bc, type: 3}
-    - {fileID: 3165393189828205779, guid: 6ab056b194468426188c9e7715ba65e1, type: 3}
-    - {fileID: 3165393189828205779, guid: 6ab056b194468426188c9e7715ba65e1, type: 3}
-    - {fileID: 3165393189828205779, guid: 8ccb031f5bbbf40f79661c04e1bf45bc, type: 3}
-    - {fileID: 3165393189828205779, guid: 8ccb031f5bbbf40f79661c04e1bf45bc, type: 3}
-    - {fileID: 3165393189828205779, guid: 6ab056b194468426188c9e7715ba65e1, type: 3}
-    - {fileID: 3165393189828205779, guid: 8ccb031f5bbbf40f79661c04e1bf45bc, type: 3}
-    - {fileID: 3165393189828205779, guid: 6ab056b194468426188c9e7715ba65e1, type: 3}
-    - {fileID: 4241449921041689916, guid: 4c06a824f7af8461dbd940f7bee6a8ab, type: 3}
-    - {fileID: 1338976341970829827, guid: 5fca18ffc47554a6e9b4912b2654d179, type: 3}
-    - {fileID: 4241449921041689916, guid: 4c06a824f7af8461dbd940f7bee6a8ab, type: 3}
-    - {fileID: 4241449921041689916, guid: 4c06a824f7af8461dbd940f7bee6a8ab, type: 3}
-    - {fileID: 4241449921041689916, guid: 4c06a824f7af8461dbd940f7bee6a8ab, type: 3}
-    - {fileID: 4241449921041689916, guid: 4c06a824f7af8461dbd940f7bee6a8ab, type: 3}
-    - {fileID: 4241449921041689916, guid: 4c06a824f7af8461dbd940f7bee6a8ab, type: 3}
-    - {fileID: 4241449921041689916, guid: 4c06a824f7af8461dbd940f7bee6a8ab, type: 3}
-    Levels: 020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020000000400000004000000040000000400000004000000
-  BuddyData:
-    Times:
-    - 2
-    - 3
-    - 6
-    - 7
-    - 16
-    - 17
-    Characters:
-    - {fileID: 2431877166153006107, guid: d6fc74bc29b1c4add914d2cde2cd73e5, type: 3}
-    - {fileID: 2431877166153006107, guid: ccaa0973649834f529bb43716a2a3e36, type: 3}
-    - {fileID: 2431877166153006107, guid: d6fc74bc29b1c4add914d2cde2cd73e5, type: 3}
-    - {fileID: 2431877166153006107, guid: ccaa0973649834f529bb43716a2a3e36, type: 3}
-    - {fileID: 2431877166153006107, guid: d6fc74bc29b1c4add914d2cde2cd73e5, type: 3}
-    - {fileID: 2431877166153006107, guid: ccaa0973649834f529bb43716a2a3e36, type: 3}
-    Levels: 020000000200000002000000020000000200000002000000
+  buddyBattlePhases: []
+  enemyBattlePhases: []
   TowerHp: 1500
   victoryReward: 1150
   defeatReward: 750

@@ -12,24 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
   m_Name: 112
   m_EditorClassIdentifier: 
-  EnemyData:
-    Times:
-    - 1
-    - 5
-    - 10
-    - 15
-    - 20
-    Characters:
-    - {fileID: 2431877166153006107, guid: 0ecc05a56c6674a03ba0c52523253ff9, type: 3}
-    - {fileID: 2274732857205748726, guid: 24a92b0ea42b24d68a8146cfe22e25a7, type: 3}
-    - {fileID: 2274732857205748726, guid: 24a92b0ea42b24d68a8146cfe22e25a7, type: 3}
-    - {fileID: 2274732857205748726, guid: 24a92b0ea42b24d68a8146cfe22e25a7, type: 3}
-    - {fileID: 2274732857205748726, guid: 24a92b0ea42b24d68a8146cfe22e25a7, type: 3}
-    Levels: 0000000000000000000000000000000000000000
-  BuddyData:
-    Times: []
-    Characters: []
-    Levels: 
+  buddyBattlePhases: []
+  enemyBattlePhases: []
   TowerHp: 500
   victoryReward: 600
   defeatReward: 500

@@ -1,123 +1,60 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-
-[Serializable]
-public class SummonData
-{
-	[SerializeField]
-	public List<float> Times = new List<float>();
-
-	[SerializeField]
-	public List<GameObject> Characters = new List<GameObject>();
-
-	[SerializeField]
-	public List<int> Levels = new List<int>();
-}
 
 [Serializable]
 [CreateAssetMenu(fileName = "BattleStageData", menuName = "SettingBattleStageData")]
 public class BattleStageData: ScriptableObject
 {
-	[Header("敵の出現データ")]
-	[SerializeField]
-	public SummonData EnemyData = new SummonData();
-
-	[Header("味方の出現データ")]
-	[SerializeField]
-	public SummonData BuddyData = new SummonData();
-
+	// バトルフェーズデータ
+	[Header("味方のフェーズデータ")]
+	[SerializeField] private List<BattlePhaseData> buddyBattlePhases = new List<BattlePhaseData>();
+	
+	[Header("敵のフェーズデータ")]
+	[SerializeField] private List<BattlePhaseData> enemyBattlePhases = new List<BattlePhaseData>();
+	
+	// プロパティ
+	public List<BattlePhaseData> BuddyBattlePhases
+	{
+		get { return buddyBattlePhases; }
+		set { buddyBattlePhases = value; }
+	}
+	
+	public List<BattlePhaseData> EnemyBattlePhases
+	{
+		get { return enemyBattlePhases; }
+		set { enemyBattlePhases = value; }
+	}
+	
+	// ステージ設定
 	[Header("ステージ設定")]
-	[SerializeField]
-	public float TowerHp;
-
-	[SerializeField]
+	[SerializeField] public float TowerHp;
+	
 	[Header("勝利報酬")]
-	private int victoryReward;
-
-	[SerializeField] 
+	[SerializeField] private int victoryReward;
+	
 	[Header("敗北報酬")]
-	private int defeatReward;
-
-	[SerializeField]
+	[SerializeField] private int defeatReward;
+	
 	[Header("ステージの背景画像")]
-	private Sprite stageSprite;
-
-	[SerializeField]
+	[SerializeField] private Sprite stageSprite;
+	
 	[Header("敵タワーのオブジェクト")]
-	private Sprite enemyTower;
-
-	[SerializeField]
+	[SerializeField] private Sprite enemyTower;
+	
 	[Header("ステージのBGM")]
-	private AudioClip stageBGM;
-
-	[SerializeField]
+	[SerializeField] private AudioClip stageBGM;
+	
 	[Header("解放キャラクター")]
-	private CharacterInfo unlockCharacter;
-
-	public AudioClip GetStageBGM()
-	{
-		return stageBGM;
-	}
-
-	public List<float> GetEnemyTimes()
-	{
-		return EnemyData.Times;
-	}
-
-	public List<GameObject> GetEnemies()
-	{
-		return EnemyData.Characters;
-	}
-
-	public List<int> GetEnemyLevels() 
-	{
-		return EnemyData.Levels;
-	}
-
-	public List<float> GetBuddyTimes()
-	{
-		return BuddyData.Times;
-	}
-
-	public List<GameObject> GetBuddies()
-	{
-		return BuddyData.Characters;
-	}
-
-	public List<int> GetBuddyLevels()
-	{
-		return BuddyData.Levels;
-	}
-
-	public float GetTowerHp()
-    {
-		return TowerHp;
-    }
-
-	public Sprite GetBackGround()
-    {
-		return stageSprite;
-    }
-
-	public Sprite GetEnemyTower()
-    {
-		return enemyTower;
-    }
-
-	public int GetVictoryReward()
-	{
-		return victoryReward;
-	}
-
-	public int GetDefeatReward()
-	{
-		return defeatReward;
-	}
-
-	public CharacterInfo GetUnlockCharacter()
-	{
-		return unlockCharacter;
-	}
+	[SerializeField] private CharacterInfo unlockCharacter;
+	
+	// ゲッターメソッド
+	public float GetTowerHp() { return TowerHp; }
+	public int GetVictoryReward() { return victoryReward; }
+	public int GetDefeatReward() { return defeatReward; }
+	public Sprite GetBackGround() { return stageSprite; }
+	public Sprite GetEnemyTower() { return enemyTower; }
+	public AudioClip GetStageBGM() { return stageBGM; }
+	public CharacterInfo GetUnlockCharacter() { return unlockCharacter; }
 }

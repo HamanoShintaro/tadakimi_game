@@ -7,7 +7,7 @@ using System;
 [CreateAssetMenu(fileName = "StageDataBase", menuName = "CreateStageDataBase")]
 public class StageDataBase : ScriptableObject
 {
-    [Header("ステージの召喚敵")]
+    [Header("ステージのデータ")]
     [SerializeField]
     public List<BattleStageData> summonData;
 }

@@ -3,13 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Battle;
-
+using System;
 
 /// <summary>
-/// キャラクターのステータス管理、移動、攻撃、死亡、ノックバック、回復、被ダメージ、強化の処理を行うメソッド
+/// キャラクターのステータス管理、移動、攻撃、死亡、ノックバック、回復、被ダメージ、強化の処理を行うクラス
 /// </summary>
 public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhance
 {
+    // ノックバックの定数
+    private const float KNOCKBACK_DURATION = 0.5f;         // ノックバックの秒数
+    private const float KNOCKBACK_FORCE = 800f;            // ノックバックの距離
+    private const float KNOCKBACK_JUMP_HEIGHT = 50f;       // ノックバックする時の高さ
+
+    // クールタイム関連の定数
+    private const float COOLTIME_INTERVAL = 1f;            // クールタイム計算の間隔(秒)
+    
+    // ダメージ計算関連の定数
+    private const float KNOCKBACK_BASE_VALUE = 70f;        // ノックバック計算の基本値
+    private const float KNOCKBACK_DIVIDER = 50f;           // ノックバック計算の除算値
+    
+    // アニメーション名
+    private const string ANIM_WALK = "Walk";
+    private const string ANIM_ATTACK = "Attack";
+    private const string ANIM_LONG = "Long";
+    private const string ANIM_SKILL = "Skill";
+    private const string ANIM_SPECIAL = "Special";
+    private const string ANIM_KNOCKBACK = "KnockBack";
+    private const string ANIM_DEATH = "Death";
+    
+    // キャラクター固有識別子
+    private const string SARA_ID = "Sara_01";
+    
+    // ResourcesロードPath
+    private const string CHARACTER_INFO_PATH = "DataBase/Data/CharacterInfo/";
+    
+    // ステート
+    private const int STATE_NORMAL = 0;
+    private const int STATE_SKILL = 1;
+    private const int STATE_SPECIAL = 2;
+    
     [SerializeField]
     [Tooltip("キャラクターID")]
     private CharacterId characterId;
@@ -76,12 +108,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private List<GameObject> confirmedTargets;
 
-    //ノックバックの秒数(全体フレーム)
-    private const float knockBackDuration = 0.5f;
-    //ノックバックの距離
-    private const float knockBackForce = 800f;
-    //ノックバックする時の高さ
-    private const float jumpHeight = 50f;
     // ノックバック中かどうかを追跡
     private bool isKnockBack = false;
 
@@ -94,7 +120,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private Rigidbody2D rb;
 
     //ヴォルカスの攻撃判定のための変数。
-    [SerializeField, Tooltip("自キャラと敵の“進行方向の端”どうしの距離")]
+    [SerializeField, Tooltip("自キャラと敵の進行方向の端どうしの距離")]
     private float frontEdgeDistance;
 
     public float hp = 100;
@@ -117,6 +143,11 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         get { return skillCoolTime; }
         set { skillCoolTime = Mathf.Clamp(value, 0, skillCoolDown); }
     }
+
+    /// <summary>
+    /// 死亡時に呼び出されるコールバック
+    /// </summary>
+    public Action<CharacterCore> OnDeath;
 
     private void Start()
     {
@@ -145,10 +176,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         SetCharacterInfo(level);
     }
 
-    // TODO : LevelUpまたはUpdateLevelなどに変更して、レベルごとアップデートする
     public void SetCharacterInfo(int level)
     {
-        characterInfo = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}");
+        characterInfo = Resources.Load<CharacterInfo>($"{CHARACTER_INFO_PATH}{characterId}");
         if (characterInfo == null)
         {
             Debug.LogError($"{characterId} : データベースにキャラクターのデータがありません");
@@ -183,9 +213,6 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             specialCoolTime = characterInfo.special.cd;
             specialRatio = characterInfo.special.Ratio;
         }
-
-        // デバッグログで確認
-        Debug.Log($"[SetCharacterInfo] {characterId} レベル: {level} | HP: {Hp} | Atk: {atkPower} | hasSkill: {hasSkill} | skillCost: {skillCost} | skillCD: {skillCoolDown} | hasSpecial: {hasSpecial}");
     }
 
     private void InitializeComponents()
@@ -235,11 +262,11 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (player.isMove)
         {
-            animator.SetBool("Walk", true);
+            animator.SetBool(ANIM_WALK, true);
         }
         else
         {
-            animator.SetBool("Walk", false);
+            animator.SetBool(ANIM_WALK, false);
             if (targets.Count != 0)
             {
                 Action();
@@ -256,7 +283,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         }
         else
         {
-            animator.SetBool("Walk", false);
+            animator.SetBool(ANIM_WALK, false);
             Action();
         }
     }
@@ -264,7 +291,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private void Walk()
     {
         if (isLeader) return;
-        animator.SetBool("Walk", true);
+        animator.SetBool(ANIM_WALK, true);
         float direction = characterType == CharacterType.Buddy ? 1 : -1;
         float newPositionX = transform.position.x + speed * direction;
         if (IsOutOfBounds(newPositionX))
@@ -281,7 +308,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void EndWalk()
     {
-        animator.SetBool("Walk", false);
+        animator.SetBool(ANIM_WALK, false);
     }
 
     private void Action()
@@ -295,7 +322,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         {
             SpecialAction();
         }
-        else if (characterId.ToString() != "Sara_01" && hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
+        else if (characterId.ToString() != SARA_ID && hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
         {
             SkillAction();
         }
@@ -312,17 +339,15 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         }
     }
 
-
     private void SpecialAction()
     {
         magicPowerController.magicPower -= specialCost;
-        animator.SetBool("Special", true);
-        Debug.Log($"{characterId}はスペシャルのアニメーションを発動した");
+        animator.SetBool(ANIM_SPECIAL, true);
     }
 
     public void EndSpecialAction()
     {
-        animator.SetBool("Special", false);
+        animator.SetBool(ANIM_SPECIAL, false);
         StartCoroutine(SpecialCoolTimeCount());
         canState = true;
     }
@@ -330,20 +355,18 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     private void SkillAction()
     {
         magicPowerController.magicPower -= skillCost;
-        animator.SetBool("Skill", true);
-        Debug.Log($"{characterId}はスキルのアニメーションを発動した");
+        animator.SetBool(ANIM_SKILL, true);
     }
 
     public void EndSkillAction()
     {
-        animator.SetBool("Skill", false);
+        animator.SetBool(ANIM_SKILL, false);
         StartCoroutine(SkillCoolTimeCount());
         canState = true;
     }
 
     private void NormalAction()
     {
-        Debug.Log(frontEdgeDistance);
         if (!isLeader) return;
 
         var colliders = GetComponents<BoxCollider2D>();
@@ -385,30 +408,28 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
             if (frontEdgeDistance > longAttackDistance)
             {
-                animator.SetBool("Attack", false);
-                animator.SetBool("Long", true);
+                animator.SetBool(ANIM_ATTACK, false);
+                animator.SetBool(ANIM_LONG, true);
             }
             else
             {
-                animator.SetBool("Attack", true);
-                animator.SetBool("Long", false);
+                animator.SetBool(ANIM_ATTACK, true);
+                animator.SetBool(ANIM_LONG, false);
             }
         }
         else
         {
-            animator.SetBool("Attack", true);
-            //Debug.Log($"{characterId}は通常攻撃のアニメーションを発動した");
+            animator.SetBool(ANIM_ATTACK, true);
         }
-
     }
 
     public void EndNomalAction()
     {
         if (isLeader)
         {
-            animator.SetBool("Long", false);
+            animator.SetBool(ANIM_LONG, false);
         }
-        animator.SetBool("Attack", false);
+        animator.SetBool(ANIM_ATTACK, false);
         canState = true;
     }
 
@@ -416,8 +437,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         float ratio = type switch
         {
-            1 when hasSkill => skillRatio,
-            2 when hasSpecial => specialRatio,
+            STATE_SKILL when hasSkill => skillRatio,
+            STATE_SPECIAL when hasSpecial => specialRatio,
             _ => 1.0f
         };
 
@@ -433,7 +454,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void InflictDamageAsLeader(float ratio)
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName(ANIM_ATTACK))
         {
             foreach (var target in confirmedTargets)
             {
@@ -450,16 +471,14 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
             foreach (var target in confirmedTargets)
             {
                 target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
-                Debug.Log($"{characterId}は{target.name}に{atkPower * ratio}ダメージを与えた");
                 break;
             }
         }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Skill"))
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName(ANIM_SKILL))
         {
             foreach (var target in confirmedTargets)
             {
                 target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
-                Debug.Log($"{characterId}は{target.name}に{atkPower * ratio}ダメージを与えた");
             }
         }
         confirmedTargets.Clear();
@@ -479,15 +498,13 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (!canSkillCoolTime) yield break;
         canSkillCoolTime = false;
-        Debug.Log("SkillCoolTimeCount開始");
-        var wait = new WaitForSeconds(1);
+        var wait = new WaitForSeconds(COOLTIME_INTERVAL);
         SkillCoolTime = skillCoolDown;
         while (SkillCoolTime > 0)
         {
             yield return wait;
             SkillCoolTime--;
         }
-        Debug.Log("SkillCoolTime終了");
         canSkillCoolTime = true;
     }
 
@@ -495,7 +512,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (!canSpecialCoolTime) yield break;
         canSpecialCoolTime = false;
-        var wait = new WaitForSeconds(1);
+        var wait = new WaitForSeconds(COOLTIME_INTERVAL);
         while (specialCoolTime > 0)
         {
             yield return wait;
@@ -514,7 +531,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         canState = false;
 
         // ノックバックアニメーションを再生する
-        animator.SetBool("KnockBack", true);
+        animator.SetBool(ANIM_KNOCKBACK, true);
 
         // キャラクターの種類に応じて、ノックバックの方向を決定する
         float direction = characterType == CharacterType.Buddy ? -1 : 1;
@@ -523,19 +540,19 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         float elapsedTime = 0f;
 
         // ノックバックが指定された期間続くまでループする
-        while (elapsedTime < knockBackDuration)
+        while (elapsedTime < KNOCKBACK_DURATION)
         {
             // 経過時間を更新
             elapsedTime += Time.deltaTime;
 
             // ノックバックの進行度（0から1までの値）を計算
-            float t = elapsedTime / knockBackDuration;
+            float t = elapsedTime / KNOCKBACK_DURATION;
 
             // X座標に対してノックバックの力を加える
-            float x = transform.position.x + direction * knockBackForce * Time.deltaTime;
+            float x = transform.position.x + direction * KNOCKBACK_FORCE * Time.deltaTime;
 
             // Y座標にジャンプの高さを反映（正弦波で上下移動を表現）
-            float y = originalY + jumpHeight * Mathf.Sin(t * Mathf.PI);
+            float y = originalY + KNOCKBACK_JUMP_HEIGHT * Mathf.Sin(t * Mathf.PI);
 
             // xの値が範囲外の場合は、xの値を元の位置に戻す
             if (IsOutOfBounds(x))
@@ -556,15 +573,18 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     public void EndKnockBack()
     {
-        animator.SetBool("KnockBack", false);
-        animator.SetBool("Attack", false);
+        animator.SetBool(ANIM_KNOCKBACK, false);
+        animator.SetBool(ANIM_ATTACK, false);
         canState = true;
     }
 
     private void Death()
     {
         canState = false;
-        animator.SetTrigger("Death");
+        animator.SetTrigger(ANIM_DEATH);
+        
+        // 死亡時のコールバックを呼び出し
+        OnDeath?.Invoke(this);
     }
 
     public void EndDeath()
@@ -580,11 +600,10 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         {
             Death();
         }
-        else if (!isKnockBack && ((70 + atkKB - defKB) / 50 * Random.value > 1 || atkKB.Equals(Mathf.Infinity)))
+        else if (!isKnockBack && ((KNOCKBACK_BASE_VALUE + atkKB - defKB) / KNOCKBACK_DIVIDER * UnityEngine.Random.value > 1 || atkKB.Equals(Mathf.Infinity)))
         {
             StartCoroutine(KnockBack());
         }
-        Debug.Log($"{characterId}が{atkPower}ダメージを受けた");
     }
 
     public void Recovery(int heal)
@@ -598,7 +617,7 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
         maxHp += addMaxHp;
         yield return new WaitForSeconds(duration);
         Speed = speed;
-        maxHp = Resources.Load<CharacterInfo>($"DataBase/Data/CharacterInfo/{characterId}").status[level].hp;
+        maxHp = Resources.Load<CharacterInfo>($"{CHARACTER_INFO_PATH}{characterId}").status[level].hp;
     }
 
     private void ResetTargets()
