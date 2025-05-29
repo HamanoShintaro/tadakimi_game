@@ -387,20 +387,20 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
             float selfEdge, enemyEdge;
 
-            float yRot = transform.rotation.eulerAngles.y;
-            if (Mathf.Approximately(yRot, 0f)) // 右向き
+            float scaleX = transform.localScale.x;
+            if (scaleX > 0f) // 右向き
             {
                 selfEdge = attackCollider.bounds.min.x;
                 enemyEdge = enemyCollider.bounds.min.x;
             }
-            else if (Mathf.Approximately(yRot, 180f))
+            else if (scaleX < 0f) // 左向き（後ろ向き）
             {
-                selfEdge = attackCollider.bounds.max.x;
+                selfEdge = -attackCollider.bounds.max.x;
                 enemyEdge = -enemyCollider.bounds.max.x;
             }
             else
             {
-                Debug.LogWarning("Y回転が想定外です: " + yRot);
+                Debug.LogWarning("スケールXが0です: " + scaleX);
                 return;
             }
 

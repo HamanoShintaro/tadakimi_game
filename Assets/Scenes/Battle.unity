@@ -14995,7 +14995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1159703374
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18879,7 +18879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2000317756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24572,6 +24572,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 996915637}
     m_Modifications:
+    - target: {fileID: 3389332811462513088, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3389332811641678437, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -24606,7 +24610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3389332812207512097, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: longAttackDistance
-      value: 350
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3389332812207512097, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: normalAttackDamageSounds
@@ -24688,6 +24692,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3389332812863507627, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3389332813062404904, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -24722,11 +24730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227961, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_Size.x
-      value: 83.62537
+      value: 102.98835
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227961, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_Offset.x
-      value: -32.22284
+      value: 8.737026
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227963, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_Enabled
@@ -24769,6 +24777,10 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227964, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619904086566227964, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -24798,7 +24810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227964, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2084
+      value: -1392
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227964, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -24826,11 +24838,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227967, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_Size.x
-      value: 551.454
+      value: 499.32306
       objectReference: {fileID: 0}
     - target: {fileID: 7619904086566227967, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: m_Offset.x
-      value: -264.3238
+      value: 262.19684
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3389332813203756276, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
@@ -24912,7 +24924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4728117415005052157, guid: b2b93318745c4483b9d4792d4057b33c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7326069304025067314, guid: b2b93318745c4483b9d4792d4057b33c, type: 3}
       propertyPath: characterDataBaseCsvFile.Array.data[0]

@@ -80,26 +80,26 @@ public class Player : MonoBehaviour
 
     private void MoveRight()
     {
-        // プレイヤーの前向きに回転
-        transform.localEulerAngles = Vector3.zero;
+        // スケールで前向き（右向き）に
+        var scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x); // xを正にする
+        transform.localScale = scale;
 
-        // 範囲を制限
         if (player.anchoredPosition.x > maxLimitMovePosition) return;
 
-        // 前進
         transform.localPosition = new Vector3(transform.localPosition.x + speed * Time.deltaTime, -315, 0);
         isMove = true;
     }
 
     private void MoveLeft()
     {
-        // プレイヤーの後向きに回転
-        transform.localEulerAngles = new Vector3(0, 180, 0);
+        // スケールで後向き（左向き）に
+        var scale = transform.localScale;
+        scale.x = -Mathf.Abs(scale.x); // xを負にする
+        transform.localScale = scale;
 
-        // 範囲を制限
         if (player.anchoredPosition.x < minLimitMovePosition) return;
 
-        // 後進
         transform.localPosition = new Vector3(transform.localPosition.x - speed * Time.deltaTime, -315, 0);
         isMove = true;
     }
