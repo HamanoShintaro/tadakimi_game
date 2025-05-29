@@ -147,7 +147,21 @@ public class CSVLoaderStage : MonoBehaviour
                 if (int.TryParse(phaseNumberStr, out int phaseNum))
                 {
                     currentPhaseNumber = phaseNum;
-                    
+
+                    // フェーズヘッダー行から制限撃破数を取得（6列目の「制限時間X」）
+                    float phaseTimeLimit = defaultPhaseTimeLimit;
+                    if (values.Length > 5 && !string.IsNullOrWhiteSpace(values[5]))
+                    {
+                        string timeLimitStr = values[5].Trim();
+                        if (timeLimitStr.StartsWith("制限時間"))
+                        {
+                            string numberStr = timeLimitStr.Replace("制限時間", "").Trim();
+                            if (float.TryParse(numberStr, out float parsedTimeLimit))
+                            {
+                                phaseTimeLimit = parsedTimeLimit;
+                            }
+                        }
+                    }
                     // フェーズヘッダー行から制限撃破数を取得（7列目の「撃破数X」）
                     int phaseDefeatedLimit = defaultDefeatedLimit;
                     if (values.Length > 6 && !string.IsNullOrWhiteSpace(values[6]))
@@ -168,12 +182,16 @@ public class CSVLoaderStage : MonoBehaviour
                     newEnemyPhase.SummonInfoList = new List<SummonInfo>();
                     newEnemyPhase.PhaseTimeLimit = defaultPhaseTimeLimit;
                     newEnemyPhase.DefeatedCharactersForNextPhase = phaseDefeatedLimit;
-                    
+                    newEnemyPhase.PhaseTimeLimit = phaseTimeLimit;
+                    newEnemyPhase.DefeatedCharactersForNextPhase = phaseDefeatedLimit;
+
                     BattlePhaseData newBuddyPhase = new BattlePhaseData();
                     newBuddyPhase.SummonInfoList = new List<SummonInfo>();
                     newBuddyPhase.PhaseTimeLimit = defaultPhaseTimeLimit;
                     newBuddyPhase.DefeatedCharactersForNextPhase = phaseDefeatedLimit;
-                    
+                    newBuddyPhase.PhaseTimeLimit = phaseTimeLimit;
+                    newBuddyPhase.DefeatedCharactersForNextPhase = phaseDefeatedLimit;
+
                     // リストに新しいフェーズを追加
                     stageData.EnemyBattlePhases.Add(newEnemyPhase);
                     stageData.BuddyBattlePhases.Add(newBuddyPhase);
