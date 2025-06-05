@@ -320,16 +320,19 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
         if (hasSpecial && specialCost <= magicPowerController.maxMagicPower && specialCoolTime == 0)
         {
+            Debug.Log("SP攻撃");
             SpecialAction();
         }
         else if (characterId.ToString() != SARA_ID && hasSkill && skillCost <= magicPowerController.magicPower && SkillCoolTime == 0)
         {
+            Debug.Log("Skill攻撃");
             SkillAction();
         }
         else
         {
             if (characterRole != CharacterRole.Supporter)
             {
+                Debug.Log("ノーマル攻撃");
                 NormalAction();
             }
             else
@@ -367,61 +370,114 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void NormalAction()
     {
-        if (!isLeader) return;
-
         var colliders = GetComponents<BoxCollider2D>();
-        if (colliders.Length < 2) return;
+        if (colliders.Length < 2)
+        {
+            Debug.LogWarning($"{gameObject.name}: コライダーが2つ未満のため処理を中断します");
+            return;
+        }
 
-        BoxCollider2D attackCollider = colliders[1]; // 攻撃用コライダーを明確に指定
+        BoxCollider2D attackCollider = colliders[1];
+        BoxCollider2D enemyCollider = null;
 
         var nearTarget = targets.FirstOrDefault(target =>
         {
             var targetCols = target.GetComponents<BoxCollider2D>();
-            return targetCols.Length >= 2 && attackCollider.bounds.Intersects(targetCols[1].bounds);
+
+            if (targetCols.Length == 1)
+            {
+                Debug.Log($"【{target.name}】はコライダーが1個（タワー想定）");
+            }
+            else if (targetCols.Length >= 2)
+            {
+                Debug.Log($"【{target.name}】はコライダーが2個以上（通常敵）");
+            }
+            else
+            {
+                Debug.LogWarning($"【{target.name}】はコライダーが0個です");
+                return false;
+            }
+
+            // 喰らい判定として使うコライダーを選ぶ
+            BoxCollider2D targetHurtCollider =
+                targetCols.Length >= 2 ? targetCols[0] :
+                targetCols.Length == 1 ? targetCols[0] : null;
+
+            if (targetHurtCollider == null)
+            {
+                Debug.LogWarning($"{target.name}: 有効な喰らい判定が見つかりませんでした");
+                return false;
+            }
+
+            // 実際に交差しているかを確認
+            bool intersects = attackCollider.bounds.Intersects(targetHurtCollider.bounds);
+
+            Debug.Log($"→ {gameObject.name} と {target.name} の交差判定結果: {intersects}");
+
+            if (intersects)
+            {
+                Debug.Log($"★ {gameObject.name}: {target.name} に攻撃可能（交差成功）");
+                enemyCollider = targetHurtCollider;
+            }
+
+            return intersects;
         });
 
-        if (nearTarget != null)
+        if (nearTarget != null && enemyCollider != null)
         {
-            var targetCols = nearTarget.GetComponents<BoxCollider2D>();
-            BoxCollider2D enemyCollider = targetCols[0]; // 敵の当たり判定
-
             float selfEdge, enemyEdge;
-
             float scaleX = transform.localScale.x;
-            if (scaleX > 0f) // 右向き
+
+            if (scaleX > 0f)
             {
                 selfEdge = attackCollider.bounds.min.x;
                 enemyEdge = enemyCollider.bounds.min.x;
             }
-            else if (scaleX < 0f) // 左向き（後ろ向き）
+            else if (scaleX < 0f)
             {
                 selfEdge = -attackCollider.bounds.max.x;
                 enemyEdge = -enemyCollider.bounds.max.x;
             }
             else
             {
-                Debug.LogWarning("スケールXが0です: " + scaleX);
+                Debug.LogWarning($"{gameObject.name}: スケールXが0です。処理を中止します");
                 return;
             }
 
             frontEdgeDistance = enemyEdge - selfEdge;
+            Debug.Log($"◎ 対象: {nearTarget.name}, 距離: {frontEdgeDistance}, isLeader: {isLeader}");
 
-            if (frontEdgeDistance > longAttackDistance)
+            if (!isLeader)
             {
-                animator.SetBool(ANIM_ATTACK, false);
-                animator.SetBool(ANIM_LONG, true);
+                Debug.Log("→ 通常キャラ：通常攻撃アニメ");
+                animator.SetBool(ANIM_ATTACK, true);
+                animator.SetBool(ANIM_LONG, false);
             }
             else
             {
-                animator.SetBool(ANIM_ATTACK, true);
-                animator.SetBool(ANIM_LONG, false);
+                if (frontEdgeDistance > longAttackDistance)
+                {
+                    Debug.Log("→ リーダー：長距離攻撃アニメ");
+                    animator.SetBool(ANIM_ATTACK, false);
+                    animator.SetBool(ANIM_LONG, true);
+                }
+                else
+                {
+                    Debug.Log("→ リーダー：通常攻撃アニメ");
+                    animator.SetBool(ANIM_ATTACK, true);
+                    animator.SetBool(ANIM_LONG, false);
+                }
             }
         }
         else
         {
-            animator.SetBool(ANIM_ATTACK, true);
+            Debug.LogWarning($"【暴発防止】{gameObject.name}: 攻撃対象が見つかりませんでした（nearTarget: {nearTarget}, enemyCollider: {enemyCollider}）");
+            animator.SetBool(ANIM_ATTACK, false);
+            animator.SetBool(ANIM_LONG, false);
         }
     }
+
+
 
     public void EndNomalAction()
     {
