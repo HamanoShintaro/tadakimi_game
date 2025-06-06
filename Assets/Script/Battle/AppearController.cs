@@ -11,6 +11,9 @@ namespace Battle
         // ステージデータ
         private BattleStageData currentStageData;
         
+        // レベル別のスケール倍率
+        private readonly float[] levelScales = new float[] { 0.8f, 0.9f, 1.0f, 1.1f, 1.2f };
+        
         // 敵キャラクター関連
         private List<float> enemyTimes = new List<float>();
         private List<GameObject> enemies = new List<GameObject>();
@@ -276,10 +279,14 @@ namespace Battle
                 }
                 
                 // レベル設定
-                characterClone.GetComponent<CharacterCore>().level = enemyLevels[enemyItemNumber];
+                var enemyCore = characterClone.GetComponent<CharacterCore>();
+                enemyCore.level = enemyLevels[enemyItemNumber];
+                
+                // レベルに応じたスケール設定
+                ApplyLevelScale(characterClone, enemyLevels[enemyItemNumber]);
                 
                 // 死亡時のコールバックを設定
-                characterClone.GetComponent<CharacterCore>().OnDeath = OnEnemyDefeated;
+                enemyCore.OnDeath = OnEnemyDefeated;
                 
                 enemyItemNumber++;
                 
@@ -323,10 +330,14 @@ namespace Battle
                 }
                 
                 // レベル設定
-                characterClone.GetComponent<CharacterCore>().level = buddyLevels[buddyItemNumber];
+                var buddyCore = characterClone.GetComponent<CharacterCore>();
+                buddyCore.level = buddyLevels[buddyItemNumber];
+                
+                // レベルに応じたスケール設定
+                ApplyLevelScale(characterClone, buddyLevels[buddyItemNumber]);
                 
                 // 死亡時のコールバックを設定
-                characterClone.GetComponent<CharacterCore>().OnDeath = OnBuddyDefeated;
+                buddyCore.OnDeath = OnBuddyDefeated;
                 
                 buddyItemNumber++;
                 
@@ -353,6 +364,36 @@ namespace Battle
         {
             defeatedBuddiesCount++;
             Debug.Log($"味方 {buddy.GetCharacterId()} が倒されました (合計: {defeatedBuddiesCount}体)");
+        }
+
+        /// <summary>
+        /// レベルに応じてキャラクターのスケールを設定
+        /// </summary>
+        /// <param name="character">スケールを設定するキャラクター</param>
+        /// <param name="level">キャラクターのレベル</param>
+        private void ApplyLevelScale(GameObject character, int level)
+        {
+            // レベルが配列の範囲内かチェック
+            if (level >= 0 && level < levelScales.Length)
+            {
+                float scaleMultiplier = levelScales[level];
+                
+                // 元のスケールを取得
+                Vector3 originalScale = character.transform.localScale;
+                
+                // 元のスケールに倍率をかけて適用
+                character.transform.localScale = new Vector3(
+                    originalScale.x * scaleMultiplier,
+                    originalScale.y * scaleMultiplier,
+                    originalScale.z * scaleMultiplier
+                );
+                
+                Debug.Log($"{character.name} のスケールをレベル {level} に応じて {scaleMultiplier} 倍に設定しました");
+            }
+            else
+            {
+                Debug.LogWarning($"レベル {level} は範囲外です。デフォルトスケールを使用します。");
+            }
         }
     }
 }
