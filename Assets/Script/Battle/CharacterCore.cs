@@ -149,6 +149,10 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     /// </summary>
     public Action<CharacterCore> OnDeath;
 
+    [SerializeField]
+    [Tooltip("近距離攻撃の範囲")]
+    private float meleeAttackRange = 1.5f;  // デフォルト値を1.5に設定
+
     private void Start()
     {
         InitializeCharacter();
@@ -512,15 +516,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName(ANIM_ATTACK))
         {
-            foreach (var target in confirmedTargets)
-            {
-                var distance = Vector2.Distance(target.GetComponent<RectTransform>().anchoredPosition, rectTransform.anchoredPosition);
-                if (distance < longAttackDistance)
-                {
-                    target.GetComponent<IDamage>().Damage(atkPower * ratio, atkKB);
-                    if (attackType == AttackType.Single) break;
-                }
-            }
+            Debug.Log($"【近距離攻撃】{gameObject.name}: 攻撃開始");
+            HandleMeleeAttack();
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("LongAttack"))
         {
@@ -732,5 +729,21 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     public CharacterId GetCharacterId()
     {
         return characterId;
+    }
+
+    private void HandleMeleeAttack()
+    {
+        Debug.Log($"【近距離攻撃】{gameObject.name}: 攻撃範囲: {meleeAttackRange}");
+        var hits = Physics2D.OverlapCircleAll(transform.position, meleeAttackRange);
+        Debug.Log($"【近距離攻撃】{gameObject.name}: 検出されたオブジェクト数: {hits.Length}");
+        
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("Enemy"))
+            {
+                Debug.Log($"【近距離攻撃】{gameObject.name}: 敵を検出: {hit.gameObject.name}");
+                hit.GetComponent<IDamage>().Damage(atkPower, atkKB);
+            }
+        }
     }
 }

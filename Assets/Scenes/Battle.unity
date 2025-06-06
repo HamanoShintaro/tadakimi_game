@@ -24609,6 +24609,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3389332812207512097, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
+      propertyPath: meleeAttackRange
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389332812207512097, guid: 25c884d2b434a419ab720b8d818bc35c, type: 3}
       propertyPath: longAttackDistance
       value: 150
       objectReference: {fileID: 0}
@@ -24924,7 +24928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4728117415005052157, guid: b2b93318745c4483b9d4792d4057b33c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7326069304025067314, guid: b2b93318745c4483b9d4792d4057b33c, type: 3}
       propertyPath: characterDataBaseCsvFile.Array.data[0]
