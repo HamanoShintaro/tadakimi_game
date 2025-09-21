@@ -12,8 +12,236 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
   m_Name: 121
   m_EditorClassIdentifier: 
-  buddyBattlePhases: []
-  enemyBattlePhases: []
+  buddyBattlePhases:
+  - summonInfoList: []
+    defeatedCharactersForNextPhase: 5
+    phaseTimeLimit: Infinity
+  - summonInfoList:
+    - time: 21
+      character: {fileID: 5095262611280852148, guid: 3d9c58dc185aa4edfa151b783b9a5fb6, type: 3}
+      level: 2
+    - time: 22
+      character: {fileID: 2431877166153006107, guid: 91869f5370dad4ef7b8004d683e974b4, type: 3}
+      level: 3
+    defeatedCharactersForNextPhase: 15
+    phaseTimeLimit: Infinity
+  - summonInfoList: []
+    defeatedCharactersForNextPhase: 15
+    phaseTimeLimit: Infinity
+  - summonInfoList: []
+    defeatedCharactersForNextPhase: 10
+    phaseTimeLimit: Infinity
+  enemyBattlePhases:
+  - summonInfoList:
+    - time: 1
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 1
+    - time: 2
+      character: {fileID: 2274732857205748726, guid: 5d23e0dba17c546c6be3d6eb6913dfe0, type: 3}
+      level: 1
+    - time: 3
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 1
+    - time: 4
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 1
+    - time: 5
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 1
+    - time: 6
+      character: {fileID: 2274732857205748726, guid: 5d23e0dba17c546c6be3d6eb6913dfe0, type: 3}
+      level: 1
+    - time: 7
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 1
+    - time: 8
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 1
+    - time: 9
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 1
+    - time: 10
+      character: {fileID: 2274732857205748726, guid: 5d23e0dba17c546c6be3d6eb6913dfe0, type: 3}
+      level: 1
+    defeatedCharactersForNextPhase: 5
+    phaseTimeLimit: Infinity
+  - summonInfoList:
+    - time: 1
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 1
+    - time: 2
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 3
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 1
+    - time: 4
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 5
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 1
+    - time: 6
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 7
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 1
+    - time: 8
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 1
+    - time: 9
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 10
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 11
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 12
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 13
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 1
+    - time: 14
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 15
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 1
+    - time: 16
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 17
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 1
+    - time: 18
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 19
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 1
+    - time: 20
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 1
+    defeatedCharactersForNextPhase: 15
+    phaseTimeLimit: Infinity
+  - summonInfoList:
+    - time: 1
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 2
+    - time: 2
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 3
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 2
+    - time: 4
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 5
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 2
+    - time: 6
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 7
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 2
+    - time: 8
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 2
+    - time: 9
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 10
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 11
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 12
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 13
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 2
+    - time: 14
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 15
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 2
+    - time: 16
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 17
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 2
+    - time: 18
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    defeatedCharactersForNextPhase: 15
+    phaseTimeLimit: Infinity
+  - summonInfoList:
+    - time: 1
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 2
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 2
+    - time: 3
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 2
+    - time: 4
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 2
+    - time: 5
+      character: {fileID: 5429095949005290252, guid: c4f084472fbb54542a5dbc894cc075d3, type: 3}
+      level: 2
+    - time: 6
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 2
+    - time: 7
+      character: {fileID: 5669653989772239561, guid: 6de9057c984bc4b27b146dceeefaaab5, type: 3}
+      level: 3
+    - time: 8
+      character: {fileID: 5429095949005290252, guid: 62c44b36b37bf46bbbe4649d0fae88e1, type: 3}
+      level: 2
+    - time: 9
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 10
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 3
+    - time: 11
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 12
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 3
+    - time: 13
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 14
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 3
+    - time: 15
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 16
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 3
+    - time: 17
+      character: {fileID: 5429095949005290252, guid: e4165ac2fbf3d498a860afd46c635387, type: 3}
+      level: 2
+    - time: 18
+      character: {fileID: 3536548381807152751, guid: 59ee0ccc8c65f43e3bf3cf7e959c454e, type: 3}
+      level: 3
+    defeatedCharactersForNextPhase: 10
+    phaseTimeLimit: Infinity
   TowerHp: 1500
   victoryReward: 1100
   defeatReward: 750

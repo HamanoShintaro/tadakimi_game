@@ -12,8 +12,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
   m_Name: 107
   m_EditorClassIdentifier: 
-  buddyBattlePhases: []
-  enemyBattlePhases: []
+  buddyBattlePhases:
+  - summonInfoList:
+    - time: 2
+      character: {fileID: 1545771121956627565, guid: bd731b25603024b5497028d2b2ec8fb8, type: 3}
+      level: 0
+    - time: 2.4
+      character: {fileID: 1545771121956627565, guid: bd731b25603024b5497028d2b2ec8fb8, type: 3}
+      level: 0
+    - time: 3
+      character: {fileID: 1545771121956627565, guid: bd731b25603024b5497028d2b2ec8fb8, type: 3}
+      level: 0
+    - time: 3.2
+      character: {fileID: 1545771121956627565, guid: bd731b25603024b5497028d2b2ec8fb8, type: 3}
+      level: 0
+    - time: 3.6
+      character: {fileID: 1545771121956627565, guid: 1edd5ebedcbdd4ad99bc98cc9c5f431d, type: 3}
+      level: 0
+    defeatedCharactersForNextPhase: 11
+    phaseTimeLimit: Infinity
+  enemyBattlePhases:
+  - summonInfoList:
+    - time: 4.5
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 5
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 5.5
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 6
+      character: {fileID: 5429095949005290252, guid: d53f3b3402fa24dd6aee1601727c3869, type: 3}
+      level: 0
+    - time: 6.5
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 7
+      character: {fileID: 3280586503936523248, guid: 596bb8fef0cfe4b0c9b2f826997ef175, type: 3}
+      level: 0
+    defeatedCharactersForNextPhase: 11
+    phaseTimeLimit: Infinity
   TowerHp: 250
   victoryReward: 337
   defeatReward: 337

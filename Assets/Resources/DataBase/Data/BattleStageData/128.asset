@@ -12,8 +12,353 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6e1ffbe0f5c23408f858138803e664, type: 3}
   m_Name: 128
   m_EditorClassIdentifier: 
-  buddyBattlePhases: []
-  enemyBattlePhases: []
+  buddyBattlePhases:
+  - summonInfoList: []
+    defeatedCharactersForNextPhase: 8
+    phaseTimeLimit: Infinity
+  - summonInfoList:
+    - time: 18
+      character: {fileID: 2431877166153006107, guid: 91869f5370dad4ef7b8004d683e974b4, type: 3}
+      level: 3
+    defeatedCharactersForNextPhase: 20
+    phaseTimeLimit: Infinity
+  - summonInfoList: []
+    defeatedCharactersForNextPhase: 15
+    phaseTimeLimit: Infinity
+  - summonInfoList: []
+    defeatedCharactersForNextPhase: 10
+    phaseTimeLimit: Infinity
+  - summonInfoList: []
+    defeatedCharactersForNextPhase: 10
+    phaseTimeLimit: Infinity
+  enemyBattlePhases:
+  - summonInfoList:
+    - time: 5
+      character: {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+      level: 2
+    - time: 10
+      character: {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+      level: 2
+    - time: 13
+      character: {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+      level: 2
+    - time: 16
+      character: {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
+      level: 2
+    - time: 19
+      character: {fileID: 2431877166153006107, guid: 103adfd7af9934d298cdd7ac8979fd11, type: 3}
+      level: 2
+    - time: 22
+      character: {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
+      level: 2
+    - time: 25
+      character: {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
+      level: 2
+    - time: 28
+      character: {fileID: 2431877166153006107, guid: 91367fd0957204b3faf243fe7ba16b14, type: 3}
+      level: 2
+    defeatedCharactersForNextPhase: 8
+    phaseTimeLimit: Infinity
+  - summonInfoList:
+    - time: 2
+      character: {fileID: 3536548381807152751, guid: 76ac98b56a7ac4be791aa03cc2d69341, type: 3}
+      level: 0
+    - time: 4
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 0
+    - time: 6
+      character: {fileID: 3536548381807152751, guid: 76ac98b56a7ac4be791aa03cc2d69341, type: 3}
+      level: 0
+    - time: 8
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 10
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 0
+    - time: 12
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 14
+      character: {fileID: 3536548381807152751, guid: 76ac98b56a7ac4be791aa03cc2d69341, type: 3}
+      level: 0
+    - time: 16
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 0
+    - time: 20
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 22
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 0
+    - time: 24
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 26
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 28
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 0
+    - time: 30
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 32
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 0
+    - time: 34
+      character: {fileID: 3280586503936523248, guid: 596bb8fef0cfe4b0c9b2f826997ef175, type: 3}
+      level: 0
+    - time: 36
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 0
+    - time: 38
+      character: {fileID: 3536548381807152751, guid: 76ac98b56a7ac4be791aa03cc2d69341, type: 3}
+      level: 0
+    - time: 40
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 42
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 0
+    - time: 44
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 46
+      character: {fileID: 3536548381807152751, guid: 76ac98b56a7ac4be791aa03cc2d69341, type: 3}
+      level: 0
+    - time: 48
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 0
+    - time: 50
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 52
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 0
+    - time: 54
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 56
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 58
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 0
+    - time: 60
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 62
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 0
+    defeatedCharactersForNextPhase: 20
+    phaseTimeLimit: Infinity
+  - summonInfoList:
+    - time: 1
+      character: {fileID: 3280586503936523248, guid: 596bb8fef0cfe4b0c9b2f826997ef175, type: 3}
+      level: 0
+    - time: 3
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 5
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 0
+    - time: 7
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 9
+      character: {fileID: 3536548381807152751, guid: 76ac98b56a7ac4be791aa03cc2d69341, type: 3}
+      level: 0
+    - time: 11
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 13
+      character: {fileID: 1706060308533771130, guid: cb38a0b43690f4073bca9441632ca470, type: 3}
+      level: 0
+    - time: 15
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 17
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 0
+    - time: 19
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 21
+      character: {fileID: 1706060308533771130, guid: cb38a0b43690f4073bca9441632ca470, type: 3}
+      level: 0
+    - time: 23
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 25
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 27
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 29
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 31
+      character: {fileID: 8406462311337947325, guid: 716f9190ea3534f90886e58be27adca9, type: 3}
+      level: 0
+    - time: 33
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 0
+    - time: 35
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 37
+      character: {fileID: 1706060308533771130, guid: cb38a0b43690f4073bca9441632ca470, type: 3}
+      level: 0
+    - time: 39
+      character: {fileID: 8406462311337947325, guid: 716f9190ea3534f90886e58be27adca9, type: 3}
+      level: 0
+    - time: 41
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 0
+    - time: 43
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 0
+    - time: 45
+      character: {fileID: 1706060308533771130, guid: cb38a0b43690f4073bca9441632ca470, type: 3}
+      level: 0
+    - time: 47
+      character: {fileID: 8406462311337947325, guid: 716f9190ea3534f90886e58be27adca9, type: 3}
+      level: 0
+    - time: 49
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 1
+    - time: 51
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 1
+    - time: 53
+      character: {fileID: 3280586503936523248, guid: 596bb8fef0cfe4b0c9b2f826997ef175, type: 3}
+      level: 1
+    - time: 55
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 1
+    - time: 57
+      character: {fileID: 3536548381807152751, guid: 76ac98b56a7ac4be791aa03cc2d69341, type: 3}
+      level: 1
+    - time: 59
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 1
+    - time: 61
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 1
+    - time: 63
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 1
+    - time: 65
+      character: {fileID: 3536548381807152751, guid: 76ac98b56a7ac4be791aa03cc2d69341, type: 3}
+      level: 1
+    - time: 67
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 1
+    - time: 69
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 1
+    - time: 71
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 1
+    - time: 73
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 1
+    - time: 75
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 1
+    - time: 77
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 1
+    - time: 79
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 1
+    - time: 81
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 1
+    - time: 83
+      character: {fileID: 3280586503936523248, guid: 596bb8fef0cfe4b0c9b2f826997ef175, type: 3}
+      level: 1
+    - time: 85
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 1
+    - time: 87
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 1
+    defeatedCharactersForNextPhase: 15
+    phaseTimeLimit: Infinity
+  - summonInfoList:
+    - time: 10
+      character: {fileID: 3280586503936523248, guid: 596bb8fef0cfe4b0c9b2f826997ef175, type: 3}
+      level: 2
+    - time: 20
+      character: {fileID: 3280586503936523248, guid: 596bb8fef0cfe4b0c9b2f826997ef175, type: 3}
+      level: 2
+    defeatedCharactersForNextPhase: 10
+    phaseTimeLimit: Infinity
+  - summonInfoList:
+    - time: 2
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 2
+    - time: 4
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 2
+    - time: 6
+      character: {fileID: 3280586503936523248, guid: 596bb8fef0cfe4b0c9b2f826997ef175, type: 3}
+      level: 2
+    - time: 8
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 2
+    - time: 10
+      character: {fileID: 3536548381807152751, guid: 76ac98b56a7ac4be791aa03cc2d69341, type: 3}
+      level: 2
+    - time: 12
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 2
+    - time: 14
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 2
+    - time: 16
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 2
+    - time: 18
+      character: {fileID: 3536548381807152751, guid: 76ac98b56a7ac4be791aa03cc2d69341, type: 3}
+      level: 2
+    - time: 20
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 2
+    - time: 22
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 2
+    - time: 24
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 2
+    - time: 26
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 2
+    - time: 28
+      character: {fileID: 3165393189828205779, guid: 29a40cc41d1354604a88087da9a7ad80, type: 3}
+      level: 2
+    - time: 30
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 2
+    - time: 32
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 2
+    - time: 34
+      character: {fileID: 3536548381807152751, guid: 19310fdf2495e424da6dcc17ccae9e00, type: 3}
+      level: 2
+    - time: 36
+      character: {fileID: 3280586503936523248, guid: 596bb8fef0cfe4b0c9b2f826997ef175, type: 3}
+      level: 2
+    - time: 38
+      character: {fileID: 1338976341970829827, guid: fdf112247e9334249a5d0e592df8b404, type: 3}
+      level: 2
+    - time: 40
+      character: {fileID: 3165393189828205779, guid: f6203d990601b4e3f8f8d7a39059a367, type: 3}
+      level: 2
+    defeatedCharactersForNextPhase: 10
+    phaseTimeLimit: Infinity
   TowerHp: 2000
   victoryReward: 1450
   defeatReward: 750

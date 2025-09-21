@@ -21,7 +21,11 @@ public class CSVLoaderStage : MonoBehaviour
     private string spreadsheetURL;
     
     [SerializeField]
-    private List<string> stageNumbers = new List<string> { "101", "102", "103", "104", "105", "106", "107", "108", "109" };
+    private List<string> stageNumbers = new List<string> {
+        "101", "102", "103", "104", "105", "106", "107", "108", "109", "110",
+        "111", "112", "113", "114", "115", "116", "117", "118", "119", "120",
+        "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131"
+    };
 
     [Header("フェーズ設定")]
     [SerializeField]
