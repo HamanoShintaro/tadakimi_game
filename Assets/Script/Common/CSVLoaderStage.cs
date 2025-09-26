@@ -96,6 +96,7 @@ public class CSVLoaderStage : MonoBehaviour
         }
         
         // 強制的にDirtyマークを設定
+#if UNITY_EDITOR
         for (int i = 0; i < stageDataBase.summonData.Count; i++)
         {
             UnityEditor.EditorUtility.SetDirty(stageDataBase.summonData[i]);
@@ -105,6 +106,7 @@ public class CSVLoaderStage : MonoBehaviour
         // 強制保存
         UnityEditor.AssetDatabase.SaveAssets();
         UnityEditor.AssetDatabase.Refresh();
+#endif
     }
 
     // 特定のステージのデータを読み込むメソッド
