@@ -150,7 +150,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     public Action<CharacterCore> OnDeath;
 
     [SerializeField]
-    [Tooltip("近距離攻撃の範囲")]
+    //ヴォルカスの近距離攻撃範囲
+    [Header("近距離攻撃の範囲")]
     private float meleeAttackRange = 1.5f;  // デフォルト値を1.5に設定
 
     private void Start()
