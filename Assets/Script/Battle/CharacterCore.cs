@@ -150,8 +150,9 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     public Action<CharacterCore> OnDeath;
 
     [SerializeField]
-    [Tooltip("近距離攻撃の範囲")]
-    private float meleeAttackRange = 1.5f;  // デフォルト値を1.5に設定
+    //ヴォルカスの近距離攻撃範囲
+    [Header("近距離攻撃の範囲")]
+    private float meleeAttackRange = 150f;  // デフォルト値を150fに設定
 
     private void Start()
     {
@@ -677,9 +678,30 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         targets.Clear();
     }
+    // 攻撃判定(2つ目)や遠距離トリガーは弾き、当たり判定(1つ目 or 単一)のみ許可
+    private bool IsTargetHurtCollider(Collider2D c)
+    {
+    // 敵味方の整合チェック（Buddy⇄Enemy）
+    if (!IsValidTarget(c)) return false;
+
+    // 攻撃判定/ロングトリガーを除外（※既存の区別ロジックを流用）
+    if (IsAttackCollider(c) || IsLongRangeTrigger(c)) return false;
+
+    // 「当たり判定＝そのオブジェクトに付いているBoxCollider2Dの“最初のもの”」という既存方針に合わせる
+    var cols = c.GetComponents<BoxCollider2D>();
+    if (cols == null || cols.Length == 0) return false;
+
+    // 1個しか無い＝タワー等の想定 → それは当たり判定
+    if (cols.Length == 1) return true;
+
+    // 複数ある場合、0番目＝当たり判定 とみなす（既存実装と同じ前提）
+    return c == cols[0];
+    }
+
     private void OnTriggerStay2D(Collider2D t)
     {
-        if (IsLongRangeTrigger(t) || !IsValidTarget(t)) return;
+        // 攻撃判定コライダーを除外
+        if (IsAttackCollider(t) || IsLongRangeTrigger(t) || !IsValidTarget(t)) return;
         
         if (!targets.Contains(t.gameObject))
         {
@@ -690,7 +712,8 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void OnTriggerExit2D(Collider2D t) 
     {
-        if (IsLongRangeTrigger(t) || !IsValidTarget(t)) return;
+        // 攻撃判定コライダーを除外
+        if (IsAttackCollider(t) || IsLongRangeTrigger(t) || !IsValidTarget(t)) return;
 
         if (targets.Contains(t.gameObject))
         {
@@ -709,6 +732,23 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
     {
         var myPos = GetComponent<RectTransform>().anchoredPosition.x;
         targets = targets.OrderBy(n => Mathf.Abs(n.GetComponent<RectTransform>().anchoredPosition.x - myPos)).ToList();
+    }
+
+    /// <summary>
+    /// 攻撃判定コライダーかどうかを判定する
+    /// </summary>
+    /// <param name="t">判定するコライダー</param>
+    /// <returns>攻撃判定コライダーの場合true</returns>
+    private bool IsAttackCollider(Collider2D t)
+    {
+        BoxCollider2D[] colliders = t.gameObject.GetComponents<BoxCollider2D>();
+
+        // 2つ目のBoxCollider2D(攻撃範囲のCollider2D)が存在するか確認
+        if (colliders.Length > 1 && t == colliders[1])
+        {
+            return true;
+        }
+        return false;
     }
 
     private bool IsLongRangeTrigger(Collider2D t)
@@ -733,17 +773,30 @@ public class CharacterCore : MonoBehaviour, IDamage, IRecovery, ITemporaryEnhanc
 
     private void HandleMeleeAttack()
     {
-        Debug.Log($"【近距離攻撃】{gameObject.name}: 攻撃範囲: {meleeAttackRange}");
-        var hits = Physics2D.OverlapCircleAll(transform.position, meleeAttackRange);
-        Debug.Log($"【近距離攻撃】{gameObject.name}: 検出されたオブジェクト数: {hits.Length}");
-        
-        foreach (var hit in hits)
+    Debug.Log($"【近距離攻撃】{gameObject.name}: 攻撃範囲: {meleeAttackRange}");
+    var hits = Physics2D.OverlapCircleAll(transform.position, meleeAttackRange);
+    Debug.Log($"【近距離攻撃】{gameObject.name}: 検出されたオブジェクト数: {hits.Length}");
+
+    foreach (var hit in hits)
+    {
+        // ★ ターゲット選定と同じ“区別”でフィルタリング（攻撃判定は除外、当たり判定のみ通す）
+        if (!IsTargetHurtCollider(hit)) continue;
+
+        // 実際にダメージを与える対象は“キャラ本体”
+        // 子のHurtboxから親のIDamageへ届くように親を優先して取得
+        var damageTarget = hit.GetComponentInParent<IDamage>() ?? hit.GetComponent<IDamage>();
+        if (damageTarget == null)
         {
-            if (hit.CompareTag("Enemy"))
-            {
-                Debug.Log($"【近距離攻撃】{gameObject.name}: 敵を検出: {hit.gameObject.name}");
-                hit.GetComponent<IDamage>().Damage(atkPower, atkKB);
-            }
+            // 期待した構成でない場合の保険ログ
+            Debug.LogWarning($"【近距離攻撃】{gameObject.name}: IDamage が見つかりません: {hit.gameObject.name}");
+            continue;
         }
+
+        Debug.Log($"【近距離攻撃】{gameObject.name}: 敵にヒット（当たり判定のみ）: {hit.gameObject.name}");
+        damageTarget.Damage(atkPower, atkKB);
+
+        // 単体攻撃なら1体で終了（必要に応じて）
+        if (attackType == AttackType.Single) break;
     }
+}
 }

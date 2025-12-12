@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterId: 59
   characterType: 1
-  attackType: 0
+  attackType: 1
   characterRole: 0
   isLeader: 0
   longAttackDistance: 600
@@ -185,7 +185,9 @@ MonoBehaviour:
   canState: 1
   originalY: 0
   normalAttackDamageSounds: {fileID: 8300000, guid: 6329e21e01e824507ae3c23d6329915e, type: 3}
+  frontEdgeDistance: 0
   hp: 100
+  meleeAttackRange: 1.5
 --- !u!114 &1612613855822684051
 MonoBehaviour:
   m_ObjectHideFlags: 0
