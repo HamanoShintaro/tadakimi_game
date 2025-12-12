@@ -1,0 +1,4 @@
+iOS/Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+iOS/Libraries/libil2cpp.a filter=lfs diff=lfs merge=lfs -text
+iOS/Data/sharedassets0.resource filter=lfs diff=lfs merge=lfs -text
+iOS/Libraries/libiPhone-lib.a filter=lfs diff=lfs merge=lfs -text
